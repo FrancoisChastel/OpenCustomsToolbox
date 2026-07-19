@@ -2516,6 +2516,14 @@
 <h1 id="querying-the-model">Querying the model<a class="headerlink" href="#querying-the-model" title="Anchor link to this section">&para;</a></h1>
 <p>The model is normalised, so coded values are foreign keys and totals are derived
 by query. This page is the cookbook of join paths you will reach for.</p>
+<div class="admonition tip">
+<p class="admonition-title">Write here, run on a real Sydonia</p>
+<p>Every query on this page is written against the friendly <strong>logical model</strong>.
+To run the same SQL on a live ASYCUDA World database, pipe it through the
+<a href="../../compiler/">query compiler</a> — it rewrites the friendly names into
+genuine Sydonia SQL over the real tables. See <a href="../../querying-sydonia/">Querying
+Sydonia</a> for the real tables themselves.</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Set the search path first</p>
 <p>Every table is in the <code>asycuda</code> schema. Run this once per session (or
