@@ -32,6 +32,7 @@ For the entire documentation as a single file, see [llms-full.txt](https://franc
 - [ASYCUDA World](https://francoischastel.github.io/OpenCustomsToolbox/latest/platform/asycuda-world/): the modeled version in depth — XML e-document model, Java client, closed protocol, and how our schema relates to the unpublished physical one.
 - [XML messages & wire format](https://francoischastel.github.io/OpenCustomsToolbox/latest/platform/xml-messages/): the SAD Box → AW XML tag → toolbox column map, the `<ASYCUDA>`-root wire-format gotcha, the AWMDS manifest stream, WCO Data Model and EDIFACT lineage.
 - [Integration surfaces](https://francoischastel.github.io/OpenCustomsToolbox/latest/platform/integration/): the doors that actually exist (RDBMS/ETL, ASYHUB, IATA Cargo-XML, XML import, ASY5) and the restricted specs you must request.
+- [Running on a real ASYCUDA World](https://francoischastel.github.io/OpenCustomsToolbox/latest/platform/running-on-real-asycuda/): the bridge from this toolbox to your live ASYCUDA data for analytics / ML / selectivity — read-only compatibility views (adapting the wide real schema to our normalised model so every query and skill runs unchanged) or ETL into the reference model for bulk work.
 - [Selectivity & clearance](https://francoischastel.github.io/OpenCustomsToolbox/latest/platform/selectivity-clearance/): the clearance state machine (C/L/PRN serials) and four-lane risk model, mapped to the schema.
 - [Further reading](https://francoischastel.github.io/OpenCustomsToolbox/latest/platform/resources/): curated map of the public ASYCUDA documentation landscape (~90 sources) and what is member-restricted.
 
@@ -39,6 +40,7 @@ For the entire documentation as a single file, see [llms-full.txt](https://franc
 
 - [Loading the schema](https://francoischastel.github.io/OpenCustomsToolbox/latest/guides/loading/): integration patterns — CI, test resets, coexisting with your own tables, namespacing.
 - [Querying the model](https://francoischastel.github.io/OpenCustomsToolbox/latest/guides/querying/): the key join paths and an analytics cookbook (revenue by HS, assessed-vs-paid, lane throughput, warehouse stock).
+- [Useful queries](https://francoischastel.github.io/OpenCustomsToolbox/latest/guides/useful-queries/): a growing, verified library of analytical queries with a copy-paste entry format — effective duty rates, valuation/unit-price outliers, selectivity criterion hit-rates, importer discrepancy profiles, lifecycle dwell times, data-quality checks — the feature-extraction and selectivity building blocks for ML.
 - [Extending the schema](https://francoischastel.github.io/OpenCustomsToolbox/latest/guides/extending/): add tables/columns while keeping conventions and provenance intact.
 - [Worked example](https://francoischastel.github.io/OpenCustomsToolbox/latest/guides/worked-example/): `e2e.sql` narrated step by step.
 - [ML on customs data](https://francoischastel.github.io/OpenCustomsToolbox/latest/guides/ml-risk-engine/): the ML risk-engine blueprint — DATE/BACUDA features mapped to SAD boxes and toolbox columns, labels from the Inspection Act, the lane loop, prototyping on this schema.
