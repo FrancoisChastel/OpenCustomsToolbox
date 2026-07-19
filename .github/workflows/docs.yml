@@ -1,5 +1,12 @@
-name: Deploy docs
+name: Docs
 
+# Build the docs on every push (a green "does it build?" check). The deploy job
+# is gated to manual dispatch because GitHub Pages is not enabled for this repo
+# yet (private repo / plan). To go live later:
+#   1. enable a host — make the repo public (Pages works free), upgrade the plan,
+#      or point an external host (Netlify/Cloudflare/Vercel) at the built site/;
+#   2. run this workflow from the Actions tab (Run workflow), or restore the
+#      push trigger on the deploy job.
 on:
   push:
     branches: [main]
@@ -17,7 +24,6 @@ permissions:
   pages: write
   id-token: write
 
-# Allow one concurrent deployment; cancel in-progress runs on new pushes.
 concurrency:
   group: pages
   cancel-in-progress: true
@@ -40,21 +46,25 @@ jobs:
       - name: Regenerate llms-full.txt
         run: python scripts/gen_llms_full.py
 
-      - name: Build site
+      - name: Build site (strict)
         run: mkdocs build --strict
 
-      - uses: actions/configure-pages@v5
-
-      - uses: actions/upload-pages-artifact@v3
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
           path: site
 
   deploy:
+    # Manual-only until a host is chosen (see the note at the top of this file).
+    if: github.event_name == 'workflow_dispatch'
     needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - id: deployment
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
