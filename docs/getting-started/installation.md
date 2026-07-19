@@ -111,12 +111,13 @@ done
 | Bare table names "not found" in `psql` | Run `SET search_path TO asycuda, public;` for the session. |
 | Syntax errors on `GENERATED ALWAYS AS IDENTITY` | Your server is < PostgreSQL 10 — upgrade; the model targets 14+. |
 
-## Automate it with Claude Code
+## Automate it with an agent
 
-If you use Claude Code, the [`customs-schema-setup`](../skills/index.md) skill
-does all of the above for you — creating the database, loading the files in
-order, and reporting a clean/failed result — and
-[`customs-validate`](../skills/index.md) re-runs the full done-condition checks.
+The [`customs-schema-setup`](../skills/index.md) Agent Skill does all of the
+above for you — creating the database, loading the files in order, and reporting
+a clean/failed result — and [`customs-validate`](../skills/index.md) re-runs the
+full done-condition checks. The skills install into any agent (Claude Code,
+Cursor, Codex, …) via `npx skills add`.
 
 ## Tear it down
 

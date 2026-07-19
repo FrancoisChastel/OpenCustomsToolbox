@@ -106,7 +106,7 @@ dropdb oct_check
 grep -niE 'create[ \t]+table' Sydonia/schema/asycuda.sql | wc -l
 ```
 
-!!! tip "Let Claude Code enforce this"
+!!! tip "Let an Agent Skill enforce this"
     The [`customs-extend`](../skills/index.md) skill applies this whole checklist —
     conventions, provenance tag, doc updates, and a re-load — for you, and
     [`customs-validate`](../skills/index.md) confirms the schema still loads clean

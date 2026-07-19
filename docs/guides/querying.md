@@ -189,7 +189,7 @@ JOIN ref_declaration_status st   ON st.id   = d.status_id
 JOIN ref_selectivity_lane   lane ON lane.id = d.selectivity_lane_id;
 ```
 
-!!! tip "Let Claude Code write the joins"
+!!! tip "Let an Agent Skill write the joins"
     The [`customs-query`](../skills/index.md) skill knows these join paths and the
     `search_path` requirement, so you can ask for a report in plain English and get
     a correct query back.

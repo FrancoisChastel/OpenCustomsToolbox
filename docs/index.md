@@ -102,14 +102,15 @@ have.
 
     [:octicons-arrow-right-24: Provenance](provenance/index.md)
 
--   :material-robot-happy:{ .lg .middle } &nbsp;**Drive it with Claude Code**
+-   :material-robot-happy:{ .lg .middle } &nbsp;**Drive it with Agent Skills**
 
     ---
 
-    A suite of Claude Code Skills that set up, query, seed, extend and validate
-    the model directly inside your own codebase.
+    A suite of standard Agent Skills — installable into any agent (Claude Code,
+    Cursor, Codex, …) via `npx skills add` — that set up, query, seed, extend and
+    validate the model directly inside your own codebase.
 
-    [:octicons-arrow-right-24: Claude Code skills](skills/index.md)
+    [:octicons-arrow-right-24: Agent Skills](skills/index.md)
 
 -   :material-earth:{ .lg .middle } &nbsp;**Know the platform**
 
@@ -160,7 +161,7 @@ paid and released — inserts with full referential integrity.
 
 This site publishes an [`llms.txt`](llms.txt) index and a concatenated
 [`llms-full.txt`](llms-full.txt) so you can hand the entire model to an LLM in
-one paste. See the [Claude Code skills](skills/index.md) to wire it into an
+one paste. See the [Agent Skills](skills/index.md) to wire it into an
 agent workflow.
 
 ---

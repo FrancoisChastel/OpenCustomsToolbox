@@ -154,4 +154,4 @@ nav:
       - Sources: provenance/sources.md
       - Coverage: provenance/coverage.md
       - Official fit & gap: provenance/fit.md
-  - Claude Code skills: skills/index.md
+  - Agent Skills: skills/index.md

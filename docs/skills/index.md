@@ -90,7 +90,7 @@ Also copy the model itself (the `Sydonia/` folder, or at least
 `Sydonia/schema/` and `Sydonia/examples/`) so the skills have SQL to load. The
 skills accept a `--schema-dir` argument if you put it elsewhere.
 
-In Claude Code, verify it sees them:
+Verify your agent sees them — in Claude Code, for example:
 
 ```text
 /skills          # lists available skills; customs-* should appear
@@ -98,7 +98,7 @@ In Claude Code, verify it sees them:
 
 ## Use them
 
-Just describe what you want — Claude Code matches the request to a skill:
+Just describe what you want — your agent matches the request to a skill:
 
 ```text
 > set up the customs model in a throwaway database and run the example
