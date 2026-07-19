@@ -112,8 +112,9 @@ transitions).
 0. **Bootstrap** — create `STATE/progress.md`, `RESEARCH_LOG.md`, `SOURCES.md`, `COVERAGE.md`,
    `DATA_DICTIONARY.md`, `ERD.md`, the `sources/` folder, and an empty `schema/asycuda.sql`. Copy §4
    into `COVERAGE.md` as an unchecked checklist. Write the Phase 1 task list.
-1. **Orient** — fetch/cache and digest `asycuda.org` (Data Model, DAU/SAD), WCO Data Model v3
-   overview, and the SAD general/item segment structure. Capture the module list and field taxonomy.
+1. **Orient** — fetch/cache and digest public ASYCUDA programme material (Data Model, DAU/SAD),
+   the WCO Data Model overview, and the SAD general/item segment structure. Capture the module
+   list and field taxonomy.
 2. **Mine national manuals (highest yield)** — fetch/cache several national ASYCUDA World
    declaration/manifest/valuation guides; extract field names, code lists, segments, lifecycles;
    restate with citations; cross-check against §4 and each other.
