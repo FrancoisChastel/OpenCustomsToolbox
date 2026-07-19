@@ -29,7 +29,7 @@ the **logical layer** the compiler maps *from*.
 | 🗄️ **The logical model** | `Sydonia/schema/asycuda.sql` — 55 tables across 8 modules, every `CREATE TABLE` provenance-tagged. Loads into a dedicated `asycuda` schema on PostgreSQL 14+. The friendly names the compiler maps from — and a local sandbox. |
 | 🌱 **Seed data** | `Sydonia/schema/seed_reference.sql` — reference/code-table values grounded in ISO/UN/WCO standards. |
 | ▶️ **Worked example** | `Sydonia/examples/e2e.sql` — a full manifest → declaration → valuation → taxes → selectivity → payment → release, balancing end to end. |
-| 📚 **Docs site** | A MkDocs Material site (`docs/`, `mkdocs.yml`) — concepts, per-module schema guide, querying/extending guides, and full provenance. |
+| 📚 **Docs site** | A MkDocs Material site (`docs/`, `mkdocs.yml`) — **Querying Sydonia** (the real ASYCUDA World tables), **the query compiler**, the customs-concepts primer, per-module schema reference, query/extend/ML guides, the ASYCUDA platform reference, and full provenance. |
 | 🌐 **Platform reference** | The ASYCUDA platform itself: version lineage (v1 → ++ → **World (v4, the modeled version)** → ASY5), the SAD→XML wire-format map, integration surfaces, and the selectivity/clearance process — distilled from a ~90-source deep-research pass. |
 | 🧠 **ML blueprint** | A guide to ML on customs declarations: DATE/BACUDA features mapped to SAD boxes *and* this schema's columns, labels from the Inspection Act, and the risk-engine integration loop. |
 | 🤖 **Agent Skills** | `skills/customs-*` — set up, query, seed, extend and validate the model in your own codebase. Installable into any agent (Claude Code, Cursor, Codex, …) via `npx skills add`. |

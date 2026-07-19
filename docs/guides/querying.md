@@ -11,6 +11,13 @@ tags:
 The model is normalised, so coded values are foreign keys and totals are derived
 by query. This page is the cookbook of join paths you will reach for.
 
+!!! tip "Write here, run on a real Sydonia"
+    Every query on this page is written against the friendly **logical model**.
+    To run the same SQL on a live ASYCUDA World database, pipe it through the
+    [query compiler](../compiler/index.md) — it rewrites the friendly names into
+    genuine Sydonia SQL over the real tables. See [Querying
+    Sydonia](../querying-sydonia/index.md) for the real tables themselves.
+
 !!! note "Set the search path first"
     Every table is in the `asycuda` schema. Run this once per session (or
     `ALTER DATABASE … SET search_path`) so you can use bare names:

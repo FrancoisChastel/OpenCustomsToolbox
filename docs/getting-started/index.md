@@ -41,3 +41,8 @@ table means.
 
 New to the customs domain? Read **Customs concepts** first — it makes the schema
 read like a story instead of 55 tables.
+
+Once the sandbox is up, the main event is querying: **[Querying
+Sydonia](../querying-sydonia/index.md)** explains the real ASYCUDA World tables,
+and **[the query compiler](../compiler/index.md)** turns friendly logical queries
+into genuine Sydonia SQL you can run on a live system.
