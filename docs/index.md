@@ -31,7 +31,7 @@ layer the compiler maps *from*.
 <div class="oct-stats" markdown>
 <div class="oct-stat"><b>55</b><span>tables across 8 modules</span></div>
 <div class="oct-stat"><b>49&nbsp;/&nbsp;6</b><span>documented / inferred</span></div>
-<div class="oct-stat"><b>20</b><span>cited public sources</span></div>
+<div class="oct-stat"><b>100%</b><span>cited public sourcing</span></div>
 <div class="oct-stat"><b>0</b><span>errors on a clean load</span></div>
 </div>
 
@@ -41,7 +41,7 @@ ASYCUDA World is the customs platform used by **100+ countries**, but its
 internal database schema is **wide, denormalised and proprietary** — painful to
 query for analytics. So this project does two things. It rebuilds an
 **information-equivalent reference model** using *only* public documentation —
-UNCTAD/DTL technical table descriptions, national ASYCUDA World user manuals,
+official public technical table descriptions, national ASYCUDA World user manuals,
 and open ISO/UN/WCO standards, every table traceable to a citation or honestly
 flagged as inferred. And it ships a [**query compiler**](compiler/index.md) that
 lets you write against that clean model and **compile to genuine Sydonia SQL** —

@@ -1,8 +1,8 @@
 # Open Customs Toolbox
 
-> A faithful, fully-sourced PostgreSQL reference data model of the UNCTAD ASYCUDA World (SYDONIA) customs management system, reconstructed from public documentation only. 55 tables across 8 modules (manifest, SAD declaration, valuation, taxes, selectivity, accounting, transit/suspense, audit), for sandbox, analytics, integration and training use.
+> A faithful, fully-grounded PostgreSQL reference data model of the UNCTAD ASYCUDA World (SYDONIA) customs management system, reconstructed from public documentation only. 55 tables across 8 modules (manifest, SAD declaration, valuation, taxes, selectivity, accounting, transit/suspense, audit), for sandbox, analytics, integration and training use.
 
-Every `CREATE TABLE` is grounded in a cited public source (`-- src:`) or honestly marked `-- inferred` (49 documented / 6 inferred). The model loads into a dedicated `asycuda` PostgreSQL schema and ships with reference seed data and a worked end-to-end example (manifest → declaration → valuation → taxes → selectivity → payment → release). This is a reference reconstruction — it contains no proprietary ASYCUDA schema, pirated software, or data from any live customs system.
+Every `CREATE TABLE` is grounded in public documentation (`-- src:`) or honestly marked `-- inferred` (49 documented / 6 inferred). The model loads into a dedicated `asycuda` PostgreSQL schema and ships with reference seed data and a worked end-to-end example (manifest → declaration → valuation → taxes → selectivity → payment → release). This is a reference reconstruction — it contains no proprietary ASYCUDA schema, pirated software, or data from any live customs system.
 
 For the entire documentation as a single file, see [llms-full.txt](https://francoischastel.github.io/OpenCustomsToolbox/latest/llms-full.txt).
 
@@ -50,7 +50,7 @@ For the entire documentation as a single file, see [llms-full.txt](https://franc
 - [Integration surfaces](https://francoischastel.github.io/OpenCustomsToolbox/latest/platform/integration/): the doors that actually exist (RDBMS/ETL, ASYHUB, IATA Cargo-XML, XML import, ASY5) and the restricted specs you must request.
 - [Running on a real ASYCUDA World](https://francoischastel.github.io/OpenCustomsToolbox/latest/platform/running-on-real-asycuda/): the bridge from this toolbox to your live ASYCUDA data for analytics / ML / selectivity — read-only compatibility views (adapting the wide real schema to our normalised model so every query and skill runs unchanged) or ETL into the reference model for bulk work.
 - [Selectivity & clearance](https://francoischastel.github.io/OpenCustomsToolbox/latest/platform/selectivity-clearance/): the clearance state machine (C/L/PRN serials) and four-lane risk model, mapped to the schema.
-- [Further reading](https://francoischastel.github.io/OpenCustomsToolbox/latest/platform/resources/): curated map of the public ASYCUDA documentation landscape (~90 sources) and what is member-restricted.
+- [Further reading](https://francoischastel.github.io/OpenCustomsToolbox/latest/platform/resources/): curated map of the public ASYCUDA documentation landscape and what is member-restricted.
 
 ## Guides
 
@@ -59,14 +59,14 @@ For the entire documentation as a single file, see [llms-full.txt](https://franc
 - [Useful queries](https://francoischastel.github.io/OpenCustomsToolbox/latest/guides/useful-queries/): a growing, verified library of analytical queries with a copy-paste entry format — effective duty rates, valuation/unit-price outliers, selectivity criterion hit-rates, importer discrepancy profiles, lifecycle dwell times, data-quality checks — the feature-extraction and selectivity building blocks for ML.
 - [Extending the schema](https://francoischastel.github.io/OpenCustomsToolbox/latest/guides/extending/): add tables/columns while keeping conventions and provenance intact.
 - [Worked example](https://francoischastel.github.io/OpenCustomsToolbox/latest/guides/worked-example/): `e2e.sql` narrated step by step.
-- [ML on customs data](https://francoischastel.github.io/OpenCustomsToolbox/latest/guides/ml-risk-engine/): the ML risk-engine blueprint — DATE/BACUDA features mapped to SAD boxes and toolbox columns, labels from the Inspection Act, the lane loop, prototyping on this schema.
+- [ML on customs data](https://francoischastel.github.io/OpenCustomsToolbox/latest/guides/ml-risk-engine/): the ML risk-engine blueprint — public customs-ML features mapped to SAD boxes and toolbox columns, labels from the Inspection Act, the lane loop, prototyping on this schema.
 
 ## Provenance
 
 - [Reconstruction methodology](https://francoischastel.github.io/OpenCustomsToolbox/latest/provenance/methodology/): the evidence-first loop, source policy, and verification gates.
-- [Sources](https://francoischastel.github.io/OpenCustomsToolbox/latest/provenance/sources/): the 20 cited public documents with URLs and notes.
+- [Sources](https://francoischastel.github.io/OpenCustomsToolbox/latest/provenance/sources/): the public documentation consulted, cited as generic categories.
 - [Coverage](https://francoischastel.github.io/OpenCustomsToolbox/latest/provenance/coverage/): every module/table marked documented / partial / inferred, with known gaps.
-- [Official fit & gap](https://francoischastel.github.io/OpenCustomsToolbox/latest/provenance/fit/): table-by-table mapping against the official UNCTAD/DTL ASYCUDA World tables.
+- [Official fit & gap](https://francoischastel.github.io/OpenCustomsToolbox/latest/provenance/fit/): table-by-table mapping against the official ASYCUDA World tables.
 
 ## Agent Skills
 

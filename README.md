@@ -1,150 +1,150 @@
-# Open Customs Toolbox
+<div align="center">
 
-**Query real ASYCUDA World (SYDONIA) customs data.** Write analytics against a
-friendly logical model — `declaration`, `declaration_item`, `hs_code`,
-`tax_amount` — and **compile them to genuine ASYCUDA World SQL you can run**,
-read-only, on a real instance. The abstraction is easy; the output is real.
+# 🛃 Open Customs Toolbox
 
-Underneath is a faithful, **fully-sourced** PostgreSQL reconstruction of the
-whole customs model (manifests, SAD declarations, valuation, taxes, selectivity,
-accounting, suspense) — reconstructed from *public documentation only*, and now
-the **logical layer** the compiler maps *from*.
+### Write friendly SQL. Run it on a real ASYCUDA World (SYDONIA) customs database.
 
-📖 **Documentation:** <https://francoischastel.github.io/OpenCustomsToolbox/>
-· 🤖 **For LLMs:** [`llms.txt`](https://francoischastel.github.io/OpenCustomsToolbox/latest/llms.txt)
-· [`llms-full.txt`](https://francoischastel.github.io/OpenCustomsToolbox/latest/llms-full.txt)
+You write a clean query against a friendly model — `declaration`, `hs_code`,
+`tax_amount`. The compiler turns it into **genuine ASYCUDA World SQL** you can
+run, read-only, on a live instance. *The abstraction is easy; the output is real.*
 
-> [!NOTE]
-> This is a **reference reconstruction** for sandbox/analytics/integration/training
-> use. It is **not** UNCTAD's proprietary internal schema, and contains no pirated
-> software or data from any live customs system. Not affiliated with UNCTAD.
+[![Docs](https://img.shields.io/badge/docs-latest-14b8a6?logo=readthedocs&logoColor=white)](https://francoischastel.github.io/OpenCustomsToolbox/latest/)
+[![Docs build](https://github.com/FrancoisChastel/OpenCustomsToolbox/actions/workflows/docs.yml/badge.svg)](https://github.com/FrancoisChastel/OpenCustomsToolbox/actions/workflows/docs.yml)
+[![License: AGPL v3](https://img.shields.io/badge/license-AGPL--3.0-blue.svg)](LICENSE)
+[![PostgreSQL 14+](https://img.shields.io/badge/PostgreSQL-14%2B-336791?logo=postgresql&logoColor=white)](#-quickstart)
+[![llms.txt](https://img.shields.io/badge/llms.txt-%E2%9C%93-black)](https://francoischastel.github.io/OpenCustomsToolbox/latest/llms.txt)
+[![Stars](https://img.shields.io/github/stars/FrancoisChastel/OpenCustomsToolbox?style=social)](https://github.com/FrancoisChastel/OpenCustomsToolbox/stargazers)
+
+[**Docs**](https://francoischastel.github.io/OpenCustomsToolbox/latest/) ·
+[**Query Sydonia**](https://francoischastel.github.io/OpenCustomsToolbox/latest/querying-sydonia/) ·
+[**The compiler**](https://francoischastel.github.io/OpenCustomsToolbox/latest/compiler/) ·
+[**Agent Skills**](https://francoischastel.github.io/OpenCustomsToolbox/latest/skills/)
+
+</div>
 
 ---
 
-## What's in the box
+## ✨ The idea in one screen
 
-| | |
-|---|---|
-| 🧭 **Query compiler** | `compiler/` — write friendly logical SQL (or a no-SQL query spec) and compile it to **genuine ASYCUDA World SQL** (`SAD_General_Segment`, `SAD_Tax`…) to run on a real Sydonia. Per-instance name overrides; a mock AW database (`Sydonia/adapters/mock_asycuda_world.sql`) proves the round-trip. |
-| 🗄️ **The logical model** | `Sydonia/schema/asycuda.sql` — 55 tables across 8 modules, every `CREATE TABLE` provenance-tagged. Loads into a dedicated `asycuda` schema on PostgreSQL 14+. The friendly names the compiler maps from — and a local sandbox. |
-| 🌱 **Seed data** | `Sydonia/schema/seed_reference.sql` — reference/code-table values grounded in ISO/UN/WCO standards. |
-| ▶️ **Worked example** | `Sydonia/examples/e2e.sql` — a full manifest → declaration → valuation → taxes → selectivity → payment → release, balancing end to end. |
-| 📚 **Docs site** | A MkDocs Material site (`docs/`, `mkdocs.yml`) — **Querying Sydonia** (the real ASYCUDA World tables), **the query compiler**, the customs-concepts primer, per-module schema reference, query/extend/ML guides, the ASYCUDA platform reference, and full provenance. |
-| 🌐 **Platform reference** | The ASYCUDA platform itself: version lineage (v1 → ++ → **World (v4, the modeled version)** → ASY5), the SAD→XML wire-format map, integration surfaces, and the selectivity/clearance process — distilled from a ~90-source deep-research pass. |
-| 🧠 **ML blueprint** | A guide to ML on customs declarations: DATE/BACUDA features mapped to SAD boxes *and* this schema's columns, labels from the Inspection Act, and the risk-engine integration loop. |
-| 🤖 **Agent Skills** | `skills/customs-*` — set up, query, seed, extend and validate the model in your own codebase. Installable into any agent (Claude Code, Cursor, Codex, …) via `npx skills add`. |
-| 🔎 **Provenance** | `Sydonia/SOURCES.md`, `COVERAGE.md`, `FIT.md`, `DATA_DICTIONARY.md`, `ERD.md`, `RESEARCH_LOG.md`. |
+ASYCUDA World — the customs system used by 100+ countries — has a **wide,
+denormalised, mostly non-public** database: `SAD_General_Segment`, `SAD_Item`,
+`SAD_Tax`, `INSTANCE_ID` keys, the HS code split across `TAR_HSC_NB1..5`. Writing
+analytics against it hurts.
 
-## Quickstart
+So you write against a **friendly logical model** instead:
+
+```sql
+-- ✍️  what you write
+SELECT di.hs_code, sum(tl.tax_amount) AS taxes
+FROM declaration_item di
+JOIN declaration_tax_line tl ON tl.declaration_item_id = di.id
+GROUP BY di.hs_code;
+```
+
+…and `python -m compiler compile` gives you **genuine Sydonia SQL to run**:
+
+```sql
+-- 🚀  what you run (excerpt)
+WITH declaration_item AS (
+  SELECT concat(i.TAR_HSC_NB1, i.TAR_HSC_NB2, i.TAR_HSC_NB3, i.TAR_HSC_NB4, i.TAR_HSC_NB5) AS hs_code,
+         i.VIT_CIF AS customs_value, … FROM SAD_Item i ),
+     declaration_tax_line AS (
+  SELECT x.TAX_ITM_ID AS declaration_item_id, x.AMT AS tax_amount, … FROM SAD_Tax x )
+SELECT di.hs_code, sum(tl.tax_amount) AS taxes
+FROM declaration_item di JOIN declaration_tax_line tl ON tl.declaration_item_id = di.id
+GROUP BY di.hs_code;
+```
+
+Same query, same results — verified against a mock ASYCUDA World database. It runs
+**read-only**, returning only metadata (columns, row counts) — safe on real,
+sensitive customs data.
+
+## 🚀 Quickstart
 
 ```bash
 git clone https://github.com/FrancoisChastel/OpenCustomsToolbox.git
 cd OpenCustomsToolbox
 
+# 1) stand up the friendly logical model (a local sandbox)
 createdb customs_sandbox
 psql -v ON_ERROR_STOP=1 -d customs_sandbox -f Sydonia/schema/asycuda.sql
 psql -v ON_ERROR_STOP=1 -d customs_sandbox -f Sydonia/schema/seed_reference.sql
 psql -v ON_ERROR_STOP=1 -d customs_sandbox -f Sydonia/examples/e2e.sql
+
+# 2) compile a friendly query into genuine ASYCUDA World SQL
+pip install pyyaml
+echo "SELECT hs_code, sum(tax_amount) FROM declaration_item di
+      JOIN declaration_tax_line tl ON tl.declaration_item_id = di.id
+      GROUP BY hs_code" | python -m compiler compile -
 ```
 
-```text
---- Total assessed vs receipt ---
- total_assessed | receipt_amount
-----------------+----------------
-     12132.5000 |     12132.5000
-```
-
-A complete import — two items, freight/insurance apportioned to per-item CIF,
-duty and VAT assessed, routed RED, inspected, paid and released — inserts with
-full referential integrity. See the
-[quickstart](https://francoischastel.github.io/OpenCustomsToolbox/latest/getting-started/quickstart/).
-
-## The eight modules
-
-1. **Reference & configuration** — `ref_*` code tables (countries, currencies,
-   HS tariff, taxes, offices…) + traders & users.
-2. **Manifest & cargo** — manifest, bills of lading (master/house), containers.
-3. **Declaration (the SAD)** — general + item segments, valuation, tax lines.
-4. **Selectivity & risk** — lanes (green/yellow/red/blue), criteria, inspection.
-5. **Accounting** — accounts, payments, receipts, ledger movements, guarantees.
-6. **Transit & suspense** — warehousing, transit, temporary admission.
-7. **Audit & workflow** — audit log and the status-history pattern.
-
-Full map: the
-[schema overview](https://francoischastel.github.io/OpenCustomsToolbox/latest/schema/)
-and the
-[ER diagram](https://francoischastel.github.io/OpenCustomsToolbox/latest/schema/erd/).
-
-## Provenance — why you can trust it
-
-Every table is either grounded in a cited public source (`-- src: <ID>`) or
-honestly flagged `-- inferred` — **49 documented / 6 inferred**, from **20 cited,
-cached sources** (official UNCTAD/DTL table descriptions, national ASYCUDA World
-manuals, and open ISO/UN/WCO standards). Audit it yourself:
+Prove the whole loop with the mock ASYCUDA World database:
 
 ```bash
-grep -niE 'create[ \t]+table' Sydonia/schema/asycuda.sql   # every one is tagged
+createdb aw_mock
+psql -v ON_ERROR_STOP=1 -d aw_mock -f Sydonia/adapters/mock_asycuda_world.sql
+echo "SELECT hs_code, sum(tax_amount) AS taxes FROM declaration_item di
+      JOIN declaration_tax_line tl ON tl.declaration_item_id = di.id GROUP BY hs_code" \
+  | python -m compiler compile - | psql -d aw_mock -c 'SET search_path TO aw, public;' -f -
 ```
 
-The [methodology](https://francoischastel.github.io/OpenCustomsToolbox/latest/provenance/methodology/)
-and [fit/gap analysis](https://francoischastel.github.io/OpenCustomsToolbox/latest/provenance/fit/)
-document the evidence-first approach and how the model maps to the official tables.
+## 📦 What's inside
 
-## Agent Skills
+| | |
+|---|---|
+| 🧭 **Query compiler** (`compiler/`) | Friendly logical SQL — or a no-SQL query spec — → **genuine ASYCUDA World SQL**. Per-instance name overrides; a mock AW database proves the round-trip. |
+| 🗄️ **The logical model** (`Sydonia/schema/`) | 55 tables across 8 modules — the friendly names the compiler maps *from*, and a local PostgreSQL sandbox. |
+| 📚 **Docs: how to query Sydonia** (`docs/`) | The real ASYCUDA World tables explained, the compiler, guides, and the full ASYCUDA platform reference. Built with MkDocs Material. |
+| 🔒 **Privacy-preserving tester** (`mcp/`) | An MCP server that validates/compiles/tests queries returning **metadata only** — never row data. |
+| 🤖 **Agent Skills** (`skills/`) | Set up, query, compile, seed, extend and validate — installable into any agent via `npx skills add`. |
+| 🧠 **ML blueprint** | Customs risk-engine features mapped to the schema, the selectivity loop, labels from the inspection act. |
 
-Drive the model in plain English inside your own project. These are standard
-**Agent Skills** (`SKILL.md` format), installable into any agent the
-[skills CLI](https://github.com/vercel-labs/skills) supports — Claude Code,
-Cursor, Codex, opencode, … — with one command:
+## 🌍 Run it on a real Sydonia
+
+The real ASYCUDA World schema is non-public and instance-specific. The compiler
+targets the **publicly-documented physical shape** by default; pin your
+deployment's exact names once in a small **overrides file**, then every query and
+skill runs unchanged against the live system — read-only.
+
+→ [Running on a real ASYCUDA World](https://francoischastel.github.io/OpenCustomsToolbox/latest/platform/running-on-real-asycuda/)
+
+## 🤖 Agent Skills
 
 ```bash
 npx skills add FrancoisChastel/OpenCustomsToolbox
-# or a single skill: npx skills add FrancoisChastel/OpenCustomsToolbox --skill customs-query
 ```
 
-Then just ask:
+Then just ask your agent: *“compile a duty-revenue-by-HS query for our Sydonia and
+test it read-only.”* Works in Claude Code, Cursor, Codex, opencode, and more.
 
-```text
-> set up the customs model in a throwaway database and run the example
-> write a query for assessed-vs-paid across all released declarations
-> add a "carrier rating" column to trader, keep it sourced
-> validate the schema is still clean and fully grounded
-```
+## 🧱 How it's built
 
-See [`skills/README.md`](skills/README.md) and the
-[skills docs](https://francoischastel.github.io/OpenCustomsToolbox/latest/skills/).
+A faithful, **information-equivalent reconstruction** of the ASYCUDA World data
+model, built from **public documentation only** — public ASYCUDA / UNCTAD
+programme materials, national ASYCUDA World user manuals, and open ISO / UN / WCO
+standards. Every `CREATE TABLE` is tagged `-- src:` (grounded) or `-- inferred`
+(honest modelling), and the reconstruction contains **no proprietary schema and
+no data from any live customs system**.
 
-## Repository layout
+## 🤝 Contributing
 
-```text
-OpenCustomsToolbox/
-├── Sydonia/                    # the model + provenance
-│   ├── schema/                 #   asycuda.sql, seed_reference.sql
-│   ├── examples/               #   e2e.sql (worked example)
-│   ├── sources/ · docs/        #   cached public sources & official PDFs
-│   ├── SOURCES.md · COVERAGE.md · FIT.md
-│   └── DATA_DICTIONARY.md · ERD.md · RESEARCH_LOG.md
-├── docs/                       # MkDocs Material documentation site
-├── skills/customs-*            # Agent Skills (npx skills add …)
-│                               #   (.claude/skills → symlink to skills/, for Claude Code)
-├── mcp/customs-query-tester/   # privacy-preserving SQL-testing MCP server
-├── scripts/gen_llms_full.py    # builds docs/llms-full.txt
-└── mkdocs.yml
-```
+Issues and PRs welcome — see [CONTRIBUTING.md](CONTRIBUTING.md) and the
+[Code of Conduct](CODE_OF_CONDUCT.md). Good first contributions: new verified
+queries, mapping entries for a deployment you know, or extra tables in the
+compatibility adapter.
 
-## Build the docs locally
+## 📣 Share
 
-```bash
-python -m venv .venv-docs && . .venv-docs/bin/activate
-pip install -r requirements-docs.txt
-python scripts/gen_llms_full.py     # refresh llms-full.txt
-mkdocs serve                        # http://127.0.0.1:8000
-```
+If this is useful, a ⭐ helps — and there's a ready-to-post thread in
+[SOCIAL.md](SOCIAL.md).
 
-## Sources & licensing
+## 📜 License
 
-All source material is public and cited in
-[`Sydonia/SOURCES.md`](Sydonia/SOURCES.md); field semantics are restated in the
-project's own words. ASYCUDA and SYDONIA are programmes of **UNCTAD**; this
-project is independent and not affiliated with or endorsed by UNCTAD. Cited
-documents remain the property of their respective publishers.
+[**AGPL-3.0**](LICENSE). If you run a modified version as a network service, the
+AGPL requires you to offer users its source. Bundled third-party reference
+material remains its publishers' property — see [NOTICE](NOTICE).
+
+<div align="center">
+<sub>Independent project. ASYCUDA and SYDONIA are programmes of UNCTAD; this
+project is not affiliated with or endorsed by UNCTAD.</sub>
+</div>

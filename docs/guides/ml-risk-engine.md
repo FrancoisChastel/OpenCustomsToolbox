@@ -13,8 +13,8 @@ tags:
 
 This toolbox was reconstructed with two payloads in mind: **(1)** doing
 analytics / ML on customs declarations, and **(2)** plugging an external risk
-engine into the clearance flow. This guide is the blueprint — distilled from a
-deep-research pass over the public ASYCUDA record — and, crucially, a way to
+engine into the clearance flow. This guide is the blueprint — distilled from the
+public ASYCUDA record and public customs-ML research — and, crucially, a way to
 **prototype the whole loop against this schema before you have access to a live
 ASYCUDA system**.
 
@@ -40,31 +40,29 @@ flowchart LR
     F -->|feedback: relabel| B
 ```
 
-The pattern is proven at three levels of evidence:
+The pattern is proven at several levels of evidence:
 
-- **TTEK RiskLab** `[C]` — the real-world blueprint on legacy AW. TTEK's
-  *"ASYCUDA Plugin for Risk Management Targeting and Selectivity"* ingests
-  ASYCUDA data *"through either a database connection or API,"* trains/scores
-  externally, pushes high-risk flags back, and feeds inspection outcomes back in
-  real time to retrain. (Vendor source — rating C.)
-- **Nepal Customs CRMS** `[A]` — the live production analogue (WCO News, Mar
-  2026). *"A separate but integrated module within ASYCUDA World"* that, on
-  submission, *"retrieves the declaration information in real time from
-  ASYCUDA,"* scores it (nomenclature, origin, importer/exporter history,
-  declaration patterns, valuation anomalies), and *"sends risk recommendations
-  back to officers through ASYCUDA World."* This proves the architecture is
-  deployable **today** — rating A.
-- **ASY5 first-class hook** `[A]` — the new generation transforms *"signals from
-  ML analysis of customs data or from third-party AI engines … into clear risk
+- **Vendor risk-management plugins** on legacy AW — the real-world blueprint.
+  A typical plugin ingests ASYCUDA data *through either a database connection or
+  an API*, trains and scores externally, pushes high-risk flags back into
+  selectivity, and feeds inspection outcomes back in real time to retrain.
+- **Live production deployments** — the deployable analogue. A separate but
+  integrated risk module within ASYCUDA World retrieves the declaration in real
+  time on submission, scores it (nomenclature, origin, importer/exporter history,
+  declaration patterns, valuation anomalies), and sends risk recommendations back
+  to officers through ASYCUDA World. This proves the architecture is deployable
+  **today**.
+- **ASY5 first-class hook** — the new generation transforms *"signals from ML
+  analysis of customs data or from third-party AI engines … into clear risk
   profiles"* via a **Risk Configuration → Signal Transformation → Risk Output**
   pipeline. The intended injection point once a country is on ASY5 — but the
   **payload format is not yet public**.
 
 ## The feature set
 
-The empirically-standard feature schema (the DATE / BACUDA open columns) maps
-directly onto ASYCUDA fields and onto our tables. The fourth column is what you
-query in the [`asycuda`](../schema/data-dictionary.md) schema:
+The empirically-standard feature schema used across public customs-ML research
+maps directly onto ASYCUDA fields and onto our tables. The fourth column is what
+you query in the [`asycuda`](../schema/data-dictionary.md) schema:
 
 | Concept | SAD box | AW XML tag | Open Customs Toolbox column |
 |---------|:-------:|------------|-----------------------------|
@@ -183,29 +181,29 @@ Adapt the join-path style from [Querying the model](querying.md); every column
 above is verified against the schema.
 
 !!! tip "External baselines to prototype against"
-    Before you have real ASYCUDA history, train against public data:
+    Before you have real ASYCUDA history, train against **public customs-ML
+    research and open customs datasets**. The field offers:
 
-    - **Korea Customs 62→22 synthetic dataset** — 54k CTGAN-synthetic records
-      with `Fraud` / `Critical fraud` labels
-      ([Seondong/Customs-Declaration-Datasets](https://github.com/Seondong/Customs-Declaration-Datasets)).
-      The single best downloadable dataset to prototype against.
-    - **DATE** (KDD 2020) — **92.7% precision, 49.3% revenue recall inspecting
-      1% of flows** on Nigeria data; a dual-task (illicitness + recoverable
-      revenue) batch scorer
-      ([paper](https://dl.acm.org/doi/10.1145/3394486.3403339)).
-    - **WCO BACUDA notebooks** — the reference open-source analytics
-      ([YSCHOI-github/Customs_Fraud_Detection](https://github.com/YSCHOI-github/Customs_Fraud_Detection)).
+    - **Open, downloadable customs declaration datasets** — some synthetic, with
+      fraud / critical-fraud labels — good enough to prototype the feature
+      pipeline and modelling against before you have real history.
+    - **Published dual-task scorers** that predict both illicitness and
+      recoverable revenue, reporting high precision and revenue recall while
+      inspecting only a small fraction of flows — a well-documented target to
+      benchmark against.
+    - **Reference open-source analytics notebooks** for customs fraud detection —
+      the standard starting point for feature engineering and baselines.
 
 ## Going live
 
-Once you move from this sandbox to a real deployment, the research's four-step
-reference architecture:
+Once you move from this sandbox to a real deployment, the four-step reference
+architecture:
 
 1. **Read** — a **DB read-replica** of the ASYCUDA schema for training data
-   (the proven TTEK path), plus **ASYHUB** API / **Cargo-XML** pre-arrival feed
-   or **Kafka** (ASY5) for real-time scoring.
+   (the proven path for vendor risk plugins), plus **ASYHUB** API / **Cargo-XML**
+   pre-arrival feed or **Kafka** (ASY5) for real-time scoring.
 2. **Score** — output a per-declaration fraud/illicitness score **and** predicted
-   recoverable revenue (dual-task, like DATE).
+   recoverable revenue (a dual-task scorer).
 3. **Inject** — on legacy AW, write into selectivity criteria / trader profiles,
    prioritising the **random / exploration slot**; on ASY5, emit "signals".
 4. **Feedback** — read **Inspection Act / PCA** outcomes to relabel and retrain.
@@ -218,10 +216,11 @@ reference architecture:
     declaration. Confirm the mode before committing to real-time.
 
 !!! note "What to request — these are not public"
-    Neither DATE nor BACUDA ships an ASYCUDA connector; the ETL and write-back
-    are bespoke in every deployment. Before building, request from your national
-    customs / `ASYCUDA@UNCTAD.org`: the **physical DB schema**, the
-    **ASYHUB API spec**, the **ASY5 risk-signal payload format**, the **Asysel**
-    admin data model, and **Inspection-Act read access** (illicit flag +
-    recovered revenue). See [Integration surfaces](../platform/integration.md)
-    for the doors and the request list.
+    No public customs-ML dataset or research codebase ships an ASYCUDA connector;
+    the ETL and write-back are bespoke in every deployment. Before building,
+    request from your national customs administration or the UNCTAD ASYCUDA
+    programme: the **physical DB schema**, the **ASYHUB API spec**, the **ASY5
+    risk-signal payload format**, the **Asysel** admin data model, and
+    **Inspection-Act read access** (illicit flag + recovered revenue). See
+    [Integration surfaces](../platform/integration.md) for the doors and the
+    request list.

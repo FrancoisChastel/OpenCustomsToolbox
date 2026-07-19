@@ -1,8 +1,8 @@
 ---
 title: Further reading & document map
 description: >-
-  A curated, annotated map of the public ASYCUDA documentation landscape — and
-  the restricted documents you must request.
+  How ASYCUDA documentation is generally obtained — public programme materials,
+  national customs manuals, open standards, and the specs you must request.
 tags:
   - platform
 ---
@@ -11,107 +11,77 @@ tags:
 
 UNCTAD does not publish ASYCUDA's physical database schema or a machine-readable
 API catalog. The field-level model is public **only through the XML layer and
-national customs manuals** — so knowing *which* public documents exist is half
-the battle. This page distils the public landscape from a deep-research pass over
-~90 sources.
+national customs manuals** — so knowing *which kinds* of documents exist, and
+where they normally live, is half the battle. This page describes the shape of
+that landscape without pointing at any one document.
 
 !!! note "This complements the schema's own citations"
-    [Sources](../provenance/sources.md) lists the **20 documents our schema
-    actually cites** (each resolving to a `-- src:` tag). *This* page is broader:
-    the wider public reading list for understanding ASYCUDA the platform, not
-    just our reconstruction of it.
+    [Sources](../provenance/sources.md) lists the documents our schema **actually
+    cites** (each resolving to a `-- src:` tag). *This* page is broader: a general
+    guide to the kinds of public reading that help you understand ASYCUDA the
+    platform, not just our reconstruction of it.
 
-!!! warning "Fetch caveat"
-    Some `unctad.org` PDFs and national portals **bot-block automated fetchers**
-    (403 / timeout) though they resolve fine in a browser. National portals
-    hosting real samples were the most reliably fetchable during research; some
-    scanned/image-only national tariff PDFs blocked text extraction entirely.
-    Where an item below is marked *verified*, the research pass confirmed it live.
+## The kinds of documentation, and where they live
 
-## Official / spec
+Understanding ASYCUDA from public material means drawing on a few recurring
+categories. None of them is a single authoritative schema — together they are the
+public window onto the model.
 
-The canonical UNCTAD manuals and message specifications.
+### Public programme materials
 
-- **AW Introductory Manual (Part 1)** — [asycuda.world/…/PART_1](https://asycuda.world/downloads/documentation/PART_1_INTRODUCTORY_MANUAL_FOR_ASYCUDA_WORLD.pdf)
-- **AW SAD Processing Manual (Part 2)** — the clearance workflow reference — [asycuda.world/…/PART_2](https://asycuda.world/downloads/documentation/PART_2_SAD_PROCESSING_MANUAL_FOR_ASYCUDA_WORLD.pdf)
-- **SAD XML Message Description** — the declaration wire spec — [asycuda.douane.aw/…/XML SAD.pdf](https://asycuda.douane.aw/documents/XML%20SAD.pdf)
-- **Cargo Manifest XML Message Description** (Aug 2020) — the AWMDS manifest stream — [asycuda.douane.aw/…/XML manifest](https://asycuda.douane.aw/documents/XML%20manifest%20structure%20-%20August%202020.pdf)
-- **ASYCUDA official site** (7 languages) — [asycuda.org/en](https://asycuda.org/en/) · Software timeline — [/software](https://asycuda.org/en/software/) · Data Model — [/data-model](https://asycuda.org/en/data-model/)
-- **ASYCUDA New Generation ("ASY5") portal** — [newgen.asycuda.org](https://newgen.asycuda.org) · [/asy5](https://newgen.asycuda.org/asy5) · Single Window — [/single-window](https://newgen.asycuda.org/single-window)
-- **ASYHUB** (open API platform, connectors, pre-arrival risk) — [asyhub.org/about-asyhub](https://www.asyhub.org/about-asyhub)
-- **UNCTAD ASYCUDA Report 2025** — [unctad.org/…/dtlasycuda2025d1](https://unctad.org/system/files/official-document/dtlasycuda2025d1_en.pdf) · **Compendium 2022** — [unctad.org/…/dtlasycuda2022d1](https://unctad.org/system/files/official-document/dtlasycuda2022d1_en.pdf)
+The ASYCUDA programme publishes introductory and processing manuals, message
+specifications and general platform documentation. These describe the SAD
+workflow, the XML e-document model and the overall system at a conceptual level.
+They are the canonical starting point for what the platform *is*.
 
-## Field-level national manuals — the goldmines
+### National customs manuals — the field-level goldmines
 
-UNCTAD ships AW as a national instance that each country documents itself. These
-**[DM]** documents define SAD boxes/fields concretely — often richer than the
-UNCTAD spec. Hosting patterns to recognise: `[country].asycuda.org` and
-`asycuda.customs.gov.[cc]`.
+ASYCUDA World is deployed as a national instance, and each administration
+documents its own instance. These national user guides, broker manuals and SAD
+field guides define the declaration boxes and fields concretely — often in more
+practical detail than the general programme material — because they describe the
+system as traders and officers actually use it. They are typically hosted on the
+national customs administration's own portal.
 
-| Country | Document | Link |
-|---------|----------|------|
-| Antigua & Barbuda | SAD Fields Guide *(verified)* | [customs.gov.ag/…/FIELDS GUIDE](https://customs.gov.ag/docs/ASYCUDA%20DECLARATION%20FIELDS%20GUIDE.pdf) |
-| Uganda (URA) | AW Declaration Processing (Customs) — the primary status-model source | [asyworld.ura.go.ug/…/Customs.pdf](http://asyworld.ura.go.ug/awclient/index_files/AW-User-Manual-Declaration-Processing-Customs.pdf) |
-| Botswana (BURS) | CPCs Annex 1 — verbatim Customs Procedure Codes | [burs.org.bw/…/Customs_Procedure_Codes.pdf](https://www.burs.org.bw/phocadownload/customs_and_excise_downloads/Customs_Procedure_Codes.pdf) |
-| eSwatini (SRA) | SAD 500 Completion Guide | [asyw.sra.org.sz/…/SAD500 Guide](http://asyw.sra.org.sz/guides/ASYW%20SAD500%20User%20Completion%20Guide%20-%20Final.pdf) |
-| Namibia (NamRA) | Entry Processing / SAD 500-501 · Inspection Act FAQ | [namra.org.na/…/entry-processing](https://www.namra.org.na/documents/cms/uploaded/asycuda-entry-processing-system-ad6b63734b.pdf) · [FAQ](https://www.namra.org.na/faqs/faq/what-is-the-inspection-act/) |
-| Marshall Islands (RMI) | AW Declaration Submission Guide *(verified)* | [rmi.asycuda.org/…/Submission.pdf](https://rmi.asycuda.org/documents/aw/RMI%20Customs%20User%20Guide%20-%20ASYCUDAWorld%20Declaration%20Submission.pdf) |
-| Micronesia (FSM) | Declaration Reference User Guide | [fsm.asycuda.org/…/Declaration_userguide.pdf](https://fsm.asycuda.org/Documents/Declaration_userguide.pdf) |
-| Grenada | AW Brokers' Manual | [asycuda.customs.gov.gd/…/broker manual.pdf](https://asycuda.customs.gov.gd/pdf/broker%20manual.pdf) |
-| Saint Lucia | Brokers Manual 2023 v3 — four-lane defs, Query Lane, Blue = PCA | [asycuda.customs.gov.lc/…/BROKERS_MANUAL_2023](https://asycuda.customs.gov.lc/documents/CUSTOMS_BROKERS_MANUAL_2023_Version_3.pdf) |
-| St. Kitts & Nevis | Processing the SAD | [skncustoms.com/…/Processing the SAD.pdf](https://skncustoms.com/Asycuda%20Manuals/Declaration%20Manual%20Processing%20the%20SAD.pdf) |
-| New Caledonia (SYDONIA) | Guide MODBRK — additional codes 33b/37b, 960/940 | [douane.gouv.nc/…/guide_modbrk.pdf](https://douane.gouv.nc/sites/default/files/atoms/files/guide_modbrk.pdf) |
+### Real schemas, samples & code
 
-## Real schema, samples & code
+The most useful public artefacts for the actual XML wire format are the real
+instances themselves: exported declaration and manifest XML, recovered schema
+definitions, and integrator code that reads or writes the `<ASYCUDA>` format.
+These show what real instances export, as opposed to the idealised specification.
 
-The most useful public artifacts for the actual `<ASYCUDA>` wire format — not the
-idealized spec, but what real instances export.
+### Open standards
 
-- **`Asycuda421.xsd` + serializer** — the most complete public SAD XSD — [github.com/Alphaquest2005/MRManager](https://github.com/Alphaquest2005/MRManager)
-- **Real AW declaration XML exports** (IM4/IM7) with JAXB `@XmlRootElement("ASYCUDA")` — [github.com/sc001cs/AsycudaXML](https://github.com/sc001cs/AsycudaXML)
-- **St. Kitts & Nevis downloadable sample XMLs** (`SADDEC.XML` / `SADDECVEH.XML`) — [skncustoms.com/…/PageID=327](https://skncustoms.com/Show-Page.aspx?PageID=327)
+The surrounding standards are fully public and stable: ISO country/currency
+codes, the UN trade and transport code lists, the WCO Harmonized System and Data
+Model, Incoterms, and the WTO valuation framework. ASYCUDA aligns to these, so
+they are load-bearing background reading in their own right.
 
-## ML / selectivity
+### Public customs-ML research and open datasets
 
-The dataset, the model, and the live production analogue behind the
-[ML risk-engine guide](../guides/ml-risk-engine.md).
+For the analytics and risk-engine side, there is a body of public customs
+machine-learning research and a small number of open, downloadable customs
+datasets. These describe feature schemas, modelling approaches and evaluation
+methods generically — enough to prototype a risk model before you have access to
+real declaration history. See the [ML risk-engine guide](../guides/ml-risk-engine.md)
+for how that research shapes the blueprint.
 
-- **Korea 62→22 synthetic dataset** — 54k CTGAN records with fraud labels — [github.com/Seondong/Customs-Declaration-Datasets](https://github.com/Seondong/Customs-Declaration-Datasets)
-- **DATE** (KDD 2020) — 92.7% precision / 49.3% revenue recall at 1% inspection — [dl.acm.org/…/3403339](https://dl.acm.org/doi/10.1145/3394486.3403339)
-- **WCO BACUDA notebooks** — reference open-source analytics — [github.com/YSCHOI-github/Customs_Fraud_Detection](https://github.com/YSCHOI-github/Customs_Fraud_Detection)
-- **Nepal Customs CRMS** (real-time ML ↔ ASYCUDA, WCO News Mar 2026, rating A) — [mag.wcoomd.org/…/nepal-customs](https://mag.wcoomd.org/magazine/wco-news-109-issue-1-2026/nepal-customs-automated-risk-analysis-system/)
+## Restricted — request via your national customs or the ASYCUDA programme
 
-!!! tip "The hosting-pattern shortcut"
-    To find a specific country's manuals and real sample XMLs, try the two
-    recurring patterns directly: **`[country].asycuda.org`** (e.g.
-    `rmi.asycuda.org`, `fsm.asycuda.org`) and
-    **`asycuda.customs.gov.[cc]`** (e.g. `asycuda.customs.gov.lc`,
-    `asycuda.customs.gov.gd`). These portal families host the field guides,
-    brokers' manuals, and — crucially — real XML samples and message specs.
+The load-bearing technical documents are **not public**. The physical database
+schema / ERD, the ASYHUB API specification, the ASY5 risk-signal payload format,
+the selectivity admin data model, and Inspection-Act read access are all obtained
+by request — through your national customs administration's ASYCUDA project team
+or the UNCTAD ASYCUDA programme. Gated learning platforms and credentialed
+developer repositories exist for member customs administrations but are not open
+to the public.
 
-## Restricted — request via `ASYCUDA@UNCTAD.org`
-
-The load-bearing documents are **not public**. Obtain them through
-`ASYCUDA@UNCTAD.org` or your national customs administration's ASYCUDA project
-team. Two gated portals:
-
-- **`elearning.asycuda.org`** — 40+ user guides, 100+ videos (Moodle, login required)
-- **`gitlab.asycuda.org`** — source + functional/technical specs (credentialed)
-
-What to put on the request list (from the research's gap analysis):
+What to put on the request list:
 
 | Request | Why it matters |
 |---------|----------------|
 | Physical **DB schema / ERD** | The biggest gap — needed for training-data extraction and selectivity write-back |
 | **ASYHUB API specification** (OpenAPI/WSDL, auth, message catalog) | The single most important unknown for sanctioned real-time integration |
 | **ASY5 "third-party AI → risk profile" signal payload format & endpoint** | The forward-looking injection point; format not yet public |
-| **Asysel** admin data model (operators, priority, validity, AND/OR, score→lane thresholds) | Deliberately hidden to prevent gaming |
+| **Selectivity admin data model** (operators, priority, validity, score→lane thresholds) | Deliberately hidden to prevent gaming |
 | **Inspection-Act read access** (illicit flag + recovered revenue) | The ML labels and the feedback loop depend on it |
-
----
-
-<small>Every URL on this page appears in the deep-research bibliography (~90
-annotated sources). Source ratings — A official/peer-reviewed, B national
-official/recovered spec, C vendor/secondary — carry through from that pass; the
-ML/selectivity claims trace to specific ratings noted in the
-[ML risk-engine guide](../guides/ml-risk-engine.md).</small>

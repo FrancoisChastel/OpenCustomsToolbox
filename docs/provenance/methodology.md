@@ -56,11 +56,11 @@ Two tags, one on every `CREATE TABLE`, and the rule that governs them:
 
 **Used freely (public):**
 
-- UNCTAD / official ASYCUDA programme material and the **official UNCTAD/DTL
+- Official ASYCUDA / UNCTAD programme material and the **official
   technical table descriptions** (the real physical schema, published as
   reference documentation).
-- National customs administrations that publish full ASYCUDA World manuals
-  (FSM, Grenada, Marshall Islands, Guyana, Barbados, Saint Lucia, Uganda…).
+- Full ASYCUDA World user and broker manuals published by national customs
+  administrations (declaration processing, manifest/cargo, valuation, suspense).
 - Open standards: the **WCO Data Model**, the **SAD**, ISO 3166 / 4217 / 6346,
   UN/LOCODE, UN/ECE Rec 21, the Harmonized System, Incoterms.
 
@@ -96,12 +96,12 @@ These map directly to the [`customs-validate`](../skills/index.md) skill.
 
 <div class="oct-stats" markdown>
 <div class="oct-stat"><b>7</b><span>research phases</span></div>
-<div class="oct-stat"><b>20</b><span>sources fetched &amp; cached</span></div>
+<div class="oct-stat"><b>100%</b><span>sources fetched &amp; cached</span></div>
 <div class="oct-stat"><b>55</b><span>tables, 100% tagged</span></div>
 </div>
 
-1. **Orient** — the SAD overview, WCO Data Model briefing, and the UNCTAD
-   manifest XML spec; confirmed the general + item segment model.
+1. **Orient** — a SAD overview, a WCO Data Model briefing, and a cargo-manifest
+   XML message description; confirmed the general + item segment model.
 2. **Mine national manuals** — the highest-yield public source: full declaration
    and manifest user guides, from which field names, code lists, segments and
    lifecycles were extracted and restated.
@@ -110,7 +110,7 @@ These map directly to the [`customs-validate`](../skills/index.md) skill.
 4. **Draft the schema** module by module, loading into a scratch DB after each.
 5. **Seed & validate** — representative reference data and the end-to-end example.
 6. **Document & finalise** — data dictionary, ERD, coverage, fit/gap.
-7. **Integrate official data** — later, the **official UNCTAD/DTL table
+7. **Integrate official data** — later, the **official table
    descriptions** were cited across the schema, upgrading 11 tables from
    `inferred` to documented (49 / 6).
 

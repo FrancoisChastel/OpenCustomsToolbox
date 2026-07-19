@@ -19,11 +19,10 @@ same fields this toolbox reconstructs as PostgreSQL tables — which is why the
 three-way map below (SAD box → AW XML tag → our column) is the core of this page.
 
 !!! warning "Spec vs. reality — the wire-format trap"
-    The idealised UNCTAD spec (*"SAD XML Message Description"*) documents a tree
-    rooted at `<Sad>` / `<Items>` / `<Tariff>`. **Real exported/imported AW
-    instances use a different root and naming** — verified identical across the
-    official `Asycuda421.xsd`, national sample XMLs, and six independent
-    integrator codebases:
+    The idealised UNCTAD specification documents a tree rooted at `<Sad>` /
+    `<Items>` / `<Tariff>`. **Real exported/imported AW instances use a different
+    root and naming** — verified identical across recovered schema definitions,
+    national sample XMLs, and independent integrator codebases:
 
     - Root element is **`<ASYCUDA>`** (not `<Sad>`).
     - Adds top-level `<Export_release>`, `<Assessment_notice>`, `<Global_taxes>`,
@@ -33,11 +32,10 @@ three-way map below (SAD box → AW XML tag → our column) is the core of this 
     - `<Identification>` carries `<Registration>`, `<Assessment>`, `<receipt>`
       (each with `Serial_number` / `Number` / `Date`).
 
-    **Practical rule:** use the **spec PDF for field semantics/formats** and a
-    **real sample for exact structure**. Target the `<ASYCUDA>`-rooted format.
-    The most complete public XSD is `Asycuda421.xsd` (GitHub
-    `Alphaquest2005/MRManager`); real samples include `sc001cs/AsycudaXML` and
-    the St. Kitts & Nevis sample XMLs (`SAD_EXAMPLE.XML` / `SADDEC.XML`).
+    **Practical rule:** use the **spec for field semantics/formats** and a
+    **real sample for exact structure**. Target the `<ASYCUDA>`-rooted format —
+    take the exact structure from a real exported declaration or a recovered
+    schema definition rather than from the idealised spec.
 
 Every declaration has **two segments**: a **general segment** (consignment-level
 — parties, transport, valuation totals) and repeating **item segments** (one per
@@ -120,7 +118,8 @@ our reconstruction has no counterpart, the cell reads **—**.
 ### The taxation-line sub-table (box 47)
 
 Each `<Item>` carries one `<Tarification>` plus one `<Taxation>` with repeating
-`<Taxation_line>`. Confirmed from real declaration XML + `Asycuda421.xsd`:
+`<Taxation_line>`. Confirmed from real declaration XML and a recovered schema
+definition:
 
 | AW XML field | Meaning | Toolbox column |
 |--------------|---------|----------------|

@@ -1,9 +1,9 @@
 # DATA_DICTIONARY.md — every table & column
 
 Generated from the loaded PostgreSQL catalog (`asycuda` schema) so it matches `schema/asycuda.sql`
-exactly. **Source** = the table-level provenance tag from the DDL (`src: <ID>` resolves in SOURCES.md;
-official UNCTAD/DTL table docs are S013–S016; `inferred` = modelling judgement, see COVERAGE.md).
-Total tables: 55.
+exactly. **Source** = the table-level provenance tag from the DDL (`src: <ID>` resolves in SOURCES.md
+as a generic category of public documentation; the official technical table descriptions are
+S013–S016; `inferred` = modelling judgement, see COVERAGE.md). Total tables: 55.
 
 
 ## Module: REFERENCE / CONFIGURATION (GOAL §4.1)

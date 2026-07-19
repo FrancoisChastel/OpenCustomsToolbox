@@ -8,9 +8,9 @@ tags:
 
 # Official fit & gap analysis
 
-How the reconstructed model measures up against the **official UNCTAD/DTL
-ASYCUDA World table descriptions** (S013–S016). Verdict first, then the
+How the reconstructed model measures up against the **official public
+ASYCUDA World technical table descriptions** (S013–S016). Verdict first, then the
 table-by-table mapping and the deliberate structural differences. Reproduced from
 `FIT.md`.
 
---8<-- "Sydonia/FIT.md:2:115"
+--8<-- "Sydonia/FIT.md:2:114"

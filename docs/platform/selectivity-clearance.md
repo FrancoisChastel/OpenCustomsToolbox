@@ -17,12 +17,12 @@ For *our* tables — `ref_selectivity_lane`, `risk_criterion`,
 [Selectivity & risk](../schema/selectivity.md) in the schema section.
 
 !!! note "Where these facts come from"
-    The lane model and criterion structure are grounded in UNCTAD's ASYCUDA
-    newsletters (Aug 2019, Sept 2021) and national brokers' manuals `[A/B]`; the
-    status model comes chiefly from the Uganda URA *Declaration Processing*
-    manual `[A/B]`. The **Asysel admin data model** (operators, priorities,
-    score→lane thresholds) is deliberately **not public** — kept hidden to
-    prevent gaming. Everything below is reconstructed from the public layer.
+    The lane model and criterion structure are grounded in public ASYCUDA
+    programme material and national brokers' manuals; the status model comes
+    chiefly from national declaration-processing manuals. The **Asysel admin data
+    model** (operators, priorities, score→lane thresholds) is deliberately **not
+    public** — kept hidden to prevent gaming. Everything below is reconstructed
+    from the public layer.
 
 ## The clearance state machine
 
@@ -105,15 +105,16 @@ things make it powerful for ML integration:
   manifest / bill-of-lading field. This is what extends control to pre-arrival.
 
 Two scoring generations coexist. **(A) Classic rule-based** — per-criterion
-weights configured nationally (Mali: importer / origin / tariff each classed
-low/med/high by fraud rate → Red if ≥1 high or ≥2 medium; Yellow if 1 medium;
-else Green). **(B) ML "Dynamic Selectivity"** (AW v4.4+, ~2021) — UNCTAD's
-**native** ML component that *"assigns a score and the degree of inspection"*
-from declarant / importer / origin, self-updating from inspection feedback.
+weights configured nationally (a typical scheme classes importer / origin /
+tariff each low/med/high by fraud rate → Red if ≥1 high or ≥2 medium; Yellow if
+1 medium; else Green). **(B) ML "Dynamic Selectivity"** (AW v4.4+, ~2021) —
+UNCTAD's **native** ML component that *"assigns a score and the degree of
+inspection"* from declarant / importer / origin, self-updating from inspection
+feedback.
 
 !!! tip "The random slot is the injection point"
     A distinct **random selectivity** layer re-routes a percentage of green
-    declarations to red — best-documented value **1–3%** (Mali) — so procedures
+    declarations to red — commonly around **1–3%** — so procedures
     stay unpredictable. A separate random function even assigns *which officer*
     verifies (anti-collusion). **This random slot is the natural injection point
     for an ML "exploration" strategy** — the exploitation/exploration split that
@@ -145,7 +146,7 @@ Our schema represents most — but not all — of this behaviour. The honest map
 
 ### Two honest gaps
 
-The research's state machine has two states our status catalogue does **not**
+The full clearance state machine has two states our status catalogue does **not**
 carry as `ref_declaration_status` rows:
 
 !!! warning "SELECTED and EXITED are not statuses in our model"

@@ -6,8 +6,8 @@ Each entry: `[Sxxx] finding → how it maps to the schema`. Short quoted labels 
 
 ## 2026-07-16 — Orientation (Phase 1)
 
-**[S001] SAD = the declaration form.** "The SAD breaks down into 54 boxes; the full version comes in
-8 parts." WCO treats the SAD as the international-standard customs declaration. Import parts are
+**[S001] SAD = the declaration form.** The SAD breaks down into 54 boxes; the full version comes in
+8 parts. The WCO treats the SAD as the international-standard customs declaration. Import parts are
 6/7/8, export 2/3, transit 1/4/5. → the `declaration` (general segment) + `declaration_item`
 (repeating item segment) split is the core of the model.
 
@@ -121,10 +121,10 @@ introduced by modelling judgement and is tagged `-- inferred` in the DDL and `in
 
 ---
 
-## 2026-07-16 — Official UNCTAD/DTL table descriptions added (docs/)
+## 2026-07-16 — Official public table descriptions added (docs/)
 
-The project owner supplied the **official ASYCUDA World table descriptions** (UNCTAD/DTL). Cached in
-`docs/` and cited as S013–S016 (+ S017–S020 official manuals). These are the real physical schema.
+The **official public ASYCUDA World technical table descriptions** were cached in
+`docs/` and cited as S013–S016 (+ S017–S020 official manuals). These describe the real physical schema.
 
 **[S015] Manifest.** `GEN_TAB` (general segment) and `BOL_TAB` (bill of lading, with the general
 segment **denormalised** into each B/L row), `CTN_TAB`/`BOL_CTN_TAB` (containers), write-off and

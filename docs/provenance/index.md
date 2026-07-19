@@ -14,7 +14,7 @@ invented and dressed up as documented.** This section is the evidence.
 <div class="oct-stats" markdown>
 <div class="oct-stat"><b>49</b><span>tables documented (<code>-- src:</code>)</span></div>
 <div class="oct-stat"><b>6</b><span>tables inferred (<code>-- inferred</code>)</span></div>
-<div class="oct-stat"><b>20</b><span>cited, cached sources</span></div>
+<div class="oct-stat"><b>100%</b><span>cited, cached sourcing</span></div>
 <div class="oct-stat"><b>0</b><span>fabricated citations</span></div>
 </div>
 
@@ -33,8 +33,8 @@ invented and dressed up as documented.** This section is the evidence.
 
     ---
 
-    All 20 cited public documents — UNCTAD/DTL technical tables, national
-    ASYCUDA World manuals, and open standards — with URLs and notes.
+    The public documentation consulted — official public technical tables, national
+    ASYCUDA World manuals, and open standards — cited as generic categories.
 
     [:octicons-arrow-right-24: Sources](sources.md)
 
@@ -51,7 +51,7 @@ invented and dressed up as documented.** This section is the evidence.
 
     ---
 
-    Our reconstruction mapped table-by-table against the official UNCTAD/DTL
+    Our reconstruction mapped table-by-table against the official
     ASYCUDA World tables — where it fits, and where it deliberately differs.
 
     [:octicons-arrow-right-24: Fit & gap](fit.md)

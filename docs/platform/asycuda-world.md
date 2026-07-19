@@ -78,15 +78,15 @@ file pulls roughly **130 JARs** over HTTPS, the main class is
 ## What this toolbox models
 
 The toolbox reconstructs the ASYCUDA World data model as a clean, normalised
-PostgreSQL schema. It is grounded in the **official UNCTAD/DTL ASYCUDA World
-Tables Description v0.1.0905** documents:
+PostgreSQL schema. It is grounded in public UNCTAD/ASYCUDA programme table
+descriptions covering the four table families:
 
-| Source | Covers |
+| Family | Covers |
 |--------|--------|
-| **S013** | Reference tables (the `UN*` code-table catalogue) |
-| **S014** | Declaration tables (`SAD_General_Segment`, `SAD_Item`, `SAD_Tax`, selectivity, inspection…) |
-| **S015** | Manifest tables (`GEN_TAB`, `BOL_TAB`, containers, transit) |
-| **S016** | Accounting tables (receipts, `TAX_TAB`, account transactions) |
+| Reference tables | the `UN*` code-table catalogue |
+| Declaration tables | `SAD_General_Segment`, `SAD_Item`, `SAD_Tax`, selectivity, inspection… |
+| Manifest tables | `GEN_TAB`, `BOL_TAB`, containers, transit |
+| Accounting tables | receipts, `TAX_TAB`, account transactions |
 
 See [Sources](../provenance/sources.md) for the full registry.
 
@@ -108,18 +108,17 @@ The field-level model is public *only through the XML layer and national
 manuals* — never as a published database schema. The documentation lives in a few
 predictable places:
 
-- **UNCTAD official:** `asycuda.org`, and the ASYCUDA World manuals on
-  `asycuda.world` — Part 1 (Introductory) and Part 2 (SAD Processing).
-- **National customs portals:** each country documents its own instance, hosted
-  on the recurring patterns `[country].asycuda.org` and
-  `asycuda.customs.gov.[cc]`. These SAD field guides and broker manuals are the
-  richest public window onto the model.
-- **Restricted (member customs only):** the e-learning platform
-  (`elearning.asycuda.org`) and developer GitLab (`gitlab.asycuda.org`), plus the
-  core functional and technical reference manuals. Request access via
-  **ASYCUDA@UNCTAD.org** or a national customs ASYCUDA project team.
+- **Programme materials:** the public UNCTAD/ASYCUDA introductory and SAD
+  processing manuals and general platform documentation.
+- **National customs portals:** each country documents its own instance. These
+  SAD field guides and broker manuals are the richest public window onto the
+  model.
+- **Restricted (member customs only):** gated learning platforms, credentialed
+  developer repositories and the core functional and technical reference manuals.
+  Request access through a national customs ASYCUDA project team or the UNCTAD
+  ASYCUDA programme.
 
-The full annotated list is on the [Resources](resources.md) page.
+More on the shape of this landscape is on the [Resources](resources.md) page.
 
 ## Next
 

@@ -1,8 +1,7 @@
 # FIT.md — our model vs the official ASYCUDA World tables
 
-This checks our reconstructed PostgreSQL model (`schema/asycuda.sql`) against the **official
-UNCTAD/DTL ASYCUDA World table descriptions** now in `docs/` (S013 Reference Tables, S014
-Declaration Tables, S015 Manifest Tables, S016 Accounting Tables). Verdict first, then the
+This checks our reconstructed PostgreSQL model (`schema/asycuda.sql`) against the **official public
+ASYCUDA World technical table descriptions** cached under `docs/` (S013–S016). Verdict first, then the
 table-by-table mapping and the deliberate structural differences.
 
 ## Verdict

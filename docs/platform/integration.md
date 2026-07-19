@@ -119,9 +119,9 @@ administration or UNCTAD:
 7. **Inspection-Act read access** (illicit flag + recovered revenue) — required
    for ML labels and the feedback loop.
 
-**Channels to obtain restricted docs:** `ASYCUDA@UNCTAD.org` · your national
-customs ASYCUDA project team · `elearning.asycuda.org` (blended-learning
-enrolment) · `gitlab.asycuda.org` (credentialed).
+**Channels to obtain restricted docs:** your national customs ASYCUDA project
+team or the UNCTAD ASYCUDA programme — via its gated learning platforms and
+credentialed developer repositories for member customs administrations.
 
 !!! tip "Confirm these three before building"
     - Which **generation** — ASYCUDA++, World, or ASY5? (ASY5/ASYHUB are far

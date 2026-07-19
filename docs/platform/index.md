@@ -17,11 +17,11 @@ system can plug in.
 
 !!! success "Which version does this toolbox model?"
     **ASYCUDA World (v4)** — the current standard, used by 100+ countries. The
-    schema is grounded in the official UNCTAD/DTL **ASYCUDA World Tables
-    Description v0.1.0905** documents ([S013–S016](../provenance/sources.md))
-    plus AW national manuals and message specs. If your deployment is ASYCUDA
-    World, this model is a direct reference; if it is ASYCUDA++ or ASY5, see
-    the [version lineage](versions.md) for what changes.
+    schema is grounded in public UNCTAD/ASYCUDA programme table descriptions plus
+    ASYCUDA World national manuals and message specs (see
+    [Sources](../provenance/sources.md)). If your deployment is ASYCUDA World,
+    this model is a direct reference; if it is ASYCUDA++ or ASY5, see the
+    [version lineage](versions.md) for what changes.
 
 ## Which version do *you* have?
 
@@ -107,8 +107,7 @@ toolbox's schema before you have access to a live system.
 
 ---
 
-<small>Platform facts on these pages are distilled from a multi-agent deep-research
-pass over ~90 public sources (UNCTAD primary documents, national customs manuals,
-recovered XSDs and real declaration samples). Where something is not publicly
-documented — the physical DB schema, the ASYHUB API — these pages say so
-plainly rather than guessing.</small>
+<small>Platform facts on these pages are distilled from the public ASYCUDA record —
+UNCTAD programme documents, national customs manuals, recovered schemas and real
+declaration samples. Where something is not publicly documented — the physical DB
+schema, the ASYHUB API — these pages say so plainly rather than guessing.</small>

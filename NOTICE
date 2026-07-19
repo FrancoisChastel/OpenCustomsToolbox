@@ -1,0 +1,31 @@
+Open Customs Toolbox
+Copyright (C) 2026 François Chastel and contributors
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU Affero General Public License, version 3, as published by
+the Free Software Foundation. See the LICENSE file for the full text.
+
+--------------------------------------------------------------------------------
+Third-party reference material
+--------------------------------------------------------------------------------
+
+This repository may retain cached copies of publicly available third-party
+documentation (for example under Sydonia/sources/ and Sydonia/docs/) that were
+consulted while reconstructing the data model, kept locally for study and
+reproducibility.
+
+Such third-party materials remain the copyright of their respective publishers
+and are NOT licensed under this project's AGPL-3.0 license. They are included
+for reference only. Field semantics were restated in the project's own words;
+only short field labels were reused.
+
+Only the original work in this repository — the schema, the query compiler, the
+documentation, the Agent Skills, and the tooling — is licensed under AGPL-3.0.
+
+--------------------------------------------------------------------------------
+Affiliation
+--------------------------------------------------------------------------------
+
+ASYCUDA and SYDONIA are programmes of UNCTAD. This is an independent project and
+is not affiliated with, sponsored by, or endorsed by UNCTAD. It contains no
+proprietary ASYCUDA software or schema, and no data from any live customs system.

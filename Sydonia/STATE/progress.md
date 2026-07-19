@@ -4,12 +4,11 @@
 
 - **Phase 0 — Bootstrap.** Created `STATE/`, `sources/`, `schema/`, `examples/`, and the doc set
   (SOURCES, RESEARCH_LOG, COVERAGE, DATA_DICTIONARY, ERD). Started a local PostgreSQL 14 server.
-- **Phase 1 — Orient.** Fetched & cached the SAD overview (S001), WCO Data Model briefing (S009),
-  and the UNCTAD manifest XML spec (S008). Confirmed the SAD general+item segment model.
-- **Phase 2 — Mine national manuals.** Cached FSM declaration (S003) & manifest (S006) guides,
-  Grenada broker manual (S004), RMI declaration guide (S005), Guyana/Barbados/St Lucia manifest
-  manuals (S007/S010/S011), Uganda declaration full text (S002). Extracted SAD box map (1–54),
-  manifest tag structure, selectivity lanes, status lifecycle — logged in RESEARCH_LOG.md.
+- **Phase 1 — Orient.** Fetched & cached a SAD overview (S001), a WCO Data Model briefing (S009),
+  and a cargo-manifest XML message description (S008). Confirmed the SAD general+item segment model.
+- **Phase 2 — Mine national manuals.** Cached national ASYCUDA World declaration and manifest user
+  guides plus a broker manual (S002–S007, S010, S011). Extracted the SAD box map (1–54), manifest
+  tag structure, selectivity lanes, status lifecycle — logged in RESEARCH_LOG.md.
 - **Phase 3 — Code tables & standards.** Grounded reference tables in the code lists the sources
   enumerate (transport mode, package type, B/L nature, container type, selectivity lanes, statuses)
   and the standards they name (ISO 3166/4217, UN/LOCODE, ISO 6346, HS, Incoterms [S012], CPC).
@@ -40,11 +39,11 @@
   documentation and open standards, cached under `sources/`. See §2 policy — nothing out of scope
   was needed or attempted.
 
-- **Phase 7 — Official-data fit check (post-goal, owner-supplied `docs/`).** The project owner added
-  the official UNCTAD/DTL table descriptions (Reference/Declaration/Manifest/Accounting) plus official
-  manuals. Verified our model fits them field-by-field, downloaded further official PDFs into `docs/`
-  (S017–S020), re-tagged the schema to cite the official sources (11 tables upgraded inferred→documented,
-  now 49/6), added `SAD_Tax.TYP` → `declaration_tax_line.is_manual`, and wrote `FIT.md` (fit/gap analysis).
-  Re-ran the full load + checks: still clean.
+- **Phase 7 — Official-data fit check (post-goal, `docs/`).** The official public technical table
+  descriptions (reference/declaration/manifest/accounting) plus official manuals were cached under
+  `docs/`. Verified our model fits them field-by-field, cited the official sources (S013–S020;
+  11 tables upgraded inferred→documented, now 49/6), added `SAD_Tax.TYP` →
+  `declaration_tax_line.is_manual`, and wrote `FIT.md` (fit/gap analysis). Re-ran the full load +
+  checks: still clean.
 
 STATUS: COMPLETE

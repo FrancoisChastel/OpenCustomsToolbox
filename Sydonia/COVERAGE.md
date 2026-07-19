@@ -7,12 +7,12 @@ core grounded, some columns/tables inferred; **inferred** = introduced by modell
 Every `CREATE TABLE` in `schema/asycuda.sql` (55 tables) carries a `-- src:` or `-- inferred`
 tag; this file rolls those up by GOAL §4 module.
 
-> **Official-data update.** The official UNCTAD/DTL table descriptions in `docs/` (S013 Reference
-> Tables, S014 Declaration Tables, S015 Manifest Tables, S016 Accounting Tables) plus the Suspense
-> Declarations manual (S019) are now cited across the schema. This upgraded 11 tables from
-> `inferred` to documented (exchange-rate, unit-of-measure, tax-rate, manifest-status,
-> account-movement, guarantee, warehouse entry/exit, temporary-admission, risk-criterion, audit-log).
-> See `FIT.md` for the full official-table-to-model mapping. Current tally: **49 documented / 6 inferred**.
+> **Official-data update.** The official technical table descriptions cached under `docs/`
+> (S013–S016) plus the suspense-declarations manual (S019) are now cited across the schema. This
+> upgraded 11 tables from `inferred` to documented (exchange-rate, unit-of-measure, tax-rate,
+> manifest-status, account-movement, guarantee, warehouse entry/exit, temporary-admission,
+> risk-criterion, audit-log). See `FIT.md` for the full official-table-to-model mapping. Current
+> tally: **49 documented / 6 inferred**.
 
 ---
 
@@ -112,7 +112,7 @@ noted in RESEARCH_LOG but not modelled as a table (out of the e2e path). Marked 
 
 ## Roll-up
 
-- **Documented (`-- src:`):** 49 tables — after citing the official UNCTAD/DTL table descriptions
+- **Documented (`-- src:`):** 49 tables — after citing the official table descriptions
   (S013–S016) and the Suspense manual (S019), all reference/manifest/declaration/accounting/transit/
   selectivity/audit tables are grounded in an official or public source.
 - **Inferred (`-- inferred`):** 6 tables — `trader_role`, `sys_role`, `sys_permission`, `sys_user_role`,

@@ -38,11 +38,11 @@ If something cannot be sourced from a document you fetched, tag it `-- inferred`
 
 ## 2. Scope & source policy (non-negotiable)
 
-**Use freely (public):** UNCTAD/official ASYCUDA material (`asycuda.org`, esp. its Data Model and
-DAU/SAD pages); the **WCO Data Model v3** it aligns to; the **SAD** (Single Administrative Document)
-structure; national customs administrations that publish full ASYCUDA World manuals (e.g. Uganda
-URA, Grenada, Federated States of Micronesia, Marshall Islands); academic theses/papers on ASYCUDA
-implementations; public trader XML/EDI integration guides; ISO/UN/WCO code lists.
+**Use freely (public):** UNCTAD/official ASYCUDA programme material (incl. its Data Model and
+DAU/SAD pages); the **WCO Data Model** it aligns to; the **SAD** (Single Administrative Document)
+structure; national customs administrations that publish full ASYCUDA World manuals; academic
+theses/papers on ASYCUDA implementations; public trader XML/EDI integration guides; ISO/UN/WCO
+code lists.
 
 **Never (stop and log under "Skipped — out of scope" if a task implies these):** downloading,
 cracking, or decompiling the ASYCUDA software to dump its internal schema; probing, scanning, or
@@ -144,6 +144,6 @@ comment on each `CREATE TABLE` (the table-level tag covers its columns; tag indi
 columns too). Example:
 
 ```sql
--- src: S002, S005   (Uganda URA declaration manual; FSM declaration guide)
+-- src: S002, S005   (national ASYCUDA World declaration manuals)
 CREATE TABLE declaration ( ... );
 ```

@@ -18,8 +18,8 @@ is the map; each module has its own page, and every column is defined in the
     the table and column names below, and the compiler rewrites them into genuine
     ASYCUDA World SQL you can run. **Write friendly, run genuine.**
 
-The modeled system is **ASYCUDA World (v4)**, grounded in the official
-UNCTAD/DTL Tables Description documents — see
+The modeled system is **ASYCUDA World (v4)**, grounded in the official public
+technical table descriptions — see
 [the platform](../platform/index.md) for the version lineage and
 [ASYCUDA World in depth](../platform/asycuda-world.md) for how this normalised
 model relates to the real (unpublished) physical schema.
