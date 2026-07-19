@@ -94,10 +94,10 @@ These map directly to the [`customs-validate`](../skills/index.md) skill.
 
 ## How the model was actually built
 
-<div class="oct-stats" markdown>
-<div class="oct-stat"><b>7</b><span>research phases</span></div>
-<div class="oct-stat"><b>100%</b><span>sources fetched &amp; cached</span></div>
-<div class="oct-stat"><b>55</b><span>tables, 100% tagged</span></div>
+<div class="syt-stats" markdown>
+<div class="syt-stat"><b>7</b><span>research phases</span></div>
+<div class="syt-stat"><b>100%</b><span>sources fetched &amp; cached</span></div>
+<div class="syt-stat"><b>55</b><span>tables, 100% tagged</span></div>
 </div>
 
 1. **Orient** — a SAD overview, a WCO Data Model briefing, and a cargo-manifest

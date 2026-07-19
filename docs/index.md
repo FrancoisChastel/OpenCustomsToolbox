@@ -8,8 +8,8 @@ hide:
   - toc
 ---
 
-<div class="oct-hero" markdown="1">
-<span class="oct-hero__eyebrow">:material-anchor: SYDONIA · ASYCUDA World · PostgreSQL</span>
+<div class="syt-hero" markdown="1">
+<span class="syt-hero__eyebrow">:material-anchor: SYDONIA · ASYCUDA World · PostgreSQL</span>
 
 # Query Sydonia: write friendly, run genuine
 
@@ -20,19 +20,19 @@ instance. The abstraction is easy; the output is real. Underneath is a faithful,
 **fully-sourced** reconstruction of the whole customs model — now the logical
 layer the compiler maps *from*.
 
-<div class="oct-hero__cta">
-<a class="oct-btn oct-btn--primary" href="compiler/">Query Sydonia →</a>
-<a class="oct-btn oct-btn--ghost" href="getting-started/quickstart/">Quickstart</a>
-<a class="oct-btn oct-btn--ghost" href="schema/">Explore the schema</a>
-<a class="oct-btn oct-btn--ghost" href="https://github.com/FrancoisChastel/sydonia-toolkit">GitHub</a>
+<div class="syt-hero__cta">
+<a class="syt-btn syt-btn--primary" href="compiler/">Query Sydonia →</a>
+<a class="syt-btn syt-btn--ghost" href="getting-started/quickstart/">Quickstart</a>
+<a class="syt-btn syt-btn--ghost" href="schema/">Explore the schema</a>
+<a class="syt-btn syt-btn--ghost" href="https://github.com/FrancoisChastel/sydonia-toolkit">GitHub</a>
 </div>
 </div>
 
-<div class="oct-stats" markdown>
-<div class="oct-stat"><b>55</b><span>tables across 8 modules</span></div>
-<div class="oct-stat"><b>49&nbsp;/&nbsp;6</b><span>documented / inferred</span></div>
-<div class="oct-stat"><b>100%</b><span>cited public sourcing</span></div>
-<div class="oct-stat"><b>0</b><span>errors on a clean load</span></div>
+<div class="syt-stats" markdown>
+<div class="syt-stat"><b>55</b><span>tables across 8 modules</span></div>
+<div class="syt-stat"><b>49&nbsp;/&nbsp;6</b><span>documented / inferred</span></div>
+<div class="syt-stat"><b>100%</b><span>cited public sourcing</span></div>
+<div class="syt-stat"><b>0</b><span>errors on a clean load</span></div>
 </div>
 
 ## Why it exists

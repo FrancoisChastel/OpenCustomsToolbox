@@ -1,5 +1,5 @@
 -- =====================================================================
--- cookbook.sql — canonical queries against the Open Customs Toolbox model.
+-- cookbook.sql — canonical queries against the Sydonia Toolkit model.
 -- Adapt the closest query to the user's question. All assume:
 SET search_path TO asycuda, public;
 -- =====================================================================

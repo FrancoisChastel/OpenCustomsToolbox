@@ -11,11 +11,11 @@ The credibility of this project rests on one promise: **every table is either
 grounded in a cited public source or honestly marked as inferred — nothing is
 invented and dressed up as documented.** This section is the evidence.
 
-<div class="oct-stats" markdown>
-<div class="oct-stat"><b>49</b><span>tables documented (<code>-- src:</code>)</span></div>
-<div class="oct-stat"><b>6</b><span>tables inferred (<code>-- inferred</code>)</span></div>
-<div class="oct-stat"><b>100%</b><span>cited, cached sourcing</span></div>
-<div class="oct-stat"><b>0</b><span>fabricated citations</span></div>
+<div class="syt-stats" markdown>
+<div class="syt-stat"><b>49</b><span>tables documented (<code>-- src:</code>)</span></div>
+<div class="syt-stat"><b>6</b><span>tables inferred (<code>-- inferred</code>)</span></div>
+<div class="syt-stat"><b>100%</b><span>cited, cached sourcing</span></div>
+<div class="syt-stat"><b>0</b><span>fabricated citations</span></div>
 </div>
 
 <div class="grid cards" markdown>
