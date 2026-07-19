@@ -2464,11 +2464,10 @@ same fields this toolbox reconstructs as PostgreSQL tables — which is why the
 three-way map below (SAD box → AW XML tag → our column) is the core of this page.</p>
 <div class="admonition warning">
 <p class="admonition-title">Spec vs. reality — the wire-format trap</p>
-<p>The idealised UNCTAD spec (<em>"SAD XML Message Description"</em>) documents a tree
-rooted at <code>&lt;Sad&gt;</code> / <code>&lt;Items&gt;</code> / <code>&lt;Tariff&gt;</code>. <strong>Real exported/imported AW
-instances use a different root and naming</strong> — verified identical across the
-official <code>Asycuda421.xsd</code>, national sample XMLs, and six independent
-integrator codebases:</p>
+<p>The idealised UNCTAD specification documents a tree rooted at <code>&lt;Sad&gt;</code> /
+<code>&lt;Items&gt;</code> / <code>&lt;Tariff&gt;</code>. <strong>Real exported/imported AW instances use a different
+root and naming</strong> — verified identical across recovered schema definitions,
+national sample XMLs, and independent integrator codebases:</p>
 <ul>
 <li>Root element is <strong><code>&lt;ASYCUDA&gt;</code></strong> (not <code>&lt;Sad&gt;</code>).</li>
 <li>Adds top-level <code>&lt;Export_release&gt;</code>, <code>&lt;Assessment_notice&gt;</code>, <code>&lt;Global_taxes&gt;</code>,
@@ -2478,11 +2477,10 @@ integrator codebases:</p>
 <li><code>&lt;Identification&gt;</code> carries <code>&lt;Registration&gt;</code>, <code>&lt;Assessment&gt;</code>, <code>&lt;receipt&gt;</code>
   (each with <code>Serial_number</code> / <code>Number</code> / <code>Date</code>).</li>
 </ul>
-<p><strong>Practical rule:</strong> use the <strong>spec PDF for field semantics/formats</strong> and a
-<strong>real sample for exact structure</strong>. Target the <code>&lt;ASYCUDA&gt;</code>-rooted format.
-The most complete public XSD is <code>Asycuda421.xsd</code> (GitHub
-<code>Alphaquest2005/MRManager</code>); real samples include <code>sc001cs/AsycudaXML</code> and
-the St. Kitts &amp; Nevis sample XMLs (<code>SAD_EXAMPLE.XML</code> / <code>SADDEC.XML</code>).</p>
+<p><strong>Practical rule:</strong> use the <strong>spec for field semantics/formats</strong> and a
+<strong>real sample for exact structure</strong>. Target the <code>&lt;ASYCUDA&gt;</code>-rooted format —
+take the exact structure from a real exported declaration or a recovered
+schema definition rather than from the idealised spec.</p>
 </div>
 <p>Every declaration has <strong>two segments</strong>: a <strong>general segment</strong> (consignment-level
 — parties, transport, valuation totals) and repeating <strong>item segments</strong> (one per
@@ -2828,7 +2826,8 @@ is reconstructed (<code>declaration.assessment_number</code>, <code>assessment_d
 </div>
 <h3 id="the-taxation-line-sub-table-box-47">The taxation-line sub-table (box 47)<a class="headerlink" href="#the-taxation-line-sub-table-box-47" title="Anchor link to this section">&para;</a></h3>
 <p>Each <code>&lt;Item&gt;</code> carries one <code>&lt;Tarification&gt;</code> plus one <code>&lt;Taxation&gt;</code> with repeating
-<code>&lt;Taxation_line&gt;</code>. Confirmed from real declaration XML + <code>Asycuda421.xsd</code>:</p>
+<code>&lt;Taxation_line&gt;</code>. Confirmed from real declaration XML and a recovered schema
+definition:</p>
 <table>
 <thead>
 <tr>

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="The 20 cited public documents behind the model, with URLs and notes.">
+        <meta name="description" content="The public documentation behind the model, cited as generic categories.">
       
       
         <meta name="author" content="François Chastel">
@@ -2109,10 +2109,21 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#official-asycuda-world-technical-documents-authoritative-added-to-docs" class="md-nav__link">
+  <a href="#categories-consulted" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Official ASYCUDA World technical documents (authoritative — added to docs/)
+        Categories consulted
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Registry
       
     </span>
   </a>
@@ -2245,10 +2256,21 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#official-asycuda-world-technical-documents-authoritative-added-to-docs" class="md-nav__link">
+  <a href="#categories-consulted" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Official ASYCUDA World technical documents (authoritative — added to docs/)
+        Categories consulted
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Registry
       
     </span>
   </a>
@@ -2294,185 +2316,148 @@
 
 
 <h1 id="sources">Sources<a class="headerlink" href="#sources" title="Anchor link to this section">&para;</a></h1>
-<p>Every <code>-- src: &lt;ID&gt;</code> in the schema resolves to a row below, and every row has a
-cached local copy under <code>sources/</code> (or <code>docs/</code> for the official technical
-documents). All material is public. This registry is the single source of truth
-for citations — reproduced here from <code>SOURCES.md</code>.</p>
-<p>Every <code>-- src: &lt;ID&gt;</code> comment in <code>schema/*.sql</code> resolves to a row here, and every row
-has a cached local copy under <code>sources/</code> (the original PDF and/or an extracted <code>.txt</code>).
-All material is public: UNCTAD/ASYCUDA programme documents, national customs
-administrations publishing full ASYCUDA World manuals, and open standards references.
-Field semantics are restated in our own words; only short field labels are quoted.</p>
+<p>Every <code>-- src: &lt;ID&gt;</code> in the schema resolves to a row below, where each ID denotes
+a <strong>generic category of public documentation</strong> consulted (specific titles,
+publishers and URLs are intentionally omitted). Each cited category has a cached
+local copy under <code>sources/</code> (or <code>docs/</code> for the official technical documents).
+All material is public. This registry is the single source of truth for citations
+— reproduced here from <code>SOURCES.md</code>.</p>
+<p>Every <code>-- src: &lt;ID&gt;</code> comment in <code>schema/*.sql</code> resolves to a row in this
+registry, and each <code>&lt;ID&gt;</code> denotes a category of <strong>public documentation</strong>
+consulted when modelling that table. A cached copy of the material is retained
+locally under <code>sources/</code> (or <code>docs/</code>).</p>
+<blockquote>
+<p>Specific document titles, publishers, and URLs have been intentionally omitted
+from this registry. The model is grounded in public documentation only —
+restated in the project's own words — not in any proprietary schema or data
+from a live customs system.</p>
+</blockquote>
+<h2 id="categories-consulted">Categories consulted<a class="headerlink" href="#categories-consulted" title="Anchor link to this section">&para;</a></h2>
+<ul>
+<li>Public references on the <strong>Single Administrative Document (SAD)</strong> and Incoterms.</li>
+<li><strong>National ASYCUDA World user and broker manuals</strong> published by customs
+  administrations (declaration processing, manifest/cargo, valuation, suspense).</li>
+<li><strong>Public ASYCUDA / UNCTAD programme documentation</strong>, including official
+  technical table descriptions, processing manuals, and XML message descriptions.</li>
+<li><strong>Open international standards</strong>: ISO 3166 (countries), ISO 4217 (currencies),
+  ISO 6346 (containers), UN/LOCODE, UN/ECE Rec 21 (packages), the Harmonized
+  System, the WCO Data Model, Incoterms, and the WTO valuation methods.</li>
+</ul>
+<h2 id="registry">Registry<a class="headerlink" href="#registry" title="Anchor link to this section">&para;</a></h2>
 <table>
 <thead>
 <tr>
 <th>ID</th>
-<th>Title</th>
-<th>URL</th>
-<th>Cached file(s)</th>
-<th>Note</th>
+<th>Category</th>
+<th style="text-align: center;">Cached</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>S001</td>
-<td>Single Administrative Document (SAD) — overview</td>
-<td>https://en.wikipedia.org/wiki/Single_Administrative_Document</td>
-<td><code>sources/S001_wikipedia_sad.txt</code></td>
-<td>SAD = 54 boxes, 8 parts; WCO "international standard" declaration form; general + item segments.</td>
+<td>Public reference on the SAD declaration</td>
+<td style="text-align: center;">yes</td>
 </tr>
 <tr>
 <td>S002</td>
-<td>ASYCUDA World User Manual — Declaration Processing (Uganda URA / UNCTAD)</td>
-<td>https://archive.org/details/manualzilla-id-5869226 (full text: https://archive.org/download/manualzilla-id-5869226/5869226_djvu.txt)</td>
-<td><code>sources/S002_uganda_declaration_fulltext.txt</code></td>
-<td>Declaration lifecycle (stored→registered→assessed→paid→released), selectivity lanes (green/yellow/red/blue), finder search keys.</td>
+<td>National ASYCUDA World declaration-processing manual</td>
+<td style="text-align: center;">yes</td>
 </tr>
 <tr>
 <td>S003</td>
-<td>ASYCUDA World — Declaration Reference User Guide (FSM Customs &amp; Tax Administration / UNCTAD)</td>
-<td>https://fsm.asycuda.org/Documents/Declaration_userguide.pdf</td>
-<td><code>sources/S003_fsm_declaration.pdf</code>, <code>.txt</code></td>
-<td>Authoritative SAD box-by-box map (boxes 1–54 + item boxes 31–49), valuation note (freight/insurance/other → item CIF), assessment/tax calculation (box 47), container list (box 19).</td>
+<td>National ASYCUDA World declaration user guide</td>
+<td style="text-align: center;">yes</td>
 </tr>
 <tr>
 <td>S004</td>
-<td>ASYCUDA World Declaration Processing — Brokers' User Manual (Grenada Customs / UNCTAD)</td>
-<td>https://asycuda.customs.gov.gd/pdf/broker%20manual.pdf</td>
-<td><code>sources/S004_grenada_broker.pdf</code>, <code>.txt</code></td>
-<td>Broker declaration workflow, valuation note, previous document / attached document tabs, selectivity &amp; release.</td>
+<td>National ASYCUDA World broker manual</td>
+<td style="text-align: center;">yes</td>
 </tr>
 <tr>
 <td>S005</td>
-<td>ASYCUDA World Declaration Submission — Customs User Guide (Marshall Islands RMI Customs / UNCTAD)</td>
-<td>https://rmi.asycuda.org/documents/aw/RMI%20Customs%20User%20Guide%20-%20ASYCUDAWorld%20Declaration%20Submission.pdf</td>
-<td><code>sources/S005_rmi_declaration.pdf</code>, <code>.txt</code></td>
-<td>Declaration submission, payment &amp; request selectivity, four selectivity lanes, release order.</td>
+<td>National ASYCUDA World declaration user guide</td>
+<td style="text-align: center;">yes</td>
 </tr>
 <tr>
 <td>S006</td>
-<td>ASYCUDA World — Manifest Reference User Guide (FSM Customs &amp; Tax Administration / UNCTAD)</td>
-<td>https://fsm.asycuda.org/Documents/Manifest_userguide.pdf</td>
-<td><code>sources/S006_fsm_manifest.pdf</code>, <code>.txt</code></td>
-<td>Manifest general segment + bill-of-lading segment, master vs house B/L, degroupage, manifest status.</td>
+<td>National ASYCUDA World manifest user guide</td>
+<td style="text-align: center;">yes</td>
 </tr>
 <tr>
 <td>S007</td>
-<td>ASYCUDA World Manifest User Guide (Guyana Revenue Authority / UNCTAD)</td>
-<td>https://www.gra.gov.gy/storage/2021/01/CARGO-MANIFEST-USER-GUIDE-GUYANA-Revised-Feb-28-2020.pdf</td>
-<td><code>sources/S007_guyana_manifest.pdf</code>, <code>.txt</code></td>
-<td>Manifest data entry, carrier/voyage, waybill lines, containers, degroupage.</td>
+<td>National ASYCUDA World manifest user guide</td>
+<td style="text-align: center;">yes</td>
 </tr>
 <tr>
 <td>S008</td>
-<td>Cargo Manifest — XML Message Description (UNCTAD ASYCUDA / Barbados)</td>
-<td>https://asycuda.customs.gov.bb/awclient/ManifestEdiFiles/AW-XML_Manifest_Stucuture_Description.pdf</td>
-<td><code>sources/S008_unctad_manifest_xml.pdf</code>, <code>.txt</code></td>
-<td>Field-level EDI/XML spec: exact tag names, formats, mandatory/optional, and code lists (mode of transport, B/L nature, package type UN/ECE Rec 21, ISO 6346 container types, UN/LOCODE ports, freight PP/CC). Primary grounding for the manifest module.</td>
+<td>Public ASYCUDA World cargo-manifest XML message description</td>
+<td style="text-align: center;">yes</td>
 </tr>
 <tr>
 <td>S009</td>
-<td>WCO Data Model — overview (WCO / CAREC programme briefing)</td>
-<td>https://www.carecprogram.org/uploads/02-WCO-Customs-Data-Model.pdf</td>
-<td><code>sources/S009_wco_dm_carec.pdf</code>, <code>.txt</code></td>
-<td>WCO Data Model v3 main classes (Declaration, GoodsShipment, Consignment) that the SAD/ASYCUDA data model aligns to.</td>
+<td>Public WCO Data Model overview</td>
+<td style="text-align: center;">yes</td>
 </tr>
 <tr>
 <td>S010</td>
-<td>Cargo Manifest — Carrier User Manual (Barbados Customs / UNCTAD)</td>
-<td>https://asycuda.customs.gov.bb/files/CARGO%20MANIFEST-CARRIER%20USER%20MANUAL.pdf</td>
-<td><code>sources/S010_barbados_manifest.pdf</code>, <code>.txt</code></td>
-<td>Carrier manifest capture, master/house B/L relationship, container &amp; seal capture.</td>
+<td>National ASYCUDA World manifest manual</td>
+<td style="text-align: center;">yes</td>
 </tr>
 <tr>
 <td>S011</td>
-<td>Cargo Manifest Manual (Saint Lucia Customs / UNCTAD)</td>
-<td>https://asycuda.customs.gov.lc/documents/Cargo_Manifest_Manual.pdf</td>
-<td><code>sources/S011_stlucia_manifest.pdf</code>, <code>.txt</code></td>
-<td>Manifest general segment, transport document lifecycle, degroupage/consolidation.</td>
+<td>National ASYCUDA World manifest manual</td>
+<td style="text-align: center;">yes</td>
 </tr>
 <tr>
 <td>S012</td>
-<td>Incoterms — overview</td>
-<td>https://en.wikipedia.org/wiki/Incoterms</td>
-<td><code>sources/S012_incoterms.txt</code></td>
-<td>Incoterms code list used by SAD box 20 (delivery terms).</td>
+<td>Public Incoterms reference</td>
+<td style="text-align: center;">yes</td>
 </tr>
-</tbody>
-</table>
-<h2 id="official-asycuda-world-technical-documents-authoritative-added-to-docs">Official ASYCUDA World technical documents (authoritative — added to <code>docs/</code>)<a class="headerlink" href="#official-asycuda-world-technical-documents-authoritative-added-to-docs" title="Anchor link to this section">&para;</a></h2>
-<p>These are the <strong>official UNCTAD/DTL ASYCUDA World database table descriptions</strong> and official
-programme manuals (the real physical data model). They supersede the national-manual grounding
-where they overlap. Kept in <code>docs/</code> (per project request) and linked into <code>sources/</code>.</p>
-<table>
-<thead>
-<tr>
-<th>ID</th>
-<th>Title</th>
-<th>URL</th>
-<th>Cached file(s)</th>
-<th>Note</th>
-</tr>
-</thead>
-<tbody>
 <tr>
 <td>S013</td>
-<td>The ASYCUDA World Reference Tables (UNCTAD/DTL)</td>
-<td>provided in <code>docs/</code> (official UNCTAD/DTL technical doc)</td>
-<td><code>docs/S013_official_reference_tables.pdf</code>, <code>.txt</code> (linked in <code>sources/</code>)</td>
-<td>Full catalogue of ~80 <code>UN*</code> reference tables (xxCTYTAB, xxCURTAB, xxHS1–6TAB, xxCP1/3/4TAB, xxTAXTAB, xxRULTAB, xxPKGTAB, xxCTNTAB, xxMOTTAB, xxTODTAB, xxWHSTAB, …), fields, keys, and the VALID_FROM/VALID_TO temporal-validity pattern.</td>
+<td>Official ASYCUDA World reference-tables description</td>
+<td style="text-align: center;">yes</td>
 </tr>
 <tr>
 <td>S014</td>
-<td>Declaration — Tables Description v0.1.0905 (UNCTAD/DTL)</td>
-<td>provided in <code>docs/</code> (official UNCTAD/DTL technical doc)</td>
-<td><code>docs/S014_official_declaration_tables.pdf</code>, <code>.txt</code> (linked in <code>sources/</code>)</td>
-<td>Real SAD tables: <code>SAD_General_Segment</code>, <code>SAD_Item</code>, <code>SAD_Tax</code>, <code>SAD_Ask_Tax</code>, <code>SAD_Global_Taxes</code>, <code>SAD_Tax_Totals</code>, <code>SAD_Attached_Documents</code>, <code>SAD_Int</code> (previous docs), <code>SAD_Relief</code>, warehouse/suspense (<code>SUS_WH_IN</code>, <code>WHS_DLY*</code>), serials, <code>Exit_Note_*</code>, selectivity (<code>SEL_*</code>), <code>INSP_ACT_TAB</code>, <code>VAL_CTL_TAB</code>. Field-level DOM names/types.</td>
+<td>Official ASYCUDA World declaration-tables description</td>
+<td style="text-align: center;">yes</td>
 </tr>
 <tr>
 <td>S015</td>
-<td>Manifest — Tables Description v0.1.0905 (UNCTAD/DTL)</td>
-<td>provided in <code>docs/</code> (official UNCTAD/DTL technical doc)</td>
-<td><code>docs/S015_official_manifest_tables.pdf</code>, <code>.txt</code> (linked in <code>sources/</code>)</td>
-<td>Real manifest tables: <code>GEN_TAB</code> (general segment), <code>BOL_TAB</code> (bill of lading, denormalised), <code>CTN_TAB</code>/<code>BOL_CTN_TAB</code> (containers), <code>HIS_WRITE_OFF_TAB</code>/<code>REM_WRITE_OFF_TAB</code> (write-off), <code>MAN_TRANSIT_TAB</code>/<code>MAN_TRANSH_TAB</code> (transit/transhipment).</td>
+<td>Official ASYCUDA World manifest-tables description</td>
+<td style="text-align: center;">yes</td>
 </tr>
 <tr>
 <td>S016</td>
-<td>Accounting — Tables Description v0.1.0905 (UNCTAD/DTL)</td>
-<td>provided in <code>docs/</code> (official UNCTAD/DTL technical doc)</td>
-<td><code>docs/S016_official_accounting_tables.pdf</code>, <code>.txt</code> (linked in <code>sources/</code>)</td>
-<td>Real accounting tables: receipts &amp; <code>TAX_TAB</code> (taxes per receipt), account transactions in/out (xxATITAB/xxATOTAB), serial management (<code>SER_LETTERS_TAB</code>, <code>SER_NBERING_TAB</code>), account locks, cashier/shift/daybook reports.</td>
+<td>Official ASYCUDA World accounting-tables description</td>
+<td style="text-align: center;">yes</td>
 </tr>
 <tr>
 <td>S017</td>
-<td>ASYCUDA World — SAD Processing Manual (Part 2, official asycuda.world)</td>
-<td>https://asycuda.world/downloads/documentation/PART_2_SAD_PROCESSING_MANUAL_FOR_ASYCUDA_WORLD.pdf</td>
-<td><code>docs/S017_official_sad_processing_manual.pdf</code>, <code>.txt</code> (linked in <code>sources/</code>)</td>
-<td>Official SAD processing workflow, tabs, valuation, assessment, selectivity, payment, release.</td>
+<td>Official ASYCUDA World SAD processing manual</td>
+<td style="text-align: center;">yes</td>
 </tr>
 <tr>
 <td>S018</td>
-<td>ASYCUDA World — Introductory Manual (Part 1, official asycuda.world)</td>
-<td>https://asycuda.world/downloads/documentation/PART_1_INTRODUCTORY_MANUAL_FOR_ASYCUDA_WORLD.pdf</td>
-<td><code>docs/S018_official_introductory_manual.pdf</code>, <code>.txt</code> (linked in <code>sources/</code>)</td>
-<td>Official system overview, document library, reference-table concept, roles.</td>
+<td>Official ASYCUDA World introductory manual</td>
+<td style="text-align: center;">yes</td>
 </tr>
 <tr>
 <td>S019</td>
-<td>ASYCUDA World — Suspense Declarations User Manual v3 (Saint Lucia Customs / UNCTAD)</td>
-<td>https://asycuda.customs.gov.lc/documents/Suspense_Declarations_User_Manual_v3.pdf</td>
-<td><code>docs/S019_suspense_declarations.pdf</code>, <code>.txt</code> (linked in <code>sources/</code>)</td>
-<td>Warehousing, transit, temporary admission suspense regimes, guarantees, extension of delay, write-off — grounds the transit/warehouse/temp-admission module.</td>
+<td>ASYCUDA World suspense-declarations manual</td>
+<td style="text-align: center;">yes</td>
 </tr>
 <tr>
 <td>S020</td>
-<td>Cargo Manifest XML Message Description (St Vincent &amp; the Grenadines Customs / UNCTAD)</td>
-<td>https://customs.gov.vc/downloads/DRAFT-SVG-AW-XML-Manifest-Structure-Description.pdf</td>
-<td><code>docs/S020_svg_manifest_xml.pdf</code>, <code>.txt</code> (linked in <code>sources/</code>)</td>
-<td>Second official copy of the AWMDS XML manifest structure (cross-check of S008).</td>
+<td>Public ASYCUDA World XML manifest message description</td>
+<td style="text-align: center;">yes</td>
 </tr>
 </tbody>
 </table>
+<p>Field semantics were restated in the project's own words; only short field labels
+were reused. Where a table could not be grounded in consulted documentation it is
+tagged <code>-- inferred</code> in the schema and recorded in <code>COVERAGE.md</code>.</p>
 
 
 

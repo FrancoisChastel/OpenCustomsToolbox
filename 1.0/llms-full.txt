@@ -33,7 +33,7 @@ layer the compiler maps *from*.
 <div class="oct-stats" markdown>
 <div class="oct-stat"><b>55</b><span>tables across 8 modules</span></div>
 <div class="oct-stat"><b>49&nbsp;/&nbsp;6</b><span>documented / inferred</span></div>
-<div class="oct-stat"><b>20</b><span>cited public sources</span></div>
+<div class="oct-stat"><b>100%</b><span>cited public sourcing</span></div>
 <div class="oct-stat"><b>0</b><span>errors on a clean load</span></div>
 </div>
 
@@ -43,7 +43,7 @@ ASYCUDA World is the customs platform used by **100+ countries**, but its
 internal database schema is **wide, denormalised and proprietary** — painful to
 query for analytics. So this project does two things. It rebuilds an
 **information-equivalent reference model** using *only* public documentation —
-UNCTAD/DTL technical table descriptions, national ASYCUDA World user manuals,
+official public technical table descriptions, national ASYCUDA World user manuals,
 and open ISO/UN/WCO standards, every table traceable to a citation or honestly
 flagged as inferred. And it ships a [**query compiler**](compiler/index.md) that
 lets you write against that clean model and **compile to genuine Sydonia SQL** —
@@ -2307,8 +2307,8 @@ is the map; each module has its own page, and every column is defined in the
     the table and column names below, and the compiler rewrites them into genuine
     ASYCUDA World SQL you can run. **Write friendly, run genuine.**
 
-The modeled system is **ASYCUDA World (v4)**, grounded in the official
-UNCTAD/DTL Tables Description documents — see
+The modeled system is **ASYCUDA World (v4)**, grounded in the official public
+technical table descriptions — see
 [the platform](../platform/index.md) for the version lineage and
 [ASYCUDA World in depth](../platform/asycuda-world.md) for how this normalised
 model relates to the real (unpublished) physical schema.
@@ -4155,11 +4155,11 @@ system can plug in.
 
 !!! success "Which version does this toolbox model?"
     **ASYCUDA World (v4)** — the current standard, used by 100+ countries. The
-    schema is grounded in the official UNCTAD/DTL **ASYCUDA World Tables
-    Description v0.1.0905** documents ([S013–S016](../provenance/sources.md))
-    plus AW national manuals and message specs. If your deployment is ASYCUDA
-    World, this model is a direct reference; if it is ASYCUDA++ or ASY5, see
-    the [version lineage](versions.md) for what changes.
+    schema is grounded in public UNCTAD/ASYCUDA programme table descriptions plus
+    ASYCUDA World national manuals and message specs (see
+    [Sources](../provenance/sources.md)). If your deployment is ASYCUDA World,
+    this model is a direct reference; if it is ASYCUDA++ or ASY5, see the
+    [version lineage](versions.md) for what changes.
 
 ## Which version do *you* have?
 
@@ -4245,11 +4245,10 @@ toolbox's schema before you have access to a live system.
 
 ---
 
-<small>Platform facts on these pages are distilled from a multi-agent deep-research
-pass over ~90 public sources (UNCTAD primary documents, national customs manuals,
-recovered XSDs and real declaration samples). Where something is not publicly
-documented — the physical DB schema, the ASYHUB API — these pages say so
-plainly rather than guessing.</small>
+<small>Platform facts on these pages are distilled from the public ASYCUDA record —
+UNCTAD programme documents, national customs manuals, recovered schemas and real
+declaration samples. Where something is not publicly documented — the physical DB
+schema, the ASYHUB API — these pages say so plainly rather than guessing.</small>
 
 
 
@@ -4446,15 +4445,15 @@ file pulls roughly **130 JARs** over HTTPS, the main class is
 ## What this toolbox models
 
 The toolbox reconstructs the ASYCUDA World data model as a clean, normalised
-PostgreSQL schema. It is grounded in the **official UNCTAD/DTL ASYCUDA World
-Tables Description v0.1.0905** documents:
+PostgreSQL schema. It is grounded in public UNCTAD/ASYCUDA programme table
+descriptions covering the four table families:
 
-| Source | Covers |
+| Family | Covers |
 |--------|--------|
-| **S013** | Reference tables (the `UN*` code-table catalogue) |
-| **S014** | Declaration tables (`SAD_General_Segment`, `SAD_Item`, `SAD_Tax`, selectivity, inspection…) |
-| **S015** | Manifest tables (`GEN_TAB`, `BOL_TAB`, containers, transit) |
-| **S016** | Accounting tables (receipts, `TAX_TAB`, account transactions) |
+| Reference tables | the `UN*` code-table catalogue |
+| Declaration tables | `SAD_General_Segment`, `SAD_Item`, `SAD_Tax`, selectivity, inspection… |
+| Manifest tables | `GEN_TAB`, `BOL_TAB`, containers, transit |
+| Accounting tables | receipts, `TAX_TAB`, account transactions |
 
 See [Sources](../provenance/sources.md) for the full registry.
 
@@ -4476,18 +4475,17 @@ The field-level model is public *only through the XML layer and national
 manuals* — never as a published database schema. The documentation lives in a few
 predictable places:
 
-- **UNCTAD official:** `asycuda.org`, and the ASYCUDA World manuals on
-  `asycuda.world` — Part 1 (Introductory) and Part 2 (SAD Processing).
-- **National customs portals:** each country documents its own instance, hosted
-  on the recurring patterns `[country].asycuda.org` and
-  `asycuda.customs.gov.[cc]`. These SAD field guides and broker manuals are the
-  richest public window onto the model.
-- **Restricted (member customs only):** the e-learning platform
-  (`elearning.asycuda.org`) and developer GitLab (`gitlab.asycuda.org`), plus the
-  core functional and technical reference manuals. Request access via
-  **ASYCUDA@UNCTAD.org** or a national customs ASYCUDA project team.
+- **Programme materials:** the public UNCTAD/ASYCUDA introductory and SAD
+  processing manuals and general platform documentation.
+- **National customs portals:** each country documents its own instance. These
+  SAD field guides and broker manuals are the richest public window onto the
+  model.
+- **Restricted (member customs only):** gated learning platforms, credentialed
+  developer repositories and the core functional and technical reference manuals.
+  Request access through a national customs ASYCUDA project team or the UNCTAD
+  ASYCUDA programme.
 
-The full annotated list is on the [Resources](resources.md) page.
+More on the shape of this landscape is on the [Resources](resources.md) page.
 
 ## Next
 
@@ -4518,11 +4516,10 @@ same fields this toolbox reconstructs as PostgreSQL tables — which is why the
 three-way map below (SAD box → AW XML tag → our column) is the core of this page.
 
 !!! warning "Spec vs. reality — the wire-format trap"
-    The idealised UNCTAD spec (*"SAD XML Message Description"*) documents a tree
-    rooted at `<Sad>` / `<Items>` / `<Tariff>`. **Real exported/imported AW
-    instances use a different root and naming** — verified identical across the
-    official `Asycuda421.xsd`, national sample XMLs, and six independent
-    integrator codebases:
+    The idealised UNCTAD specification documents a tree rooted at `<Sad>` /
+    `<Items>` / `<Tariff>`. **Real exported/imported AW instances use a different
+    root and naming** — verified identical across recovered schema definitions,
+    national sample XMLs, and independent integrator codebases:
 
     - Root element is **`<ASYCUDA>`** (not `<Sad>`).
     - Adds top-level `<Export_release>`, `<Assessment_notice>`, `<Global_taxes>`,
@@ -4532,11 +4529,10 @@ three-way map below (SAD box → AW XML tag → our column) is the core of this 
     - `<Identification>` carries `<Registration>`, `<Assessment>`, `<receipt>`
       (each with `Serial_number` / `Number` / `Date`).
 
-    **Practical rule:** use the **spec PDF for field semantics/formats** and a
-    **real sample for exact structure**. Target the `<ASYCUDA>`-rooted format.
-    The most complete public XSD is `Asycuda421.xsd` (GitHub
-    `Alphaquest2005/MRManager`); real samples include `sc001cs/AsycudaXML` and
-    the St. Kitts & Nevis sample XMLs (`SAD_EXAMPLE.XML` / `SADDEC.XML`).
+    **Practical rule:** use the **spec for field semantics/formats** and a
+    **real sample for exact structure**. Target the `<ASYCUDA>`-rooted format —
+    take the exact structure from a real exported declaration or a recovered
+    schema definition rather than from the idealised spec.
 
 Every declaration has **two segments**: a **general segment** (consignment-level
 — parties, transport, valuation totals) and repeating **item segments** (one per
@@ -4619,7 +4615,8 @@ our reconstruction has no counterpart, the cell reads **—**.
 ### The taxation-line sub-table (box 47)
 
 Each `<Item>` carries one `<Tarification>` plus one `<Taxation>` with repeating
-`<Taxation_line>`. Confirmed from real declaration XML + `Asycuda421.xsd`:
+`<Taxation_line>`. Confirmed from real declaration XML and a recovered schema
+definition:
 
 | AW XML field | Meaning | Toolbox column |
 |--------------|---------|----------------|
@@ -4843,9 +4840,9 @@ administration or UNCTAD:
 7. **Inspection-Act read access** (illicit flag + recovered revenue) — required
    for ML labels and the feedback loop.
 
-**Channels to obtain restricted docs:** `ASYCUDA@UNCTAD.org` · your national
-customs ASYCUDA project team · `elearning.asycuda.org` (blended-learning
-enrolment) · `gitlab.asycuda.org` (credentialed).
+**Channels to obtain restricted docs:** your national customs ASYCUDA project
+team or the UNCTAD ASYCUDA programme — via its gated learning platforms and
+credentialed developer repositories for member customs administrations.
 
 !!! tip "Confirm these three before building"
     - Which **generation** — ASYCUDA++, World, or ASY5? (ASY5/ASYHUB are far
@@ -5122,12 +5119,12 @@ For *our* tables — `ref_selectivity_lane`, `risk_criterion`,
 [Selectivity & risk](../schema/selectivity.md) in the schema section.
 
 !!! note "Where these facts come from"
-    The lane model and criterion structure are grounded in UNCTAD's ASYCUDA
-    newsletters (Aug 2019, Sept 2021) and national brokers' manuals `[A/B]`; the
-    status model comes chiefly from the Uganda URA *Declaration Processing*
-    manual `[A/B]`. The **Asysel admin data model** (operators, priorities,
-    score→lane thresholds) is deliberately **not public** — kept hidden to
-    prevent gaming. Everything below is reconstructed from the public layer.
+    The lane model and criterion structure are grounded in public ASYCUDA
+    programme material and national brokers' manuals; the status model comes
+    chiefly from national declaration-processing manuals. The **Asysel admin data
+    model** (operators, priorities, score→lane thresholds) is deliberately **not
+    public** — kept hidden to prevent gaming. Everything below is reconstructed
+    from the public layer.
 
 ## The clearance state machine
 
@@ -5210,15 +5207,16 @@ things make it powerful for ML integration:
   manifest / bill-of-lading field. This is what extends control to pre-arrival.
 
 Two scoring generations coexist. **(A) Classic rule-based** — per-criterion
-weights configured nationally (Mali: importer / origin / tariff each classed
-low/med/high by fraud rate → Red if ≥1 high or ≥2 medium; Yellow if 1 medium;
-else Green). **(B) ML "Dynamic Selectivity"** (AW v4.4+, ~2021) — UNCTAD's
-**native** ML component that *"assigns a score and the degree of inspection"*
-from declarant / importer / origin, self-updating from inspection feedback.
+weights configured nationally (a typical scheme classes importer / origin /
+tariff each low/med/high by fraud rate → Red if ≥1 high or ≥2 medium; Yellow if
+1 medium; else Green). **(B) ML "Dynamic Selectivity"** (AW v4.4+, ~2021) —
+UNCTAD's **native** ML component that *"assigns a score and the degree of
+inspection"* from declarant / importer / origin, self-updating from inspection
+feedback.
 
 !!! tip "The random slot is the injection point"
     A distinct **random selectivity** layer re-routes a percentage of green
-    declarations to red — best-documented value **1–3%** (Mali) — so procedures
+    declarations to red — commonly around **1–3%** — so procedures
     stay unpredictable. A separate random function even assigns *which officer*
     verifies (anti-collusion). **This random slot is the natural injection point
     for an ML "exploration" strategy** — the exploitation/exploration split that
@@ -5250,7 +5248,7 @@ Our schema represents most — but not all — of this behaviour. The honest map
 
 ### Two honest gaps
 
-The research's state machine has two states our status catalogue does **not**
+The full clearance state machine has two states our status catalogue does **not**
 carry as `ref_declaration_status` rows:
 
 !!! warning "SELECTED and EXITED are not statuses in our model"
@@ -5302,110 +5300,80 @@ carry as `ref_declaration_status` rows:
 
 UNCTAD does not publish ASYCUDA's physical database schema or a machine-readable
 API catalog. The field-level model is public **only through the XML layer and
-national customs manuals** — so knowing *which* public documents exist is half
-the battle. This page distils the public landscape from a deep-research pass over
-~90 sources.
+national customs manuals** — so knowing *which kinds* of documents exist, and
+where they normally live, is half the battle. This page describes the shape of
+that landscape without pointing at any one document.
 
 !!! note "This complements the schema's own citations"
-    [Sources](../provenance/sources.md) lists the **20 documents our schema
-    actually cites** (each resolving to a `-- src:` tag). *This* page is broader:
-    the wider public reading list for understanding ASYCUDA the platform, not
-    just our reconstruction of it.
+    [Sources](../provenance/sources.md) lists the documents our schema **actually
+    cites** (each resolving to a `-- src:` tag). *This* page is broader: a general
+    guide to the kinds of public reading that help you understand ASYCUDA the
+    platform, not just our reconstruction of it.
 
-!!! warning "Fetch caveat"
-    Some `unctad.org` PDFs and national portals **bot-block automated fetchers**
-    (403 / timeout) though they resolve fine in a browser. National portals
-    hosting real samples were the most reliably fetchable during research; some
-    scanned/image-only national tariff PDFs blocked text extraction entirely.
-    Where an item below is marked *verified*, the research pass confirmed it live.
+## The kinds of documentation, and where they live
 
-## Official / spec
+Understanding ASYCUDA from public material means drawing on a few recurring
+categories. None of them is a single authoritative schema — together they are the
+public window onto the model.
 
-The canonical UNCTAD manuals and message specifications.
+### Public programme materials
 
-- **AW Introductory Manual (Part 1)** — [asycuda.world/…/PART_1](https://asycuda.world/downloads/documentation/PART_1_INTRODUCTORY_MANUAL_FOR_ASYCUDA_WORLD.pdf)
-- **AW SAD Processing Manual (Part 2)** — the clearance workflow reference — [asycuda.world/…/PART_2](https://asycuda.world/downloads/documentation/PART_2_SAD_PROCESSING_MANUAL_FOR_ASYCUDA_WORLD.pdf)
-- **SAD XML Message Description** — the declaration wire spec — [asycuda.douane.aw/…/XML SAD.pdf](https://asycuda.douane.aw/documents/XML%20SAD.pdf)
-- **Cargo Manifest XML Message Description** (Aug 2020) — the AWMDS manifest stream — [asycuda.douane.aw/…/XML manifest](https://asycuda.douane.aw/documents/XML%20manifest%20structure%20-%20August%202020.pdf)
-- **ASYCUDA official site** (7 languages) — [asycuda.org/en](https://asycuda.org/en/) · Software timeline — [/software](https://asycuda.org/en/software/) · Data Model — [/data-model](https://asycuda.org/en/data-model/)
-- **ASYCUDA New Generation ("ASY5") portal** — [newgen.asycuda.org](https://newgen.asycuda.org) · [/asy5](https://newgen.asycuda.org/asy5) · Single Window — [/single-window](https://newgen.asycuda.org/single-window)
-- **ASYHUB** (open API platform, connectors, pre-arrival risk) — [asyhub.org/about-asyhub](https://www.asyhub.org/about-asyhub)
-- **UNCTAD ASYCUDA Report 2025** — [unctad.org/…/dtlasycuda2025d1](https://unctad.org/system/files/official-document/dtlasycuda2025d1_en.pdf) · **Compendium 2022** — [unctad.org/…/dtlasycuda2022d1](https://unctad.org/system/files/official-document/dtlasycuda2022d1_en.pdf)
+The ASYCUDA programme publishes introductory and processing manuals, message
+specifications and general platform documentation. These describe the SAD
+workflow, the XML e-document model and the overall system at a conceptual level.
+They are the canonical starting point for what the platform *is*.
 
-## Field-level national manuals — the goldmines
+### National customs manuals — the field-level goldmines
 
-UNCTAD ships AW as a national instance that each country documents itself. These
-**[DM]** documents define SAD boxes/fields concretely — often richer than the
-UNCTAD spec. Hosting patterns to recognise: `[country].asycuda.org` and
-`asycuda.customs.gov.[cc]`.
+ASYCUDA World is deployed as a national instance, and each administration
+documents its own instance. These national user guides, broker manuals and SAD
+field guides define the declaration boxes and fields concretely — often in more
+practical detail than the general programme material — because they describe the
+system as traders and officers actually use it. They are typically hosted on the
+national customs administration's own portal.
 
-| Country | Document | Link |
-|---------|----------|------|
-| Antigua & Barbuda | SAD Fields Guide *(verified)* | [customs.gov.ag/…/FIELDS GUIDE](https://customs.gov.ag/docs/ASYCUDA%20DECLARATION%20FIELDS%20GUIDE.pdf) |
-| Uganda (URA) | AW Declaration Processing (Customs) — the primary status-model source | [asyworld.ura.go.ug/…/Customs.pdf](http://asyworld.ura.go.ug/awclient/index_files/AW-User-Manual-Declaration-Processing-Customs.pdf) |
-| Botswana (BURS) | CPCs Annex 1 — verbatim Customs Procedure Codes | [burs.org.bw/…/Customs_Procedure_Codes.pdf](https://www.burs.org.bw/phocadownload/customs_and_excise_downloads/Customs_Procedure_Codes.pdf) |
-| eSwatini (SRA) | SAD 500 Completion Guide | [asyw.sra.org.sz/…/SAD500 Guide](http://asyw.sra.org.sz/guides/ASYW%20SAD500%20User%20Completion%20Guide%20-%20Final.pdf) |
-| Namibia (NamRA) | Entry Processing / SAD 500-501 · Inspection Act FAQ | [namra.org.na/…/entry-processing](https://www.namra.org.na/documents/cms/uploaded/asycuda-entry-processing-system-ad6b63734b.pdf) · [FAQ](https://www.namra.org.na/faqs/faq/what-is-the-inspection-act/) |
-| Marshall Islands (RMI) | AW Declaration Submission Guide *(verified)* | [rmi.asycuda.org/…/Submission.pdf](https://rmi.asycuda.org/documents/aw/RMI%20Customs%20User%20Guide%20-%20ASYCUDAWorld%20Declaration%20Submission.pdf) |
-| Micronesia (FSM) | Declaration Reference User Guide | [fsm.asycuda.org/…/Declaration_userguide.pdf](https://fsm.asycuda.org/Documents/Declaration_userguide.pdf) |
-| Grenada | AW Brokers' Manual | [asycuda.customs.gov.gd/…/broker manual.pdf](https://asycuda.customs.gov.gd/pdf/broker%20manual.pdf) |
-| Saint Lucia | Brokers Manual 2023 v3 — four-lane defs, Query Lane, Blue = PCA | [asycuda.customs.gov.lc/…/BROKERS_MANUAL_2023](https://asycuda.customs.gov.lc/documents/CUSTOMS_BROKERS_MANUAL_2023_Version_3.pdf) |
-| St. Kitts & Nevis | Processing the SAD | [skncustoms.com/…/Processing the SAD.pdf](https://skncustoms.com/Asycuda%20Manuals/Declaration%20Manual%20Processing%20the%20SAD.pdf) |
-| New Caledonia (SYDONIA) | Guide MODBRK — additional codes 33b/37b, 960/940 | [douane.gouv.nc/…/guide_modbrk.pdf](https://douane.gouv.nc/sites/default/files/atoms/files/guide_modbrk.pdf) |
+### Real schemas, samples & code
 
-## Real schema, samples & code
+The most useful public artefacts for the actual XML wire format are the real
+instances themselves: exported declaration and manifest XML, recovered schema
+definitions, and integrator code that reads or writes the `<ASYCUDA>` format.
+These show what real instances export, as opposed to the idealised specification.
 
-The most useful public artifacts for the actual `<ASYCUDA>` wire format — not the
-idealized spec, but what real instances export.
+### Open standards
 
-- **`Asycuda421.xsd` + serializer** — the most complete public SAD XSD — [github.com/Alphaquest2005/MRManager](https://github.com/Alphaquest2005/MRManager)
-- **Real AW declaration XML exports** (IM4/IM7) with JAXB `@XmlRootElement("ASYCUDA")` — [github.com/sc001cs/AsycudaXML](https://github.com/sc001cs/AsycudaXML)
-- **St. Kitts & Nevis downloadable sample XMLs** (`SADDEC.XML` / `SADDECVEH.XML`) — [skncustoms.com/…/PageID=327](https://skncustoms.com/Show-Page.aspx?PageID=327)
+The surrounding standards are fully public and stable: ISO country/currency
+codes, the UN trade and transport code lists, the WCO Harmonized System and Data
+Model, Incoterms, and the WTO valuation framework. ASYCUDA aligns to these, so
+they are load-bearing background reading in their own right.
 
-## ML / selectivity
+### Public customs-ML research and open datasets
 
-The dataset, the model, and the live production analogue behind the
-[ML risk-engine guide](../guides/ml-risk-engine.md).
+For the analytics and risk-engine side, there is a body of public customs
+machine-learning research and a small number of open, downloadable customs
+datasets. These describe feature schemas, modelling approaches and evaluation
+methods generically — enough to prototype a risk model before you have access to
+real declaration history. See the [ML risk-engine guide](../guides/ml-risk-engine.md)
+for how that research shapes the blueprint.
 
-- **Korea 62→22 synthetic dataset** — 54k CTGAN records with fraud labels — [github.com/Seondong/Customs-Declaration-Datasets](https://github.com/Seondong/Customs-Declaration-Datasets)
-- **DATE** (KDD 2020) — 92.7% precision / 49.3% revenue recall at 1% inspection — [dl.acm.org/…/3403339](https://dl.acm.org/doi/10.1145/3394486.3403339)
-- **WCO BACUDA notebooks** — reference open-source analytics — [github.com/YSCHOI-github/Customs_Fraud_Detection](https://github.com/YSCHOI-github/Customs_Fraud_Detection)
-- **Nepal Customs CRMS** (real-time ML ↔ ASYCUDA, WCO News Mar 2026, rating A) — [mag.wcoomd.org/…/nepal-customs](https://mag.wcoomd.org/magazine/wco-news-109-issue-1-2026/nepal-customs-automated-risk-analysis-system/)
+## Restricted — request via your national customs or the ASYCUDA programme
 
-!!! tip "The hosting-pattern shortcut"
-    To find a specific country's manuals and real sample XMLs, try the two
-    recurring patterns directly: **`[country].asycuda.org`** (e.g.
-    `rmi.asycuda.org`, `fsm.asycuda.org`) and
-    **`asycuda.customs.gov.[cc]`** (e.g. `asycuda.customs.gov.lc`,
-    `asycuda.customs.gov.gd`). These portal families host the field guides,
-    brokers' manuals, and — crucially — real XML samples and message specs.
+The load-bearing technical documents are **not public**. The physical database
+schema / ERD, the ASYHUB API specification, the ASY5 risk-signal payload format,
+the selectivity admin data model, and Inspection-Act read access are all obtained
+by request — through your national customs administration's ASYCUDA project team
+or the UNCTAD ASYCUDA programme. Gated learning platforms and credentialed
+developer repositories exist for member customs administrations but are not open
+to the public.
 
-## Restricted — request via `ASYCUDA@UNCTAD.org`
-
-The load-bearing documents are **not public**. Obtain them through
-`ASYCUDA@UNCTAD.org` or your national customs administration's ASYCUDA project
-team. Two gated portals:
-
-- **`elearning.asycuda.org`** — 40+ user guides, 100+ videos (Moodle, login required)
-- **`gitlab.asycuda.org`** — source + functional/technical specs (credentialed)
-
-What to put on the request list (from the research's gap analysis):
+What to put on the request list:
 
 | Request | Why it matters |
 |---------|----------------|
 | Physical **DB schema / ERD** | The biggest gap — needed for training-data extraction and selectivity write-back |
 | **ASYHUB API specification** (OpenAPI/WSDL, auth, message catalog) | The single most important unknown for sanctioned real-time integration |
 | **ASY5 "third-party AI → risk profile" signal payload format & endpoint** | The forward-looking injection point; format not yet public |
-| **Asysel** admin data model (operators, priority, validity, AND/OR, score→lane thresholds) | Deliberately hidden to prevent gaming |
+| **Selectivity admin data model** (operators, priority, validity, score→lane thresholds) | Deliberately hidden to prevent gaming |
 | **Inspection-Act read access** (illicit flag + recovered revenue) | The ML labels and the feedback loop depend on it |
-
----
-
-<small>Every URL on this page appears in the deep-research bibliography (~90
-annotated sources). Source ratings — A official/peer-reviewed, B national
-official/recovered spec, C vendor/secondary — carry through from that pass; the
-ML/selectivity claims trace to specific ratings noted in the
-[ML risk-engine guide](../guides/ml-risk-engine.md).</small>
 
 
 
@@ -6552,8 +6520,8 @@ The [querying guide](querying.md) has the reports to see your changes; the
 
 This toolbox was reconstructed with two payloads in mind: **(1)** doing
 analytics / ML on customs declarations, and **(2)** plugging an external risk
-engine into the clearance flow. This guide is the blueprint — distilled from a
-deep-research pass over the public ASYCUDA record — and, crucially, a way to
+engine into the clearance flow. This guide is the blueprint — distilled from the
+public ASYCUDA record and public customs-ML research — and, crucially, a way to
 **prototype the whole loop against this schema before you have access to a live
 ASYCUDA system**.
 
@@ -6579,31 +6547,29 @@ flowchart LR
     F -->|feedback: relabel| B
 ```
 
-The pattern is proven at three levels of evidence:
+The pattern is proven at several levels of evidence:
 
-- **TTEK RiskLab** `[C]` — the real-world blueprint on legacy AW. TTEK's
-  *"ASYCUDA Plugin for Risk Management Targeting and Selectivity"* ingests
-  ASYCUDA data *"through either a database connection or API,"* trains/scores
-  externally, pushes high-risk flags back, and feeds inspection outcomes back in
-  real time to retrain. (Vendor source — rating C.)
-- **Nepal Customs CRMS** `[A]` — the live production analogue (WCO News, Mar
-  2026). *"A separate but integrated module within ASYCUDA World"* that, on
-  submission, *"retrieves the declaration information in real time from
-  ASYCUDA,"* scores it (nomenclature, origin, importer/exporter history,
-  declaration patterns, valuation anomalies), and *"sends risk recommendations
-  back to officers through ASYCUDA World."* This proves the architecture is
-  deployable **today** — rating A.
-- **ASY5 first-class hook** `[A]` — the new generation transforms *"signals from
-  ML analysis of customs data or from third-party AI engines … into clear risk
+- **Vendor risk-management plugins** on legacy AW — the real-world blueprint.
+  A typical plugin ingests ASYCUDA data *through either a database connection or
+  an API*, trains and scores externally, pushes high-risk flags back into
+  selectivity, and feeds inspection outcomes back in real time to retrain.
+- **Live production deployments** — the deployable analogue. A separate but
+  integrated risk module within ASYCUDA World retrieves the declaration in real
+  time on submission, scores it (nomenclature, origin, importer/exporter history,
+  declaration patterns, valuation anomalies), and sends risk recommendations back
+  to officers through ASYCUDA World. This proves the architecture is deployable
+  **today**.
+- **ASY5 first-class hook** — the new generation transforms *"signals from ML
+  analysis of customs data or from third-party AI engines … into clear risk
   profiles"* via a **Risk Configuration → Signal Transformation → Risk Output**
   pipeline. The intended injection point once a country is on ASY5 — but the
   **payload format is not yet public**.
 
 ## The feature set
 
-The empirically-standard feature schema (the DATE / BACUDA open columns) maps
-directly onto ASYCUDA fields and onto our tables. The fourth column is what you
-query in the [`asycuda`](../schema/data-dictionary.md) schema:
+The empirically-standard feature schema used across public customs-ML research
+maps directly onto ASYCUDA fields and onto our tables. The fourth column is what
+you query in the [`asycuda`](../schema/data-dictionary.md) schema:
 
 | Concept | SAD box | AW XML tag | Open Customs Toolbox column |
 |---------|:-------:|------------|-----------------------------|
@@ -6722,29 +6688,29 @@ Adapt the join-path style from [Querying the model](querying.md); every column
 above is verified against the schema.
 
 !!! tip "External baselines to prototype against"
-    Before you have real ASYCUDA history, train against public data:
+    Before you have real ASYCUDA history, train against **public customs-ML
+    research and open customs datasets**. The field offers:
 
-    - **Korea Customs 62→22 synthetic dataset** — 54k CTGAN-synthetic records
-      with `Fraud` / `Critical fraud` labels
-      ([Seondong/Customs-Declaration-Datasets](https://github.com/Seondong/Customs-Declaration-Datasets)).
-      The single best downloadable dataset to prototype against.
-    - **DATE** (KDD 2020) — **92.7% precision, 49.3% revenue recall inspecting
-      1% of flows** on Nigeria data; a dual-task (illicitness + recoverable
-      revenue) batch scorer
-      ([paper](https://dl.acm.org/doi/10.1145/3394486.3403339)).
-    - **WCO BACUDA notebooks** — the reference open-source analytics
-      ([YSCHOI-github/Customs_Fraud_Detection](https://github.com/YSCHOI-github/Customs_Fraud_Detection)).
+    - **Open, downloadable customs declaration datasets** — some synthetic, with
+      fraud / critical-fraud labels — good enough to prototype the feature
+      pipeline and modelling against before you have real history.
+    - **Published dual-task scorers** that predict both illicitness and
+      recoverable revenue, reporting high precision and revenue recall while
+      inspecting only a small fraction of flows — a well-documented target to
+      benchmark against.
+    - **Reference open-source analytics notebooks** for customs fraud detection —
+      the standard starting point for feature engineering and baselines.
 
 ## Going live
 
-Once you move from this sandbox to a real deployment, the research's four-step
-reference architecture:
+Once you move from this sandbox to a real deployment, the four-step reference
+architecture:
 
 1. **Read** — a **DB read-replica** of the ASYCUDA schema for training data
-   (the proven TTEK path), plus **ASYHUB** API / **Cargo-XML** pre-arrival feed
-   or **Kafka** (ASY5) for real-time scoring.
+   (the proven path for vendor risk plugins), plus **ASYHUB** API / **Cargo-XML**
+   pre-arrival feed or **Kafka** (ASY5) for real-time scoring.
 2. **Score** — output a per-declaration fraud/illicitness score **and** predicted
-   recoverable revenue (dual-task, like DATE).
+   recoverable revenue (a dual-task scorer).
 3. **Inject** — on legacy AW, write into selectivity criteria / trader profiles,
    prioritising the **random / exploration slot**; on ASY5, emit "signals".
 4. **Feedback** — read **Inspection Act / PCA** outcomes to relabel and retrain.
@@ -6757,13 +6723,14 @@ reference architecture:
     declaration. Confirm the mode before committing to real-time.
 
 !!! note "What to request — these are not public"
-    Neither DATE nor BACUDA ships an ASYCUDA connector; the ETL and write-back
-    are bespoke in every deployment. Before building, request from your national
-    customs / `ASYCUDA@UNCTAD.org`: the **physical DB schema**, the
-    **ASYHUB API spec**, the **ASY5 risk-signal payload format**, the **Asysel**
-    admin data model, and **Inspection-Act read access** (illicit flag +
-    recovered revenue). See [Integration surfaces](../platform/integration.md)
-    for the doors and the request list.
+    No public customs-ML dataset or research codebase ships an ASYCUDA connector;
+    the ETL and write-back are bespoke in every deployment. Before building,
+    request from your national customs administration or the UNCTAD ASYCUDA
+    programme: the **physical DB schema**, the **ASYHUB API spec**, the **ASY5
+    risk-signal payload format**, the **Asysel** admin data model, and
+    **Inspection-Act read access** (illicit flag + recovered revenue). See
+    [Integration surfaces](../platform/integration.md) for the doors and the
+    request list.
 
 
 
@@ -6780,7 +6747,7 @@ invented and dressed up as documented.** This section is the evidence.
 <div class="oct-stats" markdown>
 <div class="oct-stat"><b>49</b><span>tables documented (<code>-- src:</code>)</span></div>
 <div class="oct-stat"><b>6</b><span>tables inferred (<code>-- inferred</code>)</span></div>
-<div class="oct-stat"><b>20</b><span>cited, cached sources</span></div>
+<div class="oct-stat"><b>100%</b><span>cited, cached sourcing</span></div>
 <div class="oct-stat"><b>0</b><span>fabricated citations</span></div>
 </div>
 
@@ -6799,8 +6766,8 @@ invented and dressed up as documented.** This section is the evidence.
 
     ---
 
-    All 20 cited public documents — UNCTAD/DTL technical tables, national
-    ASYCUDA World manuals, and open standards — with URLs and notes.
+    The public documentation consulted — official public technical tables, national
+    ASYCUDA World manuals, and open standards — cited as generic categories.
 
     [:octicons-arrow-right-24: Sources](sources.md)
 
@@ -6817,7 +6784,7 @@ invented and dressed up as documented.** This section is the evidence.
 
     ---
 
-    Our reconstruction mapped table-by-table against the official UNCTAD/DTL
+    Our reconstruction mapped table-by-table against the official
     ASYCUDA World tables — where it fits, and where it deliberately differs.
 
     [:octicons-arrow-right-24: Fit & gap](fit.md)
@@ -6894,11 +6861,11 @@ Two tags, one on every `CREATE TABLE`, and the rule that governs them:
 
 **Used freely (public):**
 
-- UNCTAD / official ASYCUDA programme material and the **official UNCTAD/DTL
+- Official ASYCUDA / UNCTAD programme material and the **official
   technical table descriptions** (the real physical schema, published as
   reference documentation).
-- National customs administrations that publish full ASYCUDA World manuals
-  (FSM, Grenada, Marshall Islands, Guyana, Barbados, Saint Lucia, Uganda…).
+- Full ASYCUDA World user and broker manuals published by national customs
+  administrations (declaration processing, manifest/cargo, valuation, suspense).
 - Open standards: the **WCO Data Model**, the **SAD**, ISO 3166 / 4217 / 6346,
   UN/LOCODE, UN/ECE Rec 21, the Harmonized System, Incoterms.
 
@@ -6934,12 +6901,12 @@ These map directly to the [`customs-validate`](../skills/index.md) skill.
 
 <div class="oct-stats" markdown>
 <div class="oct-stat"><b>7</b><span>research phases</span></div>
-<div class="oct-stat"><b>20</b><span>sources fetched &amp; cached</span></div>
+<div class="oct-stat"><b>100%</b><span>sources fetched &amp; cached</span></div>
 <div class="oct-stat"><b>55</b><span>tables, 100% tagged</span></div>
 </div>
 
-1. **Orient** — the SAD overview, WCO Data Model briefing, and the UNCTAD
-   manifest XML spec; confirmed the general + item segment model.
+1. **Orient** — a SAD overview, a WCO Data Model briefing, and a cargo-manifest
+   XML message description; confirmed the general + item segment model.
 2. **Mine national manuals** — the highest-yield public source: full declaration
    and manifest user guides, from which field names, code lists, segments and
    lifecycles were extracted and restated.
@@ -6948,7 +6915,7 @@ These map directly to the [`customs-validate`](../skills/index.md) skill.
 4. **Draft the schema** module by module, loading into a scratch DB after each.
 5. **Seed & validate** — representative reference data and the end-to-end example.
 6. **Document & finalise** — data dictionary, ERD, coverage, fit/gap.
-7. **Integrate official data** — later, the **official UNCTAD/DTL table
+7. **Integrate official data** — later, the **official table
    descriptions** were cited across the schema, upgrading 11 tables from
    `inferred` to documented (49 / 6).
 
@@ -6971,49 +6938,63 @@ deliberate differences (FK vs inline code+name, surrogate keys, derived totals).
 
 # Sources
 
-Every `-- src: <ID>` in the schema resolves to a row below, and every row has a
-cached local copy under `sources/` (or `docs/` for the official technical
-documents). All material is public. This registry is the single source of truth
-for citations — reproduced here from `SOURCES.md`.
+Every `-- src: <ID>` in the schema resolves to a row below, where each ID denotes
+a **generic category of public documentation** consulted (specific titles,
+publishers and URLs are intentionally omitted). Each cited category has a cached
+local copy under `sources/` (or `docs/` for the official technical documents).
+All material is public. This registry is the single source of truth for citations
+— reproduced here from `SOURCES.md`.
 
 
-Every `-- src: <ID>` comment in `schema/*.sql` resolves to a row here, and every row
-has a cached local copy under `sources/` (the original PDF and/or an extracted `.txt`).
-All material is public: UNCTAD/ASYCUDA programme documents, national customs
-administrations publishing full ASYCUDA World manuals, and open standards references.
-Field semantics are restated in our own words; only short field labels are quoted.
+Every `-- src: <ID>` comment in `schema/*.sql` resolves to a row in this
+registry, and each `<ID>` denotes a category of **public documentation**
+consulted when modelling that table. A cached copy of the material is retained
+locally under `sources/` (or `docs/`).
 
-| ID | Title | URL | Cached file(s) | Note |
-|----|-------|-----|----------------|------|
-| S001 | Single Administrative Document (SAD) — overview | https://en.wikipedia.org/wiki/Single_Administrative_Document | `sources/S001_wikipedia_sad.txt` | SAD = 54 boxes, 8 parts; WCO "international standard" declaration form; general + item segments. |
-| S002 | ASYCUDA World User Manual — Declaration Processing (Uganda URA / UNCTAD) | https://archive.org/details/manualzilla-id-5869226 (full text: https://archive.org/download/manualzilla-id-5869226/5869226_djvu.txt) | `sources/S002_uganda_declaration_fulltext.txt` | Declaration lifecycle (stored→registered→assessed→paid→released), selectivity lanes (green/yellow/red/blue), finder search keys. |
-| S003 | ASYCUDA World — Declaration Reference User Guide (FSM Customs & Tax Administration / UNCTAD) | https://fsm.asycuda.org/Documents/Declaration_userguide.pdf | `sources/S003_fsm_declaration.pdf`, `.txt` | Authoritative SAD box-by-box map (boxes 1–54 + item boxes 31–49), valuation note (freight/insurance/other → item CIF), assessment/tax calculation (box 47), container list (box 19). |
-| S004 | ASYCUDA World Declaration Processing — Brokers' User Manual (Grenada Customs / UNCTAD) | https://asycuda.customs.gov.gd/pdf/broker%20manual.pdf | `sources/S004_grenada_broker.pdf`, `.txt` | Broker declaration workflow, valuation note, previous document / attached document tabs, selectivity & release. |
-| S005 | ASYCUDA World Declaration Submission — Customs User Guide (Marshall Islands RMI Customs / UNCTAD) | https://rmi.asycuda.org/documents/aw/RMI%20Customs%20User%20Guide%20-%20ASYCUDAWorld%20Declaration%20Submission.pdf | `sources/S005_rmi_declaration.pdf`, `.txt` | Declaration submission, payment & request selectivity, four selectivity lanes, release order. |
-| S006 | ASYCUDA World — Manifest Reference User Guide (FSM Customs & Tax Administration / UNCTAD) | https://fsm.asycuda.org/Documents/Manifest_userguide.pdf | `sources/S006_fsm_manifest.pdf`, `.txt` | Manifest general segment + bill-of-lading segment, master vs house B/L, degroupage, manifest status. |
-| S007 | ASYCUDA World Manifest User Guide (Guyana Revenue Authority / UNCTAD) | https://www.gra.gov.gy/storage/2021/01/CARGO-MANIFEST-USER-GUIDE-GUYANA-Revised-Feb-28-2020.pdf | `sources/S007_guyana_manifest.pdf`, `.txt` | Manifest data entry, carrier/voyage, waybill lines, containers, degroupage. |
-| S008 | Cargo Manifest — XML Message Description (UNCTAD ASYCUDA / Barbados) | https://asycuda.customs.gov.bb/awclient/ManifestEdiFiles/AW-XML_Manifest_Stucuture_Description.pdf | `sources/S008_unctad_manifest_xml.pdf`, `.txt` | Field-level EDI/XML spec: exact tag names, formats, mandatory/optional, and code lists (mode of transport, B/L nature, package type UN/ECE Rec 21, ISO 6346 container types, UN/LOCODE ports, freight PP/CC). Primary grounding for the manifest module. |
-| S009 | WCO Data Model — overview (WCO / CAREC programme briefing) | https://www.carecprogram.org/uploads/02-WCO-Customs-Data-Model.pdf | `sources/S009_wco_dm_carec.pdf`, `.txt` | WCO Data Model v3 main classes (Declaration, GoodsShipment, Consignment) that the SAD/ASYCUDA data model aligns to. |
-| S010 | Cargo Manifest — Carrier User Manual (Barbados Customs / UNCTAD) | https://asycuda.customs.gov.bb/files/CARGO%20MANIFEST-CARRIER%20USER%20MANUAL.pdf | `sources/S010_barbados_manifest.pdf`, `.txt` | Carrier manifest capture, master/house B/L relationship, container & seal capture. |
-| S011 | Cargo Manifest Manual (Saint Lucia Customs / UNCTAD) | https://asycuda.customs.gov.lc/documents/Cargo_Manifest_Manual.pdf | `sources/S011_stlucia_manifest.pdf`, `.txt` | Manifest general segment, transport document lifecycle, degroupage/consolidation. |
-| S012 | Incoterms — overview | https://en.wikipedia.org/wiki/Incoterms | `sources/S012_incoterms.txt` | Incoterms code list used by SAD box 20 (delivery terms). |
+> Specific document titles, publishers, and URLs have been intentionally omitted
+> from this registry. The model is grounded in public documentation only —
+> restated in the project's own words — not in any proprietary schema or data
+> from a live customs system.
 
-## Official ASYCUDA World technical documents (authoritative — added to `docs/`)
+## Categories consulted
 
-These are the **official UNCTAD/DTL ASYCUDA World database table descriptions** and official
-programme manuals (the real physical data model). They supersede the national-manual grounding
-where they overlap. Kept in `docs/` (per project request) and linked into `sources/`.
+- Public references on the **Single Administrative Document (SAD)** and Incoterms.
+- **National ASYCUDA World user and broker manuals** published by customs
+  administrations (declaration processing, manifest/cargo, valuation, suspense).
+- **Public ASYCUDA / UNCTAD programme documentation**, including official
+  technical table descriptions, processing manuals, and XML message descriptions.
+- **Open international standards**: ISO 3166 (countries), ISO 4217 (currencies),
+  ISO 6346 (containers), UN/LOCODE, UN/ECE Rec 21 (packages), the Harmonized
+  System, the WCO Data Model, Incoterms, and the WTO valuation methods.
 
-| ID | Title | URL | Cached file(s) | Note |
-|----|-------|-----|----------------|------|
-| S013 | The ASYCUDA World Reference Tables (UNCTAD/DTL) | provided in `docs/` (official UNCTAD/DTL technical doc) | `docs/S013_official_reference_tables.pdf`, `.txt` (linked in `sources/`) | Full catalogue of ~80 `UN*` reference tables (xxCTYTAB, xxCURTAB, xxHS1–6TAB, xxCP1/3/4TAB, xxTAXTAB, xxRULTAB, xxPKGTAB, xxCTNTAB, xxMOTTAB, xxTODTAB, xxWHSTAB, …), fields, keys, and the VALID_FROM/VALID_TO temporal-validity pattern. |
-| S014 | Declaration — Tables Description v0.1.0905 (UNCTAD/DTL) | provided in `docs/` (official UNCTAD/DTL technical doc) | `docs/S014_official_declaration_tables.pdf`, `.txt` (linked in `sources/`) | Real SAD tables: `SAD_General_Segment`, `SAD_Item`, `SAD_Tax`, `SAD_Ask_Tax`, `SAD_Global_Taxes`, `SAD_Tax_Totals`, `SAD_Attached_Documents`, `SAD_Int` (previous docs), `SAD_Relief`, warehouse/suspense (`SUS_WH_IN`, `WHS_DLY*`), serials, `Exit_Note_*`, selectivity (`SEL_*`), `INSP_ACT_TAB`, `VAL_CTL_TAB`. Field-level DOM names/types. |
-| S015 | Manifest — Tables Description v0.1.0905 (UNCTAD/DTL) | provided in `docs/` (official UNCTAD/DTL technical doc) | `docs/S015_official_manifest_tables.pdf`, `.txt` (linked in `sources/`) | Real manifest tables: `GEN_TAB` (general segment), `BOL_TAB` (bill of lading, denormalised), `CTN_TAB`/`BOL_CTN_TAB` (containers), `HIS_WRITE_OFF_TAB`/`REM_WRITE_OFF_TAB` (write-off), `MAN_TRANSIT_TAB`/`MAN_TRANSH_TAB` (transit/transhipment). |
-| S016 | Accounting — Tables Description v0.1.0905 (UNCTAD/DTL) | provided in `docs/` (official UNCTAD/DTL technical doc) | `docs/S016_official_accounting_tables.pdf`, `.txt` (linked in `sources/`) | Real accounting tables: receipts & `TAX_TAB` (taxes per receipt), account transactions in/out (xxATITAB/xxATOTAB), serial management (`SER_LETTERS_TAB`, `SER_NBERING_TAB`), account locks, cashier/shift/daybook reports. |
-| S017 | ASYCUDA World — SAD Processing Manual (Part 2, official asycuda.world) | https://asycuda.world/downloads/documentation/PART_2_SAD_PROCESSING_MANUAL_FOR_ASYCUDA_WORLD.pdf | `docs/S017_official_sad_processing_manual.pdf`, `.txt` (linked in `sources/`) | Official SAD processing workflow, tabs, valuation, assessment, selectivity, payment, release. |
-| S018 | ASYCUDA World — Introductory Manual (Part 1, official asycuda.world) | https://asycuda.world/downloads/documentation/PART_1_INTRODUCTORY_MANUAL_FOR_ASYCUDA_WORLD.pdf | `docs/S018_official_introductory_manual.pdf`, `.txt` (linked in `sources/`) | Official system overview, document library, reference-table concept, roles. |
-| S019 | ASYCUDA World — Suspense Declarations User Manual v3 (Saint Lucia Customs / UNCTAD) | https://asycuda.customs.gov.lc/documents/Suspense_Declarations_User_Manual_v3.pdf | `docs/S019_suspense_declarations.pdf`, `.txt` (linked in `sources/`) | Warehousing, transit, temporary admission suspense regimes, guarantees, extension of delay, write-off — grounds the transit/warehouse/temp-admission module. |
-| S020 | Cargo Manifest XML Message Description (St Vincent & the Grenadines Customs / UNCTAD) | https://customs.gov.vc/downloads/DRAFT-SVG-AW-XML-Manifest-Structure-Description.pdf | `docs/S020_svg_manifest_xml.pdf`, `.txt` (linked in `sources/`) | Second official copy of the AWMDS XML manifest structure (cross-check of S008). |
+## Registry
+
+| ID | Category | Cached |
+|----|----------|:------:|
+| S001 | Public reference on the SAD declaration | yes |
+| S002 | National ASYCUDA World declaration-processing manual | yes |
+| S003 | National ASYCUDA World declaration user guide | yes |
+| S004 | National ASYCUDA World broker manual | yes |
+| S005 | National ASYCUDA World declaration user guide | yes |
+| S006 | National ASYCUDA World manifest user guide | yes |
+| S007 | National ASYCUDA World manifest user guide | yes |
+| S008 | Public ASYCUDA World cargo-manifest XML message description | yes |
+| S009 | Public WCO Data Model overview | yes |
+| S010 | National ASYCUDA World manifest manual | yes |
+| S011 | National ASYCUDA World manifest manual | yes |
+| S012 | Public Incoterms reference | yes |
+| S013 | Official ASYCUDA World reference-tables description | yes |
+| S014 | Official ASYCUDA World declaration-tables description | yes |
+| S015 | Official ASYCUDA World manifest-tables description | yes |
+| S016 | Official ASYCUDA World accounting-tables description | yes |
+| S017 | Official ASYCUDA World SAD processing manual | yes |
+| S018 | Official ASYCUDA World introductory manual | yes |
+| S019 | ASYCUDA World suspense-declarations manual | yes |
+| S020 | Public ASYCUDA World XML manifest message description | yes |
+
+Field semantics were restated in the project's own words; only short field labels
+were reused. Where a table could not be grounded in consulted documentation it is
+tagged `-- inferred` in the schema and recorded in `COVERAGE.md`.
 
 
 
@@ -7035,12 +7016,12 @@ core grounded, some columns/tables inferred; **inferred** = introduced by modell
 Every `CREATE TABLE` in `schema/asycuda.sql` (55 tables) carries a `-- src:` or `-- inferred`
 tag; this file rolls those up by GOAL §4 module.
 
-> **Official-data update.** The official UNCTAD/DTL table descriptions in `docs/` (S013 Reference
-> Tables, S014 Declaration Tables, S015 Manifest Tables, S016 Accounting Tables) plus the Suspense
-> Declarations manual (S019) are now cited across the schema. This upgraded 11 tables from
-> `inferred` to documented (exchange-rate, unit-of-measure, tax-rate, manifest-status,
-> account-movement, guarantee, warehouse entry/exit, temporary-admission, risk-criterion, audit-log).
-> See `FIT.md` for the full official-table-to-model mapping. Current tally: **49 documented / 6 inferred**.
+> **Official-data update.** The official technical table descriptions cached under `docs/`
+> (S013–S016) plus the suspense-declarations manual (S019) are now cited across the schema. This
+> upgraded 11 tables from `inferred` to documented (exchange-rate, unit-of-measure, tax-rate,
+> manifest-status, account-movement, guarantee, warehouse entry/exit, temporary-admission,
+> risk-criterion, audit-log). See `FIT.md` for the full official-table-to-model mapping. Current
+> tally: **49 documented / 6 inferred**.
 
 ---
 
@@ -7140,7 +7121,7 @@ noted in RESEARCH_LOG but not modelled as a table (out of the e2e path). Marked 
 
 ## Roll-up
 
-- **Documented (`-- src:`):** 49 tables — after citing the official UNCTAD/DTL table descriptions
+- **Documented (`-- src:`):** 49 tables — after citing the official table descriptions
   (S013–S016) and the Suspense manual (S019), all reference/manifest/declaration/accounting/transit/
   selectivity/audit tables are grounded in an official or public source.
 - **Inferred (`-- inferred`):** 6 tables — `trader_role`, `sys_role`, `sys_permission`, `sys_user_role`,
@@ -7159,15 +7140,14 @@ No table is left untagged; the honest inferred set is preferred over fabricated 
 
 # Official fit & gap analysis
 
-How the reconstructed model measures up against the **official UNCTAD/DTL
-ASYCUDA World table descriptions** (S013–S016). Verdict first, then the
+How the reconstructed model measures up against the **official public
+ASYCUDA World technical table descriptions** (S013–S016). Verdict first, then the
 table-by-table mapping and the deliberate structural differences. Reproduced from
 `FIT.md`.
 
 
-This checks our reconstructed PostgreSQL model (`schema/asycuda.sql`) against the **official
-UNCTAD/DTL ASYCUDA World table descriptions** now in `docs/` (S013 Reference Tables, S014
-Declaration Tables, S015 Manifest Tables, S016 Accounting Tables). Verdict first, then the
+This checks our reconstructed PostgreSQL model (`schema/asycuda.sql`) against the **official public
+ASYCUDA World technical table descriptions** cached under `docs/` (S013–S016). Verdict first, then the
 table-by-table mapping and the deliberate structural differences.
 
 ## Verdict

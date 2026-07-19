@@ -2457,12 +2457,12 @@ core grounded, some columns/tables inferred; <strong>inferred</strong> = introdu
 <p>Every <code>CREATE TABLE</code> in <code>schema/asycuda.sql</code> (55 tables) carries a <code>-- src:</code> or <code>-- inferred</code>
 tag; this file rolls those up by GOAL §4 module.</p>
 <blockquote>
-<p><strong>Official-data update.</strong> The official UNCTAD/DTL table descriptions in <code>docs/</code> (S013 Reference
-Tables, S014 Declaration Tables, S015 Manifest Tables, S016 Accounting Tables) plus the Suspense
-Declarations manual (S019) are now cited across the schema. This upgraded 11 tables from
-<code>inferred</code> to documented (exchange-rate, unit-of-measure, tax-rate, manifest-status,
-account-movement, guarantee, warehouse entry/exit, temporary-admission, risk-criterion, audit-log).
-See <code>FIT.md</code> for the full official-table-to-model mapping. Current tally: <strong>49 documented / 6 inferred</strong>.</p>
+<p><strong>Official-data update.</strong> The official technical table descriptions cached under <code>docs/</code>
+(S013–S016) plus the suspense-declarations manual (S019) are now cited across the schema. This
+upgraded 11 tables from <code>inferred</code> to documented (exchange-rate, unit-of-measure, tax-rate,
+manifest-status, account-movement, guarantee, warehouse entry/exit, temporary-admission,
+risk-criterion, audit-log). See <code>FIT.md</code> for the full official-table-to-model mapping. Current
+tally: <strong>49 documented / 6 inferred</strong>.</p>
 </blockquote>
 <hr />
 <h2 id="41-reference-configuration-documented-partial">4.1 Reference / configuration — <strong>documented (partial)</strong><a class="headerlink" href="#41-reference-configuration-documented-partial" title="Anchor link to this section">&para;</a></h2>
@@ -2824,7 +2824,7 @@ noted in RESEARCH_LOG but not modelled as a table (out of the e2e path). Marked 
 <hr />
 <h2 id="roll-up">Roll-up<a class="headerlink" href="#roll-up" title="Anchor link to this section">&para;</a></h2>
 <ul>
-<li><strong>Documented (<code>-- src:</code>):</strong> 49 tables — after citing the official UNCTAD/DTL table descriptions
+<li><strong>Documented (<code>-- src:</code>):</strong> 49 tables — after citing the official table descriptions
   (S013–S016) and the Suspense manual (S019), all reference/manifest/declaration/accounting/transit/
   selectivity/audit tables are grounded in an official or public source.</li>
 <li><strong>Inferred (<code>-- inferred</code>):</strong> 6 tables — <code>trader_role</code>, <code>sys_role</code>, <code>sys_permission</code>, <code>sys_user_role</code>,

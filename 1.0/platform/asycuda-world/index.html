@@ -2480,31 +2480,31 @@ the RDBMS, ASYHUB, IATA Cargo-XML, or XML file import. See
 </div>
 <h2 id="what-this-toolbox-models">What this toolbox models<a class="headerlink" href="#what-this-toolbox-models" title="Anchor link to this section">&para;</a></h2>
 <p>The toolbox reconstructs the ASYCUDA World data model as a clean, normalised
-PostgreSQL schema. It is grounded in the <strong>official UNCTAD/DTL ASYCUDA World
-Tables Description v0.1.0905</strong> documents:</p>
+PostgreSQL schema. It is grounded in public UNCTAD/ASYCUDA programme table
+descriptions covering the four table families:</p>
 <table>
 <thead>
 <tr>
-<th>Source</th>
+<th>Family</th>
 <th>Covers</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>S013</strong></td>
-<td>Reference tables (the <code>UN*</code> code-table catalogue)</td>
+<td>Reference tables</td>
+<td>the <code>UN*</code> code-table catalogue</td>
 </tr>
 <tr>
-<td><strong>S014</strong></td>
-<td>Declaration tables (<code>SAD_General_Segment</code>, <code>SAD_Item</code>, <code>SAD_Tax</code>, selectivity, inspection…)</td>
+<td>Declaration tables</td>
+<td><code>SAD_General_Segment</code>, <code>SAD_Item</code>, <code>SAD_Tax</code>, selectivity, inspection…</td>
 </tr>
 <tr>
-<td><strong>S015</strong></td>
-<td>Manifest tables (<code>GEN_TAB</code>, <code>BOL_TAB</code>, containers, transit)</td>
+<td>Manifest tables</td>
+<td><code>GEN_TAB</code>, <code>BOL_TAB</code>, containers, transit</td>
 </tr>
 <tr>
-<td><strong>S016</strong></td>
-<td>Accounting tables (receipts, <code>TAX_TAB</code>, account transactions)</td>
+<td>Accounting tables</td>
+<td>receipts, <code>TAX_TAB</code>, account transactions</td>
 </tr>
 </tbody>
 </table>
@@ -2524,18 +2524,17 @@ including the deliberate structural differences — is in
 manuals</em> — never as a published database schema. The documentation lives in a few
 predictable places:</p>
 <ul>
-<li><strong>UNCTAD official:</strong> <code>asycuda.org</code>, and the ASYCUDA World manuals on
-  <code>asycuda.world</code> — Part 1 (Introductory) and Part 2 (SAD Processing).</li>
-<li><strong>National customs portals:</strong> each country documents its own instance, hosted
-  on the recurring patterns <code>[country].asycuda.org</code> and
-  <code>asycuda.customs.gov.[cc]</code>. These SAD field guides and broker manuals are the
-  richest public window onto the model.</li>
-<li><strong>Restricted (member customs only):</strong> the e-learning platform
-  (<code>elearning.asycuda.org</code>) and developer GitLab (<code>gitlab.asycuda.org</code>), plus the
-  core functional and technical reference manuals. Request access via
-  <strong>ASYCUDA@UNCTAD.org</strong> or a national customs ASYCUDA project team.</li>
+<li><strong>Programme materials:</strong> the public UNCTAD/ASYCUDA introductory and SAD
+  processing manuals and general platform documentation.</li>
+<li><strong>National customs portals:</strong> each country documents its own instance. These
+  SAD field guides and broker manuals are the richest public window onto the
+  model.</li>
+<li><strong>Restricted (member customs only):</strong> gated learning platforms, credentialed
+  developer repositories and the core functional and technical reference manuals.
+  Request access through a national customs ASYCUDA project team or the UNCTAD
+  ASYCUDA programme.</li>
 </ul>
-<p>The full annotated list is on the <a href="../resources/">Resources</a> page.</p>
+<p>More on the shape of this landscape is on the <a href="../resources/">Resources</a> page.</p>
 <h2 id="next">Next<a class="headerlink" href="#next" title="Anchor link to this section">&para;</a></h2>
 <ul>
 <li><a href="../xml-messages/">XML messages</a> — the <code>&lt;ASYCUDA&gt;</code> document format and the

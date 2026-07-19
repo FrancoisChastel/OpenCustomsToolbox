@@ -2384,8 +2384,8 @@
 <h1 id="ml-on-customs-data">ML on customs data<a class="headerlink" href="#ml-on-customs-data" title="Anchor link to this section">&para;</a></h1>
 <p>This toolbox was reconstructed with two payloads in mind: <strong>(1)</strong> doing
 analytics / ML on customs declarations, and <strong>(2)</strong> plugging an external risk
-engine into the clearance flow. This guide is the blueprint — distilled from a
-deep-research pass over the public ASYCUDA record — and, crucially, a way to
+engine into the clearance flow. This guide is the blueprint — distilled from the
+public ASYCUDA record and public customs-ML research — and, crucially, a way to
 <strong>prototype the whole loop against this schema before you have access to a live
 ASYCUDA system</strong>.</p>
 <div class="admonition note">
@@ -2406,30 +2406,28 @@ everything here plugs into.</p>
     D --&gt; F[Inspection Act]
     E --&gt; F
     F --&gt;|feedback: relabel| B</code></pre>
-<p>The pattern is proven at three levels of evidence:</p>
+<p>The pattern is proven at several levels of evidence:</p>
 <ul>
-<li><strong>TTEK RiskLab</strong> <code>[C]</code> — the real-world blueprint on legacy AW. TTEK's
-  <em>"ASYCUDA Plugin for Risk Management Targeting and Selectivity"</em> ingests
-  ASYCUDA data <em>"through either a database connection or API,"</em> trains/scores
-  externally, pushes high-risk flags back, and feeds inspection outcomes back in
-  real time to retrain. (Vendor source — rating C.)</li>
-<li><strong>Nepal Customs CRMS</strong> <code>[A]</code> — the live production analogue (WCO News, Mar
-  2026). <em>"A separate but integrated module within ASYCUDA World"</em> that, on
-  submission, <em>"retrieves the declaration information in real time from
-  ASYCUDA,"</em> scores it (nomenclature, origin, importer/exporter history,
-  declaration patterns, valuation anomalies), and <em>"sends risk recommendations
-  back to officers through ASYCUDA World."</em> This proves the architecture is
-  deployable <strong>today</strong> — rating A.</li>
-<li><strong>ASY5 first-class hook</strong> <code>[A]</code> — the new generation transforms <em>"signals from
-  ML analysis of customs data or from third-party AI engines … into clear risk
+<li><strong>Vendor risk-management plugins</strong> on legacy AW — the real-world blueprint.
+  A typical plugin ingests ASYCUDA data <em>through either a database connection or
+  an API</em>, trains and scores externally, pushes high-risk flags back into
+  selectivity, and feeds inspection outcomes back in real time to retrain.</li>
+<li><strong>Live production deployments</strong> — the deployable analogue. A separate but
+  integrated risk module within ASYCUDA World retrieves the declaration in real
+  time on submission, scores it (nomenclature, origin, importer/exporter history,
+  declaration patterns, valuation anomalies), and sends risk recommendations back
+  to officers through ASYCUDA World. This proves the architecture is deployable
+  <strong>today</strong>.</li>
+<li><strong>ASY5 first-class hook</strong> — the new generation transforms <em>"signals from ML
+  analysis of customs data or from third-party AI engines … into clear risk
   profiles"</em> via a <strong>Risk Configuration → Signal Transformation → Risk Output</strong>
   pipeline. The intended injection point once a country is on ASY5 — but the
   <strong>payload format is not yet public</strong>.</li>
 </ul>
 <h2 id="the-feature-set">The feature set<a class="headerlink" href="#the-feature-set" title="Anchor link to this section">&para;</a></h2>
-<p>The empirically-standard feature schema (the DATE / BACUDA open columns) maps
-directly onto ASYCUDA fields and onto our tables. The fourth column is what you
-query in the <a href="../../schema/data-dictionary/"><code>asycuda</code></a> schema:</p>
+<p>The empirically-standard feature schema used across public customs-ML research
+maps directly onto ASYCUDA fields and onto our tables. The fourth column is what
+you query in the <a href="../../schema/data-dictionary/"><code>asycuda</code></a> schema:</p>
 <table>
 <thead>
 <tr>
@@ -2610,29 +2608,29 @@ the literature leans on hardest:</p>
 above is verified against the schema.</p>
 <div class="admonition tip">
 <p class="admonition-title">External baselines to prototype against</p>
-<p>Before you have real ASYCUDA history, train against public data:</p>
+<p>Before you have real ASYCUDA history, train against <strong>public customs-ML
+research and open customs datasets</strong>. The field offers:</p>
 <ul>
-<li><strong>Korea Customs 62→22 synthetic dataset</strong> — 54k CTGAN-synthetic records
-  with <code>Fraud</code> / <code>Critical fraud</code> labels
-  (<a href="https://github.com/Seondong/Customs-Declaration-Datasets">Seondong/Customs-Declaration-Datasets</a>).
-  The single best downloadable dataset to prototype against.</li>
-<li><strong>DATE</strong> (KDD 2020) — <strong>92.7% precision, 49.3% revenue recall inspecting
-  1% of flows</strong> on Nigeria data; a dual-task (illicitness + recoverable
-  revenue) batch scorer
-  (<a href="https://dl.acm.org/doi/10.1145/3394486.3403339">paper</a>).</li>
-<li><strong>WCO BACUDA notebooks</strong> — the reference open-source analytics
-  (<a href="https://github.com/YSCHOI-github/Customs_Fraud_Detection">YSCHOI-github/Customs_Fraud_Detection</a>).</li>
+<li><strong>Open, downloadable customs declaration datasets</strong> — some synthetic, with
+  fraud / critical-fraud labels — good enough to prototype the feature
+  pipeline and modelling against before you have real history.</li>
+<li><strong>Published dual-task scorers</strong> that predict both illicitness and
+  recoverable revenue, reporting high precision and revenue recall while
+  inspecting only a small fraction of flows — a well-documented target to
+  benchmark against.</li>
+<li><strong>Reference open-source analytics notebooks</strong> for customs fraud detection —
+  the standard starting point for feature engineering and baselines.</li>
 </ul>
 </div>
 <h2 id="going-live">Going live<a class="headerlink" href="#going-live" title="Anchor link to this section">&para;</a></h2>
-<p>Once you move from this sandbox to a real deployment, the research's four-step
-reference architecture:</p>
+<p>Once you move from this sandbox to a real deployment, the four-step reference
+architecture:</p>
 <ol>
 <li><strong>Read</strong> — a <strong>DB read-replica</strong> of the ASYCUDA schema for training data
-   (the proven TTEK path), plus <strong>ASYHUB</strong> API / <strong>Cargo-XML</strong> pre-arrival feed
-   or <strong>Kafka</strong> (ASY5) for real-time scoring.</li>
+   (the proven path for vendor risk plugins), plus <strong>ASYHUB</strong> API / <strong>Cargo-XML</strong>
+   pre-arrival feed or <strong>Kafka</strong> (ASY5) for real-time scoring.</li>
 <li><strong>Score</strong> — output a per-declaration fraud/illicitness score <strong>and</strong> predicted
-   recoverable revenue (dual-task, like DATE).</li>
+   recoverable revenue (a dual-task scorer).</li>
 <li><strong>Inject</strong> — on legacy AW, write into selectivity criteria / trader profiles,
    prioritising the <strong>random / exploration slot</strong>; on ASY5, emit "signals".</li>
 <li><strong>Feedback</strong> — read <strong>Inspection Act / PCA</strong> outcomes to relabel and retrain.</li>
@@ -2647,13 +2645,14 @@ declaration. Confirm the mode before committing to real-time.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">What to request — these are not public</p>
-<p>Neither DATE nor BACUDA ships an ASYCUDA connector; the ETL and write-back
-are bespoke in every deployment. Before building, request from your national
-customs / <code>ASYCUDA@UNCTAD.org</code>: the <strong>physical DB schema</strong>, the
-<strong>ASYHUB API spec</strong>, the <strong>ASY5 risk-signal payload format</strong>, the <strong>Asysel</strong>
-admin data model, and <strong>Inspection-Act read access</strong> (illicit flag +
-recovered revenue). See <a href="../../platform/integration/">Integration surfaces</a>
-for the doors and the request list.</p>
+<p>No public customs-ML dataset or research codebase ships an ASYCUDA connector;
+the ETL and write-back are bespoke in every deployment. Before building,
+request from your national customs administration or the UNCTAD ASYCUDA
+programme: the <strong>physical DB schema</strong>, the <strong>ASYHUB API spec</strong>, the <strong>ASY5
+risk-signal payload format</strong>, the <strong>Asysel</strong> admin data model, and
+<strong>Inspection-Act read access</strong> (illicit flag + recovered revenue). See
+<a href="../../platform/integration/">Integration surfaces</a> for the doors and the
+request list.</p>
 </div>
 
 

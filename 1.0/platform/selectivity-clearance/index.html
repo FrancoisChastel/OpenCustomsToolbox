@@ -2439,12 +2439,12 @@ For <em>our</em> tables — <code>ref_selectivity_lane</code>, <code>risk_criter
 <a href="../../schema/selectivity/">Selectivity &amp; risk</a> in the schema section.</p>
 <div class="admonition note">
 <p class="admonition-title">Where these facts come from</p>
-<p>The lane model and criterion structure are grounded in UNCTAD's ASYCUDA
-newsletters (Aug 2019, Sept 2021) and national brokers' manuals <code>[A/B]</code>; the
-status model comes chiefly from the Uganda URA <em>Declaration Processing</em>
-manual <code>[A/B]</code>. The <strong>Asysel admin data model</strong> (operators, priorities,
-score→lane thresholds) is deliberately <strong>not public</strong> — kept hidden to
-prevent gaming. Everything below is reconstructed from the public layer.</p>
+<p>The lane model and criterion structure are grounded in public ASYCUDA
+programme material and national brokers' manuals; the status model comes
+chiefly from national declaration-processing manuals. The <strong>Asysel admin data
+model</strong> (operators, priorities, score→lane thresholds) is deliberately <strong>not
+public</strong> — kept hidden to prevent gaming. Everything below is reconstructed
+from the public layer.</p>
 </div>
 <h2 id="the-clearance-state-machine">The clearance state machine<a class="headerlink" href="#the-clearance-state-machine" title="Anchor link to this section">&para;</a></h2>
 <p>The central object is the <strong>SAD</strong> (the declaration). It moves through a fixed
@@ -2585,15 +2585,16 @@ things make it powerful for ML integration:</p>
   manifest / bill-of-lading field. This is what extends control to pre-arrival.</li>
 </ul>
 <p>Two scoring generations coexist. <strong>(A) Classic rule-based</strong> — per-criterion
-weights configured nationally (Mali: importer / origin / tariff each classed
-low/med/high by fraud rate → Red if ≥1 high or ≥2 medium; Yellow if 1 medium;
-else Green). <strong>(B) ML "Dynamic Selectivity"</strong> (AW v4.4+, ~2021) — UNCTAD's
-<strong>native</strong> ML component that <em>"assigns a score and the degree of inspection"</em>
-from declarant / importer / origin, self-updating from inspection feedback.</p>
+weights configured nationally (a typical scheme classes importer / origin /
+tariff each low/med/high by fraud rate → Red if ≥1 high or ≥2 medium; Yellow if
+1 medium; else Green). <strong>(B) ML "Dynamic Selectivity"</strong> (AW v4.4+, ~2021) —
+UNCTAD's <strong>native</strong> ML component that <em>"assigns a score and the degree of
+inspection"</em> from declarant / importer / origin, self-updating from inspection
+feedback.</p>
 <div class="admonition tip">
 <p class="admonition-title">The random slot is the injection point</p>
 <p>A distinct <strong>random selectivity</strong> layer re-routes a percentage of green
-declarations to red — best-documented value <strong>1–3%</strong> (Mali) — so procedures
+declarations to red — commonly around <strong>1–3%</strong> — so procedures
 stay unpredictable. A separate random function even assigns <em>which officer</em>
 verifies (anti-collusion). <strong>This random slot is the natural injection point
 for an ML "exploration" strategy</strong> — the exploitation/exploration split that
@@ -2658,7 +2659,7 @@ real-time. See the <a href="../../guides/ml-risk-engine/#going-live">ML risk-eng
 </tbody>
 </table>
 <h3 id="two-honest-gaps">Two honest gaps<a class="headerlink" href="#two-honest-gaps" title="Anchor link to this section">&para;</a></h3>
-<p>The research's state machine has two states our status catalogue does <strong>not</strong>
+<p>The full clearance state machine has two states our status catalogue does <strong>not</strong>
 carry as <code>ref_declaration_status</code> rows:</p>
 <div class="admonition warning">
 <p class="admonition-title">SELECTED and EXITED are not statuses in our model</p>
