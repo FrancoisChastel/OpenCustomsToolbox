@@ -1,0 +1,324 @@
+ASYCUDA WORLD
+Declaration Processing
+
+       Brokers’
+    USER MANUAL
+              ASY C U D A Wor l d -D e c l a r a t i o n                                 Process ing
+
+                                          USE R MA N U A L
+
+
+
+
+                                                      Introduction
+The declaration processing capability is the core component of any automated customs software. It reflects both the
+system behavior and the customs practice in force. When it is plugged into its surrounding environment; customs tariffs,
+reference tables, taxation rules and the other customs legal basis, a complete customs automated system is created.
+
+
+
+Declarations are the base document of the customs and are used to control the movement of goods into and out of the
+country. They also represent the data repository for calculation, and consequently collection, of taxes and duties as well as
+the main source of national trade statistics.
+
+
+
+AW provides a robust, comprehensive declaration processing capability which is based on using the SAD as a standard
+form. The SAD (Acronym of Single Administrative Document, developed by the EU and called for as an ‘International
+Standard’ by the WCO), as utilized by AW Declaration Processing Capability (DPC), covers all customs procedures and
+regimes except transit procedures.
+
+
+
+In this system, customs officers do not key in declaration on behalf of traders. Rather they do the control portion of the
+customs’ declaration process. More room is left for traders to key in their declaration themselves (DTI).
+
+
+
+
+                                                                                                                             2
+           ASY C U D A Wor l d -D e c l a r a t i o n                                            Process ing
+
+                                       USE R MA N U A L
+
+Before keying declaration please ensure that you have all the required documents needed to complete declaration,
+such as; ASYCUDA bill of lading, invoices, freight document and any other permits of licenses must be submitted with
+declaration.
+
+
+
+   STEP 1- Create Declaration
+   WHAT TO DO                  PROCEDURE
+       1. Access Declaration   To access the declaration module Select the following path; ASYCUDA→
+           Module              Goods Clearance→Declaration →Detailed Declaration as shown below
+
+                               To open a new declaration, Right Click on Detailed
+                               Declaration and select NEW
+
+
+
+
+       2. Complete             After selecting the declaration model, the system will display the declaration Form
+           General Segment     (Single Administrative Document – SAD) complete all the fields; begin with the
+                               general segment.
+
+
+   Use attached Declaration    In Box 1 select the model of
+   Fields guide to complete    Declaration according to the Customs
+   declaration                 Regime required for the goods being
+                               imported or
+                               exported.
+
+
+                               It is very important to make sure you selected the correct model of declaration since it will determine
+                               the type of controls and data that the system will make available on the declaration form
+
+                               After filling out General segment continue by filling out all information in item
+       3. Complete Item
+           Segment             segment for Item1.
+
+
+
+
+                                                                                                                                         3
+         ASY C U D A Wor l d -D e c l a r a t i o n                                              Process ing
+
+                                        USE R MA N U A L
+
+                                NOTE: Use attached “Fields Guide” to fill out declaration
+                                To open Valuation Note select Val. Note tab in the bottom of Declaration as indicated below.
+    4. Complete                 Input invoiced value of all the goods declared in the main SAD form and other information
+        Valuation Note          such as total freight, insurance and any other charges associated with the consignment.
+
+
+
+
+                                It automatically apportions the costs between the declaration items when two more
+                                items are declared.
+
+                                Select Item Value note tab in bottom of declaration.
+    5. Complete Item
+        Value Note
+
+ Information on Value note
+should match information on
+Valuation note if only 1 item   Upon the completion of all customs value related elements, the CIF value (which is the tax
+is declared                     base for customs duties) is automatically calculated for each item.
+
+                                To add another item select the add icon in the Menu Bar. Fill out all necessary
+    6. Add additional
+        Items (if required)      information and select add item icon     to continue adding items to
+                                declaration
+The system accepts up to
+200 items per declaration
+
+
+
+                                The system will automatically apportion the freight and other charges to the items declared based on
+                                value.
+
+
+
+
+                                                                                                                                       4
+    ASY C U D A Wor l d -D e c l a r a t i o n                               Process ing
+
+                             USE R MA N U A L
+
+                       Select ATT. Doc tab on declaration, on this page select code type for document and
+7. Attach Required
+    documents          right click in reference section to attach document.
+
+
+
+
+                       Use the additional info tab to input any pertinent information pertaining to the
+8. Fill in Add. Info
+                       declaration.
+
+
+
+
+                       Fill in Suppliers Information for each invoice attached to the declaration
+9. Fill in Suppliers
+    Information
+
+
+
+
+                                                                                                            5
+        ASY C U D A Wor l d -D e c l a r a t i o n                                        Process ing
+
+                                        USE R MA N U A L
+
+                                 If goods are containerised select container tab and fill in the required information
+    10. Fill Container
+        information (if any)
+
+
+
+
+STEP 2- Verify for consistency
+WHAT TO DO                       PROCEDURE
+    11. Verify Document          After inputting all required data select the Verify icon to check for any errors and to
+                                 calculate duties.
+System will not verify
+document until all errors
+are corrected
+
+
+                                 If there are any errors system will indicate with a message prompt
+
+
+
+
+STEP 3- Store Declaration
+    12. Store Document             To store declaration select the Store icon           in the menu bar on the opened
+                                   declaration.
+The user can store a
+declaration at anytime even if
+the document is not completed.
+
+
+
+
+                                   As soon as you select the Store option, the system will show the following
+                                   screen, confirming that STORE of your declaration has been successful.
+
+
+
+
+                                                                                                                           6
+          ASY C U D A Wor l d -D e c l a r a t i o n                                            Process ing
+
+                                            USE R MA N U A L
+
+     13. Retrieve Stored               To retrieve a stored declaration go to Detailed declaration in document library
+          Declaration                  and right click on FIND
+
+
+
+
+                                       In finder use reference number to find declaration and select search button as
+                                       shown below
+
+
+
+
+                                       Right click on the desired document as shown below and select Retrieve to
+                                       continue working on the declaration
+
+
+
+
+STEP 4- Assess Declaration
+          WHAT TO DO                   PROCEDURE
+     14. Validate and Assess           On the opened declaration, select the Validate and Assess Icon to obtain
+                                       assessment for payment.
+Assess means that you are
+submitting the declaration
+for Customs acceptance, and
+acknowledge the values
+included in it as correct and exact.
+
+                                       When you select this option, the system will verify that all data is consistent, even though
+Assessment       of     a              you may have done it before.
+declaration brings on all
+legal     bindings   with
+Customs.
+
+                                       The System will indicate that your declaration is assessed and will indicate the
+                                       assessment number needed to make payment.
+
+
+
+
+                                                                                                                                      7
+        ASY C U D A Wor l d -D e c l a r a t i o n                                           Process ing
+
+                                    USE R MA N U A L
+
+
+
+
+STEP 5- Make Payment and Request Selectivity
+       WHAT TO DO              PROCEDURE
+   15. Pay Declaration         Supply the cashier with the Assessment number of your declaration to make
+                               payment.
+
+
+
+
+   16. Request Selectivity
+                               Cashier will issue a receipt to confirm payment of declaration.
+
+                               Use finder to locate declaration, right click and select Release Order from the
+                               drop down menu as indicated below
+
+
+
+
+All declarations with Red or
+Yellow lanes will have a       By selecting this option, you are requesting that customs system triggers the
+customs officer assigned for   selectivity for determining what examination is required for your declaration
+examination
+
+
+                               System will indicate with a message the assigned lane for your declaration
+
+
+
+
+                                                                                                                 8
+              ASY C U D A Wor l d -D e c l a r a t i o n                              Process ing
+
+                                        USE R MA N U A L
+
+
+
+
+                                The system has four selectivity lanes for your declaration:
+
+                                RedLane
+                                This means that your declaration requires both documentary check and
+                                Physical examination. Present to customs a printed Assessment Notice with all
+                                relevant documents and await physical examination.
+
+                                YellowLane
+                                This means that your declaration only requires a documentary check. Present to
+                                customs a printed copy of your Assessment Notice and all relevant documents.
+
+                                BlueLane
+                                This means that your declaration has been automatically authorized to be
+                                released, however, your documents and good will undergo post clearance checks
+                                by Customs.
+
+                                GreenLane
+                                This means that your declaration has been automatically authorized to be
+                                released. If it is an import, you can collect your consignment from the custodian
+                                of goods. If it is an export then your goods are ready to be shipped.
+
+                                Note: Customs reserves the right to examine goods assigned to Green lane
+STEP 6 - Collect Goods
+    17. Lodge Document          Proceed to station where goods are located. Officer will advise whether you
+  (Where goods are Located)     should wait or return for examination based on work load.
+Only Red and Yellow lane
+declarations should be lodged   Upon examination goods/document and issue a release order which must be
+                                taken to custodian for delivery.
+
+
+
+
+                                                                                                                    9
+ASY C U D A Wor l d -D e c l a r a t i o n                      Process ing
+
+                 USE R MA N U A L
+
+             If declaration was assigned to green lane or blue, the Declarant can print his/her
+             Release Order.
+
+
+
+
+                                                                                                  10
+

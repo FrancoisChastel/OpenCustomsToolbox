@@ -1,0 +1,5183 @@
+
+
+
+
+
+
+UNITE а IONS 
+UNCTAD 
+
+
+C 
+- Ф 
+з D 
+: c 
+g 
+
+
+ASYCUDA World 
+
+
+User Manual 
+
+
+Declaration Processing for Customs Staff 
+
+
+© UNCTAD/URA Customs Business Systems Enhancement Project [Asycuda World Component] 
+
+
+— n 
+
+
+
+
+
+DECLARATION PROCESSING 
+
+
+1.0 Introduction 
+
+
+Declaration processing capability is the core component of any automated customs system. It 
+reflects both the system functionality and the customs processes in use. A Customs declaration is the 
+base document of Customs and is used to control the movement of goods in and out of the country. 
+It represents the data repository for calculation, and consequently collection, of duties and taxes as 
+well as the main source of national trade statistics. 
+
+
+ASYCUDA World (AW) provides a robust, comprehensive declaration processing capability which is 
+based on the Single Administrative Document (SAD). The SAD was developed by the EU and is 
+considered to be the ‘International Standard’ by the WCO and it covers all customs procedures and 
+regimes including Import, Export and Transit procedures. 
+
+
+In modern customs practices, customs officers do not key in declaration on behalf of traders. They 
+rather do the control portion of the customs’ declaration process. More room is left for traders to 
+key in their declaration themselves (DTI). Thus, AW could be configured to provide TWO major 
+profiles, namely; trader's profile and customs controls' profile. 
+
+
+1.1 User Interface 
+
+
+The user is presented with input screens displaying icons; pull down menus and multiple level 
+screens familiar to any Windows user. Movement around the screens is simple with mouse, cursor 
+keys, fast-path commands or function keys. 
+
+
+The system is provided with a Finder (search) facility that can be manipulated according to specific 
+need using various search parameters. If the user wishes to access data held on the server then he 
+/she only needs to login by using a valid user name and password. 
+
+
+1.2 Accessing ASYCUDA World 
+
+
+Since ASYCUDA World is a web-enabled computer system, the system in Uganda has been built onto 
+a web page. 
+
+
+In order to access ASYCUDA World, users need to obtain a connection with a minimum speed of 528 
+kbps for both upload and download is acquired. Users should take note though that any firewalls or 
+proxy server settings that have been set on their private networks should be able to fully 
+
+
+accommodate the ASYCUDA World website. 
+
+
+The default ASYCUDA World page will be displayed as below in Figure 1. 
+
+
+2 | UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Ge [8] http://10.1.0.33:3080/ awe lent, Eiu ! Mi де - ы 
+
+
+. File Edit View Favorites Tools Нар 
+
+
+| sis. [Ж] Uganda Training Server 
+
+
+
+
+
+Uganda Revenue Authority 
+can Developing Uganda Togett 
+
+
+
+
+
+ASYCUDA World 
+click icon to launci 
+You need Java to run this application, Download Java here 
+You need Adobe Reader to view printouts and reports, Download Adobe Reader here 
+Uganda Revenue Authority 2012 
+
+
+Figure 1: ASYCUDA World Website 
+
+
+The website provides an ASYCUDA World Login link and users may access the link with the 
+appropriate login credentials. 
+
+
+oe ASYCUDAWorld 
+
+
+
+
+
+TLS DHE DSS WITH AES 128 CBC SHA 
+
+
+
+
+
+Figure 2: ASYCUDA World Login Window 
+
+
+When the choice is made to access ASYCUDA, the user will click on the ASYCUDAWorld Login link as 
+shown in figure 2. This will in turn produce a small window to insert the User name and Password as 
+shown. 
+
+
+3 | UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+With the appropriate access name and password type in the user name allocated in the first field 
+reading “Login name”. On completion, press the Tab button on the keyboard or press the enter 
+button and the cursor will be displayed in the second field. Insert the Password which will appear as 
+asterix ******** for security reasons. Take note that for a first time user, the ASYCUDA team will 
+have allocated a generic password and will be required to change the password the first time they 
+log in. Instructions on how users can change the password shall be communicated via appropriate 
+means. Once the password is inserted, the user will be required to authenticate their access by 
+pressing the ‘Enter’ button or clicking the "V". The process of authentication will be displayed as seen 
+in figure 2 above. 
+
+
+As long as the credentials inserted are correct, the process of logging into ASYCUDA will begin and 
+the user will be granted access to ASYCUDAWorld. 
+
+
+File View Window Help 
+
+i) Ө ёге 
+65 Document library u^ В 
+Document View Help 
+
+
+E] 29 | Training Server 
+
+
+
+
+
+o = = ASYCUDA 
+
+Ge Sj International Norms 
+
+Ge £3 System Administration 
+@= Sj System design 
+
+
+
+
+
+
+My Profile 
+
+
+
+
+
+Training Server 
+
+
+
+
+
+URA 
+
+
+Training Server i Training Server 
+
+
+Figure 3: AW Main Screen 
+
+
+1.3 Processing the SAD 
+
+The figure above illustrates the document library in AW. All menu items are contained in the 
+document library for ease of reference. A sequence of nodes should be clicked until the SAD form is 
+reached. The following steps illustrate the aforementioned sequence: 
+
+
+Click on the ASYCUDA node which expands and displays its contents as shown below. This screen will 
+differ basing on the level of access granted to the user. 
+
+
+4 | UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+
+
+
+
+
+
+
+
+
+Figure 4: ASYCUDA Option Menu 
+
+
+1.3.1 Expanding the ‘Goods clearance’ Node 
+
+
+Expanding the Goods Clearance node displays three options, Declaration, Reports and Warehouse 
+stock management. 
+
+
+Clicking once on the Goods Clearance option, explodes it and shows the details (Figures 5 and 6) 
+
+
+
+
+
+Figure 5: Goods Clearance Option Menu 
+
+
+5 | UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+Expanding the Declaration option displays two nodes as illustrated below; Detailed Declaration and 
+Periodic Entry. In order to capture and assess declarations, the profile for Brokers or Agents has been 
+configured to only access the Declaration node. Let us focus on "Detailed declaration" for now. 
+
+
+
+
+
+Figure 7: Detailed Declaration Menu and the Finder 
+
+
+6 | UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+1.3.2 Expanding the ‘Detailed Declaration’ option 
+
+
+This ‘Detailed Declaration’ node will be repeatedly referred to in this chapter. It contains two major 
+operations that could be done on a customs declaration; capturing a new declaration and finding a 
+registered declaration using the Finder. 
+
+
+Ф & Declaration 
+
+
+_Ф & Detailed Declaration 
+
+
+Detailed Declaration 
+_ © £3 Periodic Entry 
+© 23 Warehouse Stock Manager 
+
+
+
+
+
+Figure 8: The New SAD Menu Option 
+
+
+Once the user clicks on "New", a blank SAD form is displayed. The table below illustrates the SAD 
+data elements with the quadrants indicated on the sides. This is arrangement by quadrants makes it 
+easy for a user to navigate the SAD. 
+
+
+7 | UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+
+
+
+| T Reta sia tom Din фај ET 
+fae Бш vew зыр 
+
+
+I^ t*uDx4& um 
+
+
+
+
+
+
+
+" Етан {i EAF 
+LLL И 
+WER Come [ICE dde 
+mac Ча чі 
+не И [тте 
+
+
+m. | ГЕ pee, ines 
+
+
+
+
+
+GENERAL DATA 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PROCEDURES 
+
+
+= 
+= 
+= 
+= 
+z 
+= 
+= 
+
+
+ADDITIONAL 
+
+
+Tee OOE O Gt TION 
+
+
+anm m г 
+
+
+DUTIES AND TAXES 
+
+
+
+
+
+Figure 9: The New SAD Menu Option 
+
+
+8 | UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+1.4 SAD and Tabbed forms 
+
+
+The SAD form (Detailed Declaration) has tabs that can be seen at the bottom of the page. Some of 
+these tabs are only mandatory for certain declaration types while some are mandatory for all 
+declaration types. For example, the valuation note form is mandatory for all types of declarations 
+
+
+Some examples SAD forms are illustrated below: 
+
+
+SAD. Val Note Asmt. Notice Info. Page Att. Doc. Scan. Doc. Loading List 
+
+
+Figure 10: SAD Tabbed forms 
+
+
+e Valuation Note form. 
+
+e Assessment Notice form. 
+
+e Attached Document Page form. 
+e Vehicle Examination form 
+
+e Scanned documents form 
+
+e Delivery form 
+
+e Vehicle examination form 
+
+
+1.4.1 SAD (Main form) 
+
+The blank SAD allows a user to define the type of the transaction. For example, if the user wants to 
+register a warehousing declaration. The regime code e.g. IM7 will determine which fields are optional 
+and those that are mandatory. The warehouse code is mandatory for all warehousing declarations. 
+This logic is pre-programmed in ASYCUDA which means the same blank SAD form can be transformed 
+into different documents (regimes) — depending on the regime code. 
+
+
+1.4.2. The SAD Segments 
+
+
+The SAD main form consists basically of two segments; the general segment and the item segment. 
+The general segment covers general information about the whole consignment such as exporter, 
+consignee, declaration type, etc while the item segment contains all necessary information needed 
+to clear the consignment at each item level such as commodity code, value, country of origin, etc. 
+
+
+9 | UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+A OFFICE OF DESTINATION 
+DECLARATION | uGMAL| v 
+
+
+2 Exporter MALABA STATION 
+Trade Car View Customs Reference 
+
+
+26 Street, China 3 Forms 4 Load List 
+1 1 Manifest 
+T Reference number 
+1 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2012 18500001 
+8 Consignee Ho. 1000573057 9 Financial No. 
+Mr. HENRY BUWURE 
+861 KAMPALA 
+Country last [11 Trading 12 Value details 13 C.A.P. 
+CN con. cty. 0 
+14 Declarant Ho. 1000024076 15 Country of export 15 CE. Code [47 C.D. Code 
+
+
+ROSEBUD LIMITED China а СН | a UG | 
+Fenice 16 Country of origin 17 Country of destination 
+
+
+
+
+
+18 Identity and nationality of means of transport at arrival 19 Ctr. | 20 Delivery terms 
+UAB 2345 | El СЕ ВУЗА 
+21 Identity and nationality of active means of transport crossing the border 22 Currency & total amount invoiced |73 Exch. rate 24 Hature of 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Figure 11: SAD- General Segment — Import 
+
+
+
+
+
+
+
+
+
+
+
+
+29 Office of entry 30 Location of goods BARCLAYS BANK - JINJA 
+UGBUS ВОЗА UGBUS 
+31 Packages | Marks and numbers - Containers No(s) - Number and kind 
+and. Marks & no | | OH 
+
+
+= of packages 36 Prefer. 
+ofgoods | wor a Kind 
+
+
+38 Net mass (kg) 39 Quota 
+Containers No(s) on Oct 900.00 
+
+
+_ , А NX 40 Summary declaration / Previous document SL 
+Other arms (eg spring, air or gas guns and pistols, truncheons) excluding those of 93.07 
+
+
+41 Supplementary units | 42 Item Price 43 V.M. 
+44 Add. info Г Е 1 3,000 code 
+
+
+Documents Aj. Code | 45 Adjustment 
+Produced 1.000 
+Certificates - 
+and autha- 46 Statistical value 
+rization 7,532,190 
+47 Calcul- Tax base Ri Amount | MP} 48 Deferred payment 49 Identification of warehouse 
+
+ation of 
+taxes B ACCOUNTING DETAILS 
+
+Mode of payment CASH 
+
+Assessment number I Date 
+
+Receipt number Date 
+
+Guarantee Date 
+
+
+—————— a Á - ИШ _ жинам лт. жы тт. = 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Figure 12: SAD- Item Segment - IMPORT 
+
+
+1.5 SAD fields sorted by quadrant 
+
+
+. General data Clearance Office 
+Маме — — 00000000 | 
+| Declaration type 
+1 Number of forms 
+ist 
+
+
+Number of items 
+Total packages 
+
+
+10 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+
+
+
+| | Declarant reference number | 
+
+
+| [Cwrenycde S 
+P| Invoice total 
+= Financial and banking data 
+
+
+5. Goods description Marks and numbers 
+
+P| Number of packages 
+
+P| Package type 
+бете S 
+LLL | Description of commodity code 
+
+
+|  |Commodtyode — —— —— 0. 
+| | Country oforigincode oS 
+мета 
+и — ooo 
+еее S 
+| Supplementaryunits S - 
+Do РРР ЗОО 
+| Stmtitialval S 
+
+
+7. Additional information Licensing details 
+8. Duties and taxes Duties and taxes details 
+
+
+po Acouigdetals S 
+А ——— 
+Мате «———  . .  — —————— 
+Аим SS 
+
+
+Principal 
+
+
+10. Transit 
+
+
+Representative of Principal 
+
+
+Guarantee details 
+
+
+11. Valuation Invoice value 
+Item value 
+
+
+
+
+
+Table 1: Fields by Quadrant 
+11 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+A detailed explanation of how to fill each field of the declaration is explained in table 2 below: 
+
+
+EXPLANATION OF SAD FIELDS FOR ASYCUDA World DECLARATION 
+
+
+Field Label Description and/ or Use 
+Action 
+
+
+Declaration Mandatory To identify which Customs regime the particular SAD belongs 
+to. A declaration model number is entered on the SAD form in 
+this field. 
+
+For all import declarations this model is IM, with a number 
+identifying which general procedure the import belongs to i.e. 4 
+for home consumption, 7 for warehouse. 
+
+For export declarations the model is EX with a number 
+identifying which procedure the export belongs to i.e. 1 for 
+direct export, 2 for Temporary Exports, 3 for re-exports at a 
+border and 8 for outward transit exports. 
+
+Exporter code, |Mandatory For import declarations, this field requires the input of the full 
+name and address of the overseas exporter (supplier) of the 
+goods to Uganda. This is usually the name of the person or 
+organization overseas from which the importer purchased the 
+goods. 
+
+There is no need to enter the Exporter TIN 
+
+For export declarations the exporter is the Uganda exporter. 
+You must enter the exporter TIN code and the full name and 
+address of person exporting goods from Uganda 
+
+
+ЕГ 
+
+
+
+
+
+
+пате апа 
+address 
+
+
+
+
+
+
+* Automatic input when using the system 
+
+
+Forms Mandatory Total number of forms (pages) in this declaration, including the 
+| front page and any continuation pages, i.e. two, three, as 
+(automatic required. 
+input) 
+
+
+Loading Lists Optional The number of loading lists, manifests or similar documents. 
+This will be required for transit declarations 
+Items Mandatory Total number of items (entry lines) on a declaration. 
+(automatic 
+
+
+12 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+
+
+
+
+
+
+
+input) 
+
+
+
+
+
+N/A Manifest Mandatory (for |Reference number to identify a manifest. 
+
+
+sea ports) 
+
+
+Total number of | Mandatory The Declarant must state the total number of packages for the 
+packages whole of the declaration (i.e. the sum of all packages in all 
+items). 
+
+
+
+
+
+Declarant Mandatory This is the internal sequence number used by Declarant (i.e. job 
+
+reference or file number). It’s a number given to the declaration from the 
+
+number trader’s/Declarant’s register. The trader can use it to 
+retrieve/modify his stored declarations. 
+
+
+8 Consignee code, | Mandatory For import declarations the consignee is the Ugandan importer. 
+name and You must enter the Importer TIN code and the full name and 
+address address of person importing goods into Uganda will 
+
+
+automatically be populated. 
+
+
+For export declarations this field requires the input of the full 
+name and address of the overseas importer (buyer) of the 
+goods from Uganda. This is usually the name of the person or 
+organization overseas to which the Uganda’s exporter is selling 
+the goods. 
+
+
+There is no need to enter the consignee TIN. 
+
+
+Financial Optional Name and address of the party responsible for either the 
+transfer funds relating to a transaction or the person for whom 
+the goods were imported. This box is also used in Uganda to 
+capture the names of individuals who have no TINs. 
+
+10 Count. Last Mandatory Country of Last Consignment —This is the country code where 
+
+Consign. the goods were last loaded onto the ship / aircraft / Rail / Road 
+
+Е transport. In Uganda’s case the country from which goods have 
+
+
+been or will be consigned prior to final importation 
+
+
+11 
+12 Value Details Prohibited ASYCUDA will automatically populate this box with the sum of 
+(automatic insurance, freight and other costs when the Delivery terms are 
+input) FOB. 
+3 
+
+
+1 C.A.P.(Common | Optional The original design of this field has not been utilized since it’s 
+Agricultural not relevant to Uganda. Instead it has been configured to hold 
+policy) the calculation of other fees. The field has been configured to 
+
+accept three codes. On insertion of “1”, “2” or “3” and after 
+
+
+
+
+
+
+
+
+
+
+
+
+validation, a pop-up box will be displayed for the user to 
+
+
+13 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+Declarant / Mandatory 
+Representative 
+code, name and 
+
+
+
+
+
+address 
+
+
+Country of Mandatory 
+origin 
+
+
+C.D (Country of | Prohibited 
+destination) (automatic 
+input) 
+
+
+Ident. & nat. of |Mandatory 
+active means of 
+
+transp at arrival 
+
+/ departure 
+
+
+15 C.E. Code and Mandatory 
+name 
+
+
+manually enter the manual taxes as follows: 
+1. Alteration Fee 
+2. RoadUser Charge 
+3. Temporary Road License 
+
+
+The declarant is the person or organization declaring the goods 
+to Customs. 
+
+
+Some importers are allowed to clear their own imports as long 
+as they have the capacity to do so. Such companies cannot clear 
+goods belonging to other importers. Such companies are 
+referred to as private clearing firms. 
+
+
+The declarant may also be a Customs Agent/broker, whose 
+business is to clear goods belonging to importers, which may 
+include goods imported by the declarant. In the former case the 
+owner is required to authorise the broker to clear their goods. 
+
+
+In all the above cases the TIN is auto-populated by ASYCUDA 
+once a new SAD is created. 
+
+
+The user will notice two boxes side by side. Either the code for 
+the country of export, or the name of the country from which 
+the goods were exported may be selected 
+
+
+Enter the Code for the Country of Origin in box 34 and its full 
+name will be displayed in box 16 by default. 
+
+
+For import declarations destined to Uganda, the system will 
+automatically input it. Nevertheless, for transit consignments 
+not destined to Uganda, the user should input the country of 
+destination. 
+
+
+Identity & nationality of active means of transport at arrival. 
+This field has 2 parts. 
+
+
+In the first you must enter either the name or voyage number 
+of the vessel, the flight number of an aircraft, the vehicle 
+registration number or the wagon number in case of a train. 
+
+
+Country Code indicating nationality of ship / aircraft / vehicle. 
+For ASYCUDA, the second part of field 18 is optional, but if you 
+have the information, please complete. 
+
+
+Ctr Optional An indication whether goods are transported in a container or 
+not. Nature of container where the particular goods declared 
+
+
+
+
+
+14 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+
+
+
+
+were packed In (Not the quantity of containers). This field 
+accepts only 2 values: 
+Content: nothing = Loose cargo 
+
+V - Containerized 
+Here the declarant is required to let customs know whether the 
+cargo was containerized or not. A tick means there is a 
+container while not ticked means there is no container. The 
+user should click once in this box to insert the tick and click 
+again to remove the tick 
+
+
+Delivery terms | Мапдаїогу In this field you must enter the code describing the terms of 
+delivery specified in the sale contract between the buyer and 
+the seller of the declared goods. i.e. CIF, FOB, CFR, etc. In 
+Uganda, preferably the total CIF value should be declared. For 
+direct exports it is FOB. 
+
+Ident. & nat. of |Optional This field may not be required as the system will re-display the 
+
+active means of information of field 18. Nevertheless, if the information is 
+
+transp at different for example in the case of transhipment, please fill it 
+border- in. 
+
+
+Cur & total Mandatory Total monetary amount charged in respect of one or more 
+
+
+amount invoice invoices associated with the currency in which goods were 
+
+
+purchased. The red underline draws the user's attention to fill 
+in the general valuation note form. This field has 2 parts. 
+
+
+In the first field (small box) you must enter the code for the 
+currency nominated in the invoice. For Uganda transactions, all 
+should be declared in or converted to USD. 
+
+
+In the second part (longer box) you must enter the total 
+amount in CIF amount in USD. 
+
+
+23 Exch rate Automatic Exchange rate. This is the official exchange rate for the foreign 
+currency on which the goods in this entry had been paid 
+рш converted to USD. 
+Official exchange rates will be updated on a daily basis. 
+
+
+Nature of Prohibited 
+Transaction 
+
+Mode trsp. At Mandatory Mode of transport at border (at entry). You must enter the 
+border code for the mode of entry of goods: 
+
+
+15 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+Not required. 
+
+
+
+
+
+
+e.g. 1=Sea Transport 3 = Road Transport 4 = Air Transport 
+
+
+Inland mode of | Prohibited Note required. 
+transport 
+
+
+
+
+
+Place of Prohibited Not required 
+discharge 
+
+
+28 Financial and Mandatory You must enter the code for the bank branch e.g. CBL for 
+banking data Central Bank of Uganda. 
+Bank code; 
+Bank File Optional 
+The original design of this box has not been utilized because it’s 
+number 
+
+
+not relevant to Uganda. 
+
+
+Terms of Prohibited 
+Payment 
+
+
+29 Office of entry / |Mandatory For imports, the declarant must enter the Customs office code, 
+departure where the particular goods were originally being entered first 
+time into the country, e.g. Malaba or Katuna 
+For exports, enter the office of departure where the goods will 
+be departing the country from. 
+30 Location of Mandatory Name of the place where a goods are located and eventual 
+goods location in which physical inspection might take place. 
+You must enter the appropriate CODE for the place where the 
+goods being declared are stored prior to clearance i.e. transit 
+sheds. 
+
+
+31 Packages and The entry in this field must include: 
+description of 
+
+
+Not required 
+
+
+Mandatory Shipping marks and numbers 
+
+Number of packages for this item 
+
+Code for the type of packages (e.g. Sacks, cartons) 
+Container identification numbers (up to 4 containers) 
+Commercial description of the goods, as per invoice 
+
+
+goods 
+
+
+Mandatory 
+Mandatory 
+
+
+Optional 
+
+
+Mandatory 
+
+
+
+
+
+16 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+32 Item number Mandatory Serial number of the item in that declaration. This is the 
+
+
+
+
+
+
+consecutive item number i.e. item 1, item 2, item 3 etc. 
+
+Commodity Mandatory Commodity code of the goods declared for the item according 
+
+code to the harmonized system of 8 digits. 
+
+С.О. Code Mandatory Country of Origin Code. You must enter here the country CODE 
+where the particular goods declared were originally made or 
+manufactured 
+
+5 Gr. Mass kg Mandatory Gross mass in kilograms. Weight (mass) of goods including 
+
+packaging but excluding the carrier's equipment 
+
+
+6 Prefer. code Optional Preference Code. Where there are bilateral or multilateral 
+agreements between the countries and the goods have been 
+manufactured in any of these countries, the declarant may 
+enter the appropriate Preference Code, if he is claiming a 
+reduction of duty rate based on agreements made between 
+Uganda and other countries. The current agreements that 
+Uganda has assented to are: 
+
+1. COMESA — COMESA originating goods 
+
+2. EAC: EAC originating goods 
+
+3. EAC-TZ: Tanzanian originating goods 
+
+4. EAC-KE: Kenyan originating goods 
+
+5. NEW-CARS: Cars that do not pay 10% surcharge 
+
+
+7 Procedure There are 2 fields in this box. 
+
+
+33 
+
+
+
+
+
+Mandatory In the first you must enter the procedure code used to identify 
+the customs regime under which goods are being moved to and 
+from, i.e. procedure 4000 represents direct import for home 
+use, 4071 import for home use from bonded warehouse 
+
+
+
+
+
+
+Mandatory The second field is an additional procedure code which is used 
+if the declarant is requesting exemption or remission of duties 
+for the commodity. e.g. tariff concessions for diplomatic cargo 
+
+
+etc 
+
+
+38 Net mass kg Mandatory Weight (mass) of goods without any packaging. Enter the net 
+mass of the goods declared. The system will automatically 
+display the figure for gross mass as the net mass However, you 
+may override this field with the actual net mass, if available 
+
+
+17 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+UJ U9 U9 W9 
+D 
+
+
+
+
+
+
+
+
+39 Quota Prohibited This field is designed to manage quota allowances 
+
+
+In this box, the Quota code will be inserted and it will 
+automatically deduct the quantities specified in Box 41 from the 
+allowance stock per quarter. 
+
+
+Summary This field has 2 functions separated by a stroke / 
+Declaration / 
+Е Mandatory The first function represents the Bill of Lading / Airway Bill No. 
+that has been created under the manifest. This is used only at 
+Document 
+Sea ports and airports. 
+The second function represents the previous document 
+reference, where a Bill of Lading is not required. 
+
+
+
+
+
+Supplementary |Mandatory This field must be completed when the tariff item you are using 
+
+units requires quantities other than net mass to be recorded, i.e. 
+litres, number, square metres etc depending on the unit of 
+measurement declared against each HS code. 
+Take note that for warehousing, the goods will be warehoused 
+in supplementary units of measurement and hence the quantity 
+in those units must be declared correctly. For example for 
+shoes, the quantity declared should be in pairs or for wine the 
+quantity should be in litres. 
+
+
+Prohibited Valuation Method code. Not required 
+
+
+Add info Docs/ | Optional Additional information, production of certificates & 
+
+produ Certif & authorizations 
+
+aut. 
+This field is being used to enter the code of any additional 
+documents, certificates or authorizations (other than the 
+Invoice and BL / AWB) which are required for the clearance of a 
+particular goods i.e. quarantine items, health certificates, etc. 
+
+
+45 Adjustment Prohibited Monetary Amount Adjustment. Identifier; 
+To identify an adjustment to a monetary amount such as an 
+
+
+18 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+42 Mandatory The item price of the particular commodity in foreign currency 
+(automatic is declared in this field. 
+input) 
+3 
+
+
+4 
+
+
+
+
+
+allowance or charge. (Percentage converted into a 2-digit 
+decimal fraction). Not usually required for filling in Uganda 
+since the adjustment rate will always be “1”. 
+
+
+Statistical Value | Mandatory This represents the Value for Customs in national currency. 
+Enter the value in USD of the goods described in Field 31, 
+according to the rules for Customs valuation under Uganda 
+Customs law. 
+
+
+This value is the price of the goods as adjusted by the cost 
+elements to value the goods at the landed CIF level. 
+
+
+47 Calculation of Mandatory A mathematical formula is adopted to calculate the various 
+duties / taxes /fees due on each item of the consignment. This 
+(automatic acer | z 
+| encompasses; duties or taxes applicable to commodities or a 
+input) type of tax or fee applicable to services. The formula is applied 
+on the tax base relevant to each tax type 
+For taxes based on quantity and not value, enter the quantity 
+used for the tax calculation, i.e. if taxed by weight, enter the net 
+mass (from field 38), or for liquids taxed per litre, enter the 
+supplementary units in litres. 
+Tax base 
+The statistical value or the value based on quantity or Net mass 
+is entered in this column. The type of taxes is calculated against 
+this value to arrive at the amount payable. 
+Rate in this column for 
+Import Duty: the tax rate from the customs tariff. This is either 
+the rate against the commodity code, or a special rate as a 
+
+
+result of a concession. 
+
+
+Excise Duty the tax rate from the customs tariff. 
+
+
+Amount 
+The total amount payable after assessment of the rates of taxes 
+for the item 
+
+
+MIP 
+
+
+Not required. 
+
+
+
+
+
+Value details This field has space to enter details of other charges that are 
+
+
+19 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+
+
+
+20 
+
+
+Deferred 
+payment 
+
+
+warehouse / 
+period 
+
+
+
+
+
+Principal 
+
+
+Identification of 
+
+
+Mandatory for 
+transit 
+
+
+Intended office |Mandatory for 
+
+
+of transit 
+
+
+transit 
+
+
+Guarantee not  |Mandatory for 
+
+
+valid for 
+
+
+Office of 
+
+
+transit 
+
+
+Mandatory for 
+
+
+destination and |transit 
+
+
+country 
+
+
+Accounting 
+Details 
+
+
+
+
+
+
+
+
+
+s 
+
+
+Mandatory 
+
+
+relevant to the calculation of the Customs value of the goods at 
+the total invoice or declaration level 
+
+
+E.g. if the sale between buyer and seller, (the invoice price), is 
+
+
+at the FOB level, the other expenses and charges to bring the 
+goods to Uganda must be added. Sea or air freight expenses, 
+insurance, other freight or handling charges, local unloading 
+charges, are added to the value of the goods at the correct 
+‘place’ or level — CIF landed. 
+
+
+The total adjustment to the invoice price is added to 
+proportionally to each declaration item, in cases where the 
+declaration covers more than one item. This proportion 
+allocation of dutiable charges and expenses is included in the 
+
+
+
+
+
+
+calculated statistical value at Field 46. 
+
+
+Enter the prepayment or credit account codes from which the 
+goods are paid if no other means of payment are used e.g. cash. 
+
+
+In case of a warehousing declaration (IM7 ): 
+In the first part of this field enter the warehouse code. 
+
+
+In the second part of the field, enter the period (as the number 
+of days) that the goods are approved for storage in that 
+warehouse. 
+
+
+Name and address of a party liable for goods moving under a 
+customs authorization and, when applicable, a guarantee like in 
+the case of transits. 
+
+
+Name of the customs office which is responsible for transit 
+formalities en route. 
+
+
+Customs office at which a security or guarantee for the 
+movement of goods under a transit procedure is lodged. 
+
+
+Name of the customs office at which goods are released from a 
+Customs transit regime. 
+
+
+To be filled by the representative of the trader indicating the 
+date of the declaration and the name of the representative. 
+
+
+Mode of Payment 
+
+
+Method of payment for duty fees, i.e. Cash 
+
+
+UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+Automatic input 
+
+
+Automatic input 
+
+
+Mandatory 
+
+
+Office of Transit 
+departure 
+
+
+Table 2: Detailed SAD Description 
+
+
+Assessment No. (Completed by Customs) 
+
+
+Number assigned to declaration post assessment. 
+
+
+Receipt No. (Completed by Customs) 
+Number assigned to receipt for payment of this declaration 
+
+
+Total Fees 
+
+
+Additional charge (normally declaration processing charge) i.e. 
+USD. 50 
+
+
+Total declaration 
+
+
+Total amount payable for this declaration. (Total calculation of 
+taxes + Total fees) 
+
+
+Proof that a document has been authenticated indicating where 
+appropriate the authentication party. Results of customs 
+controls, name and signature of customs officer and stamp. 
+
+
+
+
+
+21 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+1.5.1 SAD item page (For multi item declaration) 
+
+
+31 Packages | Marks and numbers - Containers No(s) - Number and kind 32 Item 33 Commodity code 
+and Marks & no EDMUN MALE З!но.| 65070000 000 
+description! of packages 34 Cty. orig. Code | 35 Gross mass (kg) 36 Prefer. 
+ofgoods | цыга Kind 20 BX GB 400.00 
+Box 21 to 37 PROCEDURE 38 Net mass (kg) 39 Quota 
+Containers No(s) 4200 000 375.00 
+L 
+
+
+40 Summary declaration / Previous document S 
+
+
+41 Supplementary units | 42 Item Price 43 V.M. 
+36 125 1,500 code 
+
+
+1 = 
+SORA ТИТ" 
+LERNI o i 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Head-bands, linings, covers, hat foundations 
+‚ hat frames,peaks & chinstraps for headgear 
+
+
+
+
+
+
+
+
+
+44 Add. info | Licence No D.Val 
+| 0+0+0+0-0 A.l. Code | 45 Adjustment 
+г усе 1.000 
+бесадо A.D. MAIL 107 108 141 148 151 153 120 115 
+and autho- 46 Statistical value 
+risations 3,766,095 
+такие [wee [тие — [Ree — — [Ame [Р 
+RET 102 3,766,095.000 10.000 376,610 | 1 
+401 4,142,704.000 18.000 745,687 | 1 
+40B 745,687.000 15.000 111,853| 1 
+105 3,766,095.000 6.000 225,966 1 
+
+
+Figure 13: SAD Item Page 
+
+
+The SAD can have as many subsequent item pages as the number of articles/commodity involved in 
+the transaction. 
+
+
+1.6 General Valuation Note form 
+
+
+It is a unique form /declaration; it contains the global invoiced value of all the goods declared in the 
+main SAD form. In addition, it allows input of value build up information such as freight and 
+insurance costs and automatically apportions the costs between the declaration items. 
+
+
+Fields comprised in the general valuation note are: 
+
+
+e Invoice value 
+
+e External freight 
+e Internal freight 
+e Insurance 
+
+e Other costs 
+
+e Deductions 
+
+
+For each cost element the currency should be put in the appropriate field and consequently the 
+exchange rate (If different from the national currency) is automatically brought from the currencies’ 
+
+
+file and filled in the its appropriate field. 
+
+
+Upon the completion of all customs value related elements, the CIF value (which is the tax base for 
+customs duties) is automatically calculated. 
+
+
+22 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+
+
+
+1 SAD - Valuation Note - General seqment 
+— 
+
+
+Working mode No apportionment, computed totals 
+
+
+
+
+
+Amount FCX Exchange Amount in UGS 
+code rate 
+
+BOCE value — ——— ———À 5,700.00 in USD 2,510.75 14,511,161 
+External Freight ..........(import)............... 0.00 in 0.00 0 
+Internal Freight ............................................ 0.00 ^ 0.00 0 
+Insurance ................... {йтрогї).............. i 0.00 В 0.00 0 
+Other costs „з (import).............. 3 0.00 in 0.00 0 
+Deductions ..................................................... 0.00 in 0.00 0 
+Total gross mass Total Costs 0 
+Delivery terms CIF BUSIA CIF value 14,311,161 
+
+
+Figure 14: General Valuation Note form 
+
+
+1.6.1 Item Valuation Note form 
+
+
+A declaration contains as many Item Valuation Note forms as the number of items declared in the 
+main SAD form. Each of them contains the item invoiced value and it allows input of value build up 
+information such as freight and insurance costs. Upon the completion of all customs value related 
+elements, the CIF value (which is the tax base for customs duties) is automatically calculated for each 
+item. 
+
+
+
+
+
+
+
+
+
+
+
+in — | 
+=] SAD - Valuation Note - Item 
+| 
+mmn Item number 3 Amount Exchange rate Amount in 
+ince vale c suus i i 2,510.75 
+External Freight seee (їтпрөгї)............... 0.00 j 0.00 
+Internal Freight .........................ь и 0.00 j 0.00 
+Insurance „......... (import)............... 0.00 | 0.00 
+Other costs ................. (import).............. : 0.00 j 0.00 
+Deductions ..........................‚‚5»ь k 0.00 i 0.00 
+Total Costs 
+Delivery terms CIF value 3,766,095 
+Statistical value 3,766,095 
+Additional information 
+Supplementary value 1 Code Мате Quantity 
+Supplementary value 2 Code Hame Quantity | 
+Rate Per | 
+|_| Market value — _ 
+
+
+
+
+
+Figure 15: Item Valuation Note form 
+
+
+23 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+1.7 Scanned Attached Documents form 
+
+
+The Scanned Attached Documents form has a unique tab on the declaration and contains the codes 
+of the documents attached to the declaration. For instance for Uganda Customs, the scanned 
+documents to be attached includes: 
+
+
+. Commercial Invoice 
+
+. Proforma Invoice 
+
+Sales Agreement/Contract 
+. Proof of Payment 
+
+. Certificate of Origin 
+
+. Export Entry 
+
+. Transit Entry — C17 
+
+. Export Certificate/Log Book 
+. Bill of Lading 
+
+10. Parking List 
+
+11. MFA Form 
+
+12. NDA Clearance 
+
+
+This is a mandatory action that has to be undertaken by the Broker. 
+
+
+ACOLINE (U) LIMITED 
+4240 KAMPALA 
+4 COLLINE HOUSE 
+
+
+
+
+
+= Code Description 
+10 Bill of Lading 
+є А Attached Scanned Documents 
+^ 
+Code Description File name File progress 
+01 Commercial Invoice invoice.pdf 
+03 Authority Letter Authority Letter.pdf 
+10 Bill of Lading Bill of Lading.pdf 
+
+
+
+
+
+Figure 16: Attached Document Page Form 
+
+
+1.8 How to use the declaration tool (icon) bar 
+
+
+evt Fow ABRAIO 
+
+
+Figure 17: Declaration Tool (icon) Bar 
+
+
+24 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+dap 
+
+
+
+
+
+Document verification; to check all declaration fields for consistency. 
+
+
+Document validation; to ensure the resulting document is a viable and valid 
+customs declaration. 
+
+
+Validation and assessment; it is a two-in-one icon that does both validation as 
+well as declaration assessment, i.e., calculation of duties and taxes and routing 
+the declaration to the appropriate channel (depending on the configuration in 
+
+
+use). 
+
+
+Store; to save the declaration on AW server before validation but after being 
+verified. 
+
+
+Remote check; to compare declaration data against AW database. Applicable 
+xml manifest checks 
+
+
+Import from AW XML file; retrieve declaration data that have been stored 
+locally on a computer workstation in an XML format for further processing. 
+Export to AW XML file; store declaration data in XML format on a computer 
+workstation for later processing. 
+
+1-Print 
+
+2-Print Hard copy 
+
+3- Information page. 
+
+3- Attached document; print attached documents. 
+
+1-Customized; print on a pre-printed form. 
+
+2- Assessment notice 
+
+View total mass; displays the total weight of all items on the declaration 
+
+Change goods ownership for goods that have been warehoused 
+
+1- Export to PDF; print the document in a PDF file. 
+
+
+2- Hardcopy export to PDF; print a hardcopy of the document on a PDF file. 
+
+
+These are used to view Inspection Act, receipt, waybill, exit note and scans 
+depending on the document status. 
+
+
+Add item; to add an item to a declaration during data capture. 
+
+
+Delete a whole page. 
+
+
+
+
+
+UNCTAD/URA CBSEP World component] 2012 Version 1.0 - 
+
+
+
+
+
+Delete item; to delete an item from the declaration. 
+
+
+Generate periodical summary declaration; to generate a periodical declaration 
+if the authorization number is valid. 
+
+
+Finder; search for documents in AW database. 
+
+
+v # au 
+
+
+Help; provides the user with an online help. 
+
+
+© 
+
+
+1.9 Types of fields on the SAD 
+
+
+The boxes are the same as on the printed-paper version - the areas where information is entered are 
+called SAD boxes or SAD fields. 
+
+
+There are different types of fields: 
+
+
+Mandatory input: information must be input to the field and AW will not permit the user to advance 
+until input is completed. In this case, if the field is left blank, the field will be underlined “Red”. 
+
+
+Optional input: choice of entering information is left to the declarant. However, where information 
+is relevant for statistical, risk management and auditing purposes, the user is encouraged to input 
+the relevant information. 
+
+
+Prohibited input: these boxes either display a code automatically or no information is displayed at 
+all; no access is allowed to the field. 
+
+
+Some combinations of information or codes are incompatible/contradictory. If the user inputs an 
+airport office of entry code, the system can be configured not to accept the code for sea transport as 
+the mode of transport for the importation. 
+
+
+In this case, the system will underline the fields “Red” and automatically display an error message on 
+attempt to verify the declaration as seen in below 
+
+
+D LETS 
+
+
+1 
+
+
+FO REDE ETICE MUTET 
+
+
+2012 2012001 
+
+
+D LM packages 
+1 
+
+
+
+
+
+
+
+
+
+
+
+8 Consignee Ho. 1000427973 9 Financial Но. 
+
+
+Mr. LUKE BHANGYI 
+25544 KAMPALA 
+BUKOTO KISAH ROAD 
+NAKAWA DIVISION 
+KAMPALA 
+
+
+
+
+
+
+
+
+
+
+14 Declarant Ho. 1000037976 15 Country of export 5 CE. odi р. Code 
+
+
+EPITOME ENTERPRISES LIMITED China 
+715 KAMPALA 
+
+
+Messages p" E 
+
+
+Error: Please add Container 
+
+
+
+
+
+
+al a HE 
+
+
+
+
+
+-F — 
+
+
+3 at border Transport Terms of payment T01 CASH 
+
+
+
+
+
+Figure 18: Error Message after Verification 
+
+
+26 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+The system is designed to allow each country the flexibility to configure their data requirements on 
+the national declaration/SAD based on international, regional or national standards. 
+
+
+Based on these standards, the national project team defines which fields are mandatory, optional or 
+prohibited and which controls to apply. 
+
+
+1.10 The Finder 
+
+
+The finder is a useful tool in ASYCUDA used to retrieve documents based on different search criteria. 
+A user needs to fully understand the functionality of the finder in order to navigate through 
+ASYCUDAWorld since it is the most commonly used feature. A Detailed declaration can be retrieved 
+using different keys (search criteria). A criterion could be document status such as a “registered” 
+status, a selectivity decision like red or green routed declaration, or any other predetermined SAD 
+element like declarant, consignee, etc 
+
+
+In order to access the declaration finder, the user will right click on detailed declaration and a list of 
+sub-menu’s that the user is permitted to have will be displayed as seen in the below. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Á X, Design | 
+E | B - 
+—— Ó) Find 
+| >) Document library d Ё vad 
+Document View Help 2 FindforTiGen 
+fe | 
+IEW- A^) Find by Date | 
+9 RA ASYCUDA 2.2 Find Unpaid Declarations 
+|. € 3 Accounting & Payment | 
+| © S Cargo Manifest 2-2 Find stored 
+| © & Goods Clearance | А 
+© & Declaration $2 Find registered 
+© C3 Detailed Declaration | и) fi 
+ind by Reg. Nber 
+Detailed Declaration 
+| 1 x e Entry У) Find audit green | 
+е8 Warehouse Stock Ma Vj qe | 
+© & Integrated Tariff 
+© Cj References Find audit yellow 
+© £3 Selectivity d 
+© & Statistics v) Find audit blue 
+© C3 System Configuration 
+€» & System Supervision 52 Find audit query 
+© & Transit | 
+œ C3 Transit Shed гә Find outstanding 
+© & Valuation control | 
+| © & International Norms 2-2 Find written-off 
+| © & System Administration 
+© & System design 5) Find Selected Red 
+Мы Drafila Lj-j Find Salarted Yalinw | 
+
+
+
+
+
+
+
+
+Figure 19: Obtaining the Finder 
+
+
+|" 
+
+
+The finder will be displayed as below with all search criteria set "all" by default. In order to change 
+the criterion, the user should click in the respective criterion box and change it to the required search 
+parameter. After selecting the search criterion, the user will be required to select a value (see 
+value#1 and value #2). Notice the fact that a use can define one or two values for a particular search 
+criterion. 
+
+
+27 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+"m "Please enter data for selection criteria, and proceed to find a specific 
+. dacument Detailed Declaration 
+
+
+Mame criteria value #1 value #2 
+Document Status all 
+
+
+Clearance ой. (al ———— 0| d 
+Reg Ser dal — |  — 2, | 
+Reg Nber — — al — 2|  ) ^2" | g 
+Reg Date dal — — | 3 S E 
+Ast.Ser dali —— — 0 0 | — 0 ПОНИ 
+AstNber dall ——— | — 5 [| de 
+Ast Date dal — — à— 0|  — 0 | 0 g 
+Declarant — — Jal —  — | 2. —] | JH 
+Dec. reference year ah 
+Ref Mber dal ПО S g 
+hp  — mw —à3OCODGOÓQGOQ| П т 
+Gen pro. — al —— — — — ——(q —— | 
+
+Exporter Мм — 0 — | а 
+
+спее — ш ——  — — —— (| —— | 
+
+ores THEE 
+
+
+
+
+
+Figure 20: The Finder 
+
+
+The user is presented with icons at the bottom of the finder. In order to determine what an icon 
+does, the user may place the cursor over the icon and a short description will be displayed such as 
+“Clear” above. The Icons are standard and easy to use. 
+
+To obtain the information being sought, the user will click on the search icon displayed at the bottom 
+right hand side of the finder window. On clicking it, the list of declarations or criteria requested for, 
+will appear as seen in the figure below. 
+
+
+Year Off... * Declaranl Ref. Mber Red... Reg... .. Type Gen. F.. Items Expor.. Consig... Total ta... Ast... Ast НАЗ Date Col... 
+2012 UGARU 42 1 р 402972 В 1 РОГ _ Gre 
+2012. UGARU 198 2 537297 В 2 S100. Сге... | 
+2012 UGBUS 100002... 0151265 1 100002... 23200... A 1 MAIL. Gre 
+2012 UGBUS 100009... 3761101 1 100026... 0 | 3 14111... 
+2012 UGBUS 100005... HIGS2 10 100085... 0 | 16/114... NEN 
+2012 UGBUS 100005... HIGSS — 100057... 0 dé 16117 O O 
+14/112... 
+
+
+со оо м оо су 0 T 
+
+
+2012 UGBUS 100002... TEST223 
+
+
+2012 UGBUS 100002... 1 
+
+
+100037... 9734100 A 
+
+100025... 0 
+
+100015... 0 
+
+100015... 0 
+
+100057... 0 
+
+100085... 0 10 36/11. 
+
+2012 UGBUS 100002... three1 100024... 0 | 11 (36H11. лл. __ 
+2012 UGBUS 100005... HIGS1 100057... 0 : 12 16/111. 
+
+
+ope -x 
+
+
+28 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+2012 UGBUS 100002... 2020 
+2012 UGBUS 100005... 2020-09 
+2012 UGBUS 100009... | 
+||2012 UGBUS 100005... HIGS3 
+2012 UGBUS 100005... HIGS4 
+
+
+diiit -LLLLLEE 
+
+
+no CO CO CO CO Cn С) 
+mh -h -h mh mh mh mh = 
+
+
+
+
+
+Figure 21: Displaying Declarations 
+
+
+Right clicking the requested declaration gives the user the different possible operations that could be 
+done on this declaration. 
+
+
+This depends on the declaration status which will be explained thoroughly in the next section. For 
+example, to retrieve a declaration for further processing the user will proceed as follows: 
+
+
+Place the cursor on the desired declaration and right click. 
+
+
+[2012 IUGARU| 2 PP ios 
+198 P 2 1 2 
+
+
+
+
+
+
+
+
+
+
+
+|2012 UGARU Р ls 4 537297 B 30H0/.. 0 .— 
+[2042 UGBUS 100002..D151265 С г ‚м 4 2 100002... 23200... A 1 01/11/.. C 55 | 
+|2012 UGBUS 100009... 3761101 5 1 M 8 100025._0 А З AI. wee = 
+[2042 UGBUS 100005... НІС52 5 10 M 8 1 100085... 0 A 13 161. 
+[2012 UGBUS 100005... HIGS5 5 14 à IM 8 1 100057... 0 A 14 161... $ Export release 
+|2012 UGBUS 100002... TEST223 S 2 .IM 8 1 100002... 0 A 4 14/14 
+|2012 UGBUS mnk С 2 .IM 4 1 100024... 1612413 A 2 (лї б =й View Criteria 
+12012 UGBUS 100002... 1 с H ма 1 100037... 9734100 А 8 1511. 
+[2012 UGBUS 100002... 2020 8 3 ом 8 1 100026... 0 A 5 — 451... = = 
+| Release Order (selectivity 
+12012 UGBUS 100005... 2020-09 5 go |Е7 м 8 1 100015... 0 А 6 1511. | at ) 
+12012 UGBUS 100009... 2020-09 5 RUE IM 8 1 1000415... 0 A 7 451. | | 
+12012 UGBUS 100005... HIGS3 5 6 ом 8 1 100057... 0 А 9 46/14. £3 Clear declaration 
+|2012 UGBUS 100005... HIGS4 8 | L IM 8 1 100085... 0 A 10 1644. " 
+[2012 UGBUS 100002... three1 5 п bL IM 8 1 100024... 0 A 11 1461. [+] Re-route to green 
+|2012 UGBUS 100005... HIGS1 5 9 M 8 1 100057... 0 А 12 1e | . 
+mu | ЁТ Retrieve 
+ol $ Tj, 
+| URA I URA 
+егуег Training Server Refund 
+Cancel 
+Lock 
++ | 15, Manual Examiner Assignment 
+[esl Im Bj Generate r1 
+
+
+a 
+
+
+
+
+
+
+АҺ. "FA biv іа | a 8 І 
+
+
+Figure 22: Possible Operation оп а Displayed Document 
+
+
+1.11 Declaration status 
+
+
+Declaration status indicates where a declaration is in the processing path. When searching for a 
+declaration using the finder, the user will notice that the status is colour-coded declaration in order 
+to enable a user to quickly recognise the status. Table (3) shows the different declaration status, they 
+are colour coded as they appear in the finder. Different operations could be carried out on a 
+declaration according to its status. 
+
+
+1.3.3 Operations carried out on declarations according to their status 
+
+
+STORED A declaration has been captured on | The declaration has been created by a user 
+
+
+AW and saved (stored). This is done by | with preserved rights to view, amend or 
+exporting the XML file of the | delete it before assessment. 
+declaration to the desktop 
+
+
+
+
+
+29 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+ASSESSED 
+
+
+CANCELLED 
+
+
+Cargo has arrived in Uganda (except 
+for users authorised to make рге- 
+arrival declarations); The declarant 
+assesses the declaration, obtains a 
+printout of the Assessment Notice 
+with the PRN, attaches all required 
+scanned documents, makes payment 
+to the bank and lodges to Customs 
+electronically 
+
+The tax payer does not wish to process 
+the declaration for one reason or 
+another. 
+
+
+Using the PRN on the Assessment 
+Notice, Taxpayer pays to the bank 
+
+
+The declaration has been assessed by the 
+user and given a unique customs reference 
+number delivered by the system. 
+Verification checks prior to assessment has 
+been performed. Status of the declaration 
+is "assessed" 
+
+
+The declaration has been cancelled by the 
+authorised customs officers. The 
+assessment (if any) is no longer valid. 
+
+
+An ASYUDA receipt number is issued to the 
+declaration; status of the declaration is 
+
+
+through eTAX апа еТАХ sends | ‘Paid’ 
+payment details, that is, receipt 
+number and date to ASYWorld 
+EXITED Goods have met а! 
+
+
+
+
+
+Table 3: Status of Declaration 
+
+
+A declaration may be processed by right clicking on the declaration in the Finder as displayed in 
+Figure 7. One of the options available to a user (depending on the level of access) is the "retrieve" 
+option that allows a user to first retrieve the declaration, review it, then process it. Specific user 
+rights are allocated to users to enable them perform these action. In other words, not every user can 
+perform this action in AW. 
+
+
+On retrieving the declaration, some other menus are displayed as shown in the figure. It is up to the 
+user to choose which action they would like to perform using any of the sub menus. 
+
+
+The operation Validate and Assess involves a Validation operation. 
+
+
+If no problem occurs on the declaration and the declaration is sent to the Blue or the Green route, 
+the system re-routes to the green lane for release. 
+
+
+If a risk management action is involved, the Declaration is automatically routed to the Red, Yellow 
+Lane and the declaration is stopped in the SELECTED status. 
+
+
+When the checks have been achieved by the authority, the document is re-routed to the green lane 
+and the declaration is released. 
+
+
+30 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+Customs | Some/all of the goods involved in the 
+requirements and сап exit the | declaration have been released. 
+Customs premises. Normally the exit is 
+
+done in ASYCUDAWorld at the exit 
+
+point. 
+
+
+1.11.1 Operations on a CANCELLED declaration 
+
+
+2~ Detailed Declaration finder Б“ [7] 
+
+
+
+
+
+12 documents found! Please select a document and select an action from the local menu 
+
+
+
+
+
+
+
+
+
+
+
+Year Offi... * Declarand Ref. Mber Reg... Reg... .. Туре Gen. F... Items Expor... Consig... Total ta... Ast. ... Ast. ВАЗЕ Date Col... 
+2012 UGARU 42 P 1 .PB 4 1 402972 B 1 280/.. Сге... = 
+2012 UGARU 198 P 2 _ PB 4 1 537297 2 30/10... Gre... 
+2012 UGBUS 100002..D151265 C 1 M 4 2 100002... 23200... А 1 01/11/.. Gre... 
+2012|UGBUS|100009..3761101 = и 1 ім ja d1 иц р врати 
+2012 UGBUS 100005... HIGS2 a 10 M 8 1 O, View A 13 1641.. 
+
+2012 UGBUS 100005... HIGS5 5 11 M ё 1 A 14 1671г. 
+
+2012 UGBUS 100002... TEST223 5 2 M 8 1 Refund A 4 14/117... | 
+2012 UGBUS mnk G 2 —. IM 4 1 2413 А 2 01/11... Gre... 
+12012 UGBUS 100002... 1 cC 3 ~ IM 4 1 i Details 4100 А 8 15H . 
+
+2012 UGBUS 100002... 2020 o - I IM 8 1 A 5 151i. 
+
+2012 UGBUS 100005... 2020-08 S 4 .M 8 1 100015... 0 A 6 151. 
+
+2012 UGBUS 100009... 2020-08 5 | IM ё 1 100015... 0 A T 151 _ 
+
+2012 UGBUS 100005... HIGS3 5 6 . M 8 1 100057... 0 A 9 TETI.. 
+
+2012 UGBUS 100005... HIGS4 = o E м 8 1 100085... 0 A 10 16M1.. 
+
+2012 UGBUS 100002... three1 5 | a IM 8 1 100024... 0 A 11 161i.. | 
+2012 UGBUS 100005... HIGS1 a 8 „М ё 1 100057... 0 A 12 16/11/... - 
+
+
+
+
+
+ors | = х 
+
+
+Figure 23: Operations оп a CANCELLED Declaration 
+
+
+The operations of a cancelled declaration are in table 7 below: 
+
+
+View without possibility to amend 
+
+
+The system carries out this operation automatically provided that the 
+authorised officer is in control. This operation represents the updating of a 
+
+
+Refund 
+=e declaration with the receipt details AFTER the refund of the declaration has 
+
+
+been done by the accounting department. 
+
+
+Details This is operation represents the history (status evolution) of the declaration 
+from registration onwards. 
+
+
+Table 5: Operations on a Cancelled Declaration 
+
+
+
+
+
+31 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+1.11.2 шы on an ASSESSED declaration 
+
+
+
+
+
+2012 Teny MORY... 14/1 WIM & т 10001602.. = 
+2012 UGMAL ОЕ ae = 16/1 1/2... IM 
+2012 UGMAL 10000584... TESTO... 18 151172... IM 
+2012 UGMAL 10000584... TESTO1 4 1411/2... IM 
+2012 UGMAL 10000260... TEST2... 10 1411/2... IM 
+
+
+
+
+
+
+
+
+
+
+
+oo oo co со со 
+
+
+1 
+1 
+1 
+
+
+2012 UGMAL 10000584... higs1 1511/2..IM 8 1 
+2012 UGMAL 10000816... higs1 a 15411/2..IM 8 1 
+2012 UGMAL 10000584... 11952 1f 15H1/2..IM 8 1 
+2012 UGMAL 10000584... higs3 21 1511/2..IM 8 1 
+2012 UGMAL 10000584... marj T 14/11/2..IM 8 1 
+2012 UGMAL 10000260... qqq 11 1411/2..IM 8 1 
+2012 UGMAL 10000584... testü2 5 14H11/2..IM 8 1 
+2012 UGMAL 10000262... three2 11 1611/2... M 4 1 
+2012 UGMAL 10000260... twst?9... 18 15/1172. М 8 1 
+2012 UGMAL 10000260... xxx2 15 15/1 1/2... М 8 1 
+
+m URA Е 
+
+ining Server Training 
+
+Sas 
+
+
+a 
+| qu — Z2 rm zal “г - E — I Details == 
+
+
+Figure 24: Finding an ASSESSED Declaration 
+
+
+32 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+The operations of an assessed declaration are displayed in table 8 below: 
+
+
+View without possibility to amend 
+
+
+This operation enables the authorised persons to generate an XML file that will 
+Export to Т1 XML , | 
+
+be used to fill capture a Transit document. 
+
+This operation is done from the Finder only on an export declaration. It 
+Export release | | 
+
+represents the confirmation of leaving of the goods from the country. 
+
+
+This is an operation that can be done from the Finder or from a declaration 
+document; it displays the selectivity criteria (if any). 
+
+
+- Allows a user to indicate their actions once a declaration is selected red or 
+Selectivity Control 
+yellow. 
+Allows a user with the requisite rights for route goods to the examination shed 
+Route Goods l | 
+or delivery point. 
+Release order - 
+Ww Allows a user to trigger selectivity 
+(Selectivity) 
+
+
+This operation represents the clearing of a declaration selected Blue (assessed). 
+In addition this is the operation used to clear declarations selected Red or 
+Yellow when the configuration is set to selectivity after assessment. The 
+declaration is re-routed to the Green Lane. 
+
+
+Recalls a declaration and enables a user to review and modify the declaration 
+
+
+This is the cancellation operation of an assessed SAD; this is done directly from 
+the Finder. In fact, the document remains in the database until it is archived. 
+
+
+This operation locks the access of the document. 
+This operation unlocks the access of the document. 
+
+
+Manual Examiner | This option allows users to re assign declarations that cannot be handled but 
+assignment the assigned officers. 
+
+
+Generate T1 Allows a user to generate a transit entry from the declaration 
+
+
+Details This is operation represents the history (status evolution) of the declaration 
+from registered onwards. 
+
+
+Table 6: Operations on an Assessed Declaration 
+
+
+View criteria 
+
+
+Clear 
+
+
+
+
+
+33 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+1.11.3 Operations on a PAID declaration 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Year Off. ~ Declarant Ref. M... Reg. ... Reg... Reg. Da... Туре Сеп. ... tems Exp... Consignee Total t... Ast ... Ast... Ast. D... Col... 
+2012 ЦСМ... 10000260... 1 a 13 1511/2 IM 8 1 10003435... 0 A 19 1511. >. 
+2012 ЦСМ... 10000584... higs1 5 14 15/11/2_ М 8 1 10005730... 0 A 20 111.. 
+2012 UGM... 10000250... xxx2 s 15 1511/2.. М 8 1 10005730... 0 A 21 15/1. 
+2012 ЦСМ... 10000916... һід51 5 16 15/11/2_ М 8 1 10000916... 0 А 22 151 
+2012 UGM... 10000584... higs2 5 17 1591/2. М 8 1 10005730... 0 A 23 1511. 
+2012 UGM... 10000584 .. TEST.. S 18 15/11/2_ М 8 1 . View 11 
+2012 UGM... 10000584... 37611 5 20 1511/2.. IM 8 1 i= 
+2012 ЦСМ... 10000584... higs3 5 21 1591/2. М 8 1 $ Export release 1... 
+2012 ЦСМ... 10000379... MORY... S 22 16412. М 8 1 i= 
+2012 ЦСМ... 10000584... TESTO1 S 4 141/2..IM 8 1 em View Criteria i= 
+2012 ЦСМ... 10000584... test02 5 5 1491/2. М 8 1 11 
+2012 UGM... 10000233... COL45 S B 1411/2..IM 8 1 -— - 11 
+Release Order (selectivity 
+2012 ШСМ... 10000584... marj 5 T 1411/2... М8 1 ( } i= 
+2012 ЦСМ... 10000916... AHMOS S 8 1411/2..IM 8 1 ! 
+2012 ЦСМ... 10000250... IMBTE... S 8 141/2..IM 8 1 Clear declaration - 
+= * и Re-route to green жа xX 
+ЁТ Retrieve 
+~~) Cancel 
+Lock 
+[mca 79), Manual Examiner Assignment Ss 
+t library | 22 Detailed Declar... © 
+Details ml 
+г I ЕЕЕ 
+
+
+
+
+
+Figure 25: Finding а PAID Declaration 
+
+
+The operations of a paid declaration are displayed in table 9 below: 
+
+
+View without possibility to amend 
+
+
+This operation is done from the Finder only on exportation declaration. It 
+Export release | | 
+represents the confirmation of leaving of the goods from the country. 
+. "- This is an operation that can be done from the Finder or from a declaration 
+View criteria 
+
+
+document; it displays the selectivity criteria (if any). 
+
+
+Examine Allows an examiner to record their inspection results. 
+
+
+u Allows a user to indicate their actions once a declaration is selected red or 
+Selectivity Control 
+yellow. 
+Allows a user with the requisite rights for route goods to the examination shed 
+Route Goods | 
+or delivery point. 
+
+
+This is the control on the declaration that has been examined and found with 
+
+
+Clearance officer | | l . ; . 
+discrepancies. It allows the officer to route the declaration to the delivery point. 
+
+
+Release Allows a user to trigger selectivity 
+Order(selectivity) 
+
+
+Recalls a declaration and enables a user to review and modify the declaration 
+
+
+This is the cancellation operation of a paid declaration; this is done directly 
+from the Finder. In fact, the document remains in the database until it is 
+archived. 
+
+
+This operation locks the access of the document. 
+This operation unlocks the access of the document. 
+
+
+Manual Examiner | This option allows users to re assign declarations that cannot be handled but 
+the assigned officers. 
+
+
+assignment 
+UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+Cancel 
+
+
+
+
+
+34 
+
+
+Generate T1 Allows a user to generate a transit entry from the declaration 
+
+
+
+
+
+Detail This is operation represents the history (status evolution) of the declaration 
+from registered onwards. 
+
+
+Table7: Operations on a Paid Declaration 
+1.11.4 Operations on an EXITED SAD 
+Year Of... Declarant Ref. Mber Кед....Кед. ... Кед. Da...Type Gen... Ite... Exp... Consignee Total taxes Ast. Ast # Ast Date Co.. 
+
+
+2012 UGM... 1000055... TRS000... С 12 18H 1/2..IM 4 1 10005730... 4283933 А 30 18/11/20... 
+
+
+
+
+
+Figure 26: Operations on an EXITED Declaration 
+
+
+35 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+The operations of an exited declaration are displayed in table 10 below: 
+
+
+View without possibility to amend 
+This operation is done from the Finder only on exportation SAD. It represents 
+Export release | ; . 
+the confirmation of leaving of the goods from the country. 
+Allows an examiner to record their inspection. 
+Recalls a declaration and enables a user to review and modify the declaration 
+
+
+This is the cancellation operation of an exited SAD; this is done directly from the 
+Finder. In fact, the document remains in the database until it is archived. 
+
+
+assignment the assigned officers. 
+from registration onwards. 
+
+
+Table 8: Operations on an Exited Declaration 
+
+
+Cancel 
+
+
+
+
+
+1.12 Declaration processing steps 
+
+
+Declaration processing may take different paths according to the declaration type/ customs regime, 
+selectivity decision (routing) and many other factors according to the national customs legislation in 
+force. 
+
+
+There are many potential operations that could be done on a declaration from the start to the end. 
+Some of these operations are obligatory and the others are optional. In this part of the document, 
+the basic steps of a declaration processing will be illustrated. 
+
+
+1.12.1 Preparing a declaration for processing 
+
+
+The declaration form is the basic customs document needed for a clearance process to take place. By 
+now a user should be able to create a new SAD. To fill in a SAD form, the user is to take into 
+consideration that there exist two types of fields: 
+
+
+Plain text fields: Entered and displayed as is and no further manipulation is done on them. 
+For example; when keying in an IM4 declaration (entry for home use), the exporter resides in the 
+country of exportation and consequently national customs does not have him/her on its database. 
+
+
+The field is filled with the exporter information mentioned on the consignment associated 
+documents (Invoice). It’s a plain text and AW does not check it. 
+
+
+36 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+
+
+
+В Detailed Declaration - New [2012] Le WE А ; ; ne [3 
+File Edit View Help 
+
+
+S Wy vV EH F d& =) шй . 24 Bx ый» ә Ө 100 % 
+E | 
+ASYCUDA 
+
+
+A OFFICE OF DESTINATION 
+1 DECLARATION | я 
+
+
+2 Exporter ? IM 4 
+
+
+Trade Car View Customs Reference 
+26 Street, China 4 Load List 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Manifest 
+6 Nbr packages | 7 Reference number 
+1 2012 TRS00001 
+
+8 Consignee С 1000573057 9 Financial No. 
+
+Mr. HENRY BUWURE 
+
+861 KAMPALA 
+
+Country last |11 Trading 12 Value details 13 C.A.P. 
+CN con. cty. 0 
+
+14 Declarant No. 1000024976 15 Country of export 15 С.Е. Code |17 С.р. Соде 
+
+EEES China - ru |. LE № 
+
+
+Figure 27: Plain Text Field 
+
+
+Dynamic fields: Represents a field in one of the database tables to be manipulated in current or 
+future operations. Some of the dynamic fields are popped up from their appropriate fields as shown 
+below or called upon from the Database using the F3 key to fill in SAD field instead of typing it 
+manually. 
+
+
+ASYCUDA 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2 Exporter 
+Trade Car View ; 
+26 Street, China 4 Load List 
+ан 
+8 Consignee Но. 1000573057 9 Financial Е 
+Мг. HENRY BUWURE EH 
+861 KAMPALA & 
+Country last |11 Trading 12 Value details 13 С.А.Р. 
+CN | con. | cty. 0 
+
+
+
+
+
+
+
+
+Figure 28: Popping up the Declaration Type 
+
+
+Clicking the desired choice writes it automatically to the appropriate field. 
+25 Mode transport] 26 Inland mode 27 Place of discharge 26 Financial and banking data BankCode 02-04 
+o WA ë remastsame TOY CaS 
+EH 29 Office of entry BARCLAYS BANK - JINJA 
+UGBUS  BUSIA UGBUS 
+31 Packages | Marks and numbers - Containers No(s) - Number and kind 33 Commodity code 
+
+
+
+
+
+
+
+
+
+description’ of packages 34 Cty. orig. Cc : ену 9) 36 Prefer. 
+ofgoods | ныг & Kind aC" ib —= 100.00 
+37 PROCEDURE EH Copy ` 39 Quota 
+Containers No(s) 4000 00 900.00 
+(f Paste - 
+40 Summary d. — —- — ———-pcument 5/1. 
+Other arms (eg spring, air or gas guns and pistols, truncheons) excluding those of 93.07 Find ^ 
+41 Supplemen: Help ice 43 V.M. 
+36 | 1 И 3,000 code 
+
+
+44 Add. info 
+Documents 
+
+
+Licence No 
+0+0+0+0-0 
+
+
+
+
+
+
+
+45 Adjustment 
+
+
+
+
+
+
+
+Produced | др. 1.000 
+
+Certificates 
+
+and autho- 46 Statistical value 
+
+rization 7,532,190 
+47 Calcul- Type | Tax base Rate Amount | МР. 48 Deferred payment 49 Identification of warehouse 
+
+ation of 
+
+
+p 
+
+
+Figure 29: Using the F3 Option 
+
+
+37 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+@ Query - View fae Е = 
+File Edit View Help 
+
+
+= 100 % xch. rate 24 Nature of 
+х Өө 2,510.73 |4 |3 transac. 
+4 x 
+Keyword - Commodity Code: | гә х Query Date: 18/11/2012 ‚ 02-04 
+Section Vil 
+
+
+
+
+
+Plastics and articles thereof. rubber and articles thereof 
+
+
+Chapter 39 ;ross mass (kg) 
+PLASTICS AND ARTICLES THEREOF 
+
+
+et mass (kg) 
+
+
+
+
+
+Lo 
+
+
+@39 PLASTICS AND ARTICLES THEREOF ^d 39  PLASTICSANDARTICLES a a IE 
+39.01 Polymers of ethylene, in primary forms. THEREOF 
+Ф 39.02 Polymers of propylene or of other olefins, in primary forms. & 01/01/2007 >... 
+
+
+
+
+
+
+
+
+db 39.03 Polymers of styrene, in primary forms. 
+
+EZ 39.04 Polymers of vinyl chloride or of other halogenated olefins, in 
+primary forms 
+
+EZ 39.05 Polymers of vinyl acetate/other vinyl esters,in primary 
+forms;Other vinyl polymers prima 
+
+a 39.06 Acndic nalhvmarc in nriman: farms 
+
+
+А. Code | 45 Adjustment 
+
+
+46 Statistical value 
+7,532,190 
+
+
+4 › dentification of warehouse 
+
+
+Section Query Customs Tariff Reference List Print Tariff - 
+
+
+Figure 30: Filling in the Commodity Code Box using ЕЗ Key 
+
+
+Using the F3 key, a tariff code can be searched by name such as "offal" or by heading chapter or 
+Code. Expanding the tariff chapter, then tariff heading then sub-heading, clicking the desired HS code 
+( a red book) makes a green tick available for the user to write the HSCODE box 33. 
+
+
+3 Company finder of Detailed Declaration - New [2012] Ju М 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+, Please enter data for selection criteria, and proceed to find a specific 
+document Detailed Declaration field code 
+
+
+
+
+
+
+
+
+
+
+
+Name criteria value #1 value #2 
+Company name all 
+Company code all 
+
+
+" 
+
+
+Figure 31: The Company Finder 
+
+
+Using either the company name or company code a Tax Identification Number (TIN) can be found. 
+For example if the user only knows that the consignee name starts with TOT for TOTAL UGANDA, 
+(note the use of upper case here!) then a search can be done using the criteria "starts with". Many 
+more criteria are available to users. 
+
+
+1.13 Linking the declaration to a manifest (and waybill) 
+
+
+A valid manifest entry reference number with the format 2011 2 is entered in the appropriate field in 
+order to link the waybills comprised in the declaration to that manifest. “2012” is the year or 
+registration of the manifest while "2" is the manifest registration number. This allows for writing off 
+the waybill and manifest on assessment. 
+
+
+If the consignment is containerized, the box number 19 is checked. This activates the containers' no. 
+
+
+portion in box 31; the container on the SAD should match the container reference number indicated 
+in the waybill. The waybill (transport document) number is entered to box 40. 
+
+
+38 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+2 Exporter Ho. 
+Sea Gull Trade 
+
+
+Ih 4 
+21, Necroma street, Accra. 4 Load List 
+Ghana Manifest 
+IN Hbr packages T Reference numb Manifest reference numbe а 
+di 2007 
+
+
+Customs Headquarters 
+
+
+Customs Reference 
+
+
+$ Consignee Ho. 9 Financial у 
+
+
+Country last |11 Trading 12 Value details 13 C.A.F. 
+con. cty. 0.00 
+44 Declarant 1 15 Country of export 15 C.E. Code |Air C.D. Code 
+a b а! CH b 
+
+
+16 Country of origin 17 Country of destination 
+Switzerland 
+
+
+
+
+
+м 
+
+
+18 Identity and nationality of active means of transport at departuye |19 Ctr. A Delivery terms 
+E. 
+21 Identity and nationality of active means of transport crossing the bore 22 Currency & total amount invoiced |23 Exch. rate 24 Mature of 
+0.00 0.00000 transac. 
+25 Mode transport | 26 Inland mode 27 Place of discharge 28 Financial and banking data Bank Code 
+at border Transport Terms of payment 
+№ 29 Office of entry 30 Location of goods 
+$1 Packages | Marks and numbers - Containers No(s) - Humber and kind 33 Commodity code 
+and Marks & по Without marks 
+description) of packages 34 Cty. orig. Code | 35 Gross mass (kg) 36 Prefer. 
+of goods | Wor a Kind 
+a һ 
+3r PROCEDURE 3% Het mass (kg) 39 Quota 
+
+
+e Summary declaration ‘Previous document 
+
+
+
+
+
+
+
+Containers Hois) 12301987654 
+
+
+
+
+
+
+
+Summary declaration (Trarrepurtdurumient number) 
+
+
+Figure 32: Manifest Related Elements in the SAD 
+
+
+1.14 Filling in the valuation note 
+
+
+In order to clarify how this portion works, we will consider the case of a two-item declaration. Take 
+an example of the declaration below with three items. The figure below highlights the CIF value for 
+all the three items and the valuation note form (val.note). 
+e After entering the CIF value for the entire consignment the user should click on the val. note 
+e Тһе val. note has two segments, the general segment where the total CIF value is 
+automatically inserted after the insertion above, and the item segment. In order to capture 
+FOB, freight and insurance values the user should change the working mode to 
+"apportionment by value". 
+e [he item segment is located below the general segment. The user should scroll down below 
+the general segment to access the item segment for each item number. 
+e AW automatically apportions the freight and insurance values to the items once the option 
+above is selected. All the user needs to add is the FOB value for each item. 
+e Then the SAD can be verified to check its consistency. If the item values do not add up to the 
+total CIF value, an error message will be displayed. See the screen shots below to illustrate. 
+
+
+39 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+v wv O d a= Шш | ге E: 4 M UM " 27 чу 
+
+
+
+
+
+В ‹ 
+
+
+A OFFICE OF DESTINATION 
+
+
+UGBUS 
+
+
+No. BUSIA 
+
+
+
+
+
+Customs Reference 
+
+
+QUIAE ITI 
+: Manifest 
+1 Exporter 
+м Trade Car View 6 Nbr жайы? 7 Reference number 
+26 Strect, China 2012 TRS00001 
+
+
+No. 1000573057 9 Financial 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+8 Consigncc 
+
+
+Mr. HENRY BUWURE 
+
+
+861 КАМРА! А та last [11 — 12 Value details 13 C.A.P. 
+No. 1000024976 15 Country of export 15 С.Е. 17 C.D. Code 
+14 Declarant China a, CN a, UG b 
+ROSEBUD LIMITED 16 Country of origin 17 Country of destination 
+P.O BOX 3673 KAMPALA China Uganda 
+
+
+Зоо and VENURUM ot meals of transport at arrival ш: aa 20 IU: terms 
+UAB 2345 BUSIA 
+
+
+21 Identity and nationality of active means of transport crossing the border 22 Currency & total amount invoiced |23 Exch. rate 24 Nature of 
+^ Mode transport | 26 Inland mode 27 Place of discharge 28 Financial and banking data Bank Code 02-04 
+
+
+Figure 83: General Segment and Val Note. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ASYCUDA 
+
+
+SAD - Valuation Note - General seqment 
+
+
+
+
+
+Working mode Мо apportionment, computed totals 
+
+
+Exchange Amount in 
+rate 
+
+
+Invoice уайше............................. en | i USU 2,510.73 
+External Freight ..........(ї ааа ul 0.00 
+Internal Егеїщї..........................„„ььһьь-ь-ь 0. | 0.00 
+Insurance ....................[irnport)............... : Е 0.00 
+Other costs .................[im -— M. : 0.00 
+
+
+Проса с7а рог. | RR Rm € i 0.00 
+
+
+Total gross mass Total Costs 
+
+
+Delivery terms ыы CIF value 7,532,190 
+
+
+
+
+
+Figure 34: 1° Item Valuation Note 
+
+
+40 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+EJN Фан Ш Ех Ы ә ve 
+
+
+и: | | 
+= 
+SAD - Valuation Note - Item 
+
+
+
+
+
+
+
+
+
+
+
+Нет number 2 Amount FCX code Exchange rate Amount in 
+ср.  c—————————— 50500 іп USD 2,510.73 1,255,365 
+External Freight .......... (import)............... 0.00 in 0.00 0 
+
+
+0 - 
+
+
+
+
+
+Jnternal Freight l—55 0.00 i ——— HE n ——MÁ——— "Н. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+—TotalCosis 
+
+
+Delivery terms CIF BUSIA CIF value 1,255,365 
+Statistical value 1,255,365 
+
+
+Additional information 
+| Supplementary value 1 Code Name Quantity 
+
+
+SAN Val Note  Aemt Майса nfn Pano Aft Гог Sean Nar laadinalict | 
+
+
+Figure 35: 2" Item Segment 
+
+
+
+
+
+
+456,000 code 
+
+
+44 Add. info | Licence No D. Val 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Documents 0+0+0+0-0 АЛ. Code | 45 Adjustment 
+ages MAIL 107 108 141 148 151 153 120 115 1.000 
+Certificates] ^ | КЕ 5m ; — 
+and autho- І 46 Statistical value 
+rization i 456,000 
+| 
+EIU ИНИ LE Ln 
+ationof | 102 456,000.000 25.000 114,000 
+"wes Т 569,999.000 0.000 0 B ACCOUNTING DETAILS 
+456,000.000 6.000 | 
+Mode of payment CASH 
+Assessment number A 5 Date 19/11/2012 
+Receipt number Date 
+Guarantee Ü Date 
+Total fees 0 uGs 
+141,360 ES Total declaration 141,360 UGS 
+50 Principal No. Signature C OFFICE OF DEPARTURE 
+
+
+Figure 36: Duties and Taxes Calculated Automatically 
+
+
+1.15 Document verification 
+
+
+— 
+= 
+
+
+When the declaration is filled in, a verification request is issued by clicking the | icon on the 
+
+
+tool bar. This step insures the correctness of the declaration data before assessment 
+
+
+41 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+
+
+
+ФУУН Фани вхо», 
+Vane deme 
+
+
+ASYCUDA 
+
+
+2 Exporter 
+
+
+GLOBAL LOGISTICS 
+P.O.BOX 1233 
+
+KING FAHAD PLAZA ROAD 
+UNITED ARAB EMIRATES 
+
+
+
+
+
+Figure 37: Document Verification 
+
+
+After the document has been verified, an indicative dialogue box is displayed. In case an error is 
+discovered, the error will be displayed. ASYCUDAWorld error messages have been simplified as much 
+as possible to communicate the error. Users are encouraged the read the error messages before 
+clicking the tick in order to understand the cause of the error and to be able to rectify the error. In 
+case no more errors exist, then the dialogue below will be displayed (Figure 47) 
+
+
+4 Document verified! 
+
+
+
+
+
+Figure 38: Document Verification Notification 
+
+
+The due customs duties and taxes are calculated as shown in the figure below: 
+
+
+Олат 
+
+
+
+
+
+
+
+
+44 Add. info | Licence Мо 
+Documents 
+Produced 
+Certificates 
+and autho- 
+risations 
+
+
+D.üty 
+
+
+
+
+
+А. 
+
+
+45 Adjustment 
+
+
+! 46 Statistical value 
+
+| 1,255,365 
+
+47 Calcul- 
+
+ation of 
+taxes 
+
+
+
+
+
+42 UNCTAD/URA CBSEP [Asycuda World cor 
+
+
+1.16 Document Validation and Assessment 
+
+
+Validation process assures the integrity of the declaration data and its readiness to constitute a valid 
+
+
+
+
+
+customs declaration. The validation request is made by clicking the validate icon on the tool 
+bar as shown below. The current customs process in Uganda however, does not require validation. 
+Instead users go directly to Validate and Assess the declaration by clicking on the Validate and Assess 
+
+
+` 
+
+
+File Edit View Help 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+МУН Фаны вх». 
+feel [i^ ETE 
+
+
+SYCUDA 
+
+
+2 Exporter 
+
+
+GLOBAL LOGISTICS 
+Р.О.ВОХ 1233 
+KING FAHAD PLAZA ROAD 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+UNITED ARAB EMIRATES 
+
+
+Figure 40: Declaration Validation and Assessment. 
+
+
+Declaration validation is a vital customs operation that gives the validated declaration a legal status 
+and a customs reference number. Thus, a dialogue box is displayed to ask the user whether or not he 
+is certain as shown in Figure 50. 
+
+
+Confirmation | 
+Ө Do you really want to assess this declaration ? 
+Vv х 
+Figure 41: Validation and Assessment Dialogue Box. 
+
+
+If the answer is yes, AW validates and assesses the declaration and a unique customs reference 
+number and assessment number is assigned to that declaration. The Customs reference number, 
+declarant reference and assessment number can be used to retrieve a declaration. The declarant 
+reference is assigned by the Customs broker at the time of data capture. 
+
+
+A validation notification is displayed availing many options as shown below. 
+
+
+43 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+Transaction completed 
+
+
+Validate and assess is done. | ЇЇ mum | 
+
+
+Declarant ref.: 2012 1000024976 ТЕ500001 
+Customs ref. 241 
+Assessmaent rei: | : 
+
+
+| Print S.A.D document - customised 
+| Print $.A.D attached documents 
+| Print 5.A.D document - hardcopy 
+
+
+| | Print $.A.D document 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Figure 42: Assessment Notification. 
+
+
+1.17 Assessment notice 
+
+
+The Assessment Notice is a unique page per declaration and it contains information about the 
+assessment of the declaration. The assessment notice is generated upon the validation and 
+assessment of the declaration. It contains the summary of duties and taxes payable for the whole 
+declaration. The assessment notice is updated after the payments have been done and any 
+rectifications of declaration. 
+
+
+The assessment notice contains the type of declaration, the registration number, the date, the 
+declarant reference, the payment number, the account number, the receipt number, the codes and 
+the text of taxes, the amount of the taxes, the total of the duties and taxes to be paid. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SAD - Assessment Notice 
+
+= [ШЇЇ 
+
+UGKLA KAMPALA CBC Identification of the declaration 
+
+Model Customs reference Declarant reference Assessmentreference Nbr of Жет: 9 
+IM 4 2012 C 1 02/11/2012 2012 0202020202 2012 A 1 i 0211/2012 3 | 
+Declarant Company 
+
+1000024976 1000573057 
+
+ROSEBUD LIMITED Mr. HENRY BUWURE 
+
+Р.О BOX 3673 KAMPALA 861 KAMPALA 
+
+
+
+
+
+Mode of payment Account number Receipt number and date Statement number and date 
+CASH 
+
+
+44 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+Mode of payment Account number Receipt number and date Statement number and date 
+CASH 
+
+
+Items taxes Global taxes 
+IMPORT DUTY 3,012,876 
+VALUE ADDED TAX 3,118,326 
+DOMESTIC VAT 467,749 
+WITHHOLDING TAX $58,670 
+
+
+Total Global Taxes 
+Total tems Taxes 
+
+
+Total assessed amount for the declaration 
+Amount currently to be paid: 
+
+
+
+
+
+Figure 43: Assessment Notice Form 
+
+
+Using the finder, we can check the document status now is assessed, the Declarant may proceed to 
+the next step; payment 
+
+
+created on: 11/18/12 4:24 PM 
+by user: obert 
+full name: obert chibende 
+owner. 1000088644 
+locked: no 
+from: n/a 
+by: n/a 
+Current version: 
+version status owner 
+B 
+
+
+Date Status Transaction 
+
+
+11/18/12 4:40 РМ Exited Exit Paid 
+
+11/18/12 4:36 РМ Pai Print Release Order 
+
+11/18/12 4:35 РМ Pai System re-route to green 
+11/18/12 4:31 РМ Pai Clear declaration 
+
+11/18/12 4:29 РМ Pai Release Order (selectivity) 
+11/18/12 4:28 РМ Pai Payment 
+
+11/18/12 426 PM Assessed Registered directto assessed 
+11/18/12 426 PM Registered Validate and assess 
+
+
+
+
+
+= М ы ROC | co 
+
+
+
+
+
+Figure 44: Displaying Document Status. 
+
+
+In line with URA's policy of paying all taxes through the eTAX system, the system has been configured 
+to generate a ‘Payment Registration Number’ (PRN). 
+
+
+45 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+Click to 
+
+
+1.18 Generating a PRN 
+Generating a PRN on the AN 
+
+
+
+
+
+
+
+
+
+
+
+generate PRN 
+
+
+| E) Detailed Declaration - View [2012] 
+| File Edit View Help 
+
+
+| У i с 8 QAeveeve sa AP ec Ө 100 
+[© | 
+
+
+| | | шл ч uiii: nm 
+A OFFICE OF DESTINATION 
+1 DECLARATION UGBUS 
+E IM 4 BUSIA 
+Customs Reference 
+3 Forms 4LoadList | C 4 18/11/2012 
+1 2 Manifest 
+6 Nbr packages | 7 Reference number 
+11 2012 TRS00001 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Figure 45: Generating a PRN 
+
+
+To generate the PRN, click on the 'Assessment Notice' icon on top of the declaration. This makes the 
+system to link with the eTax system and the 'Payment Registration Number' (PRN) together with the 
+search code which are inserted on the Assessment Notice. 
+
+
+46 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+
+
+
+Ministry of Finance 
+Customs Headquarters 
+
+
+
+
+
+Assessment Notice 
+
+
+
+
+
+Customs office: 
+
+
+Model 
+IM4 
+
+
+Declarant 
+
+
+1000024976 
+ROSEBUD LIMITED 
+
+
+Item taxes 
+
+
+102 
+401 
+|40B 
+105 
+
+
+Tax code 
+
+
+UGBUS - BUSIA 
+
+
+Declaration reference 
+
+
+Customs reference Declarant reference Assessment reference Number of packages 
+18/11/2012 C 4 2012 TRS00001 18/11/2012 A 15 11 
+
+Company 
+
+1000573057 
+
+
+Mr. HENRY BUWURE 
+
+
+Tax description Tax value 
+
+IMPORT DUTY | 0.0C 
+VALUE ADDED TAX | 1,355,794.0C 
+‘DOMESTIC VAT | 203,369 0с 
+WITHHOLDING TAX | 451,932 0C 
+| Total Item taxes 2,011,095.0C 
+Total assessed amount for the declaration 2,011,095.0C 
+
+Total amount to be paid: 2,011,095.0C 
+
+
+PRN CODE 
+
+
+Office stamp Signature 
+
+
+
+
+
+Figure 46: Generating a PRN 
+
+
+47 
+
+
+UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+1.19 Triggering Selectivity 
+
+
+| Year Off. | Declarant Ref. Nber Reg. ...Reg. ..Reg. Da... Type Сеп. .. Ше... Exp... Consignee Total t. Ast ..|Ast..| Ast Date Со. 
+
+
+
+
+
+
+
+
+
+
+
+
+2012 UGB... 1000058... HIGS2 5 10 16/11/2.. М 8 - 10008566... 0 А 13 161120. __ 
+2012 UGB... 1000058... HIGS5 3 11 16/11/2... "In ne 10005730... 0 A 14 16/11/20... 
+2012 UGB... 5 6 16/11/2... М 8 1 10005730... 0 A 
+2012 UGB... тна Е 3 T 16112 IM 8 1 10008566... 0 A 
+2012 UGB... 1000026... three1 S 8 16912. М 8 1 10002403... 0 A 
+2012 UGB... 1000058... HIGS1 5 9 16/11/20 М 8 1 10005730... 0 A 
+2012 UGJJA 1000026... three1 C 8 1611/72... М 4 1 10002403... 4843... А 
+2012 UGKLA 1000026... ХХХХХБЗ.. C 4 16/11/2.. М 4 1 10000255... 0 A 
+2012 ЦСМ... 1000026... three? C 11 16/112 М 4 1 10002633... 0 A 
+2012 UGM... 1000037... MORYAM... S 22 16/11/2... М 8 1 10001602... 0 А 
+ole £ 
+ЕЯ | 
+a 
+Jl Details 
+— 1 Ш . =й = 
+
+
+The user receives a prompt asking whether they need to print a Release Order. As per current 
+Customs procedure, a Release Order is not required; so the user selects not to print it by clicking on 
+the X’ 
+
+
+Year Off... | Declarant Ref. Mber Reg. Reg. ...Кед. Da... Туре Gen. ... Ite... Exp... Consignee Total tL... Ast. ... Ast... Ast. Date Co... 
+
+
+
+
+
+
+
+
+2012 UGB... 1000058.. HIGS2 S 10  16112.1M 8 | 10008566... 0 : 13 16/11/20... 
+2012 UGB... 1000058.. HiG85 S 11 418112. гаа: 8 па 10005730... 0 ниги 16/11/20... - 
+2012 UGB... 1611/20.. 
+2012 UGB... TEREA T 16/11/20... 
+2012 UGB... 1000026... 11 164120.  — 
+2012 UGB... 1000058... 12 164120. _ 
+2012 UGJJA 1000026... 9  16H120.  - 
+2012 UGKLA 1000026... | | з 1611/20...  — 
+2012 UGM... 1000026... thr чу х 3. 28 16/11/20... 
+2012 UGM... 1000037... | 29 16/11/20... 
+
+
+
+
+
+At this point, selectivity is triggered and the declaration is selected to any of the four processing 
+lanes: Red lane, Yellow Lane, Blue Lane or Green Lane. 
+
+
+48 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+
+
+
+Transaction completed 
+
+
+
+
+
+
+
+
+
+
+
+Declaration is selected 
+
+Declarant ref: 2012 1000024976 TRS00001—5 
+Customs ref.: C 5 18/11/2012 
+
+Assessment ref.: А 16 18/11/2012 
+
+
+RED LANE 
+
+
+
+
+
+
+
+
+1.20 How Selectivity decision influences the declaration processing 
+
+
+A declaration could be treated differently according to the selectivity decision and the declaration 
+status. The different potential selectivity decisions and declaration status are shown in 3.5.1 and 
+3.5.2 respectively. 
+
+
+1.20.1 Selectivity lanes and colours 
+
+
+This allows allocation of the selected declaration to one of four paths, for different types or levels of 
+Customs processing checks plus a query lane. 
+
+
+While a Customs administration can determine exactly what type of action will be carried out when a 
+declaration is selected for a particular lane, these actions are described as follows:- 
+
+
+
+
+
+Red Lane — physical examination: the imported goods are physically examined by the Examiners at 
+the Bonded warehouses. Once this is done the Examiner retrieves the declaration and feels the 
+Verification Account (VA) via the Inspection Act. 
+
+
+Yellow Lane - full documentary check before assessment. 
+
+
+Blue Lane declarations are subject to post clearance audit. This provides flexibility, and can allow 
+Customs to make more efficient use of their resources, such as allowing release of low risk goods, 
+subject to some type of audit control at a later date. 
+
+
+Note - There is an option for automatic re-routing of Yellow Lane declarations to Blue Lane after a 
+predetermined number of days. 
+
+
+Green Lane = All declarations except those selected Red Lane, Yellow Lane or Blue Lane. 
+Green Lane contains an option to delay the automatic assessment of declarations to allow Customs 
+
+
+time to manually go through these declarations. There is also the option to re-route to Red Lane, 
+Yellow Lane or Blue Lane if a higher level of check is necessary. 
+
+
+1.20.2 Switching lanes; Green, blue, yellow and red lanes 
+
+
+Moving between lanes needs often administrative decisions (from customs). When it comes to the 
+users (Operational part), to reroute a declaration from a lane to another, the following sequence is 
+followed: 
+
+
+49 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+
+
+
+
+
+
+
+
+
+
+
+Find by Reg. Nber 
+Find audit green 
+Find audit red 
+Find audit yellow 
+Find audit blue 
+Find audit query 
+22) Find written-off 
+LJ J Find Selected Yellow 
+
+
+Figure 9: Finding a 'Selected Red' Declaration 
+
+
+And choose 'Find Selected Red' 
+
+
+When the 'Selected Red' declarations are displayed, the user right-clicks the chosen declaration and 
+pick one of the rerouting options, ‘Reroute to Green’ in our case. 
+
+
+Main menu ASYCUDA Goods Clearance Detailed Declaration, Find Selected Red and Re-route to 
+green 
+
+
+Rerouting a declaration takes place when the appropriate measures/interventions have been taken 
+and the rerouting decision has been taken. 
+
+
+A typical re-routing process involves the following: 
+1. A declaration is selected 'red' following matching selection criteria according to the 
+predefined risk patterns 
+2. AW delivers a message stating the routing decision leaving the opportunity for the user to 
+
+
+commit one of the following options: 
+
+
+a. If the rerouting decision is there, the user can proceed directly to reroute the 
+declaration according to the decision. 
+
+
+50 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+b. If this is not the case, the user quits and comes back later, upon the issuance of the 
+rerouting decision, to find the declaration and accomplish the task as follows: 
+
+
+1.20.3 Release of a Declaration 
+
+
+The current customs procedure obtaining in Uganda is that of self-assessment whereby declarations 
+are directly assessed by the Agents and payment made before Customs can commence declaration 
+processing. This necessitates configuring ASYCUDA to trigger selectivity after assessment. This 
+configuration requires that when declarations are selected to various processing lanes and the 
+necessary action in terms of document or physical examination has been done, the declaration must 
+first be ‘Cleared’ before being re-routed to green lane for release. 
+
+
+To clear the declaration, go through the Finder, display a list of selected declarations and select the 
+option to ‘Clear declaration’. 
+
+
+
+
+
+
+
+
+
+Year Cleara... 
+2012 UGMUT 1000021... -0389383 С 5 0611/2... М 4 
+
+
+
+
+
+Ө = £ 
+Training Server 
+
+
+This brings the Inspection Act through which the user can indicate the examination account resulting 
+from the examination that has been made on the declared goods; otherwise they will simply indicate 
+‘ok’ and validate the Inspection Act 
+
+
+51 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+1 
+k 
+= a 
+
+
+
+
+
+‚ ae 
+
+
+
+
+
+кх 
+
+
+ЕЕЕ ЭТЕ ЖЕЕ ЕЕЕ ЖИЕ КЕ | К 5 
+Nu oa tee a be be ee м, NO ы 
+Dori grex аны: P 
+
+
+Customs Office | | ШУ 
+lUGBUS | p 
+Declaration a 
+Declarant Code 
+
+
+[1000024976 = 
+
+
+Name Customs reference Date 
+
+
+[ROSEBUD LIMITED cb (18/11/2012 
+
+
+Declarant reference Model Items Assessment Reference Date 
+
+
+2012 г [rRs00001—5 мл р А he [38512012 
+
+
+
+
+
+“ТЫ 
+
+
+
+
+
+RENE EE 
+vt "a a ka b a b a b a b b B e b ati 
+
+
+[a 
+КЕК 
+_ а 
+
+
+
+
+
+Examination Results 
+Ем | | | Conform 
+
+| [ Loss of Revenue mu 
+т т | 4,383,933 
+r — m — Refund M 
+i. j = == | | || 
+
+
+| Inspection Act | 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Validating the Inspection Act, brings up the option to re-route the declaration 
+
+
+Transaction completed а n Cox) 
+
+
+
+
+
+| 
+| 
+
+
+> Re-route to green 
+
+
+
+
+
+| | Re-route to blue 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+And finally the declaration is re-routed to the green lane for release 
+
+
+Declaration is selected 
+
+Declarant ref.: 2012 1000024976 TRS00001—5 
+Customs ref.: C 5 18/11/2012 
+
+Assessment ref.: A 16 18/11/2012 
+
+
+
+
+
+
+
+
+52 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+
+
+
+
+
+
+
+
+
+1.21 Release order 
+
+
+In order to withdraw the goods from Customs control, a release order is issued. Using the finder, the 
+user chooses the right declaration. In the current Ugandan customs procedure, although the 
+declaration is generated by the system, it is not issued to the Traders; the user thus disregards the 
+pronting of the release order on the next dialog box 
+
+
+
+
+
+Ө Would you like to print the release order now? 
+
+
+их 
+
+
+Inspection Act 
+The inspection act is a tool in ASYCUDAWorld where users can capture any information that may be 
+relevant to anyone who views the declaration after Customs processing. 
+
+
+1.21.1 Creating an Inspection Act 
+
+Specific users with the requisite rights can create an inspection act if it has not been created 
+automatically. 
+
+Creation of the inspection act is done from the selectivity module. The user should go the selectivity, 
+right click on inspection act and click "new". Once creation of the inspection act is done the user 
+should validate it. 
+
+
+53 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+a. 
+
+
+_ & £3 Cargo Manifest 
+© Sj Goods Clearance 
+© C3 Declaration 
+© & Detailed Declaration 
+Е Detailed Declaration 
+©- £3 Periodic Entry 
+
+
+
+
+
+
+
+
+
+
+
+
+{= Sj Reports 
+
+2- C3 Warehouse Stock Manage 
+ce 29 Integrated Tariff j 
+&- Sj References 
+9 & selectivity 
+
+
+Е Administrations э с iv 
+Examiners / Chief Exami 
+
+
+Al” 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Figure 10: Create and Inspection Act 
+
+
+1.21.2 Viewing the Inspection Act on the SAD 
+
+
+The inspection act can be viewed from the SAD; this access does not allow a user to make any 
+changes to the data contained in the screen. Using the finder, find the SAD and retrieve it. A small 
+icon will be displayed at the top of screen as demonstrated below. Click on it to retrieve the 
+inspection act. 
+
+
+E Detailed Declaration - Retrieve [2011] eee A 
+File Edit View Help 
+
+
+тумма а вх ВЕ С с> со ә 
+ASYCUDA ENS 
+
+
+ЇЇ г 
+
+
+Figure 11: Viewing Inspection Act 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+54 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+Penalty Amount Reference Date 
+
+
+[Шш EE куа 
+
+
+Disputed claim Reference Date 
+
+
+Criteri 
+Аы 
+
+
+Information 
+
+
+
+
+
+Inspection Act 
+
+
+Figure 12: Inspection Act View 
+
+
+This page (above) is opened by default once a declaration is modified after selectivity or assessment. 
+A user is always prompted to give a description of what intervention they took in the dialogue box 
+above. After inputting the information, the user should validate the inspection act. 
+
+
+1.22 Viewing Criteria 
+
+
+A user should always understand why a declaration has been selected red, yellow or blue. These 
+colours require specific interventions that are communicated in the criteria. This information can be 
+viewed by any officer in the declaration of the processing chain. In order to view the criteria or 
+criterion that hit the declaration, the user should use the Finder to view the selected SAD. Then right 
+click on it and click “view criteria”. 
+
+
+Year Сїеага.. © Declarant Ref Nber Reg. . Reg.. Reg. а. Type Сеп... е. Ex Consignee Total duties .. Ast. . Asses.. Colour 
+| | | | | 
+
+
+2012 UGMUT 1000021... -0389383 C 5 06/11/2... М 4 
+2012 UGMUT 1000063... 2012001 C n 20n11/2..IM 4 
+
+
+
+
+
+
+
+
+ua 
+umm шик: 
+
+
+ашан 
+ши 
+mu 
+mu 
+mu 
+mu 
+mu 
+mu 
+mu 
+L 
+
+
+as 
+иш 
+
+
+Figure 133: Viewing a Criterion 
+
+
+55 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+File Edit View Help 
+
+
+=) è Ө 100% 
+
+
+ASYCUDA 
+
+
+
+
+
+Criteria 
+Figure 144: Viewing Criteria 
+
+
+The user can select the criteria code by clicking on it; the documentation for the selected criteria will 
+be displayed to inform the user on what is required of them. 
+
+
+1.23 Exit Note 
+
+
+Customs may decide to confirm the physical exit of the goods from Customs premises by using an 
+exit note. AW presents two types of exit note: 
+
+
+Exit Note which is used by the officer to allow exit out of a transit shed or specific location of goods. 
+The user will have to know by declaration which location the goods had been stored prior to 
+clearance. 
+
+
+Item Exit note which is used by the officer to allow exit of an item at a time. This implies that the 
+owner of the goods may decide not to take all items at a go and hence exit would be done only for 
+items that are being taken until such a time when all items are ready to exit out of the location of 
+goods. 
+
+
+In either case, once all goods have been exited, the declaration status may change to confirm exit. 
+
+
+То process an exit note, using Exit note, right click оп the menu transit shed and then click on New. 
+Details of the exit process are found in last chapter in this document. 
+
+
+56 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+
+
+
+Figure 15: Selecting for Exit 
+
+
+The item list will be presented in a separate window allowing the user to select the item to be exited 
+from the list. This is useful when the whole consignment will not be exited at once. It allows for 
+partial exit of the consignment. 
+
+
+Exit note general information 
+
+
+
+
+
+
+
+
+
+
+
+
+
+Please select declarations to be used to generate exit note 
+
+
+Custo...Decla... Trans...Dec. г.. Item n.. РСК. Т. 1Рск T.. 
+UGB... 1000... GEN... 2012 1 CT Carton 
+
+
+
+
+
+[1 
+Gross...Conta.. 
+1000.0 _ 
+
+
+
+
+
+Office and Declarant 
+Customs office 
+
+
+
+
+
+
+
+
+
+
+os 
+Location 
+
+GENERAL” 
+
+| ral 
+
+Declarant 
+
+
+
+
+
+
+Place of exit of goods 
+
+
+n 000024976 
+
+
+Cont н. P eed Watered Tot Pigs Tot wat Pig yp. en. Mark E var 1 Mare 8? Ae Ak. Due ao 
+
+
+
+
+
+57 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+“eo EAR PR 
+
+
+Exit Note ID 
+
+
+
+
+
+
+
+
+
+Customs office 
+
+
+
+
+
+
+
+
+
+
+
+
+UGBUS USIA 2012 x 
+Location Issued on 
+(GENERAL f 8/11/2012 р 8:22 [obert 
+
+
+
+
+
+
+
+
+neral 
+Declarant Transaction completed RP 
+————— = ни 
+1000024976 | — —— 
+
+
+
+
+
+ROSEBUD LIMITED 
+P.O BOX 3673 KAMPALA 
+
+
+| 
+
+
+1 | 1000.0 1 | 1000.0 
+
+
+
+
+
+
+
+
+Ministry of Finance 
+Customs Headquarters 
+
+
+Exit Note 
+
+
+Customs offices of BUSIA 
+
+
+General Information 
+
+
+Exit Note Nbr 2012/X/2 Issued On 18/11/2012 17:22 By obert 
+
+
+Transit Shed / Customs General 
+
+
+Declarant: ROSEBUD LIMITED 
+P.O BOX 3673 KAMPALA 
+Identification of the Transporter 
+
+
+Registration Nationality Driver 
+
+
+Figure 16: Item Exit Page 
+
+
+58 UNCTAD/URA CBSEP [Asycuda World component] 2012 Version 1.0 
+
+

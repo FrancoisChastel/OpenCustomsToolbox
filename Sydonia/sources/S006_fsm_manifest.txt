@@ -1,0 +1,791 @@
+DEPARTMENT OF FINANCE AND ADMINISTRATION
+
+    CUSTOMS AND TAX ADMINISTRATION
+
+
+
+
+      Manifest Reference User Guide
+                 External Stakeholders
+
+
+                    Version 0.1
+
+
+
+
+        Prepared by the National Project Team
+                  September - 2023
+Document versions
+Version Number   Purpose/Change                               Author          Date
+0.1              Initial draft – to be validated by the NPT   Arlette INEZA   09/28/2023
+
+
+
+
+                                                                                 1|Page
+Contents
+I.         INTRODUCTION ..................................................................................................................................... 4
+II.        Definitions ............................................................................................................................................. 5
+      1.       The manifest .................................................................................................................................... 5
+      2.       The waybill ....................................................................................................................................... 5
+      3.       E-Document status........................................................................................................................... 5
+III.           GENERAL INFORMATION ................................................................................................................. 6
+      1.       How to access the module ............................................................................................................... 6
+      2.       Open the main menu ....................................................................................................................... 6
+      3.       Manifest general segment fields ..................................................................................................... 7
+      4.       Waybill fields .................................................................................................................................... 8
+IV.            MANIFEST GENERAL SEGMENT ....................................................................................................... 9
+      1.       Access the manifest general segment ............................................................................................. 9
+      2.       Create new general segment ........................................................................................................... 9
+      3.       Attach scanned documents ........................................................................................................... 11
+      4.       Verify a manifest general segment ................................................................................................ 12
+      5.       Store a manifest general segment ................................................................................................. 12
+      6.       Find a manifest............................................................................................................................... 13
+      7.       Save changes done on a stored manifest ...................................................................................... 15
+      8.       Register a manifest general segment ............................................................................................ 17
+           1st From the finder .............................................................................................................................. 17
+           2nd From an opened manifest general segment ................................................................................. 17
+      9.       Export / Import XML file ................................................................................................................ 19
+      10.           List waybills on a manifest ......................................................................................................... 20
+      11.           Delete a manifest general segment........................................................................................... 21
+V.         WAYBILLS ............................................................................................................................................ 22
+      1.       Capture waybill information .......................................................................................................... 22
+      2.       Add a container .............................................................................................................................. 25
+      3.       Grant waybill access for degroupage ............................................................................................. 26
+      4.       Scan a document............................................................................................................................ 27
+      5.       Find waybills................................................................................................................................... 28
+      6.       Amending a stored waybill ............................................................................................................ 30
+
+                                                                                                                                                     2|Page
+   7.    Validate a waybill ........................................................................................................................... 31
+   8.    De-grouping a master waybill ........................................................................................................ 32
+   9.    Validate de-groupage..................................................................................................................... 33
+   10.       Location of goods ...................................................................................................................... 34
+   11.       Delete a waybill ......................................................................................................................... 36
+VI.      XML INTEGRATION ......................................................................................................................... 37
+   1.    Select XML to integrate.................................................................................................................. 38
+   2.    Check xml content ......................................................................................................................... 39
+   3.    Save and store................................................................................................................................ 39
+VIII.    CONTAINER MANAGEMENT .......................................................................................................... 40
+   1.    Find containers associated to a particular waybill......................................................................... 40
+   2.    Find a waybill for a container ........................................................................................................ 42
+
+
+
+
+                                                                                                                                         3|Page
+   I.      INTRODUCTION
+
+In keeping with our vision to be a modernized customs and tax administration delivering
+excellence in revenue collection, border protection, and trade facilitation, the Customs and Tax
+administration is pleased to share with all the stakeholders in the manifest process the ASYCUDA
+World Manifest User’s Guide. The manual is intended to guide the system users in preparing and
+submitting the electronic cargo declaration.
+The Customs Act Subchapter III Section 238 and supporting regulations require the master of
+every vessel or the pilot of every aircraft to deliver and submit a report of the manifest and all
+the bills of lading and airway bills for cargo to be discharged at a particular port.
+The cargo manifest submission is the point of entry for all the customs clearance processes in
+ASYCUDAWorld. The cargo manifest is used by the Customs and Tax Administration to ensure that
+all cargoes imported through our seaports are correctly recorded and accounted for and are
+received in accordance with FSM customs and tax laws. It also gives advance notice on imported
+cargo allowing the Customs and Tax Administration to plan examination priorities, risk assessment
+and facilitates faster cargo clearance.
+
+
+
+
+                               WELCOME TO ASYCUDA WORLD!
+
+
+
+
+                                                                                       4|Page
+   II. Definitions
+
+   1. The manifest
+It is a transport document containing all the goods transported by a means of transport during a
+particular journey. The ASYCUDA World manifest is composed of two parts: a general segment
+containing the data related to the whole cargo transport, and one or more transport documents
+(Waybills).
+
+
+
+   2. The waybill
+Different kinds of waybill are used in ASYCUDAWorld.
+
+   •   House bill: represents a consignment. Goods relating to a house bill can be declared
+       directly by a customs detailed declaration.
+   •   Master waybill: Refers to the consolidation for transport purpose of several house bills. It
+       must be deconsolidated into house bills before a declaration can be lodged against any of
+       the bills.
+   •   1st level waybill: This is a bill directly linked to the manifest. It can be a master or house
+       waybill.
+   •   2nd level waybill / Sub-bill: It is always a house bill resulting from a deconsolidation. It is
+       not directly attached to Manifest but to a master waybill.
+
+
+   3. E-Document status
+Documents in ASYCUDAWorld have a life cycle. Their status changes as we perform operations on
+them. Some operations change the document's status, while others do not. When the status of a
+document changes, the operations available on the document will change accordingly.
+
+
+
+
+                                                                                           5|Page
+   III. GENERAL INFORMATION
+
+   1. How to access the module
+
+The access to ASYCUDA World is granted through an application process. All users must submit
+the user application and registration form to the Customs and Tax Administration to get access.
+The Customs and Tax Administration will issue a login name and initial password. The appropriate
+access rights will be granted based on the profile of the applicant. To access the manifest
+management module, the user must have the relevant rights.
+
+   2. Open the main menu
+
+When the user is logged into ASYCUDAWorld, the main menu is accessed by clicking on the
+
+      button.
+
+
+
+
+Then the main menu opens. The available modules depend on the access level granted to the
+user’s profile.
+
+
+
+
+                                                                                     6|Page
+     3. Manifest general segment fields
+ Here is a list of the general segment data fields and the respective description.
+DATA FIELD                            DESCRIPTION
+Office of departure/arrival           Code of the Customs office of departure or arrival
+
+                                         GENERAL DATA
+Voyage number                       Aircraft flight number or vessel voyage number. This is a unique
+                                    identification of the current journey of the mean of transport
+Date of departure                   Date when the means of transport starts the journey
+ATA (Actual time of arrival) - Date Date when the means of transport arrives at the port
+of arrival
+ATA (Actual time of arrival) - Time Time when the means of transport arrives at the port.
+of arrival
+Date of departure from FSM          Date when the means of transport departs from the port
+Last discharge                        Date when all the goods of the manifest have been unloaded
+                                      from the mean of transport
+Manifest number and date of           These fields will be automatically completed by the system
+registration                          upon registration of the manifest
+Place of loading                      The place where the vessel or aircraft begins its voyage
+Place of unloading                    Place where the goods will be unloaded from the means of
+                                      transport
+Last port                             The port where the vessel is coming from
+Next port                             The port where the vessel is heading
+                                         TRANSPORT DATA
+Carrier                               Code, name, and address of the party undertaking the
+                                      transport of the goods
+Shipping Agent                        Code of the Shipping Agent in charge of the ship management
+                                      during the stay in port
+Mode                                  Code identifying the mode of transport
+Nationality                           Country code where the mean of transport is registered
+Name of vessel / aircraft             Ship name, aircraft name
+Place                                 Location in port where the vessel is berthed or moored
+Registration                          The registration number of the means of transport
+Date                                  The registration date of the means of transport
+Master (Pilot / Captain)              Name of the captain, the pilot
+Totals                                Summary of the quantitative data regarding the cargo total
+                                      number of waybills, packages, containers and total gross
+                                      weight contained in the manifest
+                                             TONNAGE
+Gross and net tonnage                 Tonnage of the ship - Information data not applicable for FSM
+
+                                                                                           7|Page
+   4. Waybill fields
+Here is a list of the general segment data fields and the respective description.
+
+       DATA FIELD                                            DESCRIPTION
+                                               GENERAL DATA
+ Waybill reference number      Identifier of the transport document
+ Waybill type                  Type of transport document (e.g., « AWB » for Air waybill)
+ Previous document             Reference of the master waybill in case of deconsolidation.
+ Nature                        Code nature of the document: export, import, transit, transshipment.
+ UCR                           Data not applicable for FSM.
+ Waybill line                  Sequential number for each waybill.
+                                           EXPORTER / IMPORTER
+ Exporter/Shipper              Code, name, and address of the exporter
+ Notify                        Code, name, and address of the person who requires notification upon
+                               arrival of the goods
+ Consignee                     Code, name, and address of the importer
+                                                  GOODS
+ Total containers              Total number of containers for this transport document
+ Packages code                 Code and description of the kind of packages (cartons, boxes...)
+ Status                        Status code of the waybill (Master, Sub-bill…).
+ Number of degrouped           Number of deconsolidated sub-bills resulting from the deconsolidation of a
+ waybills                      master document. This field is directly managed by the system.
+ Marks & nb                    Shipping marks
+ Manifested packages           Number of packages as indicated on the waybill.
+ Remaining packages            This is handled by the system when there is writing off operations are performed.
+ Manifested gross weight       Gross weight indicated on the waybill.
+ Remaining gross weight        This is handled by the system when there is writing off operations are performed.
+ Volume (MC)                   Volume of the goods in cubic meters
+ Description of goods          Commercial description of the goods from the waybill data
+ Location of goods             Code of the place where the goods are located
+                                        VALUES AND SEALS DETAILS
+ P/C Indicator                 The value « P » means that the freight has been prepaid, and the value « C »
+                               means that the freight is to be collected
+ Freight value and currency    The amount of freight and the currency code
+ Value for Customs             The value declared for customs
+ Value for transport           The value declared for transport
+ Value for insurance           The value declared for insurance
+ Seals number                  Number of seals affixed
+ Marks                         Marks or references number of seals
+ Party                         Code of the body having affixed the seals (Customs, terminal operator,..)
+ Information                   Additional Information as required
+
+
+
+                                                                                           8|Page
+   IV. MANIFEST GENERAL SEGMENT
+
+   1. Access the manifest general segment
+The manifest creation starts with the General Segment. Access the General Segment by
+navigating the Document Library using the Path: ASYCUDA -> Cargo Manifest -> Data
+Management -> Manual Capture -> General Segment.
+
+
+
+
+   2. Create new general segment
+To create a new general segment, right click on the “General Segment” e-document and select
+New, as illustrated below
+
+
+
+
+Then a general segment page appears:
+
+
+                                                                                 9|Page
+The carrier’s main representative will fill out the form above. Some fields are mandatory. They
+
+will appear in red if they are not correctly filled in. To check mandatory information, click the
+icon. Use the Manifest general segment fields to capture the necessary data.
+
+
+
+                                                                                          10 | P a g e
+   3. Attach scanned documents
+
+
+When submitting a manifest general segment, the user can attach the relevant supporting
+documents as recommended by the Customs and Tax Administration. He will go to the “Scan
+
+document” tab and then select the         icon.
+
+
+
+
+Then the user will get a screen allowing him to select the file to attach from the computer. When
+
+the file is selected, the user will choose the type of document attached and click on the
+button to upload the file.
+
+
+
+
+The user can add as many documents as are required.
+                                                                                     11 | P a g e
+   4. Verify a manifest general segment
+
+When the user has filled out all the required data, he can check if all the data has been correctly
+
+inserted by clicking the  icon.
+If everything is entered correctly, the next confirmation message will be displayed:
+
+
+
+
+Otherwise, an error message will be displayed.
+
+
+
+
+   5. Store a manifest general segment
+
+When all data has been entered into the system, the user can store the manifest general segment
+
+by clicking on the        icon. The user can reopen the manifest at any time and continue the
+data entry later.
+
+
+
+
+                                                                                       12 | P a g e
+When the store operation succeeds, the confirmation message below is displayed:
+
+
+
+
+   6. Find a manifest
+A stored or registered manifest can be found using the finder. This is done by right-clicking the
+manifest general segment and selecting the find option as follows:
+
+
+
+
+A window with search criteria will be opened and the user will use the appropriate criteria to find
+the needed information. Multiple search criteria can be combined to get the right line(s).
+
+
+
+
+                                                                                       13 | P a g e
+Then click on the        icon.
+A list of all records matching the search criteria is displayed:
+
+
+
+
+Details on the operations performed on the records can be viewed by clicking on the “Details”
+operation. The following screen will appear:
+
+                                                                                  14 | P a g e
+   7. Save changes done on a stored manifest
+
+A stored manifest remains a draft and can be updated at any time. To do so, use the finder and
+choose the “Modification” operation.
+
+
+
+
+                                                                                   15 | P a g e
+The screen below will be displayed and when all the modifications are done, the user will click on
+
+the       icon to save the changes.
+
+
+
+
+The confirmation message below will be displayed.
+
+
+
+
+                                                                                      16 | P a g e
+   8. Register a manifest general segment
+
+Registering a manifest is equivalent to the submitting the manifest to customs administration.
+This operation will be performed by the shipping agent when all information relating to the
+manifest and the corresponding waybill has been captured into the system. A manifest general
+segment can be registered in two ways:
+1st From the finder
+Find the manifest using the finder and then right-click on the desired line. The screen below shows
+up, and then select the “Direct Register” operation.
+
+
+
+
+2nd From an opened manifest general segment
+
+The registration of a manifest can be done by clicking on the             icon when the general
+segment is opened, as shown on the screen below.
+
+
+
+
+                                                                                       17 | P a g e
+When the operation is successful, a confirmation message is displayed, specifying the registration
+number of the general segment, as per the screen below:
+
+
+
+
+Otherwise, an error message is displayed detailing the reason for the failure.
+
+
+
+
+                                                                                      18 | P a g e
+   9. Export / Import XML file
+
+ASYCUDAWorld allows you to store a manifest's general segment in an XML file. This file can be
+used later as a template for further manifests to be created.
+Open a general segment in view or modification mode as per the screen below.
+
+
+
+
+To generate the XML file, the user will click on the   icon and save the file on the computer.
+The below window opens to save the file. Then choose the folder where the XML file will be
+stored and click on “Save”.
+
+
+
+
+                                                                                   19 | P a g e
+The generated file can be uploaded to the system by clicking on the      icon. The window below
+opens. Then pick the XML file to use.
+
+
+
+
+The data in the XML file will be automatically loaded into the system.
+
+
+   10. List waybills on a manifest
+
+To view the list of waybills of a manifest, you open the manifest in view or modification mode.
+Then you go to the “Bol” tab. A list of all the waybills for the manifest is displayed as per the
+screen below:
+
+
+
+
+                                                                                     20 | P a g e
+   11. Delete a manifest general segment
+As long as the manifest is still a draft (Status = Stored) and no associated waybill has yet been
+validated, it can be deleted.
+Right-click on the selected general segment and select the “Direct Delete” operation as shown on
+the screen below:
+
+
+
+
+ You can choose the “Direct Delete” option to delete the general segment and keep the
+corresponding waybills or you can choose “Delete Man and Bls” to delete the general segment
+and all the corresponding waybills.
+
+
+Then a confirmation page is displayed, and then choose          icon to confirm the deletion.
+
+
+
+
+                                                                                     21 | P a g e
+   V.      WAYBILLS
+
+   1. Capture waybill information
+
+When the general segment is already lodged in ASYCUDAWorld, the user can start creating the
+waybills. To create a new waybill, right-click at the General Segment and select the “New”
+operation as illustrated below:
+
+
+
+
+The waybill form will open:
+
+
+
+
+                                                                                22 | P a g e
+23 | P a g e
+The carrier’s main representative or the freight forwarder will fill out the form above. Some
+fields are mandatory. They will show in red if not filled or data are incorrect. To check
+
+mandatory information, click the        icon. Use the Waybill fields to capture the necessary
+data.
+
+
+Click on the       icon to store the waybill. If the operation is successful, then a confirmation
+message is displayed.
+
+
+
+
+Otherwise, an error detailing the reason for the failure will be displayed:
+
+
+
+
+                                                                                        24 | P a g e
+    2. Add a container
+To add a container, go to the container tab and fill out all the information and then click on the
+     icon to add the container to the list.
+
+
+
+
+A list of all the containers will be displayed as follows:
+
+
+
+
+                                                                                      25 | P a g e
+   3. Grant waybill access for degroupage
+
+The degroupage (deconsolidation) operation is performed on the master waybills. To authorize a
+freight forwarder to do degroupage, go to the “access” tab and tick the
+
+                                                option, then provide the business ID of the
+
+freight forwarder and finally click on the    icon to save the changes.
+
+
+
+
+                                                                                   26 | P a g e
+   4. Scan a document
+When submitting a waybill, the user can attach the relevant supporting documents as
+recommended by the Customs and Tax Administration. He will go to the “Scan document” tab
+
+and then select the       icon.
+
+
+
+
+Then the user will get a screen to select the file to attach from the computer. When the file is
+
+selected, the user will choose the type of document attached and click on the         Button to
+upload the file.
+
+
+
+
+The user can add as many documents as are required.
+
+                                                                                    27 | P a g e
+   5. Find waybills
+
+A waybill can be found using the finder. This is done by right-clicking the “Waybill” e-document
+and selecting the “find” option as follows:
+
+
+
+
+A window with search criteria will be opened and the user will use the appropriate criteria to find
+the needed information. Multiple search criteria can be combined to get the right line(s).
+
+
+
+
+Then click on the       icon.
+
+                                                                                       28 | P a g e
+The list of all records matching the search criteria will be displayed:
+
+
+
+
+Details on the operations performed on the records can be viewed by clicking on “Details”
+operation.
+The next screen will be displayed:
+
+
+
+
+                                                                              29 | P a g e
+      6. Amending a stored waybill
+
+To modify a waybill, right-click on the waybill from the finder results and choose “Modification
+option”.
+
+
+
+
+The screen below will be displayed and when all the modifications are done, the user will click on
+
+the        icon to save the changes.
+
+
+
+
+                                                                                      30 | P a g e
+The confirmation message below will be displayed.
+
+
+
+
+   7. Validate a waybill
+Right-click on the waybill to validate using a finder. Then select the “Direct Validate” option.
+
+
+
+
+A confirmation message will be displayed.
+
+
+
+
+                                                                                         31 | P a g e
+   8. De-grouping a master waybill
+
+The degroupage of a waybill is the operation of creating house bills (also called 2nd-level waybills)
+related to a master waybill to allow the waybills to be cleared separately. The importer cannot
+submit a declaration using master waybills.
+The degroupage is done by creating a new house waybill. The difference between the master
+waybill and the child waybill is the previous document field, which contains the reference to the
+master waybill.
+
+
+
+
+All other steps to create the house waybill are the same as the 1st-level waybills.
+
+
+
+
+                                                                                         32 | P a g e
+   9. Validate de-groupage
+This operation allows to validate all the house waybills linked to a master waybill. Right-click on
+the master waybill to deconsolidate and choose the “Validate Degroupage” option.
+
+
+
+
+If the operation succeeds, a confirmation message is displayed.
+
+
+
+
+Otherwise, an error message will be displayed detailing the reason for the failure.
+
+
+
+
+                                                                                       33 | P a g e
+   10. Location of goods
+This operation is used to indicate or modify the place where the goods are stored while waiting
+for clearance.
+You can access this operation by right-clicking the waybill and choosing the “Location” operation.
+
+
+
+
+The waybill form will display as follows
+
+
+
+
+                                                                                      34 | P a g e
+After the modification, the user will click on the   icon to save the changes.
+A confirmation message will be displayed.
+
+
+
+
+                                                                                 35 | P a g e
+   11. Delete a waybill
+If the waybill is stored (Status stored) in the system, it can be deleted at any time. Right-click on
+the waybill and choose the “Direct Delete” option.
+
+
+
+
+This operation is irreversible. The system will display a question message to confirm the deletion.
+
+
+
+
+The user will confirm by clicking on the        icon.
+
+
+
+
+                                                                                         36 | P a g e
+   VI. XML INTEGRATION
+
+ASYCUDAWorld allows the use of XML files generated from shipping lines’ systems. The shipping
+agents will use this feature to integrate full cargoes, i.e., the manifest general segment and all the
+1st level waybills, by right-clicking on the “Full cargo” e-document and choosing the “Full cargo
+integration” option:
+
+
+
+
+Or to integrate house waybills (2nd level waybills) by right-clicking on the Degroupage e-
+document and choose “Degroupage integration” option.
+
+
+
+
+                                                                                          37 | P a g e
+The form below will be displayed:
+
+
+
+
+   1. Select XML to integrate
+
+To select the XML file to be integrated, click on the   icon. The window below opens to select
+the file on the disc.
+
+
+
+
+Click on “Open” to select the file.
+
+
+                                                                                   38 | P a g e
+   2. Check xml content
+Before integration, the user must check if the file is compliant with ASYCUDAWorld manifest
+standards.
+
+He will click on the    icon. If the file is good, the following message will be displayed.
+
+
+
+
+Otherwise, an error message will be displayed. And a PDF file containing the details will be
+generated.
+
+
+
+
+Click on the       icon to see the PDF file.
+
+   3. Save and store
+Only valid XML will be integrated into the system. Click on the       icon to save the file.
+
+
+
+
+                                                                                         39 | P a g e
+   VIII. CONTAINER MANAGEMENT
+There are two ways to find a container.
+
+   1. Find containers associated to a particular waybill
+Right-click on the “Container of Manifest” e-document.
+
+
+
+
+Then choose the “Find” option.
+The finder will open and provide the search criteria.
+
+
+
+
+Click on the      icon to search. The list of containers matching the criteria will be displayed.
+
+
+                                                                                        40 | P a g e
+Select the “View container” option to view details of the container.
+
+
+
+
+                                                                       41 | P a g e
+   2. Find a waybill for a container
+       Right click on the “Waybills of container” e-document
+
+
+
+
+       Then choose the “Find” option.
+       The finder will open and then provide the search criteria.
+
+
+
+
+       Click on the         icon to search. The list of waybills matching the criteria will be
+       displayed.
+
+
+
+
+Select the “View waybill” option to open the waybill in “View” mode.
+                                                                                   42 | P a g e
+

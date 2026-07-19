@@ -1,0 +1,681 @@
+       UNITED NATIONS CONFERENCE ON TRADE AND DEVELOPMENT
+
+
+
+
+    CARGO MANIFEST
+XML MESSAGE DESCRIPTION
+
+
+
+
+   ST. VINCENT & THE GRENADINES
+
+   Draft version (v1.60), April 2019
+ UNITEDNATIONSCONFERENCEONTRADEANDDEVELOPMENT–UNCTAD                         DRAFT (V1.60)
+
+
+
+
+                                           TABLE OF CONTENTS
+ Introduction                                                                                _3
+ASYCUDA World XML Manifest and Degroupage Message Format                                         3
+
+   General Description                                                                       3
+     Manifest Data Stream ________________________________________________________________ 4
+     Manifest Data Stream Tag Description_______________________________________________ 7
+     Special Considerations _______________________________________________________________13
+     Degroupage Data Stream ____________________________________________________________14
+     Degroupage Data Stream Tag Description ___________________________________________ 16
+     Special Considerations _______________________________________________________________16
+     Additional Information ______________________________________________________________17
+
+
+Annex A – Visual representation - General Segment (for manifest)                             18
+Annex B – Visual representation -BOLsegment                                                  19
+
+
+
+
+                                                                                             2
+CARGO MANIFEST - XML MESSAGE DESCRIPTION
+UNCTAD / ASYCUDA WORLD
+ UNITEDNATIONSCONFERENCEONTRADEANDDEVELOPMENT–UNCTAD                      DRAFT (V1.60)
+
+
+
+Introduction
+The United Nations Conference on Trade and Development (UNCTAD) as part of its
+ASYCUDA Programme has developed applications, which allow for the electronic data
+interchange (EDI) between Customs Administrations and the trade community.
+
+The present document will explain how trade operators can submit electronically data
+related to a cargo manifest in XML1 format. The latter covers the complete manifest
+including cargo details of each transport document and the degroupage system.
+
+
+
+ASYCUDA World XML Manifest and Degroupage Message Format
+General Description
+The ASYCUDA WORLD module ASYFCI (ASYCUDA Fast Cargo Integration) is the client
+application used by the system to integrate the cargo manifest and the degroupage
+(break down of consolidated cargo). Any carrier that has its own application or system
+to process a manifest and the degroupage will not be required to key in again all the
+information, carriers will only need to extract data from their systems and transform into
+an XML message.
+
+
+
+
+1 XML: Extensible Markup Language
+
+
+                                                                                          3
+CARGO MANIFEST - XML MESSAGE DESCRIPTION
+UNCTAD / ASYCUDA WORLD
+ UNITEDNATIONSCONFERENCEONTRADEANDDEVELOPMENT–UNCTAD                DRAFT (V1.60)
+
+
+Manifest Data Stream
+The structure of the XML message, named as the Asycuda World Manifest Data Stream
+(AWMDS), consists of two big data segments:
+
+        The general segment of the manifest <General_segment>
+        Detailed data for each transport document<Bol_segment>
+
+
+
+
+The following diagram on the next page expands both the General_segment and the
+Bol_segment.
+
+
+
+
+                                                                                    4
+CARGO MANIFEST - XML MESSAGE DESCRIPTION
+UNCTAD / ASYCUDA WORLD
+ UNITEDNATIONSCONFERENCEONTRADEANDDEVELOPMENT–UNCTAD   DRAFT (V1.60)
+
+
+
+
+                                           Figure 1
+
+
+
+
+                                                                       5
+CARGO MANIFEST - XML MESSAGE DESCRIPTION
+UNCTAD / ASYCUDA WORLD
+ UNITEDNATIONSCONFERENCEONTRADEANDDEVELOPMENT–UNCTAD                        DRAFT (V1.60)
+
+
+
+The general segment is composed by the following sub segments (see ANNEX A):
+
+    1. Manifest identification <General_segment_id>
+    2. Summary of different quantities included in the manifest <Totals_segment>
+    3. Manifest transport information <Transport_information>. This tag also contains
+         the carrier details information sub segment<Carrier>.
+    4. Information about the Place/Port of departure and destination at the manifest level
+         <Load_unload_place>
+    5. Measure of the cargo-carrying capacity of a ship<Tonnage>
+    6. Detailed data for each attached document (optional)
+    7. CO-Loaders list (optional)
+
+
+The bill of lading segment is composed as follows (see ANNEX B):
+
+    1. Bill of Lading identification<Bol_id>
+
+    2. Transport information <Transport_information>. Optional, if cargo does not
+         belong to the same carrier identified in the general segment of the manifest. This
+         applies only to co-loader carriers.
+    3. Information about the Place/Port of departure and destination at the bill of
+         lading level <Load_unload_place>
+    4. Traders’ information <Traders_segment>. This sub segment also is divided in
+         another 3 subsegments:
+              a. Exporter information <Exporter>
+              b. Notify information <Notify>
+              c. Consignee information <Consignee>
+    5. Detailed data for each container <ctn_segment>
+    6. Detailed data for each vehicle <Vehicles_segment>
+    7. Goods description <Goods_segment>
+    8. Detailed data for each splitting <Split_segment>
+    9. Detailed data containing the bill of lading valuation tags <Value_segment>. This
+         subsegment also is composed by another 4 subsegments:
+              a. Freight information <Freight_segment>
+              b. Customs valuation information <Customs_segment>
+              c. Insurance information <Insurance_segment>
+              d. Transport valuation information <Transport_segment>.
+
+
+                                                                                            6
+CARGO MANIFEST - XML MESSAGE DESCRIPTION
+UNCTAD / ASYCUDA WORLD
+ UNITEDNATIONSCONFERENCEONTRADEANDDEVELOPMENT–UNCTAD                                         DRAFT (V1.60)
+
+    10. Location information <Location>
+    11. Segment <Authorize>. Contains the company code who is responsible to break
+         down (master waybill) or split (house waybill) the current waybill.
+
+The AWMDS message must have information about only one manifest and can accept a
+large number of bills of lading.
+
+The following attached files are part of this document:
+
+        Awmds.xsd This is the schema file to validate manifest xml files (Awmds
+         element). It is also built-in the ASYFCI module.
+
+You can also have attached to this documentation xml manifest files as examples. This
+files show different types of manifests.
+
+
+
+
+Manifest Data Stream Tag Description
+The tables in this section provide information about each Tag required for the
+AWMDS XML message, including the format, their use (optional or mandatory),
+and tag name.
+
+The format specified for each tag can be one of the following types:
+      Format                               Definition                                    Examples
+   INT             Integer number up to 18 digits                                1
+                                                                                 8758943
+   N#              Decimal number up to 18 digits including decimal places and   N5 =>10.00
+                   point. The number (#) sign should be replaced with the        N5 =>4789
+                   actual length required.                                       N8 =>556.259
+   AN#             Alphanumeric string.                                          AN1 =>C
+                                                                                 AN35 =>JOHN DOE
+   DATE            Date format yyyy-MM-dd (year-month-day)                       2007-12-31
+   TIME            Time format hh:mm:ss                                          12:30:00
+   BOOLEAN         Truth value. Allowed values:                                  “true” or“1”
+                        “true” or“1”                                            “false”or “0”
+                        “false”or “0”
+
+
+
+
+                                                                                                             7
+CARGO MANIFEST - XML MESSAGE DESCRIPTION
+UNCTAD / ASYCUDA WORLD
+ UNITEDNATIONSCONFERENCEONTRADEANDDEVELOPMENT–UNCTAD                                    DRAFT (V1.60)
+
+
+ SEGMENT: <General_segment_id>
+               TAG NAME                     FORMAT       USE                   DESCRIPTION
+ <Customs_office_code>                     AN5        Mandatory   Customs office code where manifest
+                                                                  will be submitted
+ <Voyage_number>                           AN17       Mandatory   Voyage or flight number assigned by
+                                                                  the carrier (upper case)
+ <Date_of_departure>                       DATE       Mandatory   Departure or sailing date
+ <Date_of_arrival>                         DATE       Mandatory   Arrival date
+ <Time_of_arrival>                         TIME       Optional    Arrival time
+ <Date_of_last_discharge>                  DATE       Optional    Date when last piece of cargo is
+                                                                  discharged from vessel or aircraft
+
+ SEGMENT: <Totals_segment>
+              TAG NAME                       FORMAT     USE                    DESCRIPTION
+ <Total_number_of_bols>                    INT        Mandatory   Total number of transport
+                                                                  documents(BillofLading,AirwayBill,
+                                                                  etc.)
+ <Total_number_of_packages>                N18        Mandatory   Number of packages for this
+                                                                  manifest. Total piece count of goods
+                                                                  being transported
+ <Total_number_of_containers>              INT        Mandatory   Total number of containers described
+                                                                  in this manifest
+ <Total_number_of_vehicles>                INT        Mandatory   Total number of vehicles described in
+                                                                  this manifest
+ <Total_gross_mass>                        N18        Mandatory   Total gross mass (KG) for this
+                                                                  manifest
+
+
+ SEGMENT: <Transport_information>
+               TAG NAME                     FORMAT       USE                  DESCRIPTION
+ <Mode_of _transport_code>                 AN3        Mandatory    Mode of tranportation (1=Sea;
+                                                                   3=Road; 4=Air; 5=Postal
+
+
+ <Identity_of_transporter>                 AN27       Mandatory    Transport unit name (e.g. Vessel or
+                                                                   Aircraft name)
+ <Nationality_of_transporter_code>         AN3        Mandatory    Transport unit nationality code
+                                                                   (ISO 2-Alpha country code)
+ <Place_of_transporter>                    AN35       Optional     Transport unit registration place (city)
+ <Registration_number_of_transport_code>   AN35       Mandatory    IMO/IATA registration reference
+ <Date_of_registration>                    DATE       Optional     IMO/IATA registration date (if
+                                                                   available)
+ <Master_information>                      AN70       Mandatory    Master/Captain name
+
+ SEGMENT: <Carrier>
+                   TAG NAME                 FORMAT       USE                  DESCRIPTION
+ <Carrier_code>                            AN17       Mandatory   Carrier code assigned by Customs
+ <Carrier_name>                            AN35       Optional    Carrier name
+ <Carrier_address>                         AN140      Optional    Carrier address
+
+
+
+                                                                                                          8
+CARGO MANIFEST - XML MESSAGE DESCRIPTION
+UNCTAD / ASYCUDA WORLD
+ UNITEDNATIONSCONFERENCEONTRADEANDDEVELOPMENT–UNCTAD                                        DRAFT (V1.60)
+
+
+ SEGMENT: <Shipping_Agent>
+               TAG NAME                      FORMAT         USE                   DESCRIPTION
+ <Shipping_Agent_code>                      AN17         Mandatory     Shipping agent code assigned by
+                                                                       Customs
+ <Shipping_Agent_name>                      AN35         Optional      Shipping agent name
+
+
+
+ SEGMENT: <Load_unload_place>
+               TAG NAME                      FORMAT        USE                     DESCRIPTION
+ <Place_of_departure_code>                  AN5          Mandatory     Place/Port of departure code where
+                                                                       voyage started (UN/LOCODE)
+ <Place_of_destination_code>                AN5          Mandatory     Place/Port of destination code where
+                                                                       goods are off-loaded (UN/LOCODE)
+
+ SEGMENT: <Tonnage>
+                TAG NAME                     FORMAT         USE                   DESCRIPTION
+ <Tonnage_net_weight>                       N18          Mandatory     Net weight of the ship
+ <Tonnage_gross_weight>                     N18          Mandatory     Gross weight of the ship
+ <Destination_customs_office_code>          AN5          Optional      Customs office of destination in case
+                                                                       of transit
+
+ SEGMENT: <Attached_Document> OPTIONAL SEGMENT
+              TAG NAME                      FORMAT       USE                      DESCRIPTION
+ <Attached_document_code>                  AN4         Mandatory     Attached document code registered by
+                                                                     Customs
+ <Attached_document_filename>              AN255       Mandatory     Name of the file to be attached
+ <Attached_document_content>               xs:base64   Mandatory     Represents Base64-encoded arbitrary
+                                           binary                    binary data defined in [RFC 2045]
+
+ SEGMENT: <Coloader> OPTIONAL SEGMENT
+              TAG NAME                      FORMAT        USE                      DESCRIPTION
+ <Coloader_code>                           AN17        Mandatory     Carrier code assigned by Customs
+ <Coloader_name>                           AN35        Optional      Carrier name
+
+
+
+ SEGMENT: <Bol_id>
+               TAG NAME                      FORMAT        USE                      DESCRIPTION
+ <Bol_reference>                            AN25         Mandatory      Transport document reference
+                                                                        number (Bill of Lading no., Airway bill
+                                                                        no.)
+ <Line_number>                              INT          Mandatory      Transport document sequence line
+                                                                        number
+ <Bol_nature>                               AN2          Mandatory      Transport document use:
+                                                                        22 = Exports; 23 = Imports; 24 =
+                                                                        Transit; 28 = Transhipment
+
+ <Bol_type_code>                            AN3          Mandatory      Transport document type code
+
+
+
+
+                                                                                                               9
+CARGO MANIFEST - XML MESSAGE DESCRIPTION
+UNCTAD / ASYCUDA WORLD
+    UNITEDNATIONSCONFERENCEONTRADEANDDEVELOPMENT–UNCTAD                                                   DRAFT (V1.60)
+
+
+    SEGMENT: <Bol_id>
+                  TAG NAME                           FORMAT            USE                      DESCRIPTION
+    <Master_bol_ref_number>                         AN25            Optional 2      Master bill of lading reference
+                                                                                    number for consolidated cargo
+    <Unique_carrier_reference>                      AN35            Optional        Unique cargo reference code
+
+
+    SEGMENT: < Transport_information >
+                   TAG NAME                          FORMAT            USE                      DESCRIPTION
+    <Vessel_loading_code>                           AN5              Optional 3     Place/Port where the consignment
+                                                                                    was loaded on to the current vessel
+                                                                                    (UN/LOCODE)
+    <Vessel_discharge_code>                         AN5              Optional 4     Place/Port where the consignment
+                                                                                    will be unloaded from the current
+                                                                                    vessel (UN/LOCODE)
+
+
+    SEGMENT: <Load_unload_place>
+                   TAG NAME                          FORMAT           USE                       DESCRIPTION
+    <Place_of_loading_code>                         AN5             Mandatory       Place/Port of initial loading code
+                                                                                    (UN/LOCODE)
+    <Place_of_unloading_code>                       AN5             Mandatory       Place/Port of final destination code
+                                                                                    (UN/LOCODE)
+
+    SEGMENT: <Exporter>
+                  TAG NAME                           FORMAT            USE                     DESCRIPTION
+    <Exporter_code>                                 AN17            Optional 5      Exporter code
+    <Exporter_name>                                 AN75            Mandatory       Exporter/Supplier Name
+    <Exporter_address>                              AN140           Mandatory       Exporter/Supplier Address
+
+    SEGMENT: <Notify>
+                   TAG NAME                          FORMAT            USE                      DESCRIPTION
+    <Notify_code>                                   AN17            Optional        Notify Code
+    <Notify_name>                                   AN75            Mandatory       Notify Name
+    <Notify_address>                                AN140           Mandatory       Notify Address
+
+
+    SEGMENT: <Consignee>
+                  TAG NAME                           FORMAT            USE                     DESCRIPTION
+    <Consignee_code>                                AN17            Optional 6      Consignee code
+    <Consignee _name>                               AN75            Mandatory7      Consignee name
+    <Consignee _address>                            AN140           Mandatory       Consignee address
+
+
+
+2 Mandatory when submitting bills of lading or AWB that belong to consolidated cargo during degroupage. If the bill of lading
+
+   or AWB does not belong to consolidated cargo the tag is optional.
+3
+  Mandatory if there was a change or vessel or aircraft.
+4
+  Mandatory if there was further transhipment to be done.
+5
+  Mandatory only when creating export bill of lading or AWB.
+6 The consignee code is optional only on House Bills of Lading/AWB. If the transport document is a Master Bill of Lading or
+   Master Airway Bill, the Consignee code must contain the Consolidator’s consignee code for them to degroup.
+7
+  The consignee name and consignee address become mandatory if the consignee code is left empty.
+
+                                                                                                                                10
+CARGO MANIFEST - XML MESSAGE DESCRIPTION
+UNCTAD / ASYCUDA WORLD
+ UNITEDNATIONSCONFERENCEONTRADEANDDEVELOPMENT–UNCTAD                                  DRAFT (V1.60)
+
+
+ SEGMENT: <ctn_segment> OPTIONAL SEGMENT
+               TAG NAME                     FORMAT      USE                     DESCRIPTION
+ <Ctn_reference>                           AN17       Mandatory   Container identification number.
+                                                                  Four letters for container owner,
+                                                                  six- digits container serial number
+                                                                  and check digit (e.g. CMCU1223808).
+                                                                  No Spaces or other separators
+                                                                  allowed.
+ <Number_of_packages>                      INT        Mandatory   Number of packages for this
+                                                                  container
+ <Type_of_container>                       AN4        Mandatory   Container size-type code
+                                                                  (ISO6346:1995)
+ <Empty_Full>                              AN3        Mandatory   Container flag: empty, full, etc.
+                                                                  indicator
+ <Marks1>                                  AN10       Mandatory   Container 1st seal number
+ <Marks2>                                  AN10       Optional    Container 2nd seal number
+ <Marks3>                                  AN10       Optional    Container 3rd seal number
+ <Sealing_Party>                           AN3        Mandatory   Sealing party (affixing seal) code
+ <Empty_weight>                            N18        Mandatory   Empty weight of the container (KG)
+ <Goods_weight>                            N18        Mandatory   Gross mass for goods in container (KG)
+ <Temp_min>                                INT        Optional    Minimum temperature for reefer
+                                                                  container (Celsius)
+ <Temp_max>                                INT        Optional    Maximum temperature for reefer
+                                                                  container (Celsius)
+ <Humidity>                                INT        Optional    Humidity level for reefer container
+ <Dangerous_goods_code>                    AN10       Optional    Dangerous goods code (UNDG)
+ <Ctn_volume>                              N18        Mandatory   Volume of goods in container
+ <Disposition>                             AN10       Optional    Cargo Disposition
+ <Ctn_line_number>                         AN10       Mandatory   Container Line Code
+ <Ctn_goods_description>                   AN2000     Mandatory   Description of goods in container
+ <Ctn_hs_code>                             N6         Optional    Harmonised system code. Only 6
+                                                                  digits will be validated
+
+
+ SEGMENT: <Vehicles_segment> OPTIONAL SEGMENT
+                TAG NAME                     FORMAT     USE                      DESCRIPTION
+ <Chassis_number>                          AN30       Mandatory   Chassis/VIN number of vehicles
+ <Engine_number>                           AN30       Mandatory   Engine number
+ <Engine_capacity>                         INT        Mandatory   Engine size (CCs) or (KWs)
+ <Odometer_reading>                        INT        Mandatory   Mileage of vehicle
+ <Make_code>                               AN4        Mandatory   E.g. NISSAN, TOYOTA etc
+ <Make_name>                               AN40       Mandatory   E.g. XTRAIL, RAV4 etc
+ <Manufacturing_year>                      INT        Mandatory   Year of manufacture
+ <Color>                                   AN30       Mandatory   Colour of vehicle
+ <Condition>                               AN20       Mandatory   If vehicle is new or used
+
+
+ SEGMENT: <Goods_segment>
+              TAG NAME                      FORMAT      USE                  DESCRIPTION
+ <Number_of_packages>                      N18        Mandatory   Total number of manifested
+                                                                  packages for this waybill
+
+
+
+                                                                                                      11
+CARGO MANIFEST - XML MESSAGE DESCRIPTION
+UNCTAD / ASYCUDA WORLD
+ UNITEDNATIONSCONFERENCEONTRADEANDDEVELOPMENT–UNCTAD                                               DRAFT (V1.60)
+
+
+ SEGMENT: <Goods_segment>
+               TAG NAME                           FORMAT            USE                    DESCRIPTION
+ <Package_type_code>                             AN17             Mandatory   Package type code (UNECE CEFACT
+                                                                              Recommendation 21 Alpha-2 code)
+ <Gross_mass>                                    N18              Mandatory   Total gross mass (KG) for this
+                                                                              waybill
+ <Shipping_marks>                                AN2000           Mandatory   Shipping marks and numbers
+ <Goods_description>                             AN2000           Mandatory   Goods description
+ <Place_of_origin>                               AN50             Optional    Place of origin of carriage. Waybill
+                                                                              place of receipt
+ <Place_of_destination>                          AN50             Optional    Place of ultimate destination of
+                                                                              goods. Waybill place of delivery
+ <Goods_hs_code>                                 N6               Optional    Harmonize system code. Only 6 digits
+                                                                              will be validated
+ <Volume_in_cubic_meters>                        N18              Mandatory   Volume in cubic meters
+ <Num_of_ctn_for_this_bol>                       INT              Mandatory   Number of containers in this
+                                                                              transport document
+ <Num_of_vehicles_for_this_bol>                  INT              Mandatory   Number of vehicles in this transport
+                                                                              document
+ <Information>                                   AN2000           Optional    Additional information
+
+
+ SEGMENT: <Split_segment> OPTIONAL SEGMENT
+           TAG NAME                         FORMAT       USE                          DESCRIPTION
+ <Number_of_packages>                      N18         Mandatory     Number of packages for this splitting
+ <Package_type_code>                       AN17        Mandatory     Package type code
+ <Gross_mass>                              N18         Mandatory     Gross mass (KG) for this splitting
+ <Shipping_marks>                          AN70        Mandatory     Shipping marks and numbers
+ <Goods_description>                       AN70        Mandatory     Goods description
+ <Container>                                                         Sub-segment for container
+         <Reference>                       AN17        Optional      Container identification number
+         <Unloaded>                        BOOLEAN     Optional      Unload Container (true or false)
+
+
+ SEGMENT: <Sad_export> OPTIONAL SEGMENT
+               TAG NAME                           FORMAT             USE                  DESCRIPTION
+ <Customs_office>                                AN5              Optional    Customs office code where the
+                                                                              declaration was submitted
+ <Registration_serial>                           AN1              Optional    Registration serial
+ <Registration_number>                           INT              Optional    Registration number
+ <Registration_date>                             DATE             Optional    Registration date
+
+
+ SEGMENT: <Freight_segment>
+                   TAG NAME                       FORMAT             USE                   DESCRIPTION
+ <PC_indicator>                                  AN3              Optional    Prepaid/Collect Freight indicator
+                                                                              (PP=Prepaid; CC=Collect)
+ <Freight_value>                                 N18              Optional    Freight instruction value
+ <Freight_currency>                              AN3              Optional    Freight instruction currency code
+                                                                              (ISO)
+
+
+
+
+                                                                                                                   12
+CARGO MANIFEST - XML MESSAGE DESCRIPTION
+UNCTAD / ASYCUDA WORLD
+ UNITEDNATIONSCONFERENCEONTRADEANDDEVELOPMENT–UNCTAD                                  DRAFT (V1.60)
+
+
+ SEGMENT: <Customs_segment>
+               TAG NAME                     FORMAT      USE                  DESCRIPTION
+ <Customs_value>                           N18       Optional     Customs value
+ <Customs_currency>                        AN3       Optional     Customs currency code (ISO)
+
+
+ SEGMENT: <Insurance_segment>
+                TAG NAME                    FORMAT      USE                   DESCRIPTION
+ <Insurance_value>                         N18       Optional     Insurance cost
+ <Insurance_currency>                      AN3       Optional     Insurance cost currency code (ISO)
+
+
+ SEGMENT: <Transport_segment>
+                TAG NAME                    FORMAT       USE                   DESCRIPTION
+ <Transport_value>                         N18         Optional   Overall freight cost
+ <Transport_currency>                      AN3         Optional   Overall freight cost currency code
+                                                                  (ISO)
+
+
+ SEGMENT: <Location>
+               TAG NAME                     FORMAT     USE                    DESCRIPTION
+ <Location_code>                           AN17      Mandatory    Location code of transit shed or
+                                                                  storage area
+ <Location_info>                           AN35      Optional     Location additional information
+
+
+ SEGMENT: < Authorize > OPTIONAL SEGMENT
+             TAG NAME                       FORMAT     USE                  DESCRIPTION
+ <Company_code>                            AN17      Mandatory    Company code that is authorized to
+                                                                  breakdown the master waybill
+
+ <Company_name>                            AN135     Optional     Name of the company
+ <Declarant_code>                          AN17      Mandatory    Declarant/Broker code that is
+                                                                  authorized to split the house waybill
+ <Declarant_name>                          AN135     Optional     Name of the declarant
+
+
+
+Special Considerations
+1. In some cases, data may be unavailable when constructing the AWMDS message. If
+    Customs Agency does not define that information as mandatory, the user can omit
+    those tags.
+2. It is very important to include correctly the identification data of the manifest when
+    creating each transport document segment (Bol_segment).
+
+
+
+
+                                                                                                          13
+CARGO MANIFEST - XML MESSAGE DESCRIPTION
+UNCTAD / ASYCUDA WORLD
+    UNITEDNATIONSCONFERENCEONTRADEANDDEVELOPMENT–UNCTAD               DRAFT (V1.60)
+
+
+Degroupage Data Stream
+The structure of the XML message, named as the Asycuda World Bill Of Lading
+Degroupage Stream (Awbolds), consists of two data segments:
+
+     The master bill of lading reference segment <Master_bol>
+     Detailed data for each house transport document<Bol_segment>
+
+
+
+
+The following diagram on the next page expands both the Master_bol (Degroupage
+segment) and the Bol_segment.
+
+
+
+
+                                                                                      14
+CARGO MANIFEST - XML MESSAGE DESCRIPTION
+UNCTAD / ASYCUDA WORLD
+ UNITEDNATIONSCONFERENCEONTRADEANDDEVELOPMENT–UNCTAD   DRAFT (V1.60)
+
+
+
+
+                                           Figure 2
+
+
+
+
+                                                                       15
+CARGO MANIFEST - XML MESSAGE DESCRIPTION
+UNCTAD / ASYCUDA WORLD
+ UNITEDNATIONSCONFERENCEONTRADEANDDEVELOPMENT–UNCTAD                                   DRAFT (V1.60)
+
+
+
+The structure of the <Bol_segment> is the same one that the segment <Bol_segment> of
+the manifest (see ANNEX B).
+
+The Awbolds message must have information about only one degroupage and will accept
+a large number of bills of lading.
+
+The following attached files are part of this document:
+
+        Awbolds.xsd This is the schema file to validate degroupage xml files (Awbolds
+         element). It is also included in the ASYFCI module.
+
+You can also have xml degroupage files as examples. This files show different types of
+degroupage.
+
+Degroupage Data Stream Tag Description
+The table in this section provide information about each tag required for the
+<Master_bol> segment, including the format, their use (optional or mandatory), and tag
+name.
+
+ SEGMENT: <Master_bol>
+               TAG NAME                     FORMAT     USE                    DESCRIPTION
+ <Customs_office_code>                     AN5       Mandatory   Customs office code where manifest
+                                                                 will be submitted
+ <Voyage_number>                           AN17      Mandatory   Voyage or flight number assigned by
+                                                                 the carrier
+ <Date_of_departure>                       DATE      Mandatory   Departure or sailing date
+ <Reference_number>                        AN17      Mandatory   Master Bill of Lading/Airway Bill
+                                                                 number
+
+Special Considerations
+1. In some cases, data may be unavailable when constructing the AWBOLDS message. If
+    Customs Agency does not define that information as mandatory, the user can omit
+    those tags.
+2. To perform the degroupage, the manifest should be either stored or registered.
+3. The degroupage can be done in one or multiple xml files (<Master_bol> segment
+    should be the same for all xml files).
+4. The Awbolds message should have information about only one Master document.
+5. ANNEX A and ANNEX B do not display all tags described in detail in this document.
+
+
+
+
+                                                                                                       16
+CARGO MANIFEST - XML MESSAGE DESCRIPTION
+UNCTAD / ASYCUDA WORLD
+    UNITEDNATIONSCONFERENCEONTRADEANDDEVELOPMENT–UNCTAD                      DRAFT (V1.60)
+
+
+Additional Information
+     If you need to add new Bill of Ladings to Manifest or Degroupage, you can use your
+      previous file, add the new BOL, and reload it. The system just will add new
+      information, old data will be skipped.
+     If you had erroneous data, you can delete old information and reload the file, the
+      system will update all information re-submitted.
+
+
+
+
+                                                                                             17
+CARGO MANIFEST - XML MESSAGE DESCRIPTION
+UNCTAD / ASYCUDA WORLD
+ UNITEDNATIONSCONFERENCEONTRADEANDDEVELOPMENT–UNCTAD     DRAFT (V1.60)
+
+
+Annex A – Visual representation - General Segment (for manifest)
+
+
+
+
+                                                                         18
+CARGO MANIFEST - XML MESSAGE DESCRIPTION
+UNCTAD / ASYCUDA WORLD
+ UNITEDNATIONSCONFERENCEONTRADEANDDEVELOPMENT–UNCTAD   DRAFT (V1.60)
+
+
+Annex B – Visual representation - BOL segment
+
+
+
+
+                                                                       19
+CARGO MANIFEST - XML MESSAGE DESCRIPTION
+UNCTAD / ASYCUDA WORLD
+

@@ -1,0 +1,559 @@
+             ASYCUDA WORLD INTRODUCTORY MANUAL
+
+
+1.      INTRODUCTION
+One of the mandates of the Barbados Revenue Authority is to serve with efficiency and
+flexibility whilst embracing new innovations and concepts. In this regard we have launched
+ASYCUDA World.
+
+The Cargo Manifest is the first step in the Customs clearance process and shall be
+submitted to Customs using ASYCUDA World. The main purpose of the Cargo manifest
+is to provide necessary information about cargo for transport, commercial and regulatory
+reasons. It is traditionally used by Customs as a control tool to ensure that all cargo
+carried onboard a vessel is accounted for, usually by means of individual customs
+declarations. It also gives the national Customs some advance information on imported
+cargo in order to plan examination priorities, risk assessment and optimize allocation of
+resources. ASYCUDA World provides Customs and Traders the means to achieve greater
+efficiencies towards reducing clearance times and improvement of the business climate of
+Barbados.
+Access to ASYCUDA World is to be granted through an application process. A user or
+director of an entity applies to the Revenue Commissioner using the prescribed form called
+“ASYCUDA WORLD USER AUTHORIZATION FORM”. The form makes provisions for
+a principal user (The applicant) and persons who can act on behalf of the applicant. Each
+commercial type applicant account will be linked to a national tax payer Identification
+Number, being a Value Added Tax (VAT) or Taxpayer Identification Number (TIN). Thus,
+each user included on an application will also be linked to the principal tax payer ID. The
+Barbados Revenue Authority will issue each applicant and its designated user(s) with a login
+name and initial password to enable access to ASYCUDA World. Once a user has logged in
+successfully, the system will force a change of password based on a predetermined level of
+complexity that enhances the strength of the password. Once the password is successfully
+changed, the user may subsequently change the password at his or her discretion. However,
+the system will force a change of password every six months or whenever a user request a
+password change due to a forgotten or compromised password.
+
+Welcome to ASYCUDA WORLD!
+
+
+
+
+                                                                                 1|Page
+2.     ACCESS TO THE SYSTEM
+Access to Barbados ASYCUDA World is through the following URL:
+http://asycuda.bra.gov.bb:8085
+
+Access to ASYCUDA World is to be granted through an application process which entails
+submitting an application form with a passport size photograph. After application, users are
+issued with a Username and Password.
+
+Click on the ASYCUDA World logo on the web page as shown in Figure 1.
+
+
+
+
+                                                                                               Click on the
+                                                                                               ASYCUDA
+                                                                                               World icon
+
+
+
+
+                                       Figure 1 URL web page
+
+
+
+The following two boxes shown in Figure 2 are displayed.
+
+
+
+
+                                                                                       2|Page
+                                Figure 2 Accessing ASYCUDA World
+
+Click on “I accept the risk and want to run this application”.
+
+The “Java Console” shown in Figure 3 and “login” interface shown in Figure 4 will be
+displayed.
+
+
+
+
+                                                                           3|Page
+The Java Concole consists of launching, logging and performance functions of the ASYCUDA
+World application. Where login issues develop, the console contents should be e-mailed to the
+ASYCUDA World technical team to assist with solving the problems.
+
+
+
+
+                                      Figure 3 Java Console
+
+
+
+
+                                                                               Click here
+                                                                               after entering
+                                                                               login
+                                                                               information
+
+
+
+
+                                     Figure 4 Login interface
+
+
+
+
+                                                                                   4|Page
+3.      LOGGING INTO THE SYSTEM
+Insert the relevant login name and password into the login interface shown in Figure 4 and click
+
+on the         icon. The following screen shown in Figure 5 is displayed indicating that the
+system has been accessed.
+
+
+
+
+                               Figure 5 Access page to ASYCUDA World
+
+
+
+4.     THE APPLICATION MAIN SCREEN
+The screen is comprised of the following as shown in Figure 6:
+       Title Bar: the name of the application and user’s name.
+       Menu bar: containing the various functionality of system.
+       Icons bar: short cut to the system document and other functionality;
+       Work space area: area where all documents are opened; and
+       Task bar: contains the different processing tasks and open documents.
+
+
+
+
+                                                                                      5|Page
+                  Title bar         Menu bar                Icons bar
+
+
+
+
+                                                                                          Work space
+                                                                                            area
+
+
+
+
+                                  Figure 6 Application main screen
+                 Tasks bar
+
+
+Menu Bar Options
+The menu bar consists of the “File”, “View”, “Windows” and “help” options as shown in Figure
+7.
+
+
+
+
+                                     Figure 7 Menu bar options
+
+
+The “File” Option
+Clicking on “file” gives three options: Document library, New and Exit as shown in Figure 8.
+
+
+
+
+                                                                                     6|Page
+                                       Figure 8 File menu options
+
+
+The “Document Library” option permits the search of this facility without using the main
+window as shown in Figure 9. It is therefore an alternative to the Document Library tool bar.
+
+
+
+
+                                     Figure 8 Use of the File menu
+
+Selecting “New” provides a direct link for creating e-mail messages to system users as shown in
+Figure 9.
+
+
+
+
+                                    Figure 9 Display of “New” option
+
+Selecting “exit” enables users to exit the system.
+
+                                                                                     7|Page
+The “View” Option
+This facility provides four options: Access to the Document library, Mailbox, Tool bar and Task
+bar as shown in Figure 10.
+
+
+
+
+                                        Figure 10 View options
+
+Selecting an option enable it to be displayed. An option is not displayed if deselected.
+
+The “Window” Option
+Selecting the “Window” provides the options displayed in Figure 11.
+
+
+
+
+                                       Figure 11 Window options
+
+The “cascade” option displays all the currently opened documents in the cascade format as
+shown in Figure 12.
+
+
+
+
+                                                                                           8|Page
+                             Figure 12 Cascade of currently open documents
+
+
+
+The “Next” option activates the next document currently in use.
+The “Previous” option activates the previous document.
+The “Minimize” option collapses all open documents.
+The “Clear Desktop” option closes all open documents.
+
+The “Help” option is intended to provide online help for users. This facility is not currently
+available.
+
+Icon Bar Options
+The” Icon bar” gives the options displayed in Figure 13.
+
+
+
+
+                                      Figure 13 Icon Bar options
+
+
+
+                                                                                    9|Page
+The         icon opens the Document Finder as shown in Figure 14. It provides the general
+research for documents in the stated categories.
+
+
+
+
+                                Figure 14 Document search finder
+
+
+The “online help”    icon provides a link to the online help which is currently unavailable.
+
+The “document library”      icon provides another direct access to the document library.
+
+
+The “email”     icon opens the electronic mailbox as shown in Figure 15.
+
+
+
+
+                                  Figure 15 Electronic Mail-box
+
+                                                                                     10 | P a g e
+The “logoff”         icon closes the ASYCUDA World session. The system will prompt with a
+box to confirm the end of the session as shown in Figure 16.
+
+
+
+
+                                    Figure 16 Confirm to end session.
+
+
+5.    THE DOCUMENT LIBRARY
+The Document library as shown in Figure 17 opens in ASYCUDA after:
+      (a)   logging on to the system;
+      (b)   using “view” in the menu bar; or
+      (c)   clicking the “Document library” icon in the Icons bar.
+
+It consists of all the system documents to which a particular user has the rights. It is built with a
+set of binders that contains documents. The binders are presented in an hierarchical order where
+documents are grouped and linked together for performing a particular function.
+
+
+
+
+                                      Figure 17 Document library
+
+The binders are made up of e-documents.
+
+
+                                                                                         11 | P a g e
+     E-documents
+     An e-document is a representation of a physical paper document to be used for processing or
+     displaying data. Examples of e-documents are:
+            (a)     a customs declaration;
+            (b)     a statement; and
+            (c)     a table.
+
+
+     The e-documents are represented by the       and are contained in a binder. The binder icon
+     should be continuously clicked until the e-documents icon is displayed as shown in Figure 18.
+
+
+
+
+Click to open
+   binder
+
+
+
+
+                                                                                          E-document icon
+
+
+
+
+                                        Figure 18 Accessing e-documents
+
+     Right click on the e-document icon to display the document as select “new” as shown in Figure
+     19.
+
+
+
+
+                                                                                          12 | P a g e
+                                  Figure 19 Finding an e-document
+
+A new e-document will be displayed as shown in Figure 20.
+
+
+
+
+                               Figure 20 Example of a new e-document
+
+                                                                       13 | P a g e
+         E-document options
+         Each e-document has three options as follows:
+         Option 1 to minimise the document to the task bar;
+         Option 2 to expand the document to cover the working area; and
+         Option 3 to close the document without any modification as shown in Figure 21.
+
+
+                                                         Option 2
+
+
+
+
+                         Option 1                                                               Option 3
+
+
+                                                Figure 21 e-document options
+
+
+
+         E-document fields
+         E-documents consist of spaces for entering data called “fields”. It is mandatory that some of the
+         fields be populated with data. These fields are displayed in red. The entry of data in other fields
+         is optional and are coloured blue as shown in Figure 22.
+
+
+
+
+                                                                                                                    Mandatory
+                                                                                                                   data fields in
+  Optional
+                                                                                                                        red
+data fields in
+    blue
+
+
+
+
+                                 Figure 22 Illustration of Mandatory and Optional data fields
+
+                                                                                                           14 | P a g e
+NB: The tab button should be used to navigate between fields.
+
+Managing errors
+Users can commit errors when completing e-documents. Committed errors are displayed by the
+system when the “verify” or “validate" icons are selected. Error messages are displayed as
+shown in Figure 23.
+
+
+
+
+                                    Figure 23 Error Message Window
+
+All messages should be corrected before continuing the process.
+Double clicking each message will take the cursor to the error field.
+
+
+USING THE FINDER
+The finder is a powerful tool that facilitates the retrieval of documents lodged within the system.
+It is available by right clicking on any category of documents and selecting “find” as shown in
+Figure 24.
+
+
+
+
+                                    Figure 24 Triggering the Finder
+The Finder is displayed in Figure 25.
+                                                                                        15 | P a g e
+                                      Figure 25 Display of Finder
+
+The utility offers the user multiple options to locate various types of declarations and contains
+four columns as follows:
+1. Name
+2. Criteria
+3. Value #1
+4. Value #2
+
+The “Name” column contains the names of various research fields as follows:
+      (a)   Document Status – this is the status of the declaration and may be [stored,
+            registered assessed, paid, exited, cancelled or archived.
+
+       (b)     Clearance Office – This is office where goods are being cleared.
+
+       (c)     Registration Serial – This is the letter preceding the Customs Registration
+               Number.
+
+       (d)     Registration Number –This is the serial letter assigned to assessed declarations
+               by the Customs Registration Number (in this case it is C).
+
+       (e)     Registration Date - This is the date the declaration was registered.
+
+       (f)     Assessment Serial – This is the serial letter assigned to assessed declarations by
+               the Customs Administration (in this case it is L).
+                                                                                        16 | P a g e
+       (g)    Assessment Number- This is the declaration assessment number.
+
+       (h)    Assessment Date - This the date the declaration was assessed.
+
+       (i)    Declarant - This is the declarant code.
+
+       (j)    Declarant reference year – This is the year the declaration was prepared.
+
+       (k)    Declarant reference – This is the declarants’ reference number.
+
+       (l)    Type – EX: Exports or IM: Imports.
+
+       (m)    General Procedure - Declaration model.
+
+       (n)    Exporter – This is the exporters’ code.
+
+       (o)    Consignee - This is the importers’ code.
+
+       (p)    Examiner Chief – Chief Examiners name.
+
+       (q)    Examiner – The examiners name.
+
+       (r)    Section – This is the section code.
+
+       (s)    Total Duties & Taxes – Total Duties & Taxes Amount.
+
+       (t)    Colour - This is the declaration lane colour.
+
+The “criteria” column provide the choices of research criteria and may include the following
+options:
+
+       (a)    All
+
+       (b)    Less than
+
+       (c)    Less than or equal
+
+       (d)    Greater than
+
+       (e)    Greater than or equal
+
+                                                                                    17 | P a g e
+       (f)    Not equal
+
+       (g)    Equal
+
+       (h)    Between
+
+       (i)    Is empty
+
+       (j)    Is not empty
+
+       (k)    Starts with
+
+       (l)    Ends with
+
+       (m)    Contains substring
+
+       (n)    Equals
+
+The Value#1 column allows for filling research values and may be completed with criteria such
+as the following:
+Name: Registration Year – Criteria: Equals - Value#1: 2010.
+The Value#2 may be completed with additional desired criteria as follows:
+Name: Registration Year – Criteria: Between – Value #1: 2009 and Value #2: 2010.
+The results of using the Finder are shown in Figure 26.
+
+
+
+
+                                   Figure 26 Results of a Finder search
+
+Select and right click on the desired document as shown in Figure 27 and the user options are
+displayed. Select either “view” or “retrieve” to see the document. The “view” option does not
+permit any adjustment to the document. Adjustments can be made in the “retrieve” option.
+                                                                                   18 | P a g e
+                                Figure 27 Finder results and view options.
+
+
+
+
+THE MAILBOX
+The mailbox facilitates the transmission of messages between system users. It is activated either
+through:
+       (a)    selecting “view” in the menu bar and clicking on “mailbox”;
+
+       (b)     clicking on mailbox         in the Icon bar;
+       (c)     displayed on the initial login to the system.
+
+A new mail message is created by:
+
+       (a)     clicking on the      icon; or
+       (b)     clicking on “file” and selecting “new message”.
+
+
+
+
+                                                                                      19 | P a g e
+      The mail dialog box shown in Figure 28 is displayed when creating a new message:
+
+
+
+
+                                                                                                  Message
+                                                                                                   field
+
+Attachments
+    tab
+                                     Figure 28 New mail message dialog box
+
+      Attachments can be added to the mail by clicking on the “Attachments tab” and a dialog box as
+      shown in Figure 29 is displayed.
+
+
+
+
+                                     Figure 29 Attaching documents to mail
+
+
+                                                                                         20 | P a g e
+Click on “file” and select “Attach Document” as shown in Figure 29. The box as shown in
+Figure 30 is displayed. Select the document and click “open” and the document is attached to the
+mail.
+
+
+
+
+                            Figure 30 Select the file to be attached to the mail
+
+
+
+Click on       to send the mail.
+
+
+
+
+                                                                                    21 | P a g e
+

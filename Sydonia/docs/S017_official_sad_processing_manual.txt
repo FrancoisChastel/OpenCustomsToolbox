@@ -1,0 +1,1028 @@
+  SAD PROCESSING
+
+
+DECLARATION MANUAL
+                                Processing The SAD – User Guide
+
+
+
+
+Saint Kitts and Nevis Customs and Excise Department               Page 1 of 39
+                                Processing The SAD – User Guide
+
+Introduction
+The declaration processing capability is the core component of any Customs Software. It reflects
+both the system behavior and the Customs practice in force. When it is plugged into its surrounding
+environment, which includes the Customs Tariff, reference tables, taxation rules and the other
+Customs legal basis, a complete customs automated system is created.
+
+The SAD (Single Administrative Document), is used to control the import and export of goods in
+the Federation of Saint Kitts and Nevis. The SAD includes data used to calculate and
+eventual collection of taxes a nd duties as well as the main source of national trade statistics.
+
+Asycuda World provides a robust, comprehensive declaration processing capability, which is
+based on using the SAD as a standard form. The S AD ( developed by the EU and called for as
+an ‘International Standard’ by the WCO), as utilized by AW Declaration Processing Capability
+(DPC), covers all Customs procedures and regimes.
+
+
+In this system, the input and assessment of declarations is done by the importer/broker, thus
+eliminating unnecessary paperwork, and time spent at the department. The Customs on the other
+hand do the control portion of the customs declaration process.
+
+This manual is presented in a user friendly manner with written instructions and graphic
+illustrations to ensure that persons who interact with the system are both knowledgeable and
+comfortable. It is intended to complement the hands-on training being provided by the
+ASYCUDA Project team and will serve as a permanent record for future reference.
+
+Access to ASYCUDA World is to be granted through an application process. A user or director of
+an entity applies to the Comptroller of Customs using a prescribed form called “ASYCUDA
+WORLD USER REGISTRATION FORM”. The form makes provisions for a principal user (The
+applicant) and persons who can act on behalf of the applicant. Each commercial type applicant
+account will be linked to a national tax payer Identification Number (VAT or TIN). Thus, each user
+included on an application will also be linked to the principal tax payer ID. Comptroller of Customs
+for St. Christopher and Nevis, will issue each applicant and its designated user(s), a login name and
+initial password to enable access to ASYCUDA World. Once a user has logged in successfully, the
+system will force a change of password based on a predetermined level of complexity that enhances
+the strength of the password. Once the password is successfully changed, the user may subsequently
+change the password at his or her discretion. However, the system will force a change of password
+every six months or whenever a user request a password change due to a forgotten password.
+
+
+
+
+Saint Kitts and Nevis Customs and Excise Department                                     Page 2 of 39
+                                Processing The SAD – User Guide
+
+
+
+STEP 1: To access customs ASYCUDA World system
+
+Enter the username and password provide by Customs.
+Click the check mark or press enter to validate input of user name and password.
+
+
+
+
+After you have successfully logged into ASYCUDAWORLD click the “Document Library icon in
+the upper left hand corner.
+
+
+
+
+                                        Document Library icon
+
+This will open the document library frame located to the right hand corner of the screen.
+
+Note: The user can also access the document library menu by selecting “file” and then “document
+library” and the menu option needed.
+
+Before keying declaration details, please ensure that you have all the required documents needed,
+such as the ASYCUDA bill of lading, invoices, and freight document and any other permits or
+licenses which must be submitted with the declaration. Ensure that you have scanned all copies of
+these documents and placed them in a folder on your computer for upload.
+
+
+
+
+Saint Kitts and Nevis Customs and Excise Department                                    Page 3 of 39
+                                Processing The SAD – User Guide
+
+
+
+STEP 2: New SAD declaration
+Invoke the “Goods Clearance” by navigating the Document Library using this path: ASYCUDA
+Goods Clearance Declaration Detail Declaration Right click Detailed Declaration New
+
+
+
+
+STEP 3: The Detailed Declaration
+Right clicking on the detail declaration will open a sub menu that contains two major operations
+that may be carried out:
+
+      “New” - Preparing a completely new declaration.
+      “Find” - Finding a previously prepared declaration
+
+There are a number of other find options which filter the find search for a declaration according to
+its colour or status.
+
+Saint Kitts and Nevis Customs and Excise Department                                     Page 4 of 39
+                                Processing The SAD – User Guide
+
+
+
+SAD (Single Administrative Document) form and its subsequent forms
+The SAD form/Detailed Declaration is composed of ONE (1) main form and Eight (8)
+subsequent forms, namely:
+
+   1.   SAD (Main form) and SAD item page (For multi item declaration).
+   2.   Valuation Note form.
+   3.   Assessment Notice form.
+   4.   Information Page
+   5.   Other Attached Documents Page form
+   6.   Other Scan Document
+   7.   Scanned Invoice(s)
+   8.   Items administration selectivity
+
+NB: Use the TABS at the bottom of the main form to navigate between forms
+
+
+SAD (Main form)
+
+SAD main form consists basically of two segments; the general segment and the item segment. The
+general segment covers general information about the whole consignment such as exporter,
+consignee, declaration type, etc…, while the item segment contains all necessary information needed
+to clear the consignment such as commodity code, value, country of origin, etc.
+
+
+
+STEP 4: Completing Declaration General Segment
+After selecting the declaration model, the system will display the Single Administrative Document
+– (SAD); complete all the fields; begin with the general segment.
+
+In Box 1 select the model of Declaration according to the Customs Regime required for the goods
+being Imported or Exported.
+
+
+
+NB: It is very important to make sure that you select the correct model of declaration since it
+will determine the type of controls and data that the system will make available on the
+declaration form.
+
+
+
+
+Saint Kitts and Nevis Customs and Excise Department                                   Page 5 of 39
+                                  Processing The SAD – User Guide
+
+
+
+
+Declaration –
+General Segment
+
+
+
+
+  Item
+  Segment
+
+
+
+
+ Calculation
+ Boxes
+
+
+
+
+  Saint Kitts and Nevis Customs and Excise Department               Page 6 of 39
+                                Processing The SAD – User Guide
+
+
+
+
+Example of a completed Single Administrative Document – SAD general and item segment.
+
+
+
+
+Saint Kitts and Nevis Customs and Excise Department                             Page 7 of 39
+                                Processing The SAD – User Guide
+
+
+
+STEP 5: Add New Items (if required)
+If you have more than one item, click the add item       icon in the tool bar above the main form.
+
+
+
+                                                      Add Item
+
+
+
+
+A new numbered tab will be attached to the main form of the declaration with the additional item.
+(See below). The fields on this form are identical to the fields of the item segment of the main form.
+
+
+
+
+Saint Kitts and Nevis Customs and Excise Department                                            Page 8 of 39
+                                Processing The SAD – User Guide
+
+STEP 6: Valuation Note Form
+
+
+
+
+This form contains the global invoiced value of all the goods declared in the main SAD form. In
+addition, it allows input of value build up information such as freight and insurance costs and
+automatically apportions the costs between the declaration items.
+
+The fields of the General Valuation Note are:
+
+       Invoice value
+       External freight
+       Internal freight
+       Insurance
+       Other costs
+
+
+NB: It automatically apportions the costs between the declaration items when two more items
+are declared.
+
+
+
+Saint Kitts and Nevis Customs and Excise Department                                Page 9 of 39
+                                Processing The SAD – User Guide
+
+STEP 7: Item Valuation Note
+A Valuation Note must be completed for each item entered.
+
+A declaration contains as many Item Valuation Note forms as the number of items declared in the
+main SAD form. Each of them contains the item invoiced value and it allows input of value build
+up information such as freight and insurance costs. Upon the completion of all customs value related
+elements, the CIF value (which is the tax base for customs duties) is automatically calculated for
+each item.
+
+
+
+
+For each cost element the currency should be put in the appropriate field and consequently the
+exchange rate (if different from the national currency) is automatically brought from the currencies
+file and filled in its appropriate field.
+
+
+
+
+Saint Kitts and Nevis Customs and Excise Department                                   Page 10 of 39
+                                Processing The SAD – User Guide
+
+
+
+
+Saint Kitts and Nevis Customs and Excise Department               Page 11 of 39
+                                Processing The SAD – User Guide
+
+STEP 8: Other Attached Document
+Complete the Attached Documents form. This form contains the references of the documents
+attached to the declaration. For example invoices, Waybills (BOL), insurance, License, permits etc.
+
+
+
+
+The declarant must also scan the attached documents to Customs using the tool provided in the
+reference field of the attached document form.
+
+Click on the reference field of the attached document to access the drop down window. Choose the
+“Search File” option to find the document on your hard drive to send to Customs.
+
+
+
+
+Use the information Page tab to input any pertinent information pertaining to the declaration.
+
+Saint Kitts and Nevis Customs and Excise Department                                   Page 12 of 39
+                                Processing The SAD – User Guide
+
+
+
+
+STEP 9: Invoice Information
+
+
+
+
+Click other scanned invoice(s) tab to view the form.
+
+
+
+
+Saint Kitts and Nevis Customs and Excise Department               Page 13 of 39
+                                Processing The SAD – User Guide
+
+
+
+
+The declarant will first have to fill in supplier’s information for each supplier’s invoice
+Or
+
+Type in your value declaration registration number and date into the “value declaration form details”
+section. This option will import the supplier’s details from the value declaration form.
+
+
+
+
+Saint Kitts and Nevis Customs and Excise Department                                      Page 14 of 39
+                                 Processing The SAD – User Guide
+
+
+
+
+Click the add page icon and search for the invoice you wish to upload.
+
+
+
+
+click the upload button to upload the document
+
+
+
+
+Click Add Supplier Button        To Enter Additional Invoices Suppliers.
+
+
+
+
+ Saint Kitts and Nevis Customs and Excise Department                       Page 15 of 39
+                                Processing The SAD – User Guide
+
+
+
+
+ADD THE ADDITIONAL SUPPLIERS AND UPLOAD THE DOCUMENTS.
+
+
+
+
+Saint Kitts and Nevis Customs and Excise Department               Page 16 of 39
+                                 Processing The SAD – User Guide
+
+Uploading other scanned documents
+
+
+
+
+Click other scan doc. Tab
+
+
+
+
+Click the page icon and search for the document you wish to upload.
+
+
+
+
+Click the upload button to upload the document
+
+
+
+
+ Saint Kitts and Nevis Customs and Excise Department                  Page 17 of 39
+                                Processing The SAD – User Guide
+
+
+
+
+Select the type of document you have uploaded.
+
+
+
+
+Click the add button and follow the procedure to upload other scanned documents.
+
+
+
+Viewing scanned documents
+
+
+
+
+Saint Kitts and Nevis Customs and Excise Department                                Page 18 of 39
+                                Processing The SAD – User Guide
+
+STEP 10: Container Information (If Required)
+
+
+If the SAD box 19 is ticked, to indicate that the consignment is containerized, the container list
+Tab will appear at the bottom of the SAD and it will be necessary to complete the container list
+correctly before the declaration will be recognized by the computer as valid.
+
+
+
+
+Fig. Sample of completed container form.
+
+
+
+
+Saint Kitts and Nevis Customs and Excise Department                                     Page 19 of 39
+                                Processing The SAD – User Guide
+
+STEP 11: Value Declaration form
+
+Invoke the Goods Clearance by navigating the Document Library using this path: ASYCUDA
+Goods Clearance Declaration Detail Declaration Right click on Value Declaration
+
+
+
+
+Saint Kitts and Nevis Customs and Excise Department                           Page 20 of 39
+                                 Processing The SAD – User Guide
+
+STEP 12: Storing a Declaration (SAD)
+
+
+One may choose to store the declaration to retrieve for later use. The Declarant can store the SAD on
+Customs ASYCUDA World server by clicking on the store icon. The user can store a declaration at any time
+even if the document is not completed.
+
+
+                          Store Icon
+
+
+
+
+On selecting the Store option, the system will display the following screen, confirming that Store of your
+declaration has been successful.
+
+
+
+
+                                                                                                 Click on Tick
+
+
+
+
+ Saint Kitts and Nevis Customs and Excise Department                                         Page 21 of 39
+                                Processing The SAD – User Guide
+
+STEP 13: Validation and Assessing the SAD
+
+The Declarant must then validate and assess the SAD by clicking the Validate and Assess icon.
+Assess means that you are submitting the declaration for Customs acceptance and to acknowledge
+the values included in it as correct.
+
+
+
+
+After Validation, the system will display: a Declarant Reference Number, a Customs Reference
+Number, and an Assessment Reference Number. Each number is unique to each declaration, and
+any one of them can be used to retrieve it.
+
+The Declarant Reference number is made up of the year, the Declarant’s Identification Number and
+his/her Reference Number. The Customs Reference Number (Registration Number) is preceded by
+the prefix C and followed by the date when the SAD is registered. The Assessment Number is
+preceded by the prefix L and followed by the date when the SAD is assessed.
+
+
+
+
+Saint Kitts and Nevis Customs and Excise Department                               Page 22 of 39
+                                Processing The SAD – User Guide
+
+The declarant receives an email message indicating your SAD have been assessed.
+
+The Declarant must print a copy of the Assessed Declaration for Customs.
+
+
+
+STEP 14: Verifying and Registering the SAD
+
+
+After all mandatory fields have been entered on all the necessary forms, the declarant must
+“Verify” the SAD by clicking the Verify icon on the top of the form.
+
+                  Verify Click verify
+The system will send a message to the user if there are errors on the SAD. The verification
+process will not be complete until all errors are corrected
+
+
+
+
+NB: One of the many errors that can be sent to the users.
+
+
+
+If there are no errors on the SAD, the system will verify the SAD.
+
+
+
+
+Saint Kitts and Nevis Customs and Excise Department                                  Page 23 of 39
+                                Processing The SAD – User Guide
+
+STEP 15: Retrieving a Stored Declaration
+
+
+To retrieve a stored declaration go to Detailed Declaration in document library and right click on
+FIND.
+
+
+
+
+In the finder use reference number to find declaration and select button as shown below
+
+
+
+
+Saint Kitts and Nevis Customs and Excise Department                                   Page 24 of 39
+                                Processing The SAD – User Guide
+
+
+
+Right click on the desired document as shown below and select Retrieve to continue working on
+the declaration
+
+
+
+
+Saint Kitts and Nevis Customs and Excise Department                               Page 25 of 39
+                                Processing The SAD – User Guide
+
+
+
+STEP 16: Assessment Notice
+
+
+
+
+The Assessment Notice Form contains information about the assessment of the declaration. It is
+generated upon the validation of the declaration. It contains the summary of duties and taxes
+payable for the whole declaration. The assessment notice is updated after payments have been
+made and the rectification of declaration.
+
+
+
+
+Saint Kitts and Nevis Customs and Excise Department                                 Page 26 of 39
+                                Processing The SAD – User Guide
+
+
+
+STEP 17: Make Payment
+Supply the cashier with the Assessment number of your declaration to make payment
+
+
+
+
+Saint Kitts and Nevis Customs and Excise Department                                 Page 27 of 39
+                                Processing The SAD – User Guide
+
+The Cashier will issue a receipt to confirm payment of declaration.
+
+Once payment is effectuated/finalized the system will automatically issue the selectivity criteria on
+the paid declaration(s). If no duty is payable the auto selectivity will be executed for the
+assessment. An email will be sent to all users linked to the declaration profile.
+
+
+
+The system will indicate with a message the assigned lane for your declaration. All declarations
+with RED or YELLOW lanes will have a customs officer assigned for examination and/or
+documentary check.
+
+
+
+
+The system has four selectivity lanes for your declaration:
+
+Red Lane
+This means that your declaration requires both documentary check and Physical examination.
+Present to customs a printed Assessment Notice with all relevant documents and await physical
+examination.
+
+Yellow Lane
+This means that your declaration only requires a documentary check. Present to customs a printed
+copy of your Assessment Notice and all relevant documents.
+
+Blue Lane
+This means that your declaration has been automatically authorized to be released, however, your
+documents and goods will undergo post clearance checks by Customs.
+
+Green Lane
+This means that your declaration has been automatically authorized to be released. If it is an
+import, you can collect your consignment from the custodian of goods. If it is an export then your
+goods are ready to be shipped.
+
+Note: Customs reserves the right to examine goods assigned to Green lane.
+
+
+
+Saint Kitts and Nevis Customs and Excise Department                                    Page 28 of 39
+                                Processing The SAD – User Guide
+
+
+
+
+STEP 18: Collect Goods
+
+Lodge Documents (Where goods are located).
+Proceed to station where goods are located. Officer will advise whether you should wait or return
+for examination based on the work load. Only Red and Yellow lane declarations should be lodged.
+Upon examination of goods/document, the officer will issue a release order which must be taken to
+the cargo custodian for delivery.
+
+
+
+
+Saint Kitts and Nevis Customs and Excise Department                                Page 29 of 39
+                                Processing The SAD – User Guide
+
+
+
+
+How to use the declaration tool (icon) bar
+
+
+
+Figure 1: declaration tool (icon) bar
+                       Document verification; to check all declaration fields for coherence and
+                       syntax.
+
+
+                       STORE, To Store the SAD on Customs ASYCUDA World server
+
+
+
+                       Validation and assessment; it is a two-in-one icon that does both
+                       validation as well as declaration assessment, i.e., calculation of duties
+                       and taxes
+
+
+    1       2          1- Import from AW XML file; retrieve declaration data that have been
+                       stored locally on a workstation in an XML file for further processing.
+                       2- Export to AW XML file; store declaration data in XML file on a
+                       workstation for later processing.
+
+
+                       Add supplier
+
+
+                       Delete item; to delete an item from the declaration.
+
+
+
+        1   2          1- Hard copy
+                       2- Customized; print on a pre-printed form.
+
+
+
+                       View total mass and View total packages; displays the total weight and
+                       total packages of all items belonging to the declaration.
+
+
+
+Saint Kitts and Nevis Customs and Excise Department                                       Page 30 of 39
+                                 Processing The SAD – User Guide
+
+                         Add item; to add an item that belong to the declaration.
+
+
+
+                         Generate periodical summary declaration; to generate a periodical
+                         declaration if the authorization number is valid.
+
+
+                         Finder; search for documents in ASYCUDA World database.
+
+
+
+                         Help; provides the user with an online help.
+
+
+
+
+Explanation of the SAD data elements
+
+Table 1: SAD fields
+
+     Box   Box Caption         Description
+     No.
+
+ A         Customs office of A customs office at which a declaration is lodged.
+           declaration*
+                             In case of IMPORT the field name is: Office of destination while
+                             in EXPORT it is: Office of dispatch/Export
+
+ 1         Declaration*        The declaration model selected by the user
+
+                               Type of declaration code according to the standard (EX1, EX2,
+                               IM4, etc...)
+
+
+
+
+Saint Kitts and Nevis Customs and Excise Department                                     Page 31 of 39
+                                Processing The SAD – User Guide
+
+2         Exporter*            Party who makes, or on whose behalf, the export declaration is
+                               made and who is the owner of the goods or has similar right of
+                               disposal over them at the time when the declaration is accepted.
+                               In case of IMPORT the exporter is residing outside the country
+                               of destination and consequently his information does not exist in
+                               the reference data tables. Thus, his information is entered
+                               manually as written in the transaction’s documents. In case of
+                               EXPORT, his information should be stored in the relevant
+                               reference table and could be filled in automatically either popped
+                               up or using the finder.
+
+
+
+
+3                              Used by the system
+
+4         Load List            The number of loading lists, manifests or similar documents.
+                               (known also as waybill)
+
+
+
+5         Items                Number of declared items.
+
+          Manifest*            Reference number to identify a manifest.
+
+
+
+6         No. packages*        Total number of packages for the whole declaration; packages are
+                               made in such a way that they cannot be divided without first
+                               undoing the packing. The Number of Package can never be 0.
+
+
+
+7         Reference*           Trader’s Declaration reference number. A number given to the
+          number               declaration from the trader’s register. The trader can use it to
+                               retrieve/modify his declarations. The Declarant cannot use it
+                               more than once in the same year. Year, number e.g. 200941
+
+8         Consignee*           Name [and address] of party who makes, or on whose behalf a
+                               Customs clearing agent or other authorized person makes, an
+                               import declaration. This may include a person who has possession
+                               of the goods or to whom the goods are consigned.
+
+9         Financial            Name and address of the party responsible for either the transfer
+                               or repatriation of the funds relating to a transaction
+
+
+
+Saint Kitts and Nevis Customs and Excise Department                                       Page 32 of 39
+                                Processing The SAD – User Guide
+
+
+
+
+10        Country last         Country from which goods have been or will be consigned prior
+          consignment.*        to final importation
+
+                               The last country where the goods were placed on board the means
+                               of transportation before arriving into Belize
+
+11        Trading              Country in which the deal was done. (It might be useful as an
+          country.*            indicator for the customs value)
+
+12        Value details        Additional cost items.
+
+13        C.A.P                Common Agricultural Policy. Not Used
+
+14        Declarant*           Customs clearing agent; could be the trader, if he is authorized to
+                               clear his consignments by himself, or a brokerage agency.
+
+
+
+15        Country of           Country from which goods are dispatched between countries of a
+          export*              Customs union, Dispatch country, Country of exportation,
+                               Country of provenance.
+          C.E.*
+                               The nation from which the goods are first exported
+
+16        Country of           Country in which the goods have been produced or
+          origin*              manufactured, according to criteria laid down for the application
+                               of the Customs tariff or quantitative restrictions (quota), or any
+                               measure related to trade.
+
+
+
+17        C.D.*                Country of destination; the country to which a consignment is to
+                               be delivered to the final consignee.
+          Country of
+          destination*
+
+18        Identity and         Means of transport used at the time of presentation (departure
+          nationality* of      for export, arrival for import) of the consignment to a Customs
+          active means of      office in the context of a goods declaration.
+          transport at
+          departure
+
+
+
+
+Saint Kitts and Nevis Customs and Excise Department                                        Page 33 of 39
+                                Processing The SAD – User Guide
+
+19        Ctr.                 An indication whether goods are transported as a Full Container
+                               Load (FCL) or not.
+          Container
+
+
+20        Delivery terms*      Terms of delivery
+
+
+
+
+21        Identity and         Free form description of a type of means of transport.
+          nationality* of
+          active means of
+          transport
+          crossing the
+          border
+
+22        Currency* &          Total monetary amount charged in respect of one or more
+          total amount         invoices associated with the currency in which goods were
+          invoiced             purchased. The red underline draws the user’s attention to the
+                               general valuation note form.
+
+
+
+23        Exch. Rate*          The rate at which one specified currency is
+                               expressed in another specified currency.
+
+
+
+24        Nature of            Code-1 specifying a type of contract under which the goods are
+          transaction.*        supplied
+
+
+
+24        Nature of            Code-2 specifying a type of contract. /. Sub category
+          transaction.*
+
+
+                               Code-1 and Code-2 should read together In order to give a
+                               comprehensive description of nature of transaction.
+
+25        Mode transport       Code specifying a type of means of transport.
+          at border*
+
+
+
+Saint Kitts and Nevis Customs and Excise Department                                     Page 34 of 39
+                                Processing The SAD – User Guide
+
+26        Inland mode          Code specifying a type of means of transport for in-country
+          transport*           transportation.
+
+
+
+27        Place of             Name of a seaport, airport, freight terminal or other place at
+          discharge*           which goods are loaded onto the means of transport being used
+                               for their carriage.
+
+
+
+28        Financial and        Bank code
+          banking data*
+
+28        Terms of             The financial agreement between the buyer and seller of the goods
+          Payment*
+
+
+29        Office of entry*     Customs office at which the goods enter the customs territory of
+                               destination.
+
+
+
+30        Location of          Name of the place where a specific goods item is located and
+          goods*               eventual location in which physical inspection might take place.
+
+
+
+31        Packages and         Plain language description of the nature of a goods item sufficient
+          description of       to identify it for customs, statistical or transport purposes. The
+          goods*               kind of package code is chosen from a drop down menu and the
+                               corresponding text is printed on the next line.
+
+32        Item No.             Serial number of the item in that declaration.
+
+33        Commodity            Code (Harmonized system) specifying a type of goods for
+          code*                Customs, transport or statistical purposes.
+
+
+
+34        Country of Orig. A code to identify the country in which the goods have been
+          Code*            produced or manufactured, according to criteria laid down for
+                           the application of the Customs tariff or quantitative restrictions,
+                           or any measure related to trade.
+
+
+
+
+Saint Kitts and Nevis Customs and Excise Department                                        Page 35 of 39
+                                Processing The SAD – User Guide
+
+35        Gross mass*          Weight (mass) of goods including packaging but excluding the
+                               carrier's equipment.
+
+
+
+36        Prefer. Code*        Code specifying a regime according to which tax is assessed such
+                               as preferential duty rate.
+
+37        PROCEDURE*           Code specifying a procedure performed by Customs on goods
+                               which are subject to Customs control.
+
+                               The first part (Customs Procedure Code) identifies the treatment
+                               which the goods are to receive. The second part is known as the
+                               additional CPC Code and is used to identify if the goods are
+                               claiming a special duty/tax treatment
+
+
+
+38        Net mass*            Weight (mass) of goods without any packaging.
+
+39        Quota                Not used
+
+
+
+
+40        Summary              The identifier of a previous Customs document i.e. Customs
+          declaration/Previ    Waybill
+          ous document*
+
+
+41        Supplementary        Quantity of the goods in the unit as required by Customs for
+          units                tariff, statistical or fiscal purposes
+
+
+
+42        Item price           Amount due for each chargeable item of goods or services.
+
+
+
+43        Valuation            Method used to value the declared item.
+          method code
+
+44        Additional           Identifier of a document providing additional information.
+          information
+
+
+
+
+Saint Kitts and Nevis Customs and Excise Department                                         Page 36 of 39
+                                Processing The SAD – User Guide
+
+45        VIN                  Vehicle Identification Number
+
+
+
+46        Statistical value    Value declared for statistical purposes of those goods in a
+                               consignment having the same statistical heading.
+
+
+
+47        Calculation of       A mathematical formula is adopted to calculate the various duties
+          taxes                / taxes /fees due on each item of the consignment. This
+                               encompasses duties or taxes applicable to commodities. The
+                               formula is applied on the tax base relevant to each tax type.
+
+
+48        Deferred             Reference number identifying a payment of a duty or tax
+          payment/Prepay
+          ment
+
+49        Identification of    To identify a warehouse where a particular consignment has been
+          warehouse*           stored.
+
+
+
+50        Principal*           Name and address of a party liable for goods moving under a
+                               customs authorization and, when applicable, a guarantee
+
+
+
+51        Intended office      Name of the customs office which is responsible for transit
+          of transit           formalities en route.
+
+
+
+52        Guarantee not        Customs office at which a security or guarantee for the movement
+          valid for            of goods under a transit procedure is lodged.
+
+
+
+53        Office of            Name of the customs office at which goods are released from a
+          destination and      Customs transit regime.
+          country
+
+
+54        Place and date       To be filled by the representative of the trader indicating the date
+                               of the declaration and the name of the representative.
+
+
+
+Saint Kitts and Nevis Customs and Excise Department                                         Page 37 of 39
+                                Processing The SAD – User Guide
+
+
+
+          C OFFICE OF          Transit
+          DEPARTURE
+
+                               Proof that a document has been authenticated indicating where
+                               appropriate the authentication party. Results of customs controls,
+                               name and signature of customs officer and stamp.
+
+
+
+
+Saint Kitts and Nevis Customs and Excise Department                                       Page 38 of 39
+

@@ -1,0 +1,858 @@
+1
+               TABLE OF CONTENTS
+
+
+
+1. Definitions………………………………………………………………………………03
+
+2. Table of Symbols…………………………………………………………………….05
+
+3. Previous Declaration Form………………………………………………………06
+
+4. The ASYCUDA WORLD Warehouse Stock Report……………………..10
+
+5. Warehousing Declaration Preparation…………………………………….13
+
+6. EX-Warehouse Declaration Preparation………………………………….14
+
+7. Change of Goods Ownership Procedure………………………………….19
+
+8. Temporary Import Declaration Preparation…………………………….27
+
+
+
+
+                                                        2
+  1. Definitions
+
+  a) The suspense declarations regime type includes the following:
+
+
+Declaration Description     Extended Description                 Additional Description
+Model                       Procedure                            Code
+                            Code
+                            2000      Temporary Export for       000
+                                      return in an unaltered
+                                      state
+                            2100      Temporary Export for       000         Common
+EX 2         Temporary                return after repairs                   Regime
+             Exports
+                            2200        Temporary Export for     000
+                                        outward processing
+
+                            5000        Temporary Import for     000 - 230   See
+                                        return in an unaltered               reference
+                                        state                                tables
+                            5100        Temporary Import for     000
+IM 5         Temporary                  return after repairs
+             Imports                                                         Common
+                            5200        Temporary Import for     000         Regime
+                                        return after inward
+                                        processing
+
+                            7000        Entry for warehousing    000
+                                        in a private warehouse
+
+                            7070        Transfer of goods from   000
+                                        one private warehouse
+                                        to another                           Common
+                            7071        Transfer of goods from   000         Regime
+IM 7         Entry for                  a duty free shop to a
+             Warehousing                private warehouse
+                            7095        Good entered for         000
+                                        warehousing from a
+                                        free zone
+                            7100        Direct entry for         000
+                                        warehousing; Duty
+                                        free shop
+
+
+                                                                                          3
+ Declaration Description      Extended Description                  Additional Description
+ Model                        Procedure                             Code
+                              Code
+                              7170      Transfer of goods from      000
+                                        a private warehouse to
+                                        a duty free shop
+                              7171      Transfer of goods from      000
+                                        one duty free shop to
+ IM 7         Entry for                 another                                  Common
+              warehousing     7194      Good entering a duty        000          Regime
+                                        free shop after being
+                                        locally manufactured
+                              7195      Goods entering a duty       000
+                                        free shop from a free
+                                        zone
+Table 1. Suspense Regimes
+
+
+
+
+   b) The Delay Period - is the number of days the goods will remain in the suspense regime.
+      This will be 730 days in the case of warehousing transactions.
+
+   c) The Guarantee Account Reference - is the unique alpha numeric code assigned to the
+      C58 bond. The SADs liability is deducted against the balance of this account. The
+      guarantee reference code is inserted into field 49, “identification of warehouse” on the
+      SAD main form.
+
+
+   d) The Product Specification Code – This code may be made up of a maximum of
+      seventeen alpha numeric characters. It is the unique identifier of products being
+      warehoused. It is currently mandatory to include this code for warehousing products as
+      this code is used to identify the products at the point of the preparation of the
+      warehouse exit SAD. Reference this in field 33 on the SAD.
+
+   e) The Item Quantity – is the numerical value representing the quantity of pieces being
+      moved. It may be the number of bottles in the case of alcohol.
+
+
+
+
+                                                                                               4
+   2. Table of Symbols
+   Symbol       Description
+                “Verify the document” to check all the document fields for coherence and
+                syntax.
+                “Assess”: Assess a SAD.
+                “Store”: Store the SAD on the ASYCUDA server.
+                “XML Import”: Import a SAD xml file from the local computer.
+                “XML Export” : Export a SAD xml file to the local computer.
+                “Print”: Print the assessed SAD.
+
+                “Total Mass”: View the total mass of all the SAD items.
+
+                “Change Goods Ownership”: Reserved for future use.
+
+                “Add Item”: creates an additional page to the SAD main form.
+
+                “Delete whole Page”: deletes the complete SAD page.
+
+                “Delete item”: Deletes the selected item line from the SAD page.
+
+                “Query Response”: Submits the SAD for post entry after modification from
+                query.
+Table 2. ASYCUDA World SAD menu iconography.
+
+
+
+
+                                                                                           5
+    3. Previous Declaration Form
+On assessment of a suspense declaration, the system generates a simplified version of the SAD.
+This simplified version is then referenced as the “Previous Declaration”
+
+
+To access this “Previous Declaration Form”,
+navigate the document library using the
+following path:
+ASCYCUDA >> Goods Clearance >>
+Declaration >> Previous Declaration. Right
+Click the option: Previous Declaration and
+select the option “Find” as seen in figure 2.
+The system will invoke the finder. Input the
+relevant information into the finder then
+click the     icon to retrieve the records.
+The finder will display the results showing
+the following:
+                                                FIGURE 1. Previous Declaration Finder Option
+
+  a) Clearance Office – The office where the goods are located.
+  b) General Procedure – This indicates the SAD regime used.
+  c) Registration Serial – The letter assigned by the system to registered SADs.
+  d) Registration Date – The date the SAD was registered.
+  e) Assessment Serial – The letter assigned by the system to assessed SADs.
+  f) Assessment Number – The sequence number assigned to the SAD at assessment.
+  g) Assessment Date – The date the SAD was assessed.
+  h) Declarant Code – The ASYCUDA code assigned to the declarant.
+  i) Declarant Reference – The alpha numeric characters given to the SAD by the declarant.
+  j) Exporter – For temporary export SADs, it will indicate the exporter’s code.
+  k) Consignee – The importer of the goods.
+  l) Expiration – This signifies the end date of the suspense period.
+
+
+
+
+                                                                                               6
+Right click the record result and select the “View” Option.
+The system will display the “Previous Declaration” form for viewing.
+The form consists of three segments. They are described below:
+
+  I.   General Segment
+
+       This area of the form displays a window containing the following:
+
+       a) Exporter – Only applicable for temporary export SADs.
+       b) Consignee – For warehousing SADs, this is the owner the goods.
+       c) Declarant – The declarant who prepared the SAD.
+       d) Customs Reference – Will display the Customs registration and assessment numbers
+          and dates of registration and assessment.
+       e) Reference number – The declarant’s unique identifier for the SAD.
+       f) Items – Total number of items on the SAD.
+       g) Number of packages – The total number of packages on the SAD.
+       h) Identification of warehouse – Only applicable for warehousing SADs. It will display
+          the reference number for the warehouse.
+       The item summary will list the goods by item, according to the regime selected by the
+       declarant. Temporary Export and Temporary Import SADs will feature the following:
+       a) SAD line number including the HS Code & Country of Origin.
+       b) The exporter or importers code.
+       c) Initial Weight.
+       d) Initial Supplementary Units.
+       e) Remaining Mass
+       f) Remaining Supplementary Units
+
+
+ Figures 2 and 3 shows an example of the general segment page of a “Previous Declaration”
+form of a Temporary Export and Temporary Import transaction respectively.
+
+
+
+
+                                                                                               7
+Figure 2. Temporary Export Previous Declaration Form
+
+
+
+
+Figure 3. Temporary Import Previous Declaration Form
+
+
+                                                       8
+       The item summary will be displayed in the following format, when the declaration was
+       assessed under the IM7 regime:
+       g) SAD line number including the HS Code, Product Identification Code, Country of
+          Origin, Current Goods Owner and (New Goods Owner: Applicable when a change of
+          ownership procedure has been completed).
+       h) The Initial Weight.
+       i) Initial Supplementary Units.
+       j) Remaining Mass.
+       k) Remaining Supplementary Units
+This information is important in determining the remaining quantities of the items warehoused
+when performing the EX-Warehouse procedure.
+
+
+
+ II.   Items Segment
+Here the system displays all the information for a specific line of the suspense declaration. This
+includes HS Code, Item Specification Code (where applicable), Country of Origin, Procedure
+Code, Initial Weight, Initial Supplementary Units and C.I.F Reference Unit. See an IM7 item
+segment illustrated in figure 4.
+
+
+
+
+Figure 4. IM 7 SAD item segment
+
+
+
+
+                                                                                                     9
+III.   Transactions Summary Segment
+Here the system displays a listing of all transactions associated with the initial suspense
+declaration. They are as follows:
+    1. Declaration Entry listing – The system will list in BLUE, all items initially placed in the
+       suspense regime and all subsequent write off transactions will be listed in BROWN.
+       These will include:
+       a) The SAD item line number.
+       b) HS Code of the item.
+       c) Country of Origin of the product.
+       d) Year, Office Code, Registration Number of the initial SAD and the Transaction
+          Sequence Number.
+       e) The initial Supplementary Units, Weight and Value.
+       f) The remaining Supplementary Units, Weight and Value.
+
+
+
+    4. The ASYCUDA WORLD Warehouse Stock Report
+ASYCUDA World offers the declarant the following report for suspense declarations.
+It may be accessed by navigating the ASYCUDA World document library and following the path:
+
+
+ASCYCUDA >> Asycuda World Reports >>
+Right click the option: Reports and select
+the function: “Open”. See the illustration in
+figure 5.
+
+
+
+
+                                                       Figure 5. ASYCUDA World Reports
+
+
+
+
+                                                                                                     10
+The system will display the
+blank report form. Click the
+drop down option and select
+the “Report Category”:
+“BROKERS” from the drop
+down list.
+
+
+
+
+                                 Figure 6. Report Category selection screen.
+
+The system will display a
+listing of reports available
+under the category selected.
+ Click on the required report,
+then right click to reveal the   Figure 7. ASYCUDA WORLD Reports showing the select option
+“select” option. See the
+illustration in figure 7. The
+system will display a blank
+form. Complete the form by
+inserting the following:
+   a) Company – Insert the
+      importer code used
+      on the warehousing
+      SAD.
+   b) Warehouse – Insert
+      the Guarantee
+      Account reference.
+   c) Choose the output
+      file type.                  Figure 8. ASYCUDA WORLD warehouse stock report form
+   d) Select the    icon
+      to submit the
+      request.
+
+                                                                                        11
+The system will display a
+confirmation message. See
+
+figure 9. Click the  icon
+to confirm and generate the
+report.
+                                          Figure 9. Confirmation message
+
+
+
+
+Figure 10. ASYCUDA WORLD Stock report
+
+
+ The report will contain the following:
+    a) Warehouse Code
+    b) Company Code
+    c) Customs Declaration Registration Number
+    d) Declaration Registration Year
+    e) Goods Expiry Date
+    f) Product(s) HS Code
+    g) Product Identification Code
+    h) Goods Country of Origin
+    i) Goods Remaining Quantity
+
+
+
+
+                                                                           12
+5. Warehousing Declaration Preparation
+The Process
+
+ Access the ASYCUDA WORLD document library
+ and follow the path: ASYCUDA >> Goods
+ Clearance >> Declaration >> Detailed
+ Declaration: Right Click the option Detailed
+ Declaration and select the option “New”.
+  The system will retrieve a blank SAD requiring
+  the declarant to key in the details of the
+  shipment. Complete the SAD in its entirety
+  paying attention to the following:
+     1.   Tariff Number                               Figure 11. New Declaration Option
+     2.   Country of Origin
+     3.   Product Identification
+     4.   Item quantity
+     5.   Supplementary Units
+     6.   Customs Value
+     7.   Commercial Description
+
+
+ For a comprehensive guide for SAD declaration preparation procedures, please consult the
+ Brokers User Manual. It may be accessed at the following link ………………………………….
+
+ Ensure that all mandatory fields are completed by clicking the     icon to perform a
+ document check. If no errors are seen during the check, proceed to assess the declaration
+
+ using the       icon.
+ After assessment, the duties and taxes will not be payable as they are secured against the
+ warehouse guarantee account which is the C58 Bond. However, the payment of CSCP Fees
+ or Global Standard Fees may apply.
+ Once paid, a selectivity lane will be automatically triggered by the system for risk
+ management purposes.
+ According to the lane assigned, the declarant may be required to proceed to Customs for
+ examination and delivery of the goods.
+
+
+
+
+                                                                                              13
+6. EX-Warehouse Declaration Preparation
+The Models of declaration for these SADs may include EX3 for goods sold duty free or re-
+exported and IM4 for goods sold duty paid.
+The re-export procedure codes include:
+3070: Re-exported from a private warehouse.
+3071: Re-exported from a duty-free shop, with the additional code 113 to identify duty-free
+sales.
+Duty paid or Import procedure codes include:
+4070: Duty paid from a private warehouse.
+4071: Duty paid from a duty –free shop.
+It should be noted further that the above procedures may also be used with the appropriate
+additional code where a concession is being claimed.
+
+The Process
+ Access the ASYCUDA WORLD document library
+ and follow the path: ASYCUDA >>Goods
+ Clearance >> Declaration >> Detailed
+ Declaration: Right Click the option Detailed
+ Declaration and select the option “New”.
+ The system will retrieve a blank SAD requiring
+ the declarant to key in the details of the
+ shipment. Complete the following fields in
+ the SAD General Segment:
+     a) Clearance Office Code
+     b) Model of Declaration                           Figure 12. New Declaration Option
+     c) Consignee Code
+     d) Declarant Code (where applicable)
+     e) Customs Procedure Code (including
+        the additional code)
+     f) Warehouse Identification Code
+ Pro Tip: Consult the “Previous Declaration
+ Form” explained on pages 6-8 or the
+ “ASYCUDA WORLD Stock Report” explained
+ on pages 8-12 as a guide in obtaining
+ accurate information while preparing the
+ EX-Ware SAD.
+                                                                                              14
+On inputting the Customs
+Procedure Codes, the
+system will enable the
+“Previous Declaration” tab
+on the SAD form. See figure
+13. Select this Tab to insert
+the following information
+                                                 Figure 13. Previous Declaration Tab
+from the initial IM 7 SAD:
+   g) Office Code – Insert
+      the clearance office.
+   h) Year – Insert the
+      SAD Registration
+      Year.
+   i) Registration Number
+      – Insert the SAD
+      Customs
+      Registration
+      number.
+   j) Item Number –
+      Insert the
+      corresponding line
+      number from the
+      initial SAD for the
+      goods being
+      removed.                  Figure 14. SAD Previous Declaration page ready for completion.
+
+
+The system may present various warnings at this stage. It may indicate that the goods have not been
+released by Customs or the declaration cannot be found. Please verify the accuracy of the
+information inserted. If you are certain of the validity of the information, please contact the Customs
+Warehousing Section for further assistance. Otherwise proceed.
+
+
+
+
+                                                                                                 15
+  Figure 15. Partially completed SAD previous declaration page
+
+On inserting valid data, the system will display the following information within the “previous
+declaration” segment of the page:
+
+          The HS Code of the item being removed.
+          The Country of Origin of the item being removed.
+          The Product ID of the item being removed.
+          The commercial Description being removed.
+          The initial and remaining Quantity.
+          The initial and remaining Packages (Where applicable).
+          The initial and remaining Net Weight.
+          The Reference CIF Value.
+          The initial and remaining Supplementary Value (where applicable).
+The system will insert the item HS Code into the “Current Declaration” segment of the page. The
+user is then required to input the “Supplementary” units being removed. The item’s “Net
+Weight” and “Reference CIF Value will automatically be calculated based on the quantity
+inputted. See the illustration in figure 16.
+
+
+
+
+                                                                                                  16
+Figure 16. SAD Previous Documents Page
+                                                                Net Mass and Reference CIF
+                                                                Value automatically calculated
+
+
+
+
+ On selecting the    icon, the system will
+ display the confirmation message seen in
+
+ Figure 17. If yes, select the   option to
+ continue. Otherwise, select the     option.      Figure 17. Add item #2 confirmation message
+ The system will add the first item to the
+ list as shown in figure 18.
+
+
+
+
+Figure 18. Current declaration page showing one item in the list.
+
+ The system permits the inputting of additional items. The user will be required to input the
+ declaration and items details in the “Previous Declaration” segment and repeat the process
+ outlined above.
+
+
+
+
+                                                                                                 17
+ Once all items have been added to the “Current Declaration” segment, the system will
+ automatically populate the following fields:
+
+
+
+ SAD GENERAL SEGMENT
+ BOX         FIELD NAME
+ NUMBER
+ 16          Country of Origin Name
+ 22          Currency and total amount invoiced
+ 23          Exchange Rate
+ 31          Package Number, Type and Commercial Description
+ 32          HS Code and Product Identification
+ 34          Country of Origin Code
+ 35          Gross Weight in Kgs
+ 37          Procedure Code
+ 38          Net Weight in Kgs
+ 40          Previous Document Summary
+ 41          Item Quantity
+ 42          Item Price
+ 46          Customs Value
+ Valuation Note General Segment
+ BOX         FIELD NAME
+ NUMBER
+             Invoice Value
+Table 3. EX- Warehouse SAD fields auto populated by the ASYCUDA
+
+
+ Perform a SAD verification by clicking the      icon in the SAD menu. The system will
+ highlight the additional mandatory fields in RED. An error message will also be displayed,
+ listing these mandatory fields. Input the requisite information into the appropriate fields,
+ attach all supporting documentation, and then ASSESS the SAD.
+
+
+
+
+                                                                                                18
+7. Change of Goods Ownership Procedure
+
+ ASYCUDA WORLD requires Customs to transfer ownership of products sold from one
+ warehouse operator to another. The broker of the current goods owner will submit a
+ request to transfer the individual items from the ASYCUDA stock to the receiving
+ warehouse owner. The officer will request that both parties be available to present the
+ completed Transfer of Warehouse Goods Form. The preparation of a SAD is mandatory to
+ credit the duty liability of the products from the guarantee account of the previous
+ warehouse owner and debit that of the receiving owner.
+ The Model of Declaration used for these SADs is IM7. The procedure codes may be either of
+ the following: 7070, 7171, 7071 or 7170. See table 1 for a detailed explanation of each
+ procedure.
+
+ The Process
+ Access the ASYCUDA WORLD document
+ library and follow the path: ASYCUDA >>
+ Goods Clearance >> Warehouse Stock
+ Management >> Change Goods Ownership:
+ Right Click the option “Change Goods
+ Ownership” and select the option “Request
+ Transfer”.
+ The system will display the blank “Goods
+ Change of Ownership” page. See figure 20.
+
+
+
+
+                                         Figure 19. Request Change Goods Ownership Option
+
+
+
+
+                                                                                             19
+Figure 20. Change of goods ownership form.
+
+ a) Select the warehouse code from the list to retrieve the available products for transfer.
+ b) Input the current goods owner’s code.
+ c) Input the declarant’s code.
+ d) Input a unique reference for this change of ownership document.
+ e) Click the       option to retrieve the available goods. The system will display a listing of
+           icons indicating the warehouse code and current owner’s name.
+ f) Click the first level icon to reveal a listing of second level    icons. These will display
+    a listing of all the available goods, including their HS Code and country of origin. A
+    further click of each individual item will reveal the IM7’s Registration Year, Clearance
+    Office Code, Registration Number and item line number. The system will also list the
+    goods remaining weight and supplementary units.
+ g) Right click the second level        icon line featuring the goods HS Code and Origin to
+
+     reveal the                  option.
+
+                                                                                                   20
+h) Click the
+   option. The system will
+   display a dialog box as seen
+   in figure 21. The box will
+   display the available
+   supplementary quantity of
+   the goods available for        Figure 21. Transfer supplementary units dialog box.
+   transfer.
+i) Input the supplementary
+   quantity to be transferred
+
+   then click the       option.
+   The system will list the
+   item and the inputted
+   supplementary quantity &
+   weight, in the “Goods        Figure 22. Goods selected for change of ownership
+   requested for transfer of
+   ownership” segment. See
+   figure 22.
+j) Repeat steps h &i:
+   “selection”& “Supp. Units”
+   procedure to add required
+   items to the list for
+   transfer.
+k) Input the “New Goods
+   Owner” code into the field
+   labelled: “New Owner.
+l) The number of days shown
+   indicates the maximum
+   period in days allowed for
+   the completion of the
+   procedure. The default
+   period is 14 days. However, Figure 23. Change of goods ownership “Changes Segment”
+   the transfer must be
+   completed within the
+   period inputted, otherwise
+   the system will
+   automatically return the
+   goods to the original
+   owner.
+
+
+                                                                                        21
+   m) Select the “attach scanned
+      doc” tab and attach all
+      supporting documentation
+      for the goods change of
+      ownership.
+   n) Verify the document then
+
+      click the    icon to           Figure 24. Transaction Completed
+      submit the request for
+      Customs approval.
+   o) The system will display the
+      message seen in figure 24.
+   p) Once the request has
+      been assessed by
+      Customs, an automatic
+      email is sent to the
+      declarant’s account
+      indicating the status of the
+      request. See figure 25.        Figure 25. Email message showing the request details
+
+
+On approval of the “request”, the declarant representing the “New Goods Owner” will be
+responsible for the preparation of the “Change Goods Ownership” SAD.
+
+Change of Goods Ownership SAD
+
+Access the ASYCUDA WORLD
+document library and follow the path:
+ASYCUDA >>Goods Clearance >>
+Declaration >> Detailed Declaration:
+Right Click the option Detailed
+Declaration and select the option
+“New”.
+
+
+
+
+                                          Figure 26. New SAD option
+
+
+
+
+                                                                                            22
+The system will retrieve a blank SAD requiring the declarant to key in the details of the transfer.
+Complete the following fields in the SAD General Segment:
+   a) Clearance Office Code
+   b) Model of Declaration
+   c) Consignee Code (New Goods Owner)
+   d) Declarant Code (where applicable)
+   e) Customs Procedure Code (7070,7071,7171 and 7170)
+   f) Warehouse Identification Code (New Warehouse)
+
+
+ On inputting the Customs
+ Procedure Codes, the
+ system will enable the
+ “Previous Declaration” tab                        Figure 27. Previous Declaration Tab
+ on the SAD form. See figure
+ 27. Select this Tab to insert
+ the following information
+ from the previous owner’s
+ IM 7 SAD:
+    g) Office Code – Insert
+       the clearance office.
+    h) Year – Insert the
+       SAD Registration
+       Year.
+    i) Registration Number
+       – Insert the SAD
+       Customs
+       Registration
+       number.
+    j) Item Number –
+       Insert the
+       corresponding line        Figure 28. SAD Previous Declaration page ready for completion.
+       number from the
+       initial SAD for the
+       goods being
+       transferred.
+
+
+
+
+                                                                                                      23
+  Figure 29. SAD previous declaration page goods change of ownership
+
+On inserting valid data, the system will display the following information within the “previous
+declaration” segment of the page:
+
+          The HS Code of the item being transferred.
+          The Country of Origin of the item being transferred.
+          The Product ID of the item being transferred.
+          The commercial Description being transferred.
+          The initial and remaining Quantity. (The remaining quantity is the full amount to be
+           transferred to the new owner).
+          The initial and remaining Packages (Where applicable).
+          The initial and remaining Net Weight.
+          The Reference CIF Value.
+          The initial and remaining Supplementary Value (where applicable).
+The system will insert the item HS Code into the “Current Declaration” segment of the page. The
+user is then required to input the full “Supplementary” units being transferred. The item’s “Net
+Weight” and “Reference CIF Value will automatically be calculated based on the quantity
+inputted. See the illustration in figure 30.
+
+
+
+
+                                                                                                  24
+Figure 30. SAD Previous Documents Page
+                                                                Net Mass and Reference CIF
+                                                                Value automatically calculated
+
+
+  On selecting the    icon, the system will
+  display the confirmation message seen in
+
+  Figure 31. If yes, select the   option to
+  continue. Otherwise, select the     option.
+  The system will add the first item to the       Figure 31. Add item #2 confirmation message
+  list as shown in figure 18.
+
+
+
+
+Figure 32. Current declaration page showing one item in the list.
+
+ The system permits the inputting of additional items. The user will be required to input the
+ declaration and items details in the “Previous Declaration” segment and repeat the process
+ outlined above.
+
+
+
+                                                                                                 25
+ Once all items have been added to the “Current Declaration” segment, the system will
+ automatically populate the following fields:
+
+
+
+ SAD GENERAL SEGMENT
+ BOX        FIELD NAME
+ NUMBER
+ 16         Country of Origin Name
+ 22         Currency and total amount invoiced
+ 23         Exchange Rate
+ 31         Package Number, Type and Commercial Description
+ 32         HS Code and Product Identification
+ 34         Country of Origin Code
+ 35         Gross Weight in Kgs
+ 37         Procedure Code
+ 38         Net Weight in Kgs
+ 40         Previous Document Summary
+ 41         Item Quantity
+ 42         Item Price
+ 46         Customs Value
+ Valuation Note General Segment
+ BOX        FIELD NAME
+ NUMBER
+            Invoice Value
+Table 4. Change of Goods Ownership Warehouse SAD fields auto populated by the ASYCUDA
+
+
+ Perform a SAD verification by clicking the      icon in the SAD menu. The system will
+ highlight the additional mandatory fields in RED. An error message will also be displayed,
+ listing these mandatory fields. Input the requisite information into the appropriate fields,
+ attach all supporting documentation, and then ASSESS the SAD.
+
+
+
+
+                                                                                                26
+8. Temporary Import declaration preparation
+ Goods meant for temporary importation are dutiable at the rates listed below:
+ Unless exempted by any provision of law or Cabinet Conclusion,
+       a) Full Service Charge is payable at the time of importation.
+       b) 5% or 10% of the applicable duties (Import Duty, Excise Tax and or Value Added Tax)
+          is payable at the time of importation. Thereafter the same rate is chargeable every
+          quarter for the duration of time the goods remain in the state until re-exportation.
+          The availability of such goods on island at the time of importation determines the
+          rate applied. The application of the above procedures necessitated the
+             utillisation of the “Ask Tax” function in ASYCUDA World. The procedure
+             is explained below:
+ The broker is required to manually key in the values, rate and tax amount
+ payable for each item line.
+ The Model of Declaration applied for this SAD type is IM5 and the procedure codes may be;
+ 5000, 5100, or 5200. See table 1 for a detailed description of each procedure.
+ Access the ASYCUDA WORLD document library
+ and follow the path: ASYCUDA >> Goods
+ Clearance >> Declaration >> Detailed
+ Declaration: Right Click the option Detailed
+ Declaration and select the option “New”.
+ The system will present the user with a blank SAD for
+ completion. After providing all the requisite
+ information, perform a SAD verification. A screen will                              Figure 33. New Declaration option
+ appear, prompting the user to insert values for all
+ taxes for the first line item of the SAD. Insert the
+ following values for taxes applicable to the
+ commodity item:
+       a) The value base amount (Customs Value),                                     Figure 34. Manual item tax screen
+       b) Tax rate (rate applicable for this HS Code) and
+       c) The amount payable for the applicable tax (5% or
+          10% of the amount payable of the rate above)
+ Tip: Insert a zero value into each field for taxes that are not applicable to the
+ commodity item. Example, an item where Import Duty is not payable by HS Code,
+ the user should insert “0” into the “Rate and Amount” fields of the manual tax
+ screen.
+
+ The system will present this manual tax screen for all SAD
+ line items. Insert the required values into each prompt.
+ The SAD will display the “Verified” message. Proceed to
+ SAD assessment. Each prompt will appear once again with
+ all information pre-inserted. Click the green tick for each
+ screen until presented by the SAD assessment screen.                                                                    27
+

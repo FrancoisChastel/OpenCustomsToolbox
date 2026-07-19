@@ -1,0 +1,395 @@
+Manifest - Tables Description - V 0.1.0905                                   ASYCUDA World
+
+
+
+
+                                Manifest - Tables Description - V 0.1.0905
+
+
+
+
+UNCTAD/DTL                                                                          Page 1
+Manifest - Tables Description - V 0.1.0905                                                                               ASYCUDA World
+
+
+
+
+Introduction
+
+The following document presents the technical description of the database tables used to record all of the transaction data relevant to
+the Manifest.
+
+
+Stucture of the document
+
+This document gives a detailed description of each database table Notes regarding following table data: The data is presented in the
+following format.
+
+Field Name - DOM Representation - Null? - Data Type - Description
+
+The Field Name is the name given to the data element in the table.
+
+The DOM Representation is the Data set structure associated with the Field.
+
+Null? shows whether the Field Value could be empty or not.
+
+Data Type indicates the type and length of data being stored, and how the engine is storing it.
+
+This is useful as an indication of the type validation performed against each element.
+
+The Length is to be treated with caution, where data is stored in a numeric format, the length indicated is that for the table column.
+It may seem different from the length available in the interface screens, but this is because the engine formats the data so that it is
+stored in its most efficient manner. In particular, the date length seems meaningless. This simply indicates that the data is stored in the
+Database server date format, which incorporates the necessary structure and length.
+
+Description is a brief explanation of the Field.
+
+The table columns are presented in the same order that they appear in the actual database tables.
+
+
+
+
+UNCTAD/DTL                                                                                                                          Page 2
+Manifest - Tables Description - V 0.1.0905                                                         ASYCUDA World
+
+
+
+
+Tables Structure
+GEN_TAB - Manifest General Segment
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+STA                              STA                             SMALLINT      Status
+IDE_CUO_COD                      IDE.CUO.COD                     VARCHAR(5)    Customs office code
+IDE_CUO_NAM                      IDE.CUO.NAM                     VARCHAR(35)   Customs office name
+IDE_VOY                          IDE.VOY                         VARCHAR(17)   Voyage number
+IDE_DAT                          IDE.DAT                         DATE          Date of departure
+GEN_MST                          GEN.MST                         LONGVARCHAR   Master information
+GEN_TOT_BOL                      GEN.TOT.BOL                     SMALLINT      Total Number of B/L
+GEN_TOT_PCK                      GEN.TOT.PCK                     DOUBLE        Total Number of packages
+GEN_TOT_CTN                      GEN.TOT.CTN                     SMALLINT      Total Number of containers
+GEN_TOT_GRS                      GEN.TOT.GRS                     DOUBLE        Total Gross Mass
+GEN_ARR_DAT                      GEN.ARR.DAT                     DATE          Date of arrival
+GEN_ARR_TIM                      GEN.ARR.TIM                     TIMESTAMP     Time of arrival
+GEN_REG_YEA                      GEN.REG.YEA                     SMALLINT      Manifest year of registration
+GEN_REG_NBR                      GEN.REG.NBR                     SMALLINT      Manifest serial registration number
+GEN_REG_DAT                      GEN.REG.DAT                     DATE          Date of registration
+GEN_REG_TIM                      GEN.REG.TIM                     TIMESTAMP     Time of registration
+GEN_LOD_COD                      GEN.LOD.COD                     VARCHAR(5)    Place of departure - code
+GEN_LOD_NAM                      GEN.LOD.NAM                     VARCHAR(35)   Place of departure - name
+GEN_UNL_COD                      GEN.UNL.COD                     VARCHAR(5)    Place of destination - code
+GEN_UNL_NAM                      GEN.UNL.NAM                     VARCHAR(35)   Place of destination - name
+GEN_CAR_COD                      GEN.CAR.COD                     VARCHAR(17)   Carrier code
+GEN_CAR_NAM                      GEN.CAR.NAM                     VARCHAR(35)   Carrier name
+GEN_SHI_COD                      GEN.SHI.COD                     VARCHAR(17)   Shipping Agent code
+GEN_SHI_NAM                      GEN.SHI.NAM                     VARCHAR(35)   Shipping Agent name
+GEN_CAR_ADD                      GEN.CAR.ADD                     LONGVARCHAR   Carrier address
+GEN_TPT_NAM                      GEN.TPT.NAM                     VARCHAR(27)   Name of the transporter
+GEN_TPT_PLA                      GEN.TPT.PLA                     VARCHAR(35)   Place of the transporter
+GEN_TPT_REG_NAM                  GEN.TPT.REG.NAM                 VARCHAR(35)   Transporter registration number
+GEN_TPT_REG_DAT                  GEN.TPT.REG.DAT                 DATE          Transporter registration date
+GEN_TPT_MOT_COD                  GEN.TPT.MOT.COD                 VARCHAR(3)    Mode of Transport - code
+GEN_TPT_MOT_NAM                  GEN.TPT.MOT.NAM                 VARCHAR(35)   Mode of Transport - description
+GEN_TPT_NAT_COD                  GEN.TPT.NAT.COD                 VARCHAR(3)    Nationality of transport - country code
+GEN_TPT_NAT_NAM                  GEN.TPT.NAT.NAM                 VARCHAR(35)   Nationality of transport - country name
+WRT                              WRT                             SMALLINT      Flag written off
+GEN_TON_GRS_NET                  GEN.TON.GRS.NET                 DOUBLE        Net
+GEN_TON_GRS_BRT                  GEN.TON.GRS.BRT                 DOUBLE        Gross
+GEN_TON_OFF_NAM                  GEN.TON.OFF.NAM                 VARCHAR(35)   Office of destination - name
+GEN_TON_OFF_COD                  GEN.TON.OFF.COD                 VARCHAR(5)    Office of destination - code
+GEN_TON_LDS                      GEN.TON.LDS                     DATE          Last discharge
+GEN_TON_PRV_REF1                 GEN.TON.PRV.REF1                VARCHAR(8)    Previous reference 1
+GEN_TON_PRV_REF2                 GEN.TON.PRV.REF2                VARCHAR(10)   Previous reference 2
+
+BOL_TAB - Bill of lading
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+IDE_CUO_COD                      IDE.CUO.COD                     VARCHAR(5)    Customs office code
+IDE_CUO_NAM                      IDE.CUO.NAM                     VARCHAR(35)   Customs office name
+IDE_VOY                          IDE.VOY                         VARCHAR(17)   Voyage number
+IDE_DAT                          IDE.DAT                         DATE          Date of departure
+IDE_REF                          IDE.REF                         VARCHAR(17)   Bill of lading reference number
+GEN_ARR_DAT                      GEN.ARR.DAT                     DATE          Date of arrival
+GEN_ARR_TIM                      GEN.ARR.TIM                     TIMESTAMP     Time of arrival
+
+
+
+
+UNCTAD/DTL                                                                                                       Page 3
+Manifest - Tables Description - V 0.1.0905                                                      ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation   Null?   Data Type     Description
+GEN_REG_YEA                      GEN.REG.YEA                  SMALLINT      Manifest year of registration
+GEN_REG_NBR                      GEN.REG.NBR                  SMALLINT      Manifest serial registration number
+GEN_REG_DAT                      GEN.REG.DAT                  DATE          Date of registration
+GEN_REG_TIM                      GEN.REG.TIM                  TIMESTAMP     Time of registration
+GEN_CAR_COD                      GEN.CAR.COD                  VARCHAR(17)   Carrier code
+GEN_CAR_NAM                      GEN.CAR.NAM                  VARCHAR(35)   Carrier name
+GEN_CAR_ADD                      GEN.CAR.ADD                  LONGVARCHAR   Carrier address
+GEN_SHI_COD                      GEN.SHI.COD                  VARCHAR(17)   Shipping Agent code
+GEN_SHI_NAM                      GEN.SHI.NAM                  VARCHAR(35)   Shipping Agent name
+GEN_TON_LDS                      GEN.TON.LDS                  DATE          Last discharge
+GEN_TPT_NAM                      GEN.TPT.NAM                  VARCHAR(27)   Name of the transporter
+GEN_TPT_MOT_COD                  GEN.TPT.MOT.COD              VARCHAR(3)    Mode of Transport - code
+GEN_TPT_MOT_NAM                  GEN.TPT.MOT.NAM              VARCHAR(35)   Mode of Transport - description
+GEN_TPT_NAT_COD                  GEN.TPT.NAT.COD              VARCHAR(3)    Nationality of transport - country code
+GEN_TPT_NAT_NAM                  GEN.TPT.NAT.NAM              VARCHAR(35)   Nationality of transport - country name
+BOL_LIN                          BOL.LIN                      SMALLINT      Bill of lading line number
+BOL_SLI                          BOL.SLI                      SMALLINT      Bill of lading sub line number
+BOL_STA                          BOL.STA                      VARCHAR(17)   B/L status
+BOL_PRV                          BOL.PRV                      VARCHAR(17)   Previous document - B/L reference
+                                                                            number of Master B/L
+BOL_NAT                          BOL.NAT                      VARCHAR(2)    B/L nature code
+BOL_UCR                          BOL.UCR                      VARCHAR(35)   Unique Carrier Reference number
+BOL_CTN                          BOL.CTN                      SMALLINT      Number of containers
+BOL_GRS                          BOL.GRS                      DOUBLE        Gross mass
+BOL_CBM                          BOL.CBM                      DOUBLE        Volume in Cubic Meter
+BOL_SUB                          BOL.SUB                      SMALLINT      Number of sub B/Ls
+BOL_TYP_COD                      BOL.TYP.COD                  VARCHAR(3)    B/L type
+BOL_TYP_NAM                      BOL.TYP.NAM                  VARCHAR(35)   B/L description
+BOL_EXP_COD                      BOL.EXP.COD                  VARCHAR(17)   Exporter code
+BOL_EXP_NAM                      BOL.EXP.NAM                  VARCHAR(35)   Exporter name
+BOL_EXP_ADD                      BOL.EXP.ADD                  LONGVARCHAR   Exporter address
+BOL_CON_COD                      BOL.CON.COD                  VARCHAR(17)   Consignee code
+BOL_CON_NAM                      BOL.CON.NAM                  VARCHAR(35)   Consignee name
+BOL_CON_ADD                      BOL.CON.ADD                  LONGVARCHAR   Consignee address
+BOL_NOT_COD                      BOL.NOT.COD                  VARCHAR(17)   Notify code
+BOL_NOT_NAM                      BOL.NOT.NAM                  VARCHAR(35)   Notify name
+BOL_NOT_ADD                      BOL.NOT.ADD                  LONGVARCHAR   Notify address
+BOL_LOD_COD                      BOL.LOD.COD                  VARCHAR(5)    Place of loading - code
+BOL_LOD_NAM                      BOL.LOD.NAM                  VARCHAR(35)   Place of loading - name
+BOL_UNL_COD                      BOL.UNL.COD                  VARCHAR(5)    Place of unloading - code
+BOL_UNL_NAM                      BOL.UNL.NAM                  VARCHAR(35)   Place of unloading - name
+BOL_PCK_COD                      BOL.PCK.COD                  VARCHAR(17)   Package type code
+BOL_PCK_NAM                      BOL.PCK.NAM                  VARCHAR(35)   Description of packages
+BOL_PCK_NBR                      BOL.PCK.NBR                  DOUBLE        Number of packages
+BOL_MRK_DSC                      BOL.MRK.DSC                  LONGVARCHAR   Shipping mark
+BOL_GDS_DSC                      BOL.GDS.DSC                  LONGVARCHAR   Goods description
+BOL_FRG_IND_COD                  BOL.FRG.IND.COD              VARCHAR(3)    Freight P/C indicator
+BOL_FRG_VAL                      BOL.FRG.VAL                  DOUBLE        Freight value
+BOL_FRG_CUR                      BOL.FRG.CUR                  VARCHAR(3)    Freight currency
+BOL_CUS_VAL                      BOL.CUS.VAL                  DOUBLE        Customs value
+BOL_CUS_CUR                      BOL.CUS.CUR                  VARCHAR(3)    Customs currency
+BOL_TPT_VAL                      BOL.TPT.VAL                  DOUBLE        Transport value
+BOL_TPT_CUR                      BOL.TPT.CUR                  VARCHAR(3)    Transport currency
+BOL_INS_VAL                      BOL.INS.VAL                  DOUBLE        Insurance value
+BOL_INS_CUR                      BOL.INS.CUR                  VARCHAR(3)    Insurance currency
+BOL_SEA_NBR                      BOL.SEA.NBR                  SMALLINT      Seal number
+BOL_SEA_MK1                      BOL.SEA.MK1                  VARCHAR(20)   Marks of seals
+BOL_SEA_COD                      BOL.SEA.COD                  VARCHAR(3)    Sealing party code
+BOL_SEA_NAM                      BOL.SEA.NAM                  VARCHAR(35)   Sealing party decription
+
+
+
+
+UNCTAD/DTL                                                                                                  Page 4
+Manifest - Tables Description - V 0.1.0905                                                             ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation        Null?      Data Type     Description
+BOL_INF_IN1                      BOL.INF.IN1                          VARCHAR(70)   Information
+BOL_OPE_PKA                      BOL.OPE.PKA                          DOUBLE        Remaining Number of packages
+BOL_OPE_WGA                      BOL.OPE.WGA                          DOUBLE        Remaining Gross mass
+BOL_OPE_LOC_COD                  BOL.OPE.LOC.COD                      VARCHAR(17)   Location code
+BOL_OPE_LOC_NAM                  BOL.OPE.LOC.NAM                      VARCHAR(35)   Location name
+BOL_OPE_LOC_INF                  BOL.OPE.LOC.INF                      VARCHAR(35)   Location info
+BOL_OPE_ONW_TRS_COD              BOL.OPE.ONW.TRS.COD                  VARCHAR(5)    Transit customs office code
+BOL_OPE_ONW_TRS_NAM              BOL.OPE.ONW.TRS.NAM                  VARCHAR(35)   Transit customs office name
+BOL_OPE_ONW_TRS_REF              BOL.OPE.ONW.TRS.REF                  VARCHAR(35)   Transit document reference
+BOL_OPE_ONW_TSH_DIS              BOL.OPE.ONW.TSH.DIS                  VARCHAR(35)   Transhipment document reference
+BOL_OPE_ONW_TSH_LOC_COD          BOL.OPE.ONW.TSH.LOC.COD              VARCHAR(5)    Transhipment location code
+BOL_OPE_ONW_TSH_LOC_NAM          BOL.OPE.ONW.TSH.LOC.NAM              VARCHAR(35)   Transhipment location name
+BOL_OPE_ONW_CAR_COD              BOL.OPE.ONW.CAR.COD                  VARCHAR(17)   Onward carrier code
+BOL_OPE_ONW_CAR_NAM              BOL.OPE.ONW.CAR.NAM                  VARCHAR(35)   Onward carrier name
+BLC                              BOL.BLC                              SMALLINT      Flag BOL Bolcked - 0:no, 1:yes
+
+
+CTN_TAB - Containers
+
+Field Name                       DOM Representation        Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID               NOT NULL   INTEGER
+IDE_CUO_COD                      IDE.CUO.COD               NOT NULL   VARCHAR(5)    Customs office code
+IDE_VOY                          IDE.VOY                   NOT NULL   VARCHAR(17)   Voyage number
+IDE_DAT                          IDE.DAT                   NOT NULL   DATE          Date of departure
+IDT                              IDT                                  VARCHAR(17)   Reference
+NBR                              NBR                                  INTEGER       Number of packages
+TYP                              TYP                                  VARCHAR(4)    Type of container
+FUL                              FUL                                  VARCHAR(3)    Empty/Full
+SEA                              SEA                                  VARCHAR(10)   Seals
+MK1                              MK1                                  VARCHAR(10)   Marks
+MK2                              MK2                                  VARCHAR(10)   Marks
+PTY                              PTY                                  VARCHAR(3)    Sealing Party
+EWG                              EWG                                  DOUBLE        Empty weight
+GWG                              GWG                                  DOUBLE(3)     Goods weight
+
+
+Manifest_Serial_Registration - Manifest Serial Management
+
+Field Name                       DOM Representation        Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID               NOT NULL   INTEGER
+YEA                              YEA                                  SMALLINT      Year
+CUO_COD                          CUO.COD                              VARCHAR(5)    Customs office code
+CUO_NAM                          CUO.NAM                              VARCHAR(35)   Customs office name
+SER_INI                          SER.INI                              SMALLINT      Serial - Initial number
+SER_CUR                          SER.CUR                              SMALLINT      Serial - Current number
+
+
+BOL_CTN_TAB - Containers per Bill of Lading
+
+Field Name                       DOM Representation        Null?      Data Type     Description
+ID_BOL                                                     NOT NULL   INTEGER       B/L Instance Id
+ID_CTN                           CTN.INSTANCE_ID           NOT NULL   INTEGER       Container Instance Id
+
+
+REM_WRITE_OFF_TAB - manifest write-off information
+
+Field Name                       DOM Representation        Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID               NOT NULL   INTEGER
+
+
+
+
+UNCTAD/DTL                                                                                                       Page 5
+Manifest - Tables Description - V 0.1.0905                                                         ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+IDE_CUO_COD                      IDE.CUO.COD                     VARCHAR(5)    Customs office code
+IDE_VOY                          IDE.VOY                         VARCHAR(17)   Voyage number
+IDE_DAT                          IDE.DAT                         DATE          Date of departure
+IDE_REF                          IDE.REF                         VARCHAR(17)   Bill of lading reference number
+BLK                              BLK                             VARCHAR(1)    Bulk flag
+PKG                              PKG                             VARCHAR(17)   Package code
+NAT                              NAT                             VARCHAR(2)    B/L nature
+LOC                              LOC                             VARCHAR(17)   Location
+NBR                              NBR                             DOUBLE        Remaining Packages
+GRS                              GRS                             DOUBLE        Remaining Gross Mass
+RES                              RES                             VARCHAR(25)   SAD that has reserved the B/L ex:
+                                                                               CUO08 2009 C 5
+
+
+HIS_WRITE_OFF_TAB - B/L history of write-off
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+IDE_CUO_COD                      IDE.CUO.COD          NOT NULL   VARCHAR(5)    Customs office code
+IDE_VOY                          IDE.VOY              NOT NULL   VARCHAR(17)   Voyage number
+IDE_DAT                          IDE.DAT              NOT NULL   DATE          Date of departure
+IDE_REF                          IDE.REF              NOT NULL   VARCHAR(17)   Bill of lading reference number
+VER                              VER                  NOT NULL   VARCHAR(35)   Version ID of writing-off document
+TYP                              TYP                  NOT NULL   VARCHAR(16)   Type of Write-Off ex: S.A.D. ; S.A.D.
+                                                                               PE adjust
+REF_INSTANCE_ID                  REF                  NOT NULL   INTEGER       Write-Off Document Instance Id
+NBR                              NBR                             DOUBLE        Packages
+GRS                              GRS                             DOUBLE        Gross Mass
+PRV                              PRV                  NOT NULL   VARCHAR(35)   Reference of document that writes-off
+                                                                               BL ex: CUO02 2009 L 15
+
+
+MAN_TRANSH_TAB - Manifest - Transhipment Management
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+REF                              REF                  NOT NULL   VARCHAR(35)   Document reference
+LOC_COD                          LOC.COD                         VARCHAR(5)    Place of destination
+LOC_NAM                          LOC.NAM                         VARCHAR(35)   Place of destination
+CAR_COD                          CAR.COD                         VARCHAR(17)   Onward carrier
+CAR_NAM                          CAR.NAM                         VARCHAR(35)   Onward carrier
+
+
+MAN_TRANSIT_TAB - Manifest - Transit Management
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+REF                              REF                  NOT NULL   VARCHAR(35)   Line Number
+CUO_COD                          CUO.COD                         VARCHAR(5)    Office of destination - Customs office
+                                                                               code
+CUO_NAM                          CUO.NAM                         VARCHAR(35)   Office of destination - Customs office
+                                                                               name
+CAR_COD                          CAR.COD                         VARCHAR(17)   Onward carrier
+CAR_NAM                          CAR.NAM                         VARCHAR(35)   Onward carrier
+
+
+MAN_MAN_TAB - Manifest - Manual discharge Management
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+
+
+
+
+UNCTAD/DTL                                                                                                      Page 6
+Manifest - Tables Description - V 0.1.0905                                                        ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+REF                              REF                  NOT NULL   VARCHAR(35)   Reference of Manual discharge
+DES                              DES                             LONGVARCHAR   Description of Manual discharge
+
+
+
+MAN_DATETODATE_TAB - Manifest Date to Date Report
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+NBR_STO                          NBR.STO                         BIT           Stored flag
+NBR_REG_REF                      NBR.REG.REF                     BIT           Registered by ref Flag
+NBR_REG_VOY                      NBR.REG.VOY                     BIT           Registered by voy flag
+CUO_COD                          CUO.COD                         CHAR(10)      Customs office code
+CUO_NAM                          CUO.NAM                         CHAR(50)      Customs office name
+DAT_FROM                         DAT.BEG                         DATE          Manifest date from
+DAT_TO                           DAT.END                         DATE          Manifest date to
+
+
+
+MAN_WRITEOFF_TAB - Manifest Write-Off Report
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+NBR_WRT                          NBR.WRT                         BIT           Written-off flag
+NBR_NWR                          NBR.NWR                         BIT           Non-written-off Flag
+CUO_COD                          CUO.COD                         CHAR(10)      Customs office code
+CUO_NAM                          CUO.NAM                         CHAR(50)      Customs office name
+DAT_FROM                         DAT.BEG                         DATE          Manifest date from
+DAT_TO                           DAT.END                         DATE          Manifest date to
+
+
+
+MAN_WRITEOFFSTATUS_TAB - Manifest Write-Off Status
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+MAN_IDE_DAT                      MAN.IDE.DAT                     DATE          Departure date
+MAN_IDE_VOY                      MAN.IDE.VOY                     CHAR(50)      Voyage number
+CUO_COD                          CUO.COD                         CHAR(10)      Customs office code
+CUO_NAM                          CUO.NAM                         CHAR(50)      Customs office name
+
+
+
+MAN_T1_REF_TAB - T1 registration reference + guarantee details for T1(s) from which a manifest has been
+generated
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                                           NOT NULL   INTEGER
+T1_NBR                           RNK                  NOT NULL   INTEGER       Rank
+REF_REG_CUO                      REF.REG.CUO                     VARCHAR(5)    Departure office
+REF_REG_SER                      REF.REG.SER                     VARCHAR(1)    Registration series
+REF_REG_NBR                      REF.REG.NBR                     INTEGER       Registration number
+REF_REG_DAT                      REF.REG.DAT                     DATE          Registration date
+GTY_ACC                          GTY.ACC                         VARCHAR(35)   Transit guarantee account
+GTY_AMT                          GTY.AMT                         DOUBLE        T1 guarantee amount
+GTY_FLG_FRE                      GTY.FLG.FRE                     BIT           Guarantee is free
+
+
+
+
+UNCTAD/DTL                                                                                                       Page 7
+

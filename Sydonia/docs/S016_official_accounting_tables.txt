@@ -1,0 +1,1225 @@
+Accounting - Tables Description - V 0.1.0905                                 ASYCUDA World
+
+
+
+
+                              Accounting - Tables Description - V 0.1.0905
+
+
+
+
+UNCTAD/DTL                                                                          Page 1
+Accounting - Tables Description - V 0.1.0905                                                                             ASYCUDA World
+
+
+
+
+Introduction
+
+The following document presents the technical description of the database tables that contain financial information (payments,
+accounts, receipts).
+
+
+Stucture of the document
+
+This document gives a detailed description of each database table Notes regarding following table data: The data is presented in the
+following format.
+
+Field Name - DOM Representation - Null? - Data Type - Description
+
+The Field Name is the name given to the data element in the table.
+
+The DOM Representation is the Data set structure associated with the Field.
+
+Null? shows whether the Field Value could be empty or not.
+
+Data Type indicates the type and length of data being stored, and how the engine is storing it.
+
+This is useful as an indication of the type validation performed against each element.
+
+The Length is to be treated with caution, where data is stored in a numeric format, the length indicated is that for the table column.
+It may seem different from the length available in the interface screens, but this is because the engine formats the data so that it is
+stored in its most efficient manner. In particular, the date length seems meaningless. This simply indicates that the data is stored in the
+database server date format, which incorporates the necessary structure and length.
+
+Description is a brief explanation of the Field.
+
+The table columns are presented in the same order that they appear in the actual database tables.
+
+
+
+
+UNCTAD/DTL                                                                                                                          Page 2
+Accounting - Tables Description - V 0.1.0905                                                      ASYCUDA World
+
+
+
+
+Tables Structure
+
+SER_NBERING_TAB - Accounting Serial Management - Numbering
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+InstanceId                                            NOT NULL   INTEGER
+YER                              YER                             INTEGER       Year
+SIT_COD                          SIT.COD                         VARCHAR(5)    Customs site, code
+SIT_NAM                          SIT.NAM                         VARCHAR(35)   Customs site, name
+CHR                              CHR                             VARCHAR(1)    Serial letter or digit
+SER_INI                          SER.INI                         INTEGER       Serial - Initial number
+SER_CUR                          SER.CUR                         INTEGER       Serial - Current number
+
+
+SER_LETTERS_TAB - Accounting Serial Management - Letters
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+InstanceId                                            NOT NULL   INTEGER
+CH1                              CH1                             VARCHAR(1)    Serial letter 1
+CH2                              CH2                             VARCHAR(1)    Serial letter 2
+CH3                              CH3                             VARCHAR(1)    Serial letter 3
+CH4                              CH4                             VARCHAR(1)    Serial letter 4
+CH5                              CH5                             VARCHAR(1)    Serial letter 5
+CH6                              CH6                             VARCHAR(1)    Serial letter 6
+CH7                              CH7                             VARCHAR(1)    Serial letter 7
+CH8                              CH8                             VARCHAR(1)    Serial letter 8
+CH9                              CH9                             VARCHAR(1)    Serial letter 9
+CH10                             CH10                            VARCHAR(1)    Serial letter 10
+CH11                             CH11                            VARCHAR(1)    Serial letter 11
+CH12                             CH12                            VARCHAR(1)    Serial letter 12
+CH13                             CH13                            VARCHAR(1)    Serial letter 13
+FLG                              FLG                             VARCHAR(1)    Internal Flag
+
+
+CSH_GEN_CDI - Cash declaration payment receipt - General Information
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+IDE_COD                          IDE.COD                         VARCHAR(5)    Customs Office Code
+IDE_NAM                          IDE.NAM                         VARCHAR(35)   Customs Office Name
+IDE_YEA                          IDE.YEA                         VARCHAR(4)    Receipt Year
+IDE_SER                          IDE.SER                         VARCHAR(1)    Receipt Serial
+IDE_NBR                          IDE.NBR                         INTEGER       Receipt Number
+DAT                              DAT                             DATE          Receipt Date
+AMT_TOT                          AMT.TOT                         DOUBLE        Amount Collected
+AMT_SAD                          AMT.SAD                         DOUBLE        Total For Declarations
+AMT_OTH                          AMT.OTH                         DOUBLE        Total For Other Payments
+AMT_MOP                          AMT.MOP                         DOUBLE        Total Amount Collected
+TRA_DEC_COD                      TRA.DEC.COD                     VARCHAR(17)   Declarant Code
+TRA_CMP_COD                      TRA.CMP.COD                     VARCHAR(17)   Company Code
+TRA_NAM                          TRA.NAM                         VARCHAR(35)   Name
+TRA_ADD                          TRA.ADD                         LONGVARCHAR   Address
+OPE_DAT                          OPE.DAT                         DATE          Daybook date in which receipt was done
+OPE_SFT                          OPE.SFT                         INTEGER       Shift number in which receipt was done
+OPE_NBR                          OPE.NBR                         INTEGER       Operation number within the shift
+FCY_CUR_AMT                      FCY.CUR.AMT                     DOUBLE        Total Amount in Foreign Currency
+FCY_CUR_RAT                      FCY.CUR.RAT                     DOUBLE        Foreign Currency Exchange Rate
+
+
+
+
+UNCTAD/DTL                                                                                                   Page 3
+Accounting - Tables Description - V 0.1.0905                                                       ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation   Null?      Data Type      Description
+FCY_CUR_COD                      FCY.CUR.COD                     VARCHAR(3)     Currency code
+FCY_CUR_NAM                      FCY.CUR.NAM                     VARCHAR(35)    Currency Name
+
+
+CSH_DEC_CDI - Cash declaration payment receipt - declarations paid by this receipt
+
+Field Name                       DOM Representation   Null?      Data Type      Description
+INSTANCE_ID                                           NOT NULL   INTEGER
+DEC_NBR                          RNK                  NOT NULL   INTEGER        Internal index number
+DEC_YEA                          DEC.YEA                         VARCHAR(4)     Declarant Reference Year
+DEC_REF                          DEC.REF                         VARCHAR(13)    Declarant Reference Number
+ASS_YEA                          ASS.YEA                         VARCHAR(4)     Assessment Reference Year
+ASS_SER                          ASS.SER                         VARCHAR(1)     Assessment Reference Serial
+ASS_NBR                          ASS.NBR                         VARCHAR(9)     Assessment Reference Number
+MOD_TYP                          MOD                             VARCHAR(4)     Model of Declaration
+AMT                              AMT                             DOUBLE         Total amount of duties and taxes
+
+
+CSH_MEA_CDI - Cash declaration payment receipt - means of payment
+
+Field Name                       DOM Representation   Null?      Data Type      Description
+INSTANCE_ID                                           NOT NULL   INTEGER
+MEA_NBR                          RNK                  NOT NULL   INTEGER        Internal index number
+COD                              COD                             VARCHAR(2)     Means of Payment Code
+NAM                              NAM                             VARCHAR(70)    Means of Payment Description
+REF                              REF                             VARCHAR(17)    Means of Payment Reference
+BNK                              BNK                             VARCHAR(17)    Bank Code
+AMT                              AMT                             DOUBLE         Total amount
+
+
+CSH_TRA_CDI - Cash declaration payment receipt - other payments
+
+Field Name                       DOM Representation   Null?      Data Type      Description
+INSTANCE_ID                                           NOT NULL   INTEGER
+TRA_NBR                          RNK                  NOT NULL   INTEGER        Internal index number
+COD                              COD                             VARCHAR(3)     Means of Payment Code
+NAM                              NAM                             VARCHAR(17)    Means of Payment Description
+REF                              REF                             VARCHAR(35)    Means of Payment Reference
+AMT                              AMT                             DOUBLE         Amount
+
+
+CSH_GEN_CDO - Cash declaration reimbursement receipt - general information
+
+Field Name                       DOM Representation   Null?      Data Type      Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+IDE_COD                          IDE.COD                         VARCHAR(5)     Customs Office Code
+IDE_NAM                          IDE.NAM                         VARCHAR(35)    Customs Office Name
+IDE_YEA                          IDE.YEA                         VARCHAR(4)     Receipt Year
+IDE_SER                          IDE.SER                         VARCHAR(1)     Receipt Serial
+IDE_NBR                          IDE.NBR                         INTEGER        Receipt Number
+DAT                              DAT                             DATE           Receipt Date
+AMT_TOT                          AMT.TOT                         DOUBLE         Amount Refunded
+AMT_SAD                          AMT.SAD                         DOUBLE         Total For Declarations
+AMT_OTH                          AMT.OTH                         DOUBLE         Total For Other Payments
+AMT_MOP                          AMT.MOP                         DOUBLE         Total Amount Refunded
+TRA_DEC_COD                      TRA.DEC.COD                     VARCHAR(17)    Declarant Code
+TRA_CMP_COD                      TRA.CMP.COD                     VARCHAR(17)    Company Code
+TRA_NAM                          TRA.NAM                         VARCHAR(35)    Holder Name
+
+
+
+
+UNCTAD/DTL                                                                                                         Page 4
+Accounting - Tables Description - V 0.1.0905                                                      ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+TRA_ADD                          TRA.ADD                         LONGVARCHAR   Holder Address
+SIG_NAM                          SIG.NAM                         VARCHAR(35)   Declarant/Company Name
+SIG_OFF                          SIG.OFF                         VARCHAR(35)   Customs Office Name
+SIG_AMT                          SIG.AMT                         DOUBLE        Amount Refunded
+SIG_CUR                          SIG.CUR                         VARCHAR(3)    National Currency
+SIG_PLC                          SIG.PLC                         VARCHAR(35)   Customs Office Place
+SIG_DAT                          SIG.DAT                         DATE          Signature Date
+OPE_DAT                          OPE.DAT                         DATE          Daybook date in which receipt was done
+OPE_SFT                          OPE.SFT                         INTEGER       Shift number in which receipt was done
+OPE_NBR                          OPE.NBR                         INTEGER       Operation number within the shift
+FCY_CUR_AMT                      FCY.CUR.AMT                     DOUBLE        Total Amount in Foreign Currency
+FCY_CUR_RAT                      FCY.CUR.RAT                     DOUBLE        Foreign Currency Exchange Rate
+FCY_CUR_COD                      FCY.CUR.COD                     VARCHAR(3)    Currency code
+FCY_CUR_NAM                      FCY.CUR.NAM                     VARCHAR(35)   Currency Name
+
+
+CSH_DEC_CDO - Cash declaration reimbursement receipt - declarations paid by this receipt
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                                           NOT NULL   INTEGER
+DEC_NBR                          RNK                  NOT NULL   INTEGER       Internal index number
+DEC_YEA                          DEC.YEA                         VARCHAR(4)    Declarant Reference Year
+DEC_REF                          DEC.REF                         VARCHAR(13)   Declarant Reference Number
+ASS_YEA                          ASS.YEA                         VARCHAR(4)    Assessment Reference Year
+ASS_SER                          ASS.SER                         VARCHAR(1)    Assessment Reference Serial
+ASS_NBR                          ASS.NBR                         VARCHAR(9)    Assessment Reference Number
+MOD_TYP                          MOD                             VARCHAR(4)    Model of Declaration
+AMT                              AMT                             DOUBLE        Total amount of duties and taxes
+
+
+CSH_MEA_CDO - Cash declaration reimbursement receipt - means of payment
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                                           NOT NULL   INTEGER
+MEA_NBR                          RNK                  NOT NULL   INTEGER       Internal index number
+COD                              COD                             VARCHAR(2)    Means of Payment Code
+NAM                              NAM                             VARCHAR(70)   Means of Payment Description
+REF                              REF                             VARCHAR(17)   Means of Payment Reference
+BNK                              BNK                             VARCHAR(17)   Bank Code
+AMT                              AMT                             DOUBLE        Amount
+
+
+CSH_TRA_CDO - Cash declaration reimbursement receipt - other payments
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                                           NOT NULL   INTEGER
+TRA_NBR                          RNK                  NOT NULL   INTEGER       Internal index number
+COD                              COD                             VARCHAR(3)    Means of Payment Code
+NAM                              NAM                             VARCHAR(17)   Means of Payment Description
+REF                              REF                             VARCHAR(35)   Means of Payment Reference
+AMT                              AMT                             DOUBLE        Amount
+
+
+CSH_GEN_COI - Others cash payments in - General Information
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+
+
+
+
+UNCTAD/DTL                                                                                                        Page 5
+Accounting - Tables Description - V 0.1.0905                                                     ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+IDE_COD                          IDE.COD                         VARCHAR(5)    Customs Office Code
+IDE_NAM                          IDE.NAM                         VARCHAR(35)   Customs Office Name
+IDE_YEA                          IDE.YEA                         VARCHAR(4)    Receipt Year
+IDE_SER                          IDE.SER                         VARCHAR(1)    Receipt Serial
+IDE_NBR                          IDE.NBR                         INTEGER       Receipt Number
+DAT                              DAT                             DATE          Receipt Date
+AMT_TOT                          AMT.TOT                         DOUBLE        Amount Collected
+AMT_SAD                          AMT.SAD                         DOUBLE        Total SAD Amount
+AMT_OTH                          AMT.OTH                         DOUBLE        Total For Transactions
+AMT_MOP                          AMT.MOP                         DOUBLE        Total Amount Collected
+TRA_DEC_COD                      TRA.DEC.COD                     VARCHAR(17)   Declarant Code
+TRA_CMP_COD                      TRA.CMP.COD                     VARCHAR(17)   Company Code
+TRA_NAM                          TRA.NAM                         VARCHAR(35)   Name
+TRA_ADD                          TRA.ADD                         LONGVARCHAR   Address
+OPE_DAT                          OPE.DAT                         DATE          Daybook date in which receipt was done
+OPE_SFT                          OPE.SFT                         INTEGER       Shift number in which receipt was done
+OPE_NBR                          OPE.NBR                         INTEGER       Operation number within the shift
+FCY_CUR_AMT                      FCY.CUR.AMT                     DOUBLE        Total Amount in Foreign Currency
+FCY_CUR_RAT                      FCY.CUR.RAT                     DOUBLE        Foreign Currency Exchange Rate
+FCY_CUR_COD                      FCY.CUR.COD                     VARCHAR(3)    Currency code
+FCY_CUR_NAM                      FCY.CUR.NAM                     VARCHAR(35)   Currency Name
+
+
+
+CSH_MEA_COI - Others cash payments in - Means of Payment
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                                           NOT NULL   INTEGER
+MEA_NBR                          RNK                  NOT NULL   INTEGER       Internal index number
+COD                              COD                             VARCHAR(2)    Means of Payment Code
+NAM                              NAM                             VARCHAR(70)   Means of Payment Description
+REF                              REF                             VARCHAR(17)   Means of Payment Reference
+BNK                              BNK                             VARCHAR(17)   Bank Code
+AMT                              AMT                             DOUBLE        Amount
+
+
+
+CSH_TRA_COI - Others cash payments in - Other Payments
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                                           NOT NULL   INTEGER
+TRA_NBR                          RNK                  NOT NULL   INTEGER       Internal index number
+COD                              COD                             VARCHAR(3)    Means of Payment Code
+NAM                              NAM                             VARCHAR(17)   Means of Payment Description
+YEA                              YEA                             VARCHAR(4)    Reference Year
+CUO_COD                          OFF                             VARCHAR(5)    Reference Office
+SER                              SER                             VARCHAR(1)    Reference Serial
+NBR                              NBR                             VARCHAR(9)    Reference Number
+REF                              REF                             VARCHAR(35)   Means of Payment Reference
+AMT                              AMT                             DOUBLE        Amount
+
+
+
+CSH_GEN_COO - Others cash payments out - General Information
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+IDE_COD                          IDE.COD                         VARCHAR(5)    Customs Office Code
+IDE_NAM                          IDE.NAM                         VARCHAR(35)   Customs Office Name
+IDE_YEA                          IDE.YEA                         VARCHAR(4)    Receipt Year
+
+
+
+
+UNCTAD/DTL                                                                                                    Page 6
+Accounting - Tables Description - V 0.1.0905                                                     ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+IDE_SER                          IDE.SER                         VARCHAR(1)    Receipt Serial
+IDE_NBR                          IDE.NBR                         INTEGER       Receipt Number
+DAT                              DAT                             DATE          Receipt Date
+AMT_TOT                          AMT.TOT                         DOUBLE        Amount Refunded
+AMT_SAD                          AMT.SAD                         DOUBLE        Total SAD Amount
+AMT_OTH                          AMT.OTH                         DOUBLE        Total Taxes
+AMT_MOP                          AMT.MOP                         DOUBLE        Total Amount Refunded
+TRA_DEC_COD                      TRA.DEC.COD                     VARCHAR(17)   Declarant Code
+TRA_CMP_COD                      TRA.CMP.COD                     VARCHAR(17)   Company Code
+TRA_NAM                          TRA.NAM                         VARCHAR(35)   Name
+TRA_ADD                          TRA.ADD                         LONGVARCHAR   Address
+SIG_NAM                          SIG.NAM                         VARCHAR(35)   Declarant/Company Name
+SIG_OFF                          SIG.OFF                         VARCHAR(35)   Customs Office Name
+SIG_AMT                          SIG.AMT                         DOUBLE        Amount Refunded
+SIG_CUR                          SIG.CUR                         VARCHAR(3)    National Currency
+SIG_PLC                          SIG.PLC                         VARCHAR(35)   Customs Office Place
+SIG_DAT                          SIG.DAT                         DATE          Signature Date
+OPE_DAT                          OPE.DAT                         DATE          Daybook date in which receipt was done
+OPE_SFT                          OPE.SFT                         INTEGER       Shift number in which receipt was done
+OPE_NBR                          OPE.NBR                         INTEGER       Operation number within the shift
+
+
+
+CSH_MEA_COO - Others cash payments out - Means Of Payments
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                                           NOT NULL   INTEGER
+MEA_NBR                          RNK                  NOT NULL   INTEGER       Internal index number
+COD                              COD                             VARCHAR(2)    Means of Payment Code
+NAM                              NAM                             VARCHAR(70)   Means of Payment Description
+REF                              REF                             VARCHAR(17)   Means of Payment Reference
+BNK                              BNK                             VARCHAR(17)   Bank Code
+AMT                              AMT                             DOUBLE        Amount
+
+
+
+CSH_TRA_COO - Others cash payments out - Other Payments
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                                           NOT NULL   INTEGER
+TRA_NBR                          RNK                  NOT NULL   INTEGER       Internal index number
+COD                              COD                             VARCHAR(3)    Means of Payment Code
+NAM                              NAM                             VARCHAR(17)   Means of Payment Description
+YEA                              YEA                             VARCHAR(4)    Reference Year
+CUO_COD                          OFF                             VARCHAR(5)    Reference Office
+SER                              SER                             VARCHAR(1)    Reference Serial
+NBR                              NBR                             VARCHAR(9)    Reference Number
+REF                              REF                             VARCHAR(35)   Means of Payment Reference
+AMT                              AMT                             DOUBLE        Amount
+
+
+
+CSH_GEN_DDI - Credit payment declaration receipt - General Information
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+IDE_COD                          IDE.COD                         VARCHAR(5)    Customs Office Code
+IDE_NAM                          IDE.NAM                         VARCHAR(35)   Customs Office Name
+IDE_YEA                          IDE.YEA                         VARCHAR(4)    Receipt Year
+IDE_SER                          IDE.SER                         VARCHAR(1)    Receipt Serial
+
+
+
+
+UNCTAD/DTL                                                                                                    Page 7
+Accounting - Tables Description - V 0.1.0905                                                      ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation   Null?      Data Type      Description
+IDE_NBR                          IDE.NBR                         INTEGER        Receipt Number
+DAT                              DAT                             DATE           Receipt Date
+AMT_TOT                          AMT.TOT                         DOUBLE         Amount Collected
+AMT_SAD                          AMT.SAD                         DOUBLE         Total For Declarations
+AMT_OTH                          AMT.OTH                         DOUBLE         Total For Other Payments
+AMT_MOP                          AMT.MOP                         DOUBLE         Total Amount Collected
+CRE_COD                          CRE.COD                         VARCHAR(17)    Credit account code
+CRE_HOL                          CRE.HOL                         VARCHAR(17)    Credit account holder
+TRA_NAM                          CRE.NAM                         VARCHAR(35)    Holder Name
+CRE_ADD                          CRE.ADD                         LONGVARCHAR    Credit acct holder address
+OPE_DAT                          OPE.DAT                         DATE           Daybook date in which receipt was done
+OPE_SFT                          OPE.SFT                         INTEGER        Shift number in which receipt was done
+OPE_NBR                          OPE.NBR                         INTEGER        Operation number within the shift
+
+
+CSH_DEC_DDI - Credit payment declaration receipt - Declarations paid by this receipt
+
+Field Name                       DOM Representation   Null?      Data Type      Description
+INSTANCE_ID                                           NOT NULL   INTEGER
+DEC_NBR                          RNK                  NOT NULL   INTEGER        Internal index number
+DEC_YEA                          DEC.YEA                         VARCHAR(4)     Declarant Reference Year
+DEC_REF                          DEC.REF                         VARCHAR(13)    Declarant Reference Number
+ASS_YEA                          ASS.YEA                         VARCHAR(4)     Assessment Reference Year
+ASS_SER                          ASS.SER                         VARCHAR(1)     Assessment Reference Serial
+ASS_NBR                          ASS.NBR                         VARCHAR(9)     Assessment Reference Number
+MOD_TYP                          MOD                             VARCHAR(4)     Model of Declaration
+AMT                              AMT                             DOUBLE         Amount
+
+
+CSH_MEA_DDI - Credit payment declaration receipt - Means of Payment
+
+Field Name                       DOM Representation   Null?      Data Type      Description
+INSTANCE_ID                                           NOT NULL   INTEGER
+MEA_NBR                          RNK                  NOT NULL   INTEGER        Internal index number
+COD                              COD                             VARCHAR(2)     Means of Payment Code
+NAM                              NAM                             VARCHAR(70)    Means of Payment Description
+REF                              REF                             VARCHAR(17)    Means of Payment Reference
+BNK                              BNK                             VARCHAR(17)    Bank Code
+AMT                              AMT                             DOUBLE         Amount
+
+
+CSH_TRA_DDI - Credit payment declaration receipt - Other Payments
+
+Field Name                       DOM Representation   Null?      Data Type      Description
+INSTANCE_ID                                           NOT NULL   INTEGER
+TRA_NBR                          RNK                  NOT NULL   INTEGER        Internal index number
+COD                              COD                             VARCHAR(3)     Means of Payment Code
+NAM                              NAM                             VARCHAR(17)    Means of Payment Description
+REF                              REF                             VARCHAR(35)    Means of Payment Reference
+AMT                              AMT                             DOUBLE         Amount
+
+
+CSH_GEN_STA - Credit statement payment - General information
+
+Field Name                       DOM Representation   Null?      Data Type      Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+IDE_COD                          IDE.COD                         VARCHAR(5)     Customs Office Code
+
+
+
+
+UNCTAD/DTL                                                                                                     Page 8
+Accounting - Tables Description - V 0.1.0905                                                     ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+IDE_NAM                          IDE.NAM                         VARCHAR(35)   Customs Office Name
+IDE_YEA                          IDE.YEA                         VARCHAR(4)    Receipt Year
+IDE_SER                          IDE.SER                         VARCHAR(1)    Receipt Serial
+IDE_NBR                          IDE.NBR                         INTEGER       Receipt Number
+DAT                              DAT                             DATE          Receipt Date
+REF                              REF                             VARCHAR(17)   Reference Number
+YEA                              YEA                             VARCHAR(4)    Reference Date
+AMT_TOT                          AMT.TOT                         DOUBLE        Amount Collected
+AMT_SAD                          AMT.SAD                         DOUBLE        Total For Declarations
+AMT_OTH                          AMT.OTH                         DOUBLE        Total For Other Payments
+AMT_MOP                          AMT.MOP                         DOUBLE        Total Amount Collected
+CRE_COD                          CRE.COD                         VARCHAR(17)   Account Reference
+CRE_HOL                          CRE.HOL                         VARCHAR(17)   Account Holder Code
+TRA_NAM                          CRE.NAM                         VARCHAR(35)   Account Holder Name
+CRE_ADD                          CRE.ADD                         LONGVARCHAR   Account Holder Address
+GEN_DAT                          GEN.DAT                         DATE          Generation Date
+SEA_DAT_BEG                      SEA.DAT.BEG                     DATE          Begin date
+SEA_DAT_END                      SEA.DAT.END                     DATE          End date
+DAT_ISS                          ISS                             DATE          Statement Issue Date
+DAT_PAY                          PAY                             DATE          Statement Payment Date
+OPE_DAT                          OPE.DAT                         DATE          Daybook date in which receipt was done
+OPE_SFT                          OPE.SFT                         INTEGER       Shift number in which receipt was done
+OPE_NBR                          OPE.NBR                         INTEGER       Operation number within the shift
+FCY_CUR_AMT                      FCY.CUR.AMT                     DOUBLE        Total Amount in Foreign Currency
+FCY_CUR_RAT                      FCY.CUR.RAT                     DOUBLE        Foreign Currency Exchange Rate
+FCY_CUR_COD                      FCY.CUR.COD                     VARCHAR(3)    Currency code
+FCY_CUR_NAM                      FCY.CUR.NAM                     VARCHAR(35)   Currency Name
+FLG                              FLG                             VARCHAR(1)    Set to one when statement is generated
+
+
+CSH_DEC_STA - Credit statement payment - Declarations
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                                           NOT NULL   INTEGER
+IDE_CUO_COD                      IDE.CUO.COD                     VARCHAR(5)    Office Code of Declaration
+DEC_NBR                          RNK                  NOT NULL   INTEGER       Internal index number
+DEC_YEA                          DEC.YEA                         VARCHAR(4)    Declarant Reference Year
+DEC_COD                          DEC.COD                         VARCHAR(17)   Declarant Reference Code
+DEC_REF                          DEC.REF                         VARCHAR(13)   Declarant Reference Number
+ASS_YEA                          ASS.YEA                         VARCHAR(4)    Assessment Reference Year
+ASS_SER                          ASS.SER                         VARCHAR(1)    Assessment Reference Serial
+ASS_NBR                          ASS.NBR                         VARCHAR(9)    Assessment Reference Number
+ASS_DAT                          ASS.DAT                         DATE          Assessment Date
+STA                              STA                             VARCHAR(20)   Declaration Status
+MOD_TYP                          MOD                             VARCHAR(4)    Model of Declaration
+AMT                              AMT                             DOUBLE        Total SAD Amount
+DID                              DID                             INTEGER       Declaration Instance Id
+
+
+CSH_MEA_STA - Credit statement payment - Means of Payment
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                                           NOT NULL   INTEGER
+MEA_NBR                          RNK                  NOT NULL   INTEGER       Internal index number
+COD                              COD                             VARCHAR(2)    Means of Payment Code
+NAM                              NAM                             VARCHAR(70)   Means of Payment Description
+REF                              REF                             VARCHAR(17)   Means of Payment Reference
+BNK                              BNK                             VARCHAR(17)   Bank Code
+
+
+
+
+UNCTAD/DTL                                                                                                    Page 9
+Accounting - Tables Description - V 0.1.0905                                                     ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+TAX                              TAX                             INTEGER       Obsolete
+AMT                              AMT                             DOUBLE        Amount
+
+
+CSH_TRA_STA - Credit statement payment - Other Payments
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                                           NOT NULL   INTEGER
+TRA_NBR                          RNK                  NOT NULL   INTEGER       Internal index number
+COD                              COD                             VARCHAR(3)    Means of Payment Code
+NAM                              NAM                             VARCHAR(17)   Means of Payment Description
+REF                              REF                             VARCHAR(35)   Means of Payment Reference
+AMT                              AMT                             DOUBLE        Amount
+
+
+CSH_TAX_STA - Breakdown of statement taxes
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                                           NOT NULL   INTEGER
+TAX_NBR                          RNK                  NOT NULL   INTEGER       Internal index number
+COD                              COD                             VARCHAR(3)    Means of Payment Code
+NAM                              NAM                             VARCHAR(30)   Means of Payment Description
+AMT                              AMT                             DOUBLE        Amount
+
+
+CSH_GEN_CAI - Crediting a prepayment account receipt - General Information
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+IDE_COD                          IDE.COD                         VARCHAR(5)    Customs Office Code
+IDE_NAM                          IDE.NAM                         VARCHAR(35)   Customs Office Name
+IDE_YEA                          IDE.YEA                         VARCHAR(4)    Receipt Year
+IDE_SER                          IDE.SER                         VARCHAR(1)    Receipt Serial
+IDE_NBR                          IDE.NBR                         INTEGER       Receipt Number
+DAT                              DAT                             DATE          Receipt Date
+AMT_TOT                          AMT.TOT                         DOUBLE        Amount Collected
+AMT_MOP                          AMT.MOP                         DOUBLE        Total Amount Collected
+CRE_COD                          CRE.COD                         VARCHAR(17)   Account Reference
+CRE_HOL                          CRE.HOL                         VARCHAR(17)   Account Holder Code
+TRA_NAM                          CRE.NAM                         VARCHAR(35)   Account Holder Name
+CRE_ADD                          CRE.ADD                         LONGVARCHAR   Account Holder Address
+BAL_PRE                          BAL.PRE                         DOUBLE        Previous Balance
+BAL_CUR                          BAL.CUR                         DOUBLE        Current Balance
+OPE_DAT                          OPE.DAT                         DATE          Daybook date in which receipt was done
+OPE_SFT                          OPE.SFT                         INTEGER       Shift number in which receipt was done
+OPE_NBR                          OPE.NBR                         INTEGER       Operation number within the shift
+
+
+CSH_MEA_CAI - Crediting a prepayment account receipt - Means of Payment
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                                           NOT NULL   INTEGER
+MEA_NBR                          RNK                  NOT NULL   INTEGER       Internal index number
+COD                              COD                             VARCHAR(2)    Means of Payment Code
+NAM                              NAM                             VARCHAR(70)   Means of payment Description
+REF                              REF                             VARCHAR(17)   Means of Payment Reference
+BNK                              BNK                             VARCHAR(17)   Bank Code
+
+
+
+
+UNCTAD/DTL                                                                                                    Page 10
+Accounting - Tables Description - V 0.1.0905                                                     ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+AMT                              AMT                             DOUBLE        Amount
+
+
+
+CSH_GEN_CAO - Debiting a prepayment account receipt - General Information
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+IDE_COD                          IDE.COD                         VARCHAR(5)    Customs Office Code
+IDE_NAM                          IDE.NAM                         VARCHAR(35)   Customs Office Name
+IDE_YEA                          IDE.YEA                         VARCHAR(4)    Receipt Year
+IDE_SER                          IDE.SER                         VARCHAR(1)    Receipt Serial
+IDE_NBR                          IDE.NBR                         INTEGER       Receipt Number
+DAT                              DAT                             DATE          Receipt Date
+AMT_TOT                          AMT.TOT                         DOUBLE        Amount Debited
+AMT_MOP                          AMT.MOP                         DOUBLE        Total Amount Debited
+CRE_COD                          CRE.COD                         VARCHAR(17)   Account Reference
+CRE_HOL                          CRE.HOL                         VARCHAR(17)   Account Holder Code
+TRA_NAM                          CRE.NAM                         VARCHAR(35)   Account Holder Name
+CRE_ADD                          CRE.ADD                         LONGVARCHAR   Account Holder Address
+BAL_PRE                          BAL.PRE                         DOUBLE        Previous Balance
+BAL_CUR                          BAL.CUR                         DOUBLE        Current Balance
+OPE_DAT                          OPE.DAT                         DATE          Daybook date in which receipt was done
+OPE_SFT                          OPE.SFT                         INTEGER       Shift number in which receipt was done
+OPE_NBR                          OPE.NBR                         INTEGER       Operation number within the shift
+
+
+
+CSH_MEA_CAO - Debiting a prepayment account receipt - Means of Payment
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                                           NOT NULL   INTEGER
+MEA_NBR                          RNK                  NOT NULL   INTEGER       Internal index number
+COD                              COD                             VARCHAR(2)    Means of Payment Code
+NAM                              NAM                             VARCHAR(70)   Means of payment Description
+REF                              REF                             VARCHAR(17)   Means of Payment Reference
+BNK                              BNK                             VARCHAR(17)   Bank Code
+AMT                              AMT                             DOUBLE        Amount
+
+
+
+CSH_GEN_CLO - Closing balance receipt - General Information
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+IDE_COD                          IDE.COD                         VARCHAR(5)    Customs Office Code
+IDE_NAM                          IDE.NAM                         VARCHAR(35)   Customs Office Name
+IDE_YEA                          IDE.YEA                         VARCHAR(4)    Receipt Year
+IDE_SER                          IDE.SER                         VARCHAR(1)    Receipt Serial
+IDE_NBR                          IDE.NBR                         INTEGER       Receipt Number
+DAT                              DAT                             DATE          Receipt Date
+REF                                                              VARCHAR(17)   Means of Payment Reference
+YEA                              YEA                             VARCHAR(4)    User Reference Year
+AMT_TOT                          AMT.TOT                         DOUBLE        Amount Collected
+AMT_SAD                          AMT.SAD                         DOUBLE        Total For Declarations
+CRE_COD                          CRE.COD                         VARCHAR(17)   Account Reference
+CRE_HOL                          CRE.HOL                         VARCHAR(17)   Account Holder Code
+TRA_NAM                          CRE.NAM                         VARCHAR(35)   Account Holder Name
+CRE_ADD                          CRE.ADD                         LONGVARCHAR   Account Holder Address
+GEN_DAT                          GEN.DAT                         DATE          Generation Date
+
+
+
+
+UNCTAD/DTL                                                                                                    Page 11
+Accounting - Tables Description - V 0.1.0905                                                      ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+OPE_DAT                          OPE.DAT                         DATE          Daybook date in which receipt was done
+OPE_SFT                          OPE.SFT                         INTEGER       Shift number in which receipt was done
+OPE_NBR                          OPE.NBR                         INTEGER       Operation number within the shift
+
+
+CSH_DEC_CLO - Closing balance receipt - Declarations
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                                           NOT NULL   INTEGER
+DEC_NBR                          RNK                  NOT NULL   INTEGER       Internal index number
+DEC_YEA                          DEC.YEA                         VARCHAR(4)    Declarant Reference Year
+IDE_CUO_COD                      IDE.CUO.COD                     VARCHAR(5)    Office code of declaration
+DEC_REF                          DEC.REF                         VARCHAR(13)   Declarant Reference Number
+ASS_YEA                          ASS.YEA                         VARCHAR(4)    Assessment Reference Year
+ASS_SER                          ASS.SER                         VARCHAR(1)    Assessment Reference Serial
+ASS_NBR                          ASS.NBR                         VARCHAR(9)    Assessment Reference Number
+ASS_DAT                          ASS.DAT                         DATE          Assessment date
+MOD_TYP                          MOD                             VARCHAR(4)    Model of declaration
+AMT                              AMT                             DOUBLE        Total amount for declaration
+
+
+RCP_TAX - Taxes belonging to a receipt
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+RCP_YER                          RCP.YER                         INTEGER       Receipt year
+RCP_CUO                          RCP.CUO                         VARCHAR(5)    Receipt office code
+RCP_SER                          RCP.SER                         VARCHAR(1)    Receipt serial letter
+RCP_NBR                          RCP.NBR                         INTEGER       Receipt number
+RCP_DAT                          RCP.DAT                         DATE          Receipt date
+RCP_FLG                          RCP.FLG                         VARCHAR(1)    Document Type: S=SAD; T=T1
+DEC_REF_YER                      DEC.REF.YER                     INTEGER       User reference - year
+DEC_REF_NBR                      DEC.REF.NBR                     VARCHAR(50)   User reference - number
+IDE_CUO_COD                      IDE.CUO.COD                     VARCHAR(5)    Customs clearance office - code
+LST                              LST                             VARCHAR(1)    Tax list identifier
+DEC_COD                          DEC.COD                         VARCHAR(17)   Declaration Declarant code
+
+
+TAX_TAB - Taxes belonging to a receipt in rcp_tax
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                                           NOT NULL   INTEGER
+RNK                              RNK                  NOT NULL   INTEGER       Internal index number
+TAX_COD                          COD                             VARCHAR(3)    Tax code
+TAX_AMT                          AMT                             DOUBLE        Tax amount
+
+
+CSH_CRE - Credit account management
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+ACT                              ACT                             SMALLINT      1: Active, 0:Suspended
+ACC_COD                          ACC.COD                         VARCHAR(17)   Account Code
+ACC_DAT_BEG                      ACC.DAT.BEG                     DATE          Begin date of Validity
+ACC_DAT_END                      ACC.DAT.END                     DATE          End date of Validity
+ACC_TYP_COD                      ACC.TYP.COD                     VARCHAR(1)    Type of Account
+ACC_TYP_DSC                      ACC.TYP.DSC                     VARCHAR(17)   Type of Account
+
+
+
+
+UNCTAD/DTL                                                                                                    Page 12
+Accounting - Tables Description - V 0.1.0905                                                     ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+ACC_DLY_DEC                      ACC.DLY.DEC                     SMALLINT      Delay
+ACC_DLY_STA                      ACC.DLY.STA                     SMALLINT      Delay
+ACC_STA                          ACC.STA                         VARCHAR(17)   Status
+ACC_AMT                          ACC.AMT                         DOUBLE        Amount
+ACC_OWN_DEC                      ACC.OWN.DEC                     VARCHAR(17)   Declarant Code
+ACC_OWN_CMP                      ACC.OWN.CMP                     VARCHAR(17)   Company Code
+ACC_OWN_NAM                      ACC.OWN.NAM                     VARCHAR(35)   Account owner Name
+ACC_OWN_ADD                      ACC.OWN.ADD                     LONGVARCHAR   Account owner Address
+ACC_BNK_NBR                      ACC.BNK.NBR                     VARCHAR(17)   Account Number
+ACC_BNK_COD                      ACC.BNK.COD                     VARCHAR(17)   Bank Code
+ACC_BNK_NAM                      ACC.BNK.NAM                     VARCHAR(35)   Bank Name
+ACC_BNK_BRA_COD                  ACC.BNK.BRA.COD                 VARCHAR(17)   Branch Code
+ACC_BNK_BRA_NAM                  ACC.BNK.BRA.NAM                 VARCHAR(35)   Branch Name
+ACC_INF                          ACC.INF                         LONGVARCHAR   Information
+
+
+CSH_PPM - Prepayment account management
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+ACT                              ACT                             SMALLINT      1: Active, 0:Suspended
+ACC_COD                          ACC.COD                         VARCHAR(17)   Account Code
+ACC_DAT_BEG                      ACC.DAT.BEG                     DATE          Begin date of Validity
+ACC_DAT_END                      ACC.DAT.END                     DATE          End date of Validity
+ACC_TYP_COD                      ACC.TYP.COD                     VARCHAR(1)    Type of Account
+ACC_TYP_DSC                      ACC.TYP.DSC                     VARCHAR(17)   Type of Account
+ACC_STA                          ACC.STA                         VARCHAR(17)   Status
+ACC_OWN_DEC                      ACC.OWN.DEC                     VARCHAR(17)   Declarant Code
+ACC_OWN_CMP                      ACC.OWN.CMP                     VARCHAR(17)   Company Code
+ACC_OWN_NAM                      ACC.OWN.NAM                     VARCHAR(35)   Account owner Name
+ACC_OWN_ADD                      ACC.OWN.ADD                     LONGVARCHAR   Account owner Address
+ACC_BNK_NBR                      ACC.BNK.NBR                     VARCHAR(17)   Account Number
+ACC_BNK_COD                      ACC.BNK.COD                     VARCHAR(17)   Bank Code
+ACC_BNK_NAM                      ACC.BNK.NAM                     VARCHAR(35)   Bank Name
+ACC_BNK_BRA_COD                  ACC.BNK.BRA.COD                 VARCHAR(17)   Branch Code
+ACC_BNK_BRA_NAM                  ACC.BNK.BRA.NAM                 VARCHAR(35)   Branch Name
+ACC_INF                          ACC.INF                         LONGVARCHAR   Information
+
+
+CSH_GEN_PPM - Prepaid declaration receipts
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+IDE_COD                          IDE.COD                         VARCHAR(5)    Customs Office Code
+IDE_NAM                          IDE.NAM                         VARCHAR(35)   Customs Office Name
+IDE_YER                          IDE.YEA                         INTEGER       Receipt year
+IDE_SER                          IDE.SER                         VARCHAR(1)    Receipt Serial
+IDE_NBR                          IDE.NBR                         INTEGER       Receipt Number
+IDE_DAT                          IDE.DAT                         DATE          Receipt Date
+IDE_TIM                          IDE.TIM                         TIMESTAMP     Receipt Time
+AMT_TOT                          AMT.TOT                         DOUBLE        Amount
+CUR_COD                          CUR.COD                         VARCHAR(3)    Currency
+CUR_NAM                          CUR.NAM                         VARCHAR(35)   Currency
+ACC_COD                          ACC.COD                         VARCHAR(17)   Account Reference
+ACC_HOL                          ACC.HOL                         VARCHAR(17)   Account Holder Code
+TRA_NAM                          ACC.NAM                         VARCHAR(35)   Account Holder Name
+ACC_ADD                          ACC.ADD                         LONGVARCHAR   Account Holder Address
+SAD_TYP                          SAD.TYP                         VARCHAR(3)    Type of declaration
+
+
+
+
+UNCTAD/DTL                                                                                              Page 13
+Accounting - Tables Description - V 0.1.0905                                                      ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+SAD_PRC                          SAD.PRC                         INTEGER       Declaration general procedure code
+SAD_REG_YER                      SAD.REG.YER                     INTEGER       Year
+SAD_REG_SER                      SAD.REG.SER                     VARCHAR(1)    Serial
+SAD_REG_NBR                      SAD.REG.NBR                     VARCHAR(11)   Number
+SAD_REG_DAT                      SAD.REG.DAT                     DATE          Date
+SAD_AST_YER                      SAD.AST.YER                     INTEGER       Year
+SAD_AST_SER                      SAD.AST.SER                     VARCHAR(1)    Serial
+SAD_AST_NBR                      SAD.AST.NBR                     VARCHAR(11)   Number
+SAD_AST_DAT                      SAD.AST.DAT                     DATE          Date
+OPE_DAT                          OPE.DAT                         DATE          Daybook date in which receipt was done
+OPE_SFT                          OPE.SFT                         INTEGER       Shift number in which receipt was done
+OPE_NBR                          OPE.NBR                         INTEGER       Operation number within the shift
+TYP                              TYP                             VARCHAR(3)    Type of Receipt for example PEA:post
+                                                                               entry adjustment; ASS:Assessment
+
+
+CSH_GEN_PER - Refund prepaid declarant receipts
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+IDE_COD                          IDE.COD                         VARCHAR(5)    Customs Office Code
+IDE_NAM                          IDE.NAM                         VARCHAR(35)   Customs Office Name
+IDE_YER                          IDE.YEA                         INTEGER       Receipt year
+IDE_SER                          IDE.SER                         VARCHAR(1)    Receipt Serial
+IDE_NBR                          IDE.NBR                         INTEGER       Receipt Number
+IDE_DAT                          IDE.DAT                         DATE          Receipt Date
+IDE_TIM                          IDE.TIM                         TIMESTAMP     Receipt Time
+AMT_TOT                          AMT.TOT                         DOUBLE        Amount
+CUR_COD                          CUR.COD                         VARCHAR(3)    Currency
+CUR_NAM                          CUR.NAM                         VARCHAR(35)   Currency
+ACC_COD                          ACC.COD                         VARCHAR(17)   Account Reference
+ACC_HOL                          ACC.HOL                         VARCHAR(17)   Account Holder Code
+TRA_NAM                          ACC.NAM                         VARCHAR(35)   Account holder name
+ACC_ADD                          ACC.ADD                         LONGVARCHAR   Holder Address
+SAD_TYP                          SAD.TYP                         VARCHAR(3)    Type of declaration
+SAD_PRC                          SAD.PRC                         INTEGER       Declaration general procedure code
+SAD_REG_YER                      SAD.REG.YER                     INTEGER       Year
+SAD_REG_SER                      SAD.REG.SER                     VARCHAR(1)    Serial
+SAD_REG_NBR                      SAD.REG.NBR                     VARCHAR(11)   Number
+SAD_REG_DAT                      SAD.REG.DAT                     DATE          Date
+SAD_AST_YER                      SAD.AST.YER                     INTEGER       Year
+SAD_AST_SER                      SAD.AST.SER                     VARCHAR(1)    Serial
+SAD_AST_NBR                      SAD.AST.NBR                     VARCHAR(11)   Number
+SAD_AST_DAT                      SAD.AST.DAT                     DATE          Date
+OPE_DAT                          OPE.DAT                         DATE          Daybook date in which receipt was done
+OPE_SFT                          OPE.SFT                         INTEGER       Shift number in which receipt was done
+OPE_NBR                          OPE.NBR                         INTEGER       Operation number within the shift
+TYP                              TYP                             VARCHAR(3)    Type of Receipt for example PEA:post
+                                                                               entry adjustment; ASS:Assessment
+
+
+GTY_DEC - Declarant guarantee account management
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+ACT                                                              SMALLINT      1: Active, 0:Suspended
+ACC_COD                          ACC.COD                         VARCHAR(17)   Account Code
+ACC_DAT_BEG                      ACC.DAT.BEG                     DATE          Begin date of Validity
+
+
+
+
+UNCTAD/DTL                                                                                                  Page 14
+Accounting - Tables Description - V 0.1.0905                                                      ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+ACC_DAT_END                      ACC.DAT.END                     DATE          End date of Validity
+ACC_TYP_COD                      ACC.TYP.COD                     VARCHAR(1)    Type of Account
+ACC_TYP_DSC                      ACC.TYP.DSC                     VARCHAR(17)   Type of Account
+ACC_BAL                          ACC.BAL                         BIT           Check Balance
+ACC_STA                          ACC.STA                         VARCHAR(17)   Status
+ACC_AMT                          ACC.AMT                         DOUBLE        Maximum Overdraft
+ACC_OWN_DEC                      ACC.OWN.DEC                     VARCHAR(17)   Declarant Code
+ACC_OWN_NAM                      ACC.OWN.NAM                     VARCHAR(35)   Account owner Name
+ACC_OWN_ADD                      ACC.OWN.ADD                     LONGVARCHAR   Account owner Address
+ACC_INF                          ACC.INF                         LONGVARCHAR   Information
+
+
+
+GTY_DEC_CRE - Crediting declarant account
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+IDE_COD                          IDE.COD                         VARCHAR(5)    Customs Office Code
+IDE_NAM                          IDE.NAM                         VARCHAR(35)   Customs Office Name
+GUA_COD                          GUA.COD                         VARCHAR(17)   Guarantee Account Code
+GUA_HOL                          GUA.HOL                         VARCHAR(17)   Declarant Code
+GUA_NAM                          GUA.NAM                         VARCHAR(35)   Declarant Name
+GUA_ADD                          GUA.ADD                         LONGVARCHAR   Declarant Address
+AMT_PRE                          AMT.PRE                         DOUBLE        Maximum authorized guarantee
+AMT_ADT                          AMT.ADT                         DOUBLE        Additional amount
+BAL_PRE                          BAL.PRE                         DOUBLE        Previous Balance
+BAL_CUR                          BAL.CUR                         DOUBLE        Current Balance
+
+
+
+GTY_DEC_DEB - Debiting declarant account
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+IDE_COD                          IDE.COD                         VARCHAR(5)    Customs Office Code
+IDE_NAM                          IDE.NAM                         VARCHAR(35)   Customs Office Name
+GUA_COD                          GUA.COD                         VARCHAR(17)   Guarantee Account Code
+GUA_HOL                          GUA.HOL                         VARCHAR(17)   Declarant Code
+GUA_NAM                          GUA.NAM                         VARCHAR(35)   Declarant Name
+GUA_ADD                          GUA.ADD                         LONGVARCHAR   Declarant Address
+AMT_PRE                          AMT.PRE                         DOUBLE        Maximum authorized guarantee
+AMT_WTD                          AMT.WTD                         DOUBLE        Withdrawn Amount
+BAL_PRE                          BAL.PRE                         DOUBLE        Previous Balance
+BAL_CUR                          BAL.CUR                         DOUBLE        Current Balance
+
+
+
+GTY_TRS - Transit guarantee account management
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+ACT                                                              SMALLINT      1: Active, 0:Suspended
+ACC_COD                          ACC.COD                         VARCHAR(17)   Account Code
+ACC_DAT_BEG                      ACC.DAT.BEG                     DATE          Begin date of Validity
+ACC_DAT_END                      ACC.DAT.END                     DATE          End date of Validity
+ACC_TYP_COD                      ACC.TYP.COD                     VARCHAR(1)    Type of Account
+ACC_TYP_DSC                      ACC.TYP.DSC                     VARCHAR(17)   Type of Account
+ACC_BAL                          ACC.BAL                         BIT           Check Balance
+ACC_STA                          ACC.STA                         VARCHAR(17)   Status
+ACC_AMT                          ACC.AMT                         DOUBLE        Maximum Overdraft
+
+
+
+
+UNCTAD/DTL                                                                                                Page 15
+Accounting - Tables Description - V 0.1.0905                                                      ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+ACC_OWN_PRI                      ACC.OWN.PRI                     VARCHAR(17)   Principal Code
+ACC_OWN_NAM                      ACC.OWN.NAM                     VARCHAR(35)   Account owner Name
+ACC_OWN_ADD                      ACC.OWN.ADD                     LONGVARCHAR   Account owner Address
+ACC_INF                          ACC.INF                         LONGVARCHAR   Information
+
+
+
+GTY_TRS_CRE - Crediting transit account
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+IDE_COD                          IDE.COD                         VARCHAR(5)    Customs Office Code
+IDE_NAM                          IDE.NAM                         VARCHAR(35)   Customs Office Name
+GUA_COD                          GUA.COD                         VARCHAR(17)   Guarantee Account Code
+GUA_HOL                          GUA.HOL                         VARCHAR(17)   Principal Code
+GUA_NAM                          GUA.NAM                         VARCHAR(35)   Principal Name
+GUA_ADD                          GUA.ADD                         LONGVARCHAR   Principal Address
+AMT_PRE                          AMT.PRE                         DOUBLE        Maximum authorized guarantee
+AMT_ADT                          AMT.ADT                         DOUBLE        Additional Guarantee Amout
+BAL_PRE                          BAL.PRE                         DOUBLE        Previous Balance
+BAL_CUR                          BAL.CUR                         DOUBLE        Current Balance
+T1_REG_CUO_COD                   T1.REG.CUO.COD                  VARCHAR(5)    T1 registration custom office code
+T1_REG_DAT                       T1.REG.DAT                      DATE          T1 registration date
+T1_REG_SER                       T1.REG.SER                      VARCHAR(1)    T1 registration serie
+T1_REG_NBR                       T1.REG.NBR                      INTEGER       T1 registration number
+
+
+
+GTY_TRS_DEB - Debiting transit account
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+IDE_COD                          IDE.COD                         VARCHAR(5)    Customs Office Code
+IDE_NAM                          IDE.NAM                         VARCHAR(35)   Customs Office Name
+GUA_COD                          GUA.COD                         VARCHAR(17)   Guarantee Account Code
+GUA_HOL                          GUA.HOL                         VARCHAR(17)   Principal Code
+GUA_NAM                          GUA.NAM                         VARCHAR(35)   Principal Name
+GUA_ADD                          GUA.ADD                         LONGVARCHAR   Principal Address
+AMT_PRE                          AMT.PRE                         DOUBLE        Maximum authorized guarantee
+AMT_WTD                          AMT.WTD                         DOUBLE        Withdrawn Amout
+BAL_PRE                          BAL.PRE                         DOUBLE        Previous Balance
+BAL_CUR                          BAL.CUR                         DOUBLE        Current Balance
+T1_REG_CUO_COD                   T1.REG.CUO.COD                  VARCHAR(5)    T1 registration custom office code
+T1_REG_DAT                       T1.REG.DAT                      DATE          T1 registration date
+T1_REG_SER                       T1.REG.SER                      VARCHAR(1)    T1 registration serie
+T1_REG_NBR                       T1.REG.NBR                      INTEGER       T1 registration number
+
+
+
+GTY_WHS - Warehouse guarantee account management
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+ACT                                                              SMALLINT      1: Active, 0:Suspended
+ACC_COD                          ACC.COD                         VARCHAR(17)   Account Code
+ACC_DAT_BEG                      ACC.DAT.BEG                     DATE          Begin date of Validity
+ACC_DAT_END                      ACC.DAT.END                     DATE          End date of Validity
+ACC_TYP_COD                      ACC.TYP.COD                     VARCHAR(1)    Type of Account
+ACC_TYP_DSC                      ACC.TYP.DSC                     VARCHAR(17)   Type of Account
+ACC_BAL                          ACC.BAL                         BIT           Check Balance
+
+
+
+
+UNCTAD/DTL                                                                                                    Page 16
+Accounting - Tables Description - V 0.1.0905                                                      ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+ACC_STA                          ACC.STA                         VARCHAR(17)   Status
+ACC_AMT                          ACC.AMT                         DOUBLE        Maximum Overdraft
+ACC_INF                          ACC.INF                         LONGVARCHAR   Information
+
+
+GTY_WHS_CRE - Crediting warehouse account
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+IDE_COD                          IDE.COD                         VARCHAR(5)    Customs Office Code
+IDE_NAM                          IDE.NAM                         VARCHAR(35)   Customs Office Name
+GUA_COD                          GUA.COD                         VARCHAR(17)   Guarantee Account Code
+AMT_PRE                          AMT.PRE                         DOUBLE        Maximum authorized guarantee
+AMT_ADT                          AMT.ADT                         DOUBLE        Additional Guarantee Amout
+BAL_PRE                          BAL.PRE                         DOUBLE        Previous Balance
+BAL_CUR                          BAL.CUR                         DOUBLE        Current Balance
+
+
+GTY_WHS_DEB - Debiting warehouse account
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+IDE_COD                          IDE.COD                         VARCHAR(5)    Customs Office Code
+IDE_NAM                          IDE.NAM                         VARCHAR(35)   Customs Office Name
+GUA_COD                          GUA.COD                         VARCHAR(17)   Guarantee Account Code
+AMT_PRE                          AMT.PRE                         DOUBLE        Maximum authorized guarantee
+AMT_WTD                          AMT.WTD                         DOUBLE        Withdrawn Amout
+BAL_PRE                          BAL.PRE                         DOUBLE        Previous Balance
+BAL_CUR                          BAL.CUR                         DOUBLE        Current Balance
+
+
+CSH_OPE - Daybook management
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+CUO_COD                          CUO.COD                         VARCHAR(5)    Customs Office Code
+CUO_NAM                          CUO.NAM                         VARCHAR(35)   Customs Office Name
+NBR_SHF                          NBR.SHF                         SMALLINT      Shift Number
+CDB_STA                          CDB.STA                         VARCHAR(17)   Status of the cash daybook
+CDB_DOO                          CDB.DOO                         DATE          Date of opening daybook
+CDB_DOC                          CDB.DOC                         DATE          Date of closing daybook
+
+
+CSH_SHF - Shift management
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                                           NOT NULL   INTEGER
+KEY_SHF_NBR                      RNK                  NOT NULL   INTEGER       Internal index number
+SDB_STA                          SDB.STA                         VARCHAR(17)   Status of the Shift
+SDB_DOO                          SDB.DOO                         DATE          Date of opening Shift
+SDB_TOO                          SDB.TOO                         TIMESTAMP     Time of opening Shift
+SDB_DOC                          SDB.DOC                         DATE          Date of closing Shift
+SDB_TOC                          SDB.TOC                         TIMESTAMP     Time of closing Shift
+
+
+CSH_CRE_MVT - Credit and Prepayment Accounts transactions
+
+
+
+
+UNCTAD/DTL                                                                                                  Page 17
+Accounting - Tables Description - V 0.1.0905                                                       ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+IDE_RCP_YEA                      IDE.RCP.YEA                     INTEGER       Year when receipt issued
+IDE_RCP_SER                      IDE.RCP.SER                     VARCHAR(1)    Number of the serial in which the receipt
+                                                                               is issue
+IDE_RCP_NBR                      IDE.RCP.NBR                     VARCHAR(11)   Number of the receipt within the
+                                                                               previous serial
+IDE_RCP_CUO                      IDE.RCP.CUO                     VARCHAR(5)    Receipt Customs office code
+ACC_COD                          ACC.COD                         VARCHAR(17)   Account Code
+ACC_TYP                          ACC.TYP                         VARCHAR(1)    Account Type
+MVT_TYP                          MVT.TYP                         VARCHAR(11)   Movement Type
+MVT_DAT                          MVT.DAT                         DATE          Date when the operation is performed
+TOT_DEB                          TOT.DEB                         DOUBLE        Amount debited
+TOT_CRE                          TOT.CRE                         DOUBLE        Amount credited
+TOT_BAL                          TOT.BAL                         DOUBLE        Balance
+IDE_CUO_COD                      IDE.CUO.COD                     VARCHAR(5)    Declaration Office Code
+IDE_AST_SER                      IDE.AST.SER                     VARCHAR(1)    Assessment Serial Letter
+IDE_AST_NBR                      IDE.AST.NBR                     VARCHAR(11)   Assessment Serial Number
+IDE_AST_DAT                      IDE.AST.DAT                     DATE          Assessment Date
+
+
+CSH_MVT - Tracking of all accounting transactions
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+OPE_DAT                          OPE.DAT                         DATE          Daybook date in which receipt was done
+OPE_SFT                          OPE.SFT                         INTEGER       Shift number in which receipt was done
+OPE_NBR                          OPE.NBR                         INTEGER       Operation number within the shift
+MVT_TYP                          MVT.TYP                         VARCHAR(3)    Movement type (type of transaction)
+MVT_DAT                          MVT.DAT                         DATE          Date of transaction
+MVT_CUO                          MVT.CUO                         VARCHAR(5)    Office code of transaction
+MVT_HOR                          MVT.HOR                         TIMESTAMP     Time of transaction
+MVT_USR                          MVT.USR                         VARCHAR(40)   Username(login) who carried out
+                                                                               transaction
+MVT_USN                          MVT.USN                         VARCHAR(80)   User Display Name
+
+
+CSH_GTY_MVT - Records of all guarantee accounting movements (transit, warehouse ...)
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+ACC_COD                          ACC.COD                         VARCHAR(17)   Account Code
+ACC_TYP                          ACC.TYP                         VARCHAR(1)    Account Type
+MVT_TYP                          MVT.TYP                         VARCHAR(11)   Movement Type
+MVT_DAT                          MVT.DAT                         DATE          Date when the operation is performed
+TOT_DEB                          TOT.DEB                         DOUBLE        Amount Debited
+TOT_CRE                          TOT.CRE                         DOUBLE        Amount Credited
+TOT_BAL                          TOT.BAL                         DOUBLE        Balance
+IDE_CUO_COD                      IDE.CUO.COD                     VARCHAR(5)    Declaration Office Code
+IDE_AST_CUO_COD                  IDE.AST.CUO.COD                 VARCHAR(5)    Assessment Office Code
+IDE_AST_SER                      IDE.AST.SER                     VARCHAR(1)    Assessment Serial Letter
+IDE_AST_NBR                      IDE.AST.NBR                     VARCHAR(11)   Assessment Serial Number
+IDE_AST_DAT                      IDE.AST.DAT                     DATE          Assessment Date
+
+
+LCK_ACC_TAB - Concurrent Access Accounts locks
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+
+
+
+
+UNCTAD/DTL                                                                                                    Page 18
+Accounting - Tables Description - V 0.1.0905                                                      ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+ACC_COD                          ACC.COD                         VARCHAR(17)   Account Code
+ACC_TYP                          ACC.TYP                         VARCHAR(1)    Account Type
+
+
+
+RPTACC_DAYBOOK_TAB - Account DayBook Summary Reports
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+CUO_COD                          CUO.COD                         VARCHAR(5)    Office code
+CUO_NAM                          CUO.NAM                         VARCHAR(35)   Office name
+DAT                              DAT                             DATE          Daybook date
+NBR_TYP                          NBR.TYP                         BIT           Type of operation flag
+NBR_MEA                          NBR.MEA                         BIT           Means of payment Flag
+NBR_BUD                          NBR.BUD                         BIT           Budget account flag
+
+
+
+RPT_SHIFT_TAB - Shift Summary Reports
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+CUO_COD                          CUO.COD                         VARCHAR(5)    Office code
+CUO_NAM                          CUO.NAM                         VARCHAR(35)   Office name
+DAT                              DAT                             DATE          Daybook date
+SFT                              SFT                             INTEGER       Shift number
+NBR_TYP                          NBR.TYP                         BIT           Type of operation flag
+NBR_MEA                          NBR.MEA                         BIT           Means of payment flag
+
+
+
+RPT_CASHIER_TAB - Cashier Summary Reports
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+CUO_COD                          CUO.COD                         VARCHAR(5)    Office code
+CUO_NAM                          CUO.NAM                         VARCHAR(35)   Office name
+DAT                              DAT                             DATE          Daybook date
+CSH                              CSH                             VARCHAR(35)   Cashier code
+RPT_TYP                          RPT.TYP                         BIT           Type of operation flag
+RPT_MEA                          RPT.MEA                         BIT           Means of payment flag
+
+
+
+RPTACC_MONTHLY_TAB - Account Monthly Reports
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+CUO_COD                          CUO.COD                         VARCHAR(5)    Office code
+CUO_NAM                          CUO.NAM                         VARCHAR(35)   Office name
+YEA                              YEA                             INTEGER       Year
+MTH                              MTH                             INTEGER       Month
+RPT_TYP                          RPT.TYP                         BIT           Type of operation flag
+RPT_MEA                          RPT.MEA                         BIT           Means of payment flag
+RPT_BUD                          RPT.BUD                         BIT           Budget account flag
+
+
+
+
+UNCTAD/DTL                                                                                              Page 19
+

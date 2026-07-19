@@ -1,0 +1,1332 @@
+ASYCUDA WORLD MANIFEST
+      USER GUIDE
+
+
+
+
+                ASYCUDA Project Team
+Table of Contents
+1.     INTRODUCTION .................................................................................................................................... 3
+2.     DEFINITION ........................................................................................................................................... 4
+3.     CREATING A MANIFEST ........................................................................................................................ 5
+     3.1        MANUAL CAPTURE ....................................................................................................................... 5
+       3.1.1        Step 1 Access General Segment via Document Library .............................................................. 5
+       3.1.2        Step 2 Key in data on General Segment ..................................................................................... 6
+       3.1.3.          Step 3 Referencing Scan Documents ...................................................................................... 7
+       3.1.4.          Step 4 Referencing CO-Loaders (Authorize) .......................................................................... 8
+       3.1.5.          Step 5 Verify Document ......................................................................................................... 9
+       3.1.6.          Step 6 Store Document ........................................................................................................ 10
+       3.1.7.          Step 7 Adding Waybill(s) on the Stored Manifest...................................................................11
+     3.2.       AMENDING A STORED GENERAL SEGMENT ............................................................................. 14
+4.     ADDING WAY BILLS TO A STORED MANIFEST ................................................................................... 16
+     A waybill can be added to a manifest in two (2) ways: .......................................................................... 16
+     4.1.       METHOD 1 ................................................................................................................................... 16
+     4.2.       METHOD 2................................................................................................................................... 18
+5.     ADDING A CONTAINER ....................................................................................................................... 20
+6.     ADDING A VEHICLE ............................................................................................................................. 22
+7.     SPLITTING A WAYBILL ........................................................................................................................ 23
+8.     GRANTING WAYBILL ACCESS ............................................................................................................. 25
+9.     AMENDING A STORED WAYBILL ........................................................................................................ 26
+     9.1.       METHOD 1 ................................................................................................................................... 26
+     9.2.       METHOD 2................................................................................................................................... 28
+10.          REGISTERING A STORED MANIFEST .............................................................................................. 29
+     10.1       OPTION 1 – DIRECT REGISTER .................................................................................................... 29
+     10.2       OPTION 2 – REGISTER FROM OPENED MANIFEST..................................................................... 30
+11.          HOW TO AMEND A REGISTERED MANIFEST ..................................................................................31
+12.          DEGROUPAGE .................................................................................................................................33
+     12.1.      FOR CARRIERS .............................................................................................................................33
+     12.2.      FOR CONSOLIDATORS ............................................................................................................... 36
+     12.3.      FOR VALIDATING A DEGROUPAGE ............................................................................................. 37
+
+
+                                                                                                                                               1|P a g e
+ASYCUDA World Manifest User Guide                                           Ver.1
+13.       FAST CARGO INTEGRATION – FULL CARGO .................................................................................. 38
+  13.1.      SELECT THE FCI OPTION ............................................................................................................ 38
+  13.2.      SELECT AN “XML” FILE............................................................................................................... 39
+  13.3.      CHECK XML CONTENT................................................................................................................ 40
+  13.4 SAVE AND STORE........................................................................................................................... 42
+  13.5 REGISTER ......................................................................................................................................... 42
+14.       FAST CARGO INTEGRATION – DEGROUPAGE ............................................................................... 43
+15.       HOW TO PRINT MANIFEST & BILL OF LADING ............................................................................... 44
+16.       PRINT ALL WAYBILLS ..................................................................................................................... 46
+17.       AGENT RELEASE ............................................................................................................................. 47
+18.       ASYCUDA WORLD MANIFEST FIELD GUIDE .................................................................................. 48
+
+
+
+
+                                                                                                                                            2|P a g e
+ASYCUDA World Manifest User Guide                                        Ver.1
+    1. INTRODUCTION
+In keeping with our vision to be a modern, effective and efficient administration offering
+professional service to all stakeholders, using international best practices, the Guyana Revenue
+Authority, Customs, Excise and Trade Operations launches its ASYCUDA World Manifest User’s
+Guide. This manual is intended to provide its users with detailed instructions for preparing and
+submitting an electronic declaration for cargo. WELCOME TO ASYCUDA WORLD!
+
+Customs Act Part III Section 67A and supporting regulations (Advance Passenger and Cargo
+Information) Regulation February, 2007 requires the master of every vessel and the
+commander of every aircraft arriving at a customs port or airport from a place outside of the
+state, or carrying goods brought in the vessel from a place outside the state and not yet cleared
+on importation , to submit and deliver a report in such form and manner and containing such
+particulars to the Commissioner- General.
+
+To this end the Commissioner- General has directed that these instructions form part of the
+reporting requirements for vessels and aircrafts. It is our intention that this user guide will assist
+you greatly in fulfilling your obligation in this aspect.
+
+The Cargo Manifest is the first point of contact for our Automated System. The main purpose is
+to provide necessary information about cargo for transport, commercial, and regulatory
+reasons. It is traditionally used by Customs as a control tool to ensure that the manifested cargo
+is accounted for. It also gives the Customs Department some advance notice on imported cargo
+in order to plan examination priorities, risk assessment and facilitates faster cargo clearance.
+
+Access to ASYCUDA World is to be granted through an application process. A user or director of
+an entity applies to the Commissioner- General of the Guyana Revenue Authority using a
+prescribed form called “ASYCUDA WORLD USER REGISTRATION FORM”. The form makes
+provisions for a principal user (The Applicant) and the person who can act on behalf of the
+applicant. Each commercial type applicant account will be linked to a national Taxpayer
+Identification Number (TIN). Thus, each user included on the application will also be linked to
+the principal taxpayer ID. The Commissioner-General will issue each applicant and its
+designated user (s), a login name and initial password to enable access to ASYCUDA World.
+Once a user has logged in successfully, the system will force a change of password based on a
+predetermined level of complexity that enhances the strength of the password. Once the
+password is successfully changed, the user may subsequently change the password at his or her
+discretion. However, the system will force a change of password every six months or whenever
+a user request a password change due to a forgotten password.
+
+
+
+
+                                                                                            3|P a g e
+ASYCUDA World Manifest User Guide               Ver.1
+    2. DEFINITION
+The manifest document consists of two (2) segments, namely:
+
+   1. The Manifest General Segment
+   2. The Waybill Segment
+
+The term WAYBILL covers the transport documents of Airway Bills and Bills of Lading. The bills
+can be categorized as either Master Bills or House Bills.
+
+A Master Bill allows for ‘degroupage’ (breakdown) into other levels of Master and/or House
+Waybills in order to further identify consignments.
+
+   •   The master waybill also represents the relationship between the carrier and the
+       consolidator/freight forwarder in the case of a consolidated shipment.
+
+A House Waybill represents one specific consignment. The goods related to it can be cleared
+directly by a customs declaration(s).
+
+A First level Waybill is directly related to the manifest and it can be a House Bill or a Master Bill.
+
+Degrouped level Waybills can either be a Master or a House created by the degroupage of a
+Master Bill.
+
+
+
+
+                                                                                           4|P a g e
+ASYCUDA World Manifest User Guide               Ver.1
+    3. CREATING A MANIFEST
+   3.1        MANUAL CAPTURE
+   3.1.1 Step 1 Access General Segment via Document
+        Library
+Upon receipt of the principal manifest the user will input the data into the ASYCUDA World.
+The manifest creation starts with the General Segment. Access the General Segment by
+navigating the Document Library using the Path: ASYCUDA             Cargo Manifest    Data
+Management         Manual Capture         General Segment.
+
+Right click at the General Segment and select New as illustrated below in figure 1 below.
+
+
+
+
+                                           Figure 1
+
+
+
+
+                                                                                     5|P a g e
+ASYCUDA World Manifest User Guide            Ver.1
+   3.1.2 Step 2 Key in data on General Segment
+A General Segment page appears. The carrier’s information will populate in its fields. The
+Shipping Agent’s Tax Payer Identifcation Number (TIN) has to be inserted in the required field
+as illustrated in figure 2 below.
+
+The Shipping Agent’s TIN is tied to their Carrier(s) and if it is incorrect on the General
+Segment an error will occur at the level when storing the document.
+
+
+
+
+                                          Figure 2
+
+
+
+                                                                                    6|P a g e
+ASYCUDA World Manifest User Guide           Ver.1
+Use the Manifest Field Guide to insert all necessary data (F2 key). In some cases, reference data
+is provided from a drop down list or finder. The mandatory fields will show red if it is not filled
+or data is incorrect.
+
+ASYCUDA uses the Office Code, Voyage number or Registration Number (available after
+Registration) and Departure Date to retrieve a stored General Segment/ Manifest.
+
+
+
+3.1.3.         Step 3 Referencing Scan Documents
+ASYCUDA allows for the relevant supporting documents to be uploaded using the Scan
+Documents tab on the General Segment as shown in figure 3. User is required to select Attached
+File(s) Doc. Ref. date and Doc. Reference to upload the PDF version of the document using the
+
+search      following by selecting the add document icon          .
+
+
+
+
+                                         Figure 3
+
+
+
+                                                                                         7|P a g e
+ASYCUDA World Manifest User Guide              Ver.1
+3.1.4.        Step 4 Referencing CO-Loaders (Authorize)
+The System allows the authorization of Co-Loaders to append under vessel sharing
+arrangements by utilizing the CO-Loaders tab. The main agent is required to reference the Co-
+
+Loader/s carrier code then select the page icon      to add details as shown in figure 4.
+
+
+
+
+                                      Figure 4
+
+
+
+
+                                                                                       8|P a g e
+ASYCUDA World Manifest User Guide            Ver.1
+3.1.5.         Step 5 Verify Document
+Once all information is entered on the manifest, the verify icon may be used to verify the data
+entered as illustrated in figure 5 below.
+
+
+
+
+                                            Figure 5
+
+The Verify Command allows the system to check the document for errors. If there are errors the
+system will return a message stating the error(s). Correct the error(s) and verify again using the
+same icon. Once there are no errors or the errors have been corrected, the system will return a
+message “Document Verified” as illustrated in figure 6 below.
+
+
+
+
+                                            Figure 6
+
+
+
+
+                                                                                        9|P a g e
+ASYCUDA World Manifest User Guide             Ver.1
+3.1.6.        Step 6 Store Document
+After verifying the document, you may use the store          icon on the toolbar to store the
+manifest general segment as illustrated in figure 7 below.
+
+
+
+
+                                           Figure 7
+
+The system will return a message “Store is done” as illustrated in figure 8 below.
+
+
+
+
+                                           Figure 8
+
+The checked icon has to be selected.
+
+
+
+
+                                                                                      10 | P a g e
+ASYCUDA World Manifest User Guide            Ver.1
+3.1.7.        Step 7 Adding Waybill(s) on the Stored Manifest
+Proceeding to add Waybill click on the green arrow icon when storage is done. Clicking the
+green arrow will reopen the stored manifest. Clicking the blue arrow will close the window. The
+finder will have to be utilized to retrieve the General Segment as in 3.2.
+
+              ALWAYS REMEMBER TO MAXIMIZE YOUR SCREEN
+
+Select Waybill tab. On this page click the Add Waybill icon from the menu bar as illustrated in
+figure 9 below. A dialog box will appear asking to confirm his/her action. Select the tick to
+confirm. A waybill page will appear with the information from the General Segment already
+inserted. This includes the Office of Entry, Voyage #, Departure Date, Place of Loading &
+unloading, Carrier with Shipping Agent & Transport. This means that the waybill is linked to
+the General Segment.
+
+
+
+
+                                           Figure 9
+
+
+
+
+                                                                                    11 | P a g e
+ASYCUDA World Manifest User Guide            Ver.1
+Input the required data according to the list provided, then verify and store using the
+
+
+Store        icon as illustrated in figure 10.
+
+
+
+
+                                             Figure 10
+
+The store confirmation box appears to indicate the Waybill was successfully stored. Click on
+the Green arrow to continue adding waybills to the manifest or the blue tick to close your
+window as in Figure 11 & 12.
+
+
+
+
+                                                                                      12 | P a g e
+ASYCUDA World Manifest User Guide                Ver.1
+                                           Figure 11
+
+
+
+
+If the Blue tick was selected, then you may add an additional Waybill as before by following the
+steps in 3.2.
+
+
+
+
+                                           Figure 12
+
+
+
+
+                                                                                     13 | P a g e
+ASYCUDA World Manifest User Guide            Ver.1
+ 3.2.        AMENDING A STORED GENERAL
+            SEGMENT
+       Step 1 – Retrieve General Segment
+
+To amend a General Segment, use the following path: ASYCUDA        Cargo Manifest
+Data Management              Manual Capture    General Segment, right click and select Find
+as illustrated in figure 13 below.
+
+
+
+
+                                        Figure 13
+
+The General Segment finder appears. Insert the search criteria and select the search icon.
+Usually the search criteria for finding a stored manifest are the Office Code, the Voyage
+Number, and the Date of Departure as illustrated in figure 14 below.
+
+
+
+
+                                        Figure 14
+                                                                                 14 | P a g e
+ASYCUDA World Manifest User Guide          Ver.1
+       Step 2 – Modification option
+
+The search result will be displayed by the finder. Right Click on the desired line and select
+Modification as illustrated in figure 15 below.
+
+
+
+
+                                            Figure 15
+
+The Manifest General Segment opens and the user is allowed to make the necessary changes.
+
+       Step 3 – Confirm Changes
+
+After making changes you select the verify icon as mentioned above. The system will display a
+
+similar message then save the changes by clicking on the “save changes” icon           as
+illustrated in figure 16 below.
+
+
+
+
+                                            Figure 16
+
+                                                                                        15 | P a g e
+ASYCUDA World Manifest User Guide              Ver.1
+4.       ADDING WAY BILLS TO A STORED
+         MANIFEST
+A waybill can be added to a manifest in two (2) ways:
+
+ 4.1. METHOD 1
+The user can find the manifest and open it in the modification mode as mentioned above in
+figure 14 & 15. Select the Waybill tab. On the page select the “add Waybill” icon from the menu
+as illustrated in figure 17 below. A dialog box will appear asking the user to confirm his/her action.
+
+
+
+
+                                             Figure 17
+
+
+
+                                                                                          16 | P a g e
+ASYCUDA World Manifest User Guide               Ver.1
+Select the tick to confirm, a waybill page will appear with the information from the General
+Segment already populated as illustrated in figure 18 below. This includes the Office of Entry,
+Voyage #, Departure Date, Place of Loading & unloading, Carrier with Shipping Agent &
+Transport . This means that the waybill is linked to the General Segment.
+
+
+
+
+                                            Figure 18
+
+Input the necessary data, then verify and store using the icons illustrated in figure 18 above.
+
+
+
+
+                                                                                       17 | P a g e
+ASYCUDA World Manifest User Guide             Ver.1
+The Store Confirmation box appears, the process of storing the waybill is now complete and
+the user can close the dialog box by clicking the blue tick as illustrated in figure 19 below.
+
+
+
+
+                                           Figure 19
+
+However, the user may also select Forward icon to continue adding waybills to this manifest.
+
+
+
+ 4.2. METHOD 2
+Select a new waybill using the following path in the Document Library. ASYCUDA          Cargo
+Manifest      Data Management              Manual Capture      Waybill. Right click at Waybill
+and select New as illustrated in figure 20 below.
+
+
+
+
+                                           Figure 20
+
+                                                                                      18 | P a g e
+ASYCUDA World Manifest User Guide             Ver.1
+A blank waybill page will appear as illustrated in figure 21 below.
+
+
+
+
+                                            Figure 21
+
+Input the Office Code, Voyage Number, and the Date of Departure of the manifest. As you
+input these key fields, the waybill will be populated with the data from the General Segment.
+
+Continue to enter the remaining data for the waybill. When finished select “Verify” then
+“Store”, as illustrated in figure 21.
+
+
+
+
+                                            Figure 22
+
+The user can repeat the process to add another waybill to the manifest or can also select the
+Forward green icon as illustrated in figure 22.
+
+
+                                                                                     19 | P a g e
+ASYCUDA World Manifest User Guide              Ver.1
+5.       ADDING A CONTAINER
+If the arriving cargo is containerized, the Container tab must be selected and filled with the
+appropriate information. The user will then click on the “Add a new Container” icon after
+inputting container details in order to register the container data as illustrated in figure 23 below.
+
+
+
+
+                                             Figure 23
+
+
+
+
+                                                                                          20 | P a g e
+ASYCUDA World Manifest User Guide               Ver.1
+In case of an error, right click on the container line, choose the update option from the menu as
+illustrated in figure 24 below.
+
+
+
+
+                                           Figure 24
+
+Amend information and select the “update container” icon as shown in figure 25.
+
+
+
+
+                                           Figure 25
+
+
+
+
+                                                                                      21 | P a g e
+ASYCUDA World Manifest User Guide             Ver.1
+6. ADDING A VEHICLE
+If the arriving cargo has vehicle (s), the Vehicle tab must be selected and filled with the
+appropriate information. The user will then click on the “Add a vehicle” icon in order to
+register the vehicle information as illustrated in figure 26 below.
+
+
+
+
+                                            Figure 26
+
+
+
+
+                                                                                        22 | P a g e
+ASYCUDA World Manifest User Guide              Ver.1
+7.        SPLITTING A WAYBILL
+A House Waybill maybe split into different lines according to package types or commodities
+since there’s normally one package type on a waybill. This must not be confused with
+degroupage where you have many consignees.
+
+The waybill to be split must be located using the finder. Once located and opted to be
+modified, right click the Waybill and select Split BL as illustrated in figure 27 below.
+
+
+
+
+                                             Figure 27
+
+
+
+The waybill will be presented. Select the split tab on the bottom of the waybill as shown in Figure
+28. Enter the split information then select the “Add a new line” icon to save. Errors/Mistakes can
+be corrected by right clicking the saved split and selecting “Update line”. Use the Update line icon
+
+      on the toolbar to save the updated split. Once the split is completed, use the blue tick
+on the tool bar to save the waybill as illustrated in Figure 28.
+
+
+
+
+                                                                                          23 | P a g e
+ASYCUDA World Manifest User Guide               Ver.1
+                                     Figure 28
+
+
+
+VALIDATING A SPLIT
+The split must be validated so that it can be used in a customs declaration. To validate the
+waybill select the waybill which have been split from the list of waybills.
+
+
+
+
+                                                                                      24 | P a g e
+ASYCUDA World Manifest User Guide             Ver.1
+8.        GRANTING WAYBILL ACCESS
+The access tab allows for authorizing degroupage and splitting at the waybill level as illustrated
+in figure 29. Kindly note that access to degroupage is assigned to Master Waybill and access to
+Split is assigned at the House Waybill Level using the required fields. The agent granting access
+is required to reference the Tax Payer Identification Number (TIN) of the Shipping Agent or
+Declarant to which the acess is being granted for the particular Waybill.
+
+
+
+
+                                            Figure 29
+
+
+
+
+                                                                                       25 | P a g e
+ASYCUDA World Manifest User Guide             Ver.1
+9. AMENDING A STORED WAYBILL
+ 9.1. METHOD 1
+Find the stored manifest, right click on the selected manifest and choose modification as
+illustrated in figure 30 below.
+
+
+
+
+                                             Figure 30
+
+
+
+After the manifest is opened, click the waybill tab to get the list of waybills. Right click on the
+desired waybill line and select Modification as illustrated in figure 31.
+
+
+
+
+                                                                                         26 | P a g e
+ASYCUDA World Manifest User Guide              Ver.1
+                                    Figure 31
+
+
+
+Make changes
+
+The waybill opens and allows the user to make the required changes. Verify and Save the
+changes inputted.
+
+
+
+
+                                                                                  27 | P a g e
+ASYCUDA World Manifest User Guide           Ver.1
+ 9.2. METHOD 2
+The user may also select the waybill using the waybill finder as illustrated in figure 32 below.
+
+
+
+
+                                            Figure 32
+
+Make changes
+
+The waybill opens and allows the user to make the required changes. Verify and Save the
+changes as illustrated in figure 33 below.
+
+NB: The information from the General Segment will not be able to change in the Waybill.
+
+
+
+
+                                            Figure 33
+
+
+
+                                                                                        28 | P a g e
+ASYCUDA World Manifest User Guide              Ver.1
+10. REGISTERING A STORED MANIFEST
+    10.1 OPTION 1 – DIRECT REGISTER
+Find the manifest using the finder. Use the path ASYCUDA       Cargo Manifest      Data
+Management          Manual Capture        General Segment. At the General Segment right
+click and select FIND.
+
+Insert criteria in the finder and select Search. The finder result, select the desired line, right click
+and Direct Register as illustrated in figure 34 below.
+
+
+
+
+                                              Figure 34
+
+If there are errors on the manifest it will not register. All errors must be fixed before
+registering. Once there are no errors the systems will return a box stating that the transaction
+is completed as illustrated in figure 35 below.
+
+
+
+
+                                              Figure 35
+
+                                                                                            29 | P a g e
+ASYCUDA World Manifest User Guide                Ver.1
+ 10.2 OPTION 2 – REGISTER FROM OPENED
+MANIFEST
+On an opened manifest in Modification mode select the Register icon from the menu bar as
+illustrated in figure 36 below.
+
+
+
+
+                                            Figure 36
+
+
+
+Similarly, a dialog box pops up stating that the registration is done and it gives you the
+registration number as illustrated in figure 37 below.
+
+
+
+
+                                            Figure 37
+
+
+
+
+                                                                                        30 | P a g e
+ASYCUDA World Manifest User Guide              Ver.1
+11. HOW TO AMEND A REGISTERED
+    MANIFEST
+In order to amend a registered manifest, the user must apply to the Commissioner – General
+using the ASYCUDA World system.
+
+Use the following path to apply ASYCUDA           Cargo Manifest         Data Management
+Manual Capture        Cargo Amend.
+
+At Cargo Amend right click and select New to make a new application as illustrated in figure
+38 below.
+
+
+
+
+                                            Figure 38
+
+An application to amend manifest will open as illustrated in figure 39 . Input the relevant
+amendment data, then verify and submit using the green tick as illustrated.
+
+
+
+
+                                                                                       31 | P a g e
+ASYCUDA World Manifest User Guide             Ver.1
+                                         Figure 39
+
+The Customs Department will receive this application and either Approve or Reject. When the
+application is approved the manifest/ waybills will be updated automatically except when the
+Add Waybill to register manifest feature is used. Here the user will have to add the waybill
+himself by clicking the waybill and selecting the “add waybill to registered manifest” as
+illustrated in figure 40below.
+
+
+
+
+                                         Figure 40
+
+The user is advised that a reason should be given for his amendment. Where the amendment is
+a Shortage or Delete Waybill, the reason should include one of the following: (a) were not
+loaded, or (b) have been discharged at a previous port.
+
+                                                                                   32 | P a g e
+ASYCUDA World Manifest User Guide           Ver.1
+12. DEGROUPAGE
+There are two (2) options for de-grouping a master waybill.
+
+ 12.1. FOR CARRIERS
+Use the following path: ASYCUDA     Cargo Manifest         Data Management
+Manual Capture        General Segment. Right click at Waybill and select new.
+
+Before registration and where the manifest is opened for modification as illustrated in figure 41
+below, the carrier will select the tab bills of lading (Bol).
+
+
+
+
+                                           Figure 41
+
+                                                                                      33 | P a g e
+ASYCUDA World Manifest User Guide             Ver.1
+Highlight the desired master Waybill and click the Add Waybill icon. A pop up window appears
+asking if you want to create a waybill in the master as illustrated in Figure 42 below.
+
+
+
+
+                                         Figure 42
+
+Select yes and a waybill page appears. The information from the manifest would have been
+already populated. The master waybill number will have to be inputted in the “previous
+document” field.
+
+
+
+
+                                                                                  34 | P a g e
+ASYCUDA World Manifest User Guide          Ver.1
+Complete the waybill. When data is finish inputted, user must then verify and store as
+illustrated in figure 43 below.
+
+
+
+
+                                           Figure 43
+
+Select the forward Green icon as illustrated in figure 43 above to continue adding waybills to
+the master.
+
+
+
+
+                                                                                      35 | P a g e
+ASYCUDA World Manifest User Guide             Ver.1
+ 12.2. FOR CONSOLIDATORS
+The consolidator will receive his master waybill from the carrier.
+
+You must use the information on this master waybill to create your house bills.
+
+Use the following path: ASYCUDA          Cargo Manifest        Data Management
+Manual Capture        Waybill. Right click at Waybill and select new.
+
+Key in the data for the first house waybill. When finish, then verify and store respectively.
+
+Please note the Master Waybill number must be inputted in the the Previous Document in
+order for the house waybill to attach itself to the master.
+
+
+
+
+                                            Figure 44
+
+Select the forward Green icon to continue adding waybills to the waster as illustrated in figure
+44 above.
+
+
+
+
+                                                                                        36 | P a g e
+ASYCUDA World Manifest User Guide              Ver.1
+ 12.3. FOR VALIDATING DEGROUPAGE
+When the consolidator is finished adding all his /her waybills and once the Carrier gives the
+“Agent Release” (shown in figure 45) then the Consolidator would “validate the degroupage’
+(shown in figure 46). All degroupage must be validated before customs clearance.
+
+
+
+
+                                           Figure 45
+
+To validate a degroupage, select the master waybill, right click and select Validate
+Degroupage as illustrated in figure 46 below.
+
+
+
+
+                                     Figure 46
+
+                                                                                       37 | P a g e
+ASYCUDA World Manifest User Guide             Ver.1
+13. FAST CARGO INTEGRATION – FULL
+    CARGO
+The XML integration option of capturing manifest allows the user to upload or import an .xml
+file that has been generated by the carrier’s system into ASYCUDA World.
+
+ 13.1. SELECT THE FCI OPTION
+Navigate the Document Library through the following path: ASYCUDA                  Cargo Manifest
+Data Management           XML Integration            Full Cargo. At full cargo, right click and
+select Full Cargo Integration as illustrated in figure 47 below.
+
+
+
+
+                                            Figure 47
+
+The full cargo integration page opens as illustrated in figure 48.
+
+
+
+
+                                                                                        38 | P a g e
+ASYCUDA World Manifest User Guide              Ver.1
+From the Select an .xml field, click the search .xml icon as illustrated in figure 48 below.
+
+
+
+
+                                            Figure 48
+
+ 13.2. SELECT AN “XML” FILE
+A dialog box opens allowing you to search for a file. When the file is identified click open to
+access file which will then be integrated into the Full Cargo XML Integration page as illustrated
+in figure 49 below.
+
+
+
+
+                                            Figure 49
+
+                                                                                        39 | P a g e
+ASYCUDA World Manifest User Guide              Ver.1
+ 13.3. CHECK XML CONTENT
+Once the XML file is integrated, click the Check XML Content             in the menu bar as
+illustrated in figure 50 below.
+
+
+
+
+                                             Figure 50
+
+If there are errors a pdf file with the errors will be displayed. Fix the errors and check xml
+content again.
+
+
+
+
+                                                                                          40 | P a g e
+ASYCUDA World Manifest User Guide               Ver.1
+                                         Figure 51
+
+Once no error is detected, the General Segment Information will be populated and the system
+will return a message stating “Check done: XML valid” as shown in figure 51.
+
+
+
+
+                                                                                  41 | P a g e
+ASYCUDA World Manifest User Guide          Ver.1
+13.4 SAVE AND STORE
+You may now save and store.
+
+
+
+
+                                         Figure 52
+
+13.5 REGISTER
+To register the document, you retrieve the manifest using the General Segment finder. Right
+click and select Direct Register.
+
+
+
+
+                                                                                   42 | P a g e
+ASYCUDA World Manifest User Guide           Ver.1
+14. FAST CARGO INTEGRATION –
+    DEGROUPAGE
+For the Consolidator to submit his/her degroupage via xml integration, he/she must navigate
+the document library and select Degroupage.
+
+Right click at Degroupage and select Degroupage integration. Select the xml file using the
+same method as illustrated in figure 48 & 49 above and check xml content as illustrated in
+figure 53 below.
+
+
+
+
+                                         Figure 53
+
+It is to be noted after saving the xml degroupage the consolidator must inform the Carrier
+Agent for him/her to validate the degroupage to ensure that the house waybills can be
+used by a customs declaration.
+
+
+
+
+                                                                                   43 | P a g e
+ASYCUDA World Manifest User Guide           Ver.1
+15. HOW TO PRINT MANIFEST & BILL OF
+    LADING
+Follow this path to generate a printout of the entire Manifest. ASYCUDA           Cargo Manifest
+Printouts/Reports           Printout     Full Cargo. At full Cargo right click and select Print as
+illustrated in figure 54 below.
+
+
+
+
+                                            Figure 54
+
+Fill in the Office Code, Voyage Number and Date of Departure and select print from the
+menu bar to print a manifest as illustrated in figure 55.
+
+
+
+
+                                                                                       44 | P a g e
+ASYCUDA World Manifest User Guide             Ver.1
+                                        Figure 55
+
+The Print Full Cargo must be printed by the Shipping’s Agent and attached to the Ship’s
+Report form which is submitted to Customs.
+
+
+
+
+                                                                                45 | P a g e
+ASYCUDA World Manifest User Guide         Ver.1
+16. PRINT ALL WAYBILLS
+Follow this path to generate a printout of the entire Manifest. ASYCUDA           Cargo Manifest
+Printouts/Reports           Printout     Waybill. At waybill right click and select Print as
+illustrated in figure 56 below.
+
+The carrier/consolidator will use this option to print all the waybills to give to the consignee.
+
+
+
+
+                                             Figure 56
+
+Insert Office Code, Voyage Number and Date of Departure of a manifest to print all the
+waybills for that specific manifest as illustrated in figure 56 above. If you insert a master
+waybill number, then only the waybills in the de-groupage will print.
+
+N.B. For consolidators the Voyage Number and Date of Departure will be that of the Carrier’s
+Master Waybill that would have been assigned to you.
+
+Checking the Print Simplified Declaration box will allow you to print a waybill for a simplified
+declaration (non-commercial).
+
+
+
+
+                                                                                         46 | P a g e
+ASYCUDA World Manifest User Guide              Ver.1
+17. AGENT RELEASE
+The Agent Release control in ASYCUDA allows for the Carrier Agents or Consolidators to effect
+the validation of Waybills for further processing. This level of validation is an indication that the
+party that has been issued the waybill has satisfied all financial and other obligation as
+contracted. The system restricts the validation of degroupage to Master Bills if the Agent
+release function is not performed, in addition it further restricts the release/exit of House
+Waybills from the custody of Wharfingers/Terminal Operators.
+
+Agent would retrieve Waybill right click on option available and select Agent Release to the
+particular bill as shown in figure 57.
+
+
+
+
+                                             Figure 57
+
+
+
+                                                                                          47 | P a g e
+ASYCUDA World Manifest User Guide               Ver.1
+18. ASYCUDA WORLD MANIFEST FIELD
+    USER GUIDE
+
+                           Manifest: General Segment
+ Fields                             ACTION                          Description
+
+ Office Code                   Mandatory             The code of the Customs Office of
+                                                     Departure or Arrival.
+                                     General Information
+ Voyage number                 Mandatory             The no. given by the vessel or aircraft
+                                                     operator allowing for the unique
+                                                     identification of the current journey.
+ Date of Departure             Mandatory             The Date when the vessel or aircraft
+                                                     started its journey or when it leaves the
+                                                     place of departure.
+ Date of Arrival               Mandatory             The date when the vessel or aircraft
+                                                     arrives at the place of destination.
+ Time of Arrival               Mandatory             The Time when the vessel or aircraft
+                                                     arrives at the place of destination.
+ Registration Number                System           The year and serial number given to the
+                                                     manifest by the system at registration.
+ Date of Registration               System           The date and time of registration of the
+                                                     manifest.
+ Last Discharge                 Optional             The date when all the goods of the
+                                                     manifest have been unloaded from the
+                                                     vessel or aircraft.
+ Place of Destination          Mandatory             The place (LOCODE) where the vessel or
+                                                     aircraft arrives to discharge its goods in
+                                                     Guyana.
+ Place of Departure            Mandatory             The place (LOCODE) where the vessel or
+                                                     aircraft begins its voyage.
+ Port of Last Call             Mandatory             The place (LOCODE) where the vessel or
+                                                     aircraft last reported before docking at
+                                                     the place of arrival.
+                                    Shipping Information
+ Carrier
+ Carrier Code                  Mandatory             The unique code assigned to identify
+                                                     Carriers.
+
+
+
+                                                                                       48 | P a g e
+ASYCUDA World Manifest User Guide            Ver.1
+ Carrier’s Name                Mandatory           The name of the Shipping Line or the
+                                                   Airline transporting cargo to and from
+                                                   Guyana.
+ Carrier’s Address             Mandatory           The address of the Shipping Line or the
+                                                   Airline transporting cargo to and from
+                                                   Guyana.
+ Shipping Agent                Mandatory           The identification of the agent
+                                                   responsible for submitting the manifest
+                                                   on behalf of the carrier. It is a code (TIN)
+                                                   assigned by the Guyana Revenue
+                                                   Authority.
+ Totals
+ Bills                         Mandatory           The counts of all the waybills included on
+                                                   the manifest.
+ Packages                      Mandatory           The count of all the packages included on
+                                                   all the waybills.
+ Containers                    Mandatory           The count of all the containers to or from
+                                                   Guyana. If there is no container insert the
+                                                   number “0”.
+ Vehicles                      Mandatory           The count of all the vehicles to or from
+                                                   Guyana. If there is no vehicle insert the
+                                                   number “0”.
+ Gross Weight                  Mandatory           The sum of weight in kg of all the cargo
+                                                   entering or leaving Guyana.
+ Transport
+ Mode                          Mandatory           Code identifying the “mode of
+                                                   Transport”. International Standard
+                                                   Codes (ISO) must be used. E.g. 1-Sea, 2-
+                                                   Rail, 3-Road, 4-Air etc
+ Name of                       Mandatory           The name of the importing or exporting
+ Vessel/Aircraft                                   vessel or aircraft (the Transporter).
+ Nationality                   Mandatory           The country code where the vessel or
+                                                   aircraft is registered.
+ Place                         Mandatory           The port/ place where the vessel or
+                                                   aircraft is registered.
+ Registration                  Mandatory           The registration number of the vessel or
+                                                   aircraft.
+ Date                          Mandatory           The date when the vessel or aircraft was
+                                                   registered.
+ Master/Commander              Mandatory           The name of the Master/Commander of
+                                                   the vessel or aircraft.
+ Tonnage
+
+
+                                                                                      49 | P a g e
+ASYCUDA World Manifest User Guide          Ver.1
+ Gross                         Mandatory            Net tonnage plus maximum allotted
+                                                    cargo weight per voyage.
+ Net                           Mandatory            Carrier’s base weight.
+                   Waybill Segment: Bill of lading/ Airway Bill
+ Office Code                   Mandatory        The Code of the Customs Office of
+                                                Departure or Arrival.
+                                   General Information
+ Voyage number                 Mandatory        The number given by the vessel or
+                                                aircraft operator allowing for the unique
+                                                identification of the current journey.
+ Date of Departure             Mandatory        The Date when the vessel or aircraft
+                                                started its journey or when it leaves the
+                                                place of departure.
+ Date of Arrival                System          The Date when the vessel or aircraft
+                                                reaches at the Place of Destination.
+ Time of Arrival                System          The time when the vessel or aircraft
+                                                arrives at the Place of Destination.
+ Registration Number            System          The year and serial number given to the
+                                                manifest by the system at registration.
+ Waybill Reference             Mandatory        A number used to uniquely identify each
+ Number                                         waybill.
+ Waybill Type                  Mandatory        The code which identifies the type of
+                                                transport document issued (e.g. ‘710’ –
+                                                for Bill of Lading, ‘711’ – for Master Bill of
+                                                Lading).
+ Nature                        Mandatory        The manner in which goods will be
+                                                treated. These are indicated by the codes
+                                                22 (Export), 23 (Import), 24 (Transit) and
+                                                28 (Transshipment).
+ Last Discharge                 System          The date the vessel last discharged
+                                                goods.
+ Waybill Line                   System          A sequential number generated by the
+                                                system for each waybill.
+ Previous document              Optional        The reference of the Master Waybill
+                                                when doing a house degroupage.
+ Unique Cargo                   Optional        This is used only for exports. All export
+ Reference (UCR)                                waybills must identify the export
+                                                declaration registration number in this
+                                                field. The system will prompt you to
+                                                enter the Office, Year, Serial Letter,
+                                                Registration number, and Date
+                                                (dd/mm/yyyy) of registration.
+
+
+                                                                                    50 | P a g e
+ASYCUDA World Manifest User Guide           Ver.1
+ Place of loading                   System           The location or port where the goods
+                                                     were loaded on the vessel/aircraft.
+ Place of unloading                 System           The location or port where the goods will
+                                                     be discharged from the vessel/aircraft.
+ Carrier
+ Carrier’s Code                     System           The unique code assigned to identify
+                                                     Carriers
+ Carrier’s Name                     System           The name of the Shipping Line or the
+                                                     Airline transporting cargo to and from
+                                                     Guyana.
+ Carrier’s Address                  System           The address of the Shipping Line or the
+                                                     Airline transporting cargo to and from
+                                                     Guyana.
+ Shipping Agent                     System           The identification of the agent
+                                                     responsible for submitting the manifest
+                                                     on behalf of the carrier. It is a code (TIN)
+                                                     assigned by the Guyana Revenue
+                                                     Authority.
+ Transport
+ Mode                               System           Code identifying the “mode of
+                                                     Transport”. International Standard
+                                                     Codes (ISO) must be used. E.g. 1-Sea, 2-
+                                                     Rail, 3-Road, 4-Air etc
+ Name of                            System           The name of the importing or exporting
+ Vessel/Aircraft                                     vessel or aircraft (the Transporter).
+ Nationality                        System           The country code where the vessel or
+                                                     aircraft is registered.
+ Place of Loading on           Mandatory             The name of the place of loading on
+ Current Transport                                   current transport – (code, name).
+ Place of Discharge             Optional             The name of the place of Discharge from
+ from Current                                        current transport – (code, name).
+ Transport
+ Notifying Party
+ Notifying Party Code           Optional             The identification of the person who
+                                                     requires notification upon arrival of the
+                                                     goods.
+ Notifying Party Code           Optional             The designation of the person/company
+                                                     who requires notification upon arrival of
+                                                     the goods.
+ Address of Notifying           Optional             The address of the person/company who
+ Party                                               requires notification upon arrival of the
+                                                     goods.
+
+
+                                                                                         51 | P a g e
+ASYCUDA World Manifest User Guide            Ver.1
+ Consignee
+ Consignee’s TIN (Tax           Optional             The code given by the Guyana Revenue
+ Payer Identification                                Authority to a person/business
+ Number)                                             conducting Trade.
+ Consignee’s Name              Mandatory             The name of the person or firm named in
+                                                     the freight contract to whom goods have
+                                                     been shipped or turned over for care in
+                                                     Guyana.
+ Consignee’s Address           Mandatory             The address of the consignee in Guyana.
+
+
+
+ Goods Details
+ Total Containers              Mandatory             The sum of all the containers on the
+                                                     Waybill. If there are no containers, the
+                                                     number ‘0’ must be inserted.
+ Total Vehicles                Mandatory             The sum of all the Vehicles on the
+                                                     Waybill. If there are no Vehicles, the
+                                                     number ‘0’ must be inserted.
+ Package codes                 Mandatory             The type of conveyance used to pack the
+                                                     commodity.
+ Status                             System           The status identifies the stage of each
+                                                     Waybill. It will entail: HSE –House, MST –
+                                                     Master undegrouped, UDG –Master
+                                                     undergrouped, DEG – master degrouped,
+                                                     HDG – house under degroupage.
+ Number of Degrouped                System           Number of degrouped waybills in the
+ Waybills                                            case of master waybills.
+ Marks and Nbr.                Mandatory             The marks placed on the pkg. to identify
+                                                     the cargo. It follows no sequence and it
+                                                     can be words, numbers, or signs.
+ Manifested Packages           Mandatory             The piece count of the packages entered
+                                                     on each waybill.
+ Remaining Packages                 System           Available packages not yet cleared by
+                                                     Customs.
+ Manifested Gross              Mandatory             Weight in Kg of the cargo on the Waybill.
+ Weight
+ Remaining Gross                    System           Weight of remaining packages in Kg.
+ Weight
+ Volume (CBM)                  Mandatory             The Cubic measurement of the Cargo.
+ Description of Goods          Mandatory             Portrays the type of goods being
+                                                     transported. The description must be
+                                                     explicit. It must not contain terms such
+
+                                                                                      52 | P a g e
+ASYCUDA World Manifest User Guide            Ver.1
+                                                    as STC (Said to Contain), clothing,
+                                                    demonstration samples, tiles, foodstuff
+                                                    etc. Acceptable terms would be men
+                                                    leather shoes, ceramic tiles, women
+                                                    pants of cotton, rice in packages etc.
+ Place of Origin of the         Optional            The Country of Origin of the goods.
+ Goods
+ Place of Destination           Optional            The Country of Destination of the Goods.
+    1. Location Code            Optional               1. Used by the port to identify the
+    2. Location Name                                      exact place in the Port or Shed
+    3. Info.                                              where the goods can be found.
+                                                       2. A more precise location inside the
+                                                          transit shed that describes where
+                                                          the goods are located.
+                                                       3. Any other pertinent information.
+ Harmonized System Code
+ H.S. Code                    Optional              Harmonized System Code
+ H.S. Description              System               Harmonized System Description.
+ Package                      Optional              Package Code
+ Package Number               Optional              Package Number Reference.
+ Container                    Optional              Container Reference.
+ Declared Values and Seal Details
+ Freight Code                Mandatory              Freight Cost Code.
+ Freight Mode                  System               Freight code/site indicator
+ Description                   System               Description of freight cost.
+ P/C                         Mandatory              Freight Prepaid/ Collect indicator.
+ Amount                      Mandatory              The overall cost of the freight i.e.
+                                                    Transport Cost, Insurance Cost, and
+                                                    other Costs.
+ Currency                      Mandatory            The actual currency in which payment for
+                                                    freight is quoted
+ Number of Seals                Optional            The count of the seals affixed.
+ Marks of Seal 1 and 2          Optional            The markings that identifies the seals
+                                                    placed on the packages.
+ Sealing Party                  Optional            The code used to identify who sealed the
+                                                    packages.
+ Additional information         Optional            Any other relevant information which
+ 1 and 2                                            the carrier or agents deems necessary.
+
+ Onward Transport
+ Transit                       Prohibited           Automatically filled when waybill is
+                                                    written off by a transit operation.
+
+
+                                                                                     53 | P a g e
+ASYCUDA World Manifest User Guide           Ver.1
+ Transshipment                 Prohibited           Automatically filled when waybill is
+                                                    written off by a transshipment
+                                                    operation.
+ Carrier                       Prohibited           Automatically filled – Name of the carrier
+                                                    involved in the transit or transshipment
+                                                    operation.
+                                    Container Segment
+ Container Number              Mandatory            The ISO Alpha-Numeric codes for
+                                                    identification of a container. It comprises
+                                                    an Owner/operator code of four (4)
+                                                    letters, a serial number of six (6)
+                                                    numerals, and one last check digit, (e.g.
+                                                    BCIU123456-7). It complies with ISO
+                                                    6346 standard.
+ Nbr. Of Pkgs.                 Mandatory                        Number of Packages
+ Type Of Container             Mandatory            The size and type code (DIN ISO 6346):
+                                                    the first digit indicates the length of the
+                                                    container. The second digit indicates
+                                                    height and whether or not gooseneck
+                                                    tunnel is present. The fourth digit
+                                                    indicates the container type and the fifth
+                                                    digit indicates special features.
+ Empty/Full Indicator          Mandatory            Describes how much space is occupied by
+ (FCL/LCL)                                          goods inside the container.
+ Seal Numbers                   Optional            The seal numbers on the seals attached
+                                                    to a locked container.
+ Seal Number (Marks)            Optional            Represents the reference of an affixed
+ 1, 2 and 3                                         seal.
+ Sealing Party                  Optional            The code to identify who sealed the
+                                                    container.
+ Empty Weight                   Optional            Empty weight of the container.
+ Goods Weight                   Optional            Gross Weight in Kg of goods.
+ Min. Temp. (CE)                Optional            Minimum temperature for container.
+                                                    Mandatory for reefers.
+ Max Temp. (CE)                 Optional            Maximum temperature for container.
+                                                    Mandatory for reefers.
+ Humidity                       Optional            Humidity level for reefer containers.
+ Dangerous Goods                Optional            Dangerous goods code (UNDG).
+ Code
+
+
+
+
+                                                                                      54 | P a g e
+ASYCUDA World Manifest User Guide           Ver.1
+                                    Vehicle Segment
+ Chassis Number                Mandatory           The Unique Vehicle Identification
+                                                   Number (VIN) for each vehicle.
+ Engine Number                  Optional           A Unique Identification Number marked
+                                                   on the engine of the vehicle.
+ Engine Cc                     Mandatory           The displacement of the motor measured
+                                                   in Cubic Centimeters (Cc).
+ Odometer Reading               Optional           Actual mileage of the vehicle.
+ Make/Brand                    Mandatory           The Manufacturer of the Vehicle.
+ Year                          Mandatory           The year of manufacture of the vehicle.
+ Colour                         Optional           The Colour of the Vehicle.
+ New/Used                       Optional           In accordance with Legislation.
+                                           Split
+ Nbr. Of Packages              Mandatory           Number of Packages.
+ Package Code                  Mandatory           Package Code.
+ Gross Weight                  Mandatory           Gross Weight of Goods.
+ Container Number               Optional           Container Number.
+ Marks and Nbr.                Mandatory           Marks for easy recognition of goods.
+ Goods Description             Mandatory           Description of goods.
+
+
+
+
+                                                                                   55 | P a g e
+ASYCUDA World Manifest User Guide          Ver.1
+

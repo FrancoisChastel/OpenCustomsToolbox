@@ -1,0 +1,1051 @@
+      RMI Finance Ministry – Customs
+                 Division
+
+
+
+
+ASYCUDAWORLD DECLARATION
+       USER GUIDE
+
+
+
+
+             RMI CUSTOMS DIVISION
+                              RMI Finance Ministry – Customs
+                                         Division
+
+
+                                       DECLARATION USER GUIDE
+Contents                                                                                      Page
+
+1   Compiling a Goods Declaration - Single Administrative Document (SAD)                        2
+    1.1 Logging into the ASYCUDAWorld system to access the Document library.                    2
+    1.2 SAD (main form) and SAD item page (for multiple item declaration)                       6
+    1.2.1      SAD Main Form                                                                    6
+       1.2.1.1 Instructions and directions                                                      6
+       1.2.1.2 Processing declarations with duty exemptions and waivers                         9
+       1.2.1.3 Instruction to key-in Customs Declaration (SAD)                                  9
+    1.2.2      SAD Item Form                                                                    13
+    1.2.3      Valuation Note (General Valuation Note and Item Value)                           15
+    1.2.4      Assessment Notice form                                                           16
+    1.2.5      Information page form                                                            17
+    1.2.6      Scanned documents form                                                           17
+    1.2.7      Container Form (For Declarations with Container/s).                              18
+       1.2.7.1 Steps involved in linking Containers(s) in the Bill of Lading to the Item(s)
+               in the S.A.D                                                                     18
+       1.2.7.2 Deleting or modifying containers in the container form.                          22
+    1.2.8      Carrying out “Register” operation to submit the customs declaration to
+               RMI customs                                                                      22
+
+2   XML Export and Import for Customs Declaration (SAD)                                         26
+
+
+    2.1 To export (Save) Custom declaration data (SAD) data to an XML file.                     26
+    2.2 To import declaration data from a saved XML file to an empty declaration (SAD)
+        eDocument.                                                                              28
+
+3   XLS (Microsoft Excel) Import for Customs Declaration (SAD)                                  30
+
+
+Appendix A – SAD fields and description
+
+
+
+
+                                       IMPACT ASYCUDAWorld Project - RMI
+                          RMI Finance Ministry – Customs
+                                     Division
+
+
+
+1. Compiling a Customs Goods Declaration - Single Administrative Document
+  (S.A.D)
+
+
+ 1.1 Logging into the ASYCUDAWorld system to access the Document library.
+
+
+        ➢ Log into the ASYCUDA World system using an authorized user name and password.
+        ➢ Click on the “document library” icon on the tool bar to reach the e-Documents page.
+        ➢ Enter login name and password and then press       to login into ASYCUDAWorld e-
+          Document processing system.
+
+
+
+
+        ➢ Once logging in is successful, the ASYCUDAWorld desktop screen will appear;
+
+
+
+
+                                                                                                2
+                         RMI Finance Ministry – Customs
+                                    Division
+
+
+
+
+   -   Press     button to get the ASYCUDA Document library.
+
+
+
+
+The ASYCUDA Document Library has a number of modules and access to these are based on the
+permissions granted.
+
+
+
+
+                                                                                            3
+                           RMI Finance Ministry – Customs
+                                      Division
+
+
+
+
+   Follow the document library folder path given below to obtain the SAD                        e-
+   Document:
+
+   ASYCUDA ➔ Goods Clearance ➔ Declaration ➔ Detailed Declaration ➔ <Right
+   Click> Detailed Declaration ➔ <Select> New
+
+
+
+
+This will open an empty Customs Declaration e-Document where traders and brokers can use to
+submit details of their cargo consignments, based on supporting documents such as invoices, bills
+of lading, packing lists, etc.
+
+
+                                                                                                     4
+                          RMI Finance Ministry – Customs
+                                     Division
+
+
+
+
+The customs declaration (SAD) consists of a main form and, five additional forms.
+
+    1.   SAD (main form) and SAD item page (multiple item declaration)
+    2.   Valuation Note (General Valuation Note and Item Value).
+    3.   Assessment Notice Form
+    4.   Information page form
+    5.   Scanned documents form
+    6.   Container Form (for Container Declaration).
+
+
+
+
+                                                                                    5
+                           RMI Finance Ministry – Customs
+                                      Division
+
+
+1.2 SAD (main form) and SAD item page (for multiple item declaration)
+
+ 1.2.1      SAD Main Form:
+
+   1.2.1.1 Instructions and directions -
+
+    Traders and importers can use the following instructions and directions when submitting
+    the import and export customs declaration (S.A.D.) in the ASYCUDA World (AW) system:
+
+    ▪      Matters to be considered when compiling a Customs Declaration.
+    •     Please take note of the error messages, system messages, and follow instructions
+    provided accordingly to complete the process.
+
+
+
+
+    •    Use the F3-Function key on the computer key board to access any reference. Select a
+         field that is enabled with F3 and <Right Click>, or press the F3 key directly;
+
+
+
+
+                                                                                               6
+                           RMI Finance Ministry – Customs
+                                      Division
+
+
+    ➢ Press the “Search”          button to receive the result window.
+
+
+
+
+    ➢ Select the required result and press “Import”              to obtain the data into the
+      SAD. <Right-click and then select "Import.”
+
+
+    ➢ Select a field that is enabled with the drop-down feature to obtain the appropriate
+      reference values for the declarations.
+
+
+
+
+    ➢ Place and hover the mouse over a certain field, label, or button to view the description.
+
+
+
+
+•   It is advised to obtain the eight-digit Harmonized System (HS) code for commodities from
+    the shipper or supplier so that traders can use the code in the declaration.
+    Traders can also use the Tariff Querry facility to get the HS code of the commodity. Invoke
+    the F3 function key from Cage 33 to get the tariff query window.
+
+
+                                                                                                  7
+                          RMI Finance Ministry – Customs
+                                     Division
+
+
+
+
+•   Use the green tick from the below screen sign to import the selected HS code to cage 33.
+
+
+
+
+                                                                                               8
+                         RMI Finance Ministry – Customs
+                                    Division
+
+
+1.2.1.2 Processing declarations with duty exemptions and waivers
+
+
+
+•     The relevant extended customs procedure and national procedure codes
+      provided/given in cage 37 can be used to claim duty exemptions and waivers for the
+      declaration.
+
+
+
+
+•    Traders can also attach a scanned pdf copy of the duty exemptions and waivers
+     letter(s) in the Scanned Document form.
+
+
+
+
+1.2.1.3 Instruction to key-in Customs Declaration (SAD)
+
+
+    Traders can import an XML or XLS file into the empty SAD declaration if they already have
+    an XLS file or saved an XML file.
+
+
+                                                                                           9
+                        RMI Finance Ministry – Customs
+                                   Division
+
+
+•   Follow “XLS Import for Customs Declaration (SAD)” or “XML Export and Import
+    for Customs Declaration (SAD)”, provided in the latter part of this guide, when using
+    XML and XLS file import and export facilities.
+
+    The SAD e-Document, which contain all the relevant details, is shown below.
+
+
+
+
+                                                                                            10
+                           RMI Finance Ministry – Customs
+                                      Division
+
+
+•    Notes:
+    • For Import Declarations:
+
+     The manifest field should be filled with a valid manifest registration year and number,
+     as shown in the figure given below.
+
+     Cage 40 of the SAD should be filled with the validated Bill of Lading reference number
+     (B/L No.) of the registered manifest, which is mentioned in the “Manifest” field.
+
+    <Year><Space><Manifest registration number>
+
+
+
+
+•   The relevant bill of lading e-document can be viewed using the “View Waybill” button
+    once the correct manifest registration number and bill of lading are entered in the
+    declaration.
+
+
+
+
+                                                                                               11
+                      RMI Finance Ministry – Customs
+                                 Division
+
+
+A sample bill of lading e-document is shown below, and the data elements of the bill of
+lading should match those of the customs declaration.
+
+
+
+
+                                                                                          12
+                             RMI Finance Ministry – Customs
+                                        Division
+
+
+
+      • An error window will pop up if the bill of lading for the given registered manifest cannot
+        be located in the AW system. The carrier or freight forwarder should be contacted to get
+        the correct manifest registration number and bill of lading number (B/L No).
+
+
+
+
+  •    The bill of lading has one package while the declaration has many items. This declaration
+       can be cleared by declaring 1 in the “Number of Packages” field in item 1 (one) and 0
+       (zero) for the remaining items in the declaration.
+
+
+1.2.2 SAD Item Form
+
+  •    Additional items windows can be opened by pressing the “Add item” button on the
+       toolbar.
+
+
+
+
+  ➢ Fill in the mandatory item details as per the SAD eDocument.
+
+
+
+
+                                                                                                 13
+                              RMI Finance Ministry – Customs
+                                         Division
+
+
+•      Use “Delete Whole Page” and “Delete individual Item” to delete unnecessary items or
+       item segments from SAD.
+
+
+
+
+•      Verification of a declaration can be done at any time by clicking on the “Verify the
+       document” icon at the top of the window.
+
+
+
+
+       The system displays the above message for each successful verification.
+
+•      The trader must rectify the errors before electronically submitting the SAD to customs.
+
+•      The “XML file” of the declaration can be stored by clicking on the “Export to ASYCUDA
+       XML file” icon on top of the window and storing the file accordingly.
+
+
+•     Note:
+
+    Follow “XML Export and Import for Customs Declaration (SAD)” provided in the latter part
+    of this guide when using XML file export facilities.
+
+
+
+
+                                                                                                 14
+                         RMI Finance Ministry – Customs
+                                    Division
+
+
+1.2.3 Valuation Note (General Valuation Note and Item Value)
+
+      The valuation note tab is where the trader has to declare additional freight (external
+      and internal), insurance, and other costs. The valuation note has two parts.
+
+     1. SAD-Valuation Note: General Segment - Contains the total value details of the
+        declaration.
+     2. SAD-Valuation Note: Item - Each item has its own valuation note segment and
+        contains the item-wise valuation breakdown.
+
+
+
+
+                                                                                               15
+                       RMI Finance Ministry – Customs
+                                  Division
+
+
+1.2.4 Assessment Notice form
+
+  The “SAD-Assessment Notice” form cannot be modified or entered with any data. The
+  “SAD-Assessment” notice shows the duties and taxes that need to be paid as well as the
+  total amount to be paid.
+
+
+
+
+                                                                                           16
+                         RMI Finance Ministry – Customs
+                                    Division
+
+
+1.2.5 Information page form
+
+    The additional information about the customs declaration can be entered in the “Info.
+    Page” tab. Customs and traders can use this space to exchange any information.
+
+
+
+
+1.2.6 Scanned documents form
+
+      Traders are required to add their supporting documents to this form to support their
+      customs declaration.
+      The following are the minimum required documents to be attached to the declaration:.
+
+       o Commercial Invoice;
+       o Bill of Lading;
+
+•   Note:
+
+    There is a file size limitation for the scanned documents, and traders are advised to break
+    the larger documents into several scanned documents.
+
+    Traders also have the option of uploading other supporting documents, such as:
+
+    o Packing list
+    o Duty exemption letters, etc.
+
+                                                                                              17
+                        RMI Finance Ministry – Customs
+                                   Division
+
+
+
+
+1.2.7 Container Form (For Declarations with Container/s).
+
+   The traders can use following instructions to declare containers for their full cargo
+  consignments (FCL).
+
+ 1.2.7.1 Steps involved in linking Containers(s) in the Bill of Lading to the Item(s) in the
+      S.A.D:
+
+     1. A new container tab can be created by checking the “Container flag”
+        check box on field 19 of the S.A.D.
+
+
+
+
+                                                                                           18
+                        RMI Finance Ministry – Customs
+                                   Division
+
+
+  •   Note:
+      The container details must be declared in the SAD in order to clear FCL
+      consignments.
+
+ 2. Click on the “Containers” tab at the bottom of the tool bar menu.
+
+
+
+
+3. Click on the “Item” field and press “F3”.
+
+
+
+
+                                                                                19
+                        RMI Finance Ministry – Customs
+                                   Division
+
+
+
+
+4. A new window will appear. Follow the steps given below to link the items in the
+   declaration to the container in the bill of lading.
+
+
+
+
+5. Click on the items in the Step 1, Step 2 and Step 3 to link the items with the
+   container. Repeat Step 2 and Step 3 for the additional items in the declarations. Once
+   all the Items in the declaration are linked to the containers, click the button in the
+   Step 3 to create containers into the container tab. The completed container tab is
+   shown below.
+
+ •   Note:
+      Ensure that the “Number of packages” and “Goods weight” fields in the
+     “Containers” window, match with the “Number of packages (50 in this example)”
+     and “Goods weight (100 KG in this example)” fields in the SAD window.
+                                                                                            20
+                       RMI Finance Ministry – Customs
+                                  Division
+
+
+
+Case 1: First Container contains Item 1st and 2nd Container contains Item 2
+
+
+
+
+Case 2: First Container and 2nd Container contain both Item 1 and Item 2
+
+
+
+
+                                                                              21
+                         RMI Finance Ministry – Customs
+                                    Division
+
+
+ 1.2.7.2 Deleting or modifying containers in the container form.
+
+      A container may be deleted or modified by right clicking on the container and
+      then selecting the “Delete container” or “Modify” option.
+
+
+
+
+1.2.8 Carrying out “Register” operation to submit the customs
+      declaration to RMI customs
+
+  •   Once the declaration is correct without any errors, register the declaration by
+      clicking on the “Validate”     icon at the top of the window. This will submit the
+      declaration to customs, and the system will issue a customs reference number.
+
+
+
+
+  •   Press tick sign     on the confirmation widow to confirm the validate declaration
+      operation.
+
+
+
+                                                                                           22
+                           RMI Finance Ministry – Customs
+                                      Division
+
+
+
+
+    •   An automatic customs reference number will be issued and traders are expected to
+        use this reference number for any correspondence with the RMI Customs. The box
+        “Print S.A.D document” can be ticked to get the customs declaration print out.
+
+
+
+
+•   An automatic e-mail message will be generated with the registered customs declaration
+    as an attachment.
+
+
+
+
+                                                                                           23
+                         RMI Finance Ministry – Customs
+                                    Division
+
+
+
+
+•   Traders may search for the declaration in the document library and print their
+    registered declaration.
+
+
+
+
+                                                                                     24
+                        RMI Finance Ministry – Customs
+                                   Division
+
+
+
+
+•   Use “view operation” to view the declaration and then “Print” button to print the
+    customs declaration.
+
+
+
+
+                                                                                        25
+                             RMI Finance Ministry – Customs
+                                        Division
+
+
+
+
+2. XML Export and Import for Customs Declaration (SAD)
+
+ 2.1 To export (Save) Custom declaration data (SAD) data to an XML file.
+
+  •   When preparing their customs declaration, traders can use the XML export
+      option, which saves the data in XML on the machine in use. This facility
+      does not require the completion of declarations.
+  •   Trades are advised to use this option to avoid losing data already keyed in as
+      a result of connectivity issues due to power failures, disabling the internet,
+      etc.
+
+  •   Use     button to store Customs declaration data to an XML format on your
+      Desktop computer.
+
+
+
+
+                                                                                       26
+                          RMI Finance Ministry – Customs
+                                     Division
+
+
+•   Select a folder on the machine that is being used to store XML files and click
+    “Save” button to execute the operation.
+
+
+
+
+•   Click on the         tick sign to complete the operation and it will show you
+    the location of the xml file saved.
+
+
+
+
+                                                                                     27
+                          RMI Finance Ministry – Customs
+                                     Division
+
+
+2.2 To import declaration data from a saved XML file to an empty declaration (SAD)
+   eDocument.
+
+    •   The XML import        option can be used to import saved XML data on to an empty
+        customs Declaration (SAD). Traders may use this method to save declaration key-in
+        time and also, maintain different XML templates as per their declaration types.
+
+
+
+
+    •   Select the location of the XML file on your local drive and press “Open” to retrieve data.
+
+
+
+
+▪
+
+                                                                                                     28
+                         RMI Finance Ministry – Customs
+                                    Division
+                                                                                                 ▪
+
+
+
+▪   Click tick       sign to complete the operation.
+
+
+
+
+▪   The empty SAD fields will be filled with data saved in the XML file.
+
+
+
+
+▪   The traders may modify the retrieved data according to the current bill of lading and commercial
+    invoice.
+
+
+
+
+                                                                                                       29
+                             RMI Finance Ministry – Customs
+                                        Division
+
+
+3. XLS (Microsoft Excel) Import for Customs Declaration (SAD)
+
+  ▪   ASYCUDAWorld equipped with importing data from the preprepared Microsoft XLS file. Traders
+      are required to prepare the MS XLS file with the declaration data in advance before using this
+      facility. Traders can use pre-prepared XLS template to customize their declaration.
+
+
+
+  ▪   Use          “Import from ASYCUDA XLS file” button to import data from MS XLS file.
+
+
+
+
+  ▪   Select the location of the XLS file on your local drive and press “Open” to retrieve data.
+
+
+
+
+  ▪   Click tick         sign to complete the operation.
+
+
+
+                                                                                                   30
+                          RMI Finance Ministry – Customs
+                                     Division
+
+
+
+
+▪   The empty SAD fields will be filled with the saved data from the XML file.
+
+▪   The traders can modify the retrieved data according to the current bill of lading and commercial
+    invoice.
+
+
+
+
+                                                                                                       31
+             RMI Finance Ministry – Customs
+                        Division
+
+
+             Appendix A – SAD fields and description
+
+Box   Box Caption      Description
+No.
+A     Customs          A customs office at which a
+      Clearance        declaration is lodged. In case of
+      office*          IMPORT the field, name is: Office
+                       of destination while in EXPORT it
+                       is: Office of dispatch/Export
+1     Declaration*     Typeof declaration code according
+                          to the standard (EX1, EX2, IM4,
+                       etc...)./.
+
+
+2     Exporter*        Party who makes, or on whose
+                       behalf, the export declaration is
+                       made and who is the owner of the
+                       goods or has similar right of
+                       disposal over them at the time when
+                       the declaration is accepted./. In case
+                       of IMPORT the exporter is residing
+                       outside the country of destination
+                       and consequently his information
+                       does not exist in the reference data
+                       tables. Thus, his information is
+                       entered manually as written in the
+                       transaction’s documents. In case of
+                       EXPORT, his information should
+                       be stored in the relevant reference
+                       table and could be filled in
+                       automatically either popped up or
+                       using the finder.
+3                      Used by the system
+4     Load List        The number of loading lists,
+                       manifests or similar documents.
+                       (Known also as bill of lading)
+
+
+                                                                32
+               RMI Finance Ministry – Customs
+                          Division
+
+5     Items               Number of declared items.
+
+
+N/A   Manifest            Reference number to identify a
+                          manifest.
+6     No. packages        Total number of packages for the
+                          whole declaration; packages are
+                          made in such a way that they cannot
+                          be divided without first undoing the
+                          packing.
+7     Reference           Trader’s    Declaration   reference
+      number              number. A number given to the
+                          declaration   from    the   trader’s
+                          register. The trader can use it to
+                          retrieve/modify his declarations.
+8     Consignee*          Name [and address] of party who
+                          makes, or on whose behalf a
+                          Customs clearing agent or other
+                          authorized  person   makes, an
+                          import declaration. This may
+                          include   a  person   who    has
+                          possession of the goods or to
+                          whom the goods are consigned.
+9     Financial*          Name and address of the party
+                          responsible for either the transfer
+                          or repatriation of the funds
+                          relating to a transaction
+10    County       last   Country from which goods have
+      con.*               been or will be consigned prior to
+                          final importation
+11    Trading cty.*       Country in which the deal was
+                          done. (It might be useful as an
+                          indicator for the customs value)
+12    Value details       Additional cost items.
+13    C.A.P*              Common Agricultural Policy. (For
+                          EU countries)
+
+                                                                 33
+             RMI Finance Ministry – Customs
+                        Division
+
+14   Declarant*        Customs clearing agent; could be
+                       the trader, if he is authorized to
+                       clear his consignments by himself,
+                       or a brokerage agency.
+
+
+15   Country    of     Country from which goods are
+     export*           dispatched between countries of a
+                       Customs union, Dispatch country,
+                       Country of exportation, Country
+                       of provenance.
+
+
+16   Country    of     Country in which the goods have
+     origin*           been produced or manufactured,
+                       according to criteria laid down for
+                       the application of the Customs
+                       tariff or quantitative restrictions
+                       (quota), or any measure related to
+                       trade.
+
+
+17   C.D.*             Country    of   destination; the
+                       country to which a consignment is
+                       to be delivered to the final
+                       consignee.
+
+
+18   Identity   and    Means of transport used at the
+     nationality* of   time of presentation (departure for
+        active         export, arrival for import) of the
+     means             consignment to a Customs office in
+        of transport   the context of a goods declaration.
+     at departure
+19   Ctr.              An indication whether goods are
+                       transported in a container or not.
+
+
+20   Delivery          Terms of delivery,     coded,   Inco
+     terms*            terms Code
+
+
+
+                                                              34
+             RMI Finance Ministry – Customs
+                        Division
+
+21   Identity and       Description of a type of means of
+     nationality*       transport.
+     of active
+     means of
+     transport
+     crossing the
+     border
+22   Currency*    &     Total monetary amount charged in
+     total    amount    respect of one or more invoices
+     invoiced           associated with the currency in
+                        which goods were purchased. The
+                        red underline draws the user’s
+                        attention to fill in the general
+                        valuation note form.
+
+
+23   Exch. Rate*        The rate at which one specified
+                        currency is expressed in another
+                        specified currency.
+
+
+24   Nature     of      Code-1 specifying a type        of
+     transact.*         contract./. Main category
+
+
+24   Nature     of      Code-2 specifying a type        of
+     transact.*         contract./. Sub category
+
+
+                        Code-1 and Code-2 should read
+                        together    I  order   to   give  a
+                        comprehensive      description   of
+                        nature of transaction.
+25   Mode               Code specifying a type of means of
+     transport       at transport.
+     border*
+26   Inland   mode Code specifying a type of means of
+     transport*    transport       for     in-country
+                   transportation.
+
+
+                                                              35
+              RMI Finance Ministry – Customs
+                         Division
+
+27   Place     of       Name of a seaport, airport, freight
+     discharge*         terminal, rail station or other place
+                        at which goods are loaded onto the
+                        means of transport being used for
+                        their carriage.
+
+
+28   Financial and Bank code
+     banking data*
+28                 Terms of payment.
+29   Office       of    Customs office at which the goods
+     entry*             enter the customs territory of
+                        destination.
+
+
+30   Location     of    Name of the place where a specific
+     goods*             goods item is located and eventual
+                        location   in    which     physical
+                        inspection might take place.
+
+
+31   Packages and Plain language description of the
+     description of nature of a goods item sufficient to
+     goods*         identify it for customs, statistical or
+                    transport purposes. The kind of
+                    package code is chosen from a pull-
+                    down menu and the corresponding
+                    text is printed on the next line.
+
+
+32   Item No.           Serial number of the item in that
+                        declaration.
+
+
+33   Commodity          Code      (Harmonized    system)
+     code*              specifying a type of goods for
+                        Customs, transport or statistical
+                        purposes (generic term).
+
+
+34   Cty. Orig.         A code to identify the country in
+     Code*              which the goods       have been
+
+                                                                36
+             RMI Finance Ministry – Customs
+                        Division
+
+                       produced       or      manufactured,
+                       according to criteria laid down for
+                       the application of the Customs
+                       tariff or quantitative restrictions, or
+                       any measure related to trade.
+
+
+35   Gross mass        Weight (mass) of goods including
+                       packaging     but  excluding the
+                       carrier's equipment.
+
+
+36   Prefer. Code*     Code     specifying    a    regime
+                       according to which tax is assessed
+                       such as preferential duty rate.
+
+
+37   PROCEDURE         Code     specifying a procedure
+     *                 performed by Customs on goods
+                       which are subject to Customs
+                       control.
+38   Net mass          Weight (mass) of goods without
+                       any packaging.
+39   Quota             Quota reference; when a quota
+                       related transaction is in question,
+                       eligible traders should fill in this
+                       field with the appropriate quota
+                       reference. In a well-designed
+                       system, when a quota is depleted,
+                       the trader should be treated
+                       differently   according     to   the
+                       regulations in force.
+40   Summary           The  identifier of       a   previous
+     declaration/      Customs document.
+     Previous
+     document
+41   Supplementary     Quantity of the goods in the unit
+     units             as required by Customs for tariff,
+                       statistical or fiscal purposes.
+
+                                                                 37
+             RMI Finance Ministry – Customs
+                        Division
+
+42   Item price        Amount due for each chargeable
+                       item of goods or services.
+
+
+43   Valuation         Method used to value the declared
+     method code*      item.
+
+
+44   Additional        Identifier of a document providing
+     information       additional information.
+
+
+45   Adjustment        Monetary      Amount   Adjustment.
+                       Identifier;
+
+                       To identify an adjustment to a
+                       monetary amount such as an
+                       allowance or charge. (Percentage
+                       converted into a 2-digit decimal
+                       fraction)
+
+
+46   Statistical       Value     declared   for statistical
+     value             purposes of those goods in a
+                       consignment having the same
+                       statistical heading.
+
+
+47   Calculation   of A    mathematical     formula      is
+     taxes            adopted to calculate the various
+                      duties / taxes /fees due on each
+                      item of the consignment. This
+                      encompasses; duties or         taxes
+                      applicable to commodities or a
+                      type of tax or fee applicable to
+                      services. The formula is applied
+                      on the tax base relevant to each tax
+                      type.
+48   Deferred          Reference number identifying a
+     payment           payment of a duty or tax e.g. under
+                       a transit procedure.
+
+                                                              38
+             RMI Finance Ministry – Customs
+                        Division
+
+49   Identification     To identify a warehouse where a
+     of                 particular consignment has been
+     warehouse*         stored.
+
+
+50   Principal*         Name and address of a party liable
+                        for goods moving under a customs
+                        authorization      and,     when
+                        applicable, a guarantee.
+
+
+51   Intended          Name of the customs office which
+     office         of is responsible for transit formalities
+     transit           en route.
+
+
+52   Guarantee not Customs office at which a security
+     valid for     or guarantee for the movement of
+                   goods under a transit procedure is
+                   lodged.
+
+
+53   Office     of   Name of the customs office at
+     destination and which goods are released from a
+     country         Customs transit regime.
+
+
+54   Place        and   To be filled by the representative of
+     date               the trader indicating the date of the
+                        declaration and the name of the
+                        representative.
+
+
+
+
+                                                                39
+

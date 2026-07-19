@@ -1,0 +1,565 @@
+DEPARTMENT OF FINANCE AND ADMINISTRATION
+
+    CUSTOMS AND TAX ADMINISTRATION
+
+
+
+
+    Declaration Reference User Guide
+                   Version 1.0
+
+
+
+
+       Prepared by the National Project Team
+                   March - 2024
+Document versions
+Version Number   Purpose/Change   Author          Date
+1.0              Initial copy     Arlette INEZA   03/23/2024
+
+
+
+
+                                                     1|Page
+Contents
+I.         INTRODUCTION ..................................................................................................................................... 3
+II.        GENERAL INFORMATION ...................................................................................................................... 4
+      1.        How to access the module ............................................................................................................... 4
+      2.        Open the main menu ....................................................................................................................... 4
+      3.        Declaration fields ............................................................................................................................. 5
+III.            DECLARATION PROCESSING ............................................................................................................. 9
+1.         Access the goods clearance module ..................................................................................................... 9
+2.         Open a new declaration ........................................................................................................................ 9
+           a.       Completing the S.A.D form (Main form) ................................................................................... 10
+           b.       Completing the valuation note form ......................................................................................... 13
+           c.       Completing the assessment notice form ................................................................................... 14
+           d.       Completing the info page form ................................................................................................. 15
+           e.       The scan doc form ..................................................................................................................... 16
+           f.       Completing the container from ................................................................................................. 17
+           g.       Completing the previous document form ................................................................................. 18
+3.         Store a declaration .............................................................................................................................. 21
+4.         Find a declaration................................................................................................................................ 21
+5.         Retrieve a declaration ......................................................................................................................... 23
+6.         Validate and assess a declaration ....................................................................................................... 24
+7.         Pay a declaration using a prepayment account .................................................................................. 24
+
+
+
+
+                                                                                                                                                 2|Page
+   I.      INTRODUCTION
+
+In keeping with our vision to be a modernized customs and tax administration delivering
+excellence in revenue collection, border protection, and trade facilitation, the Customs and Tax
+administration is pleased to share with all the importers the ASYCUDA World Customs Declaration
+User’s Guide. The manual is intended to guide the system users in preparing and submitting the
+electronic cargo declaration. This manual is intended to complement the hands-on training
+provided by the ASYCUDAWorld National Project Team to ensure that people who interact with
+the system are both knowledgeable and comfortable.
+The declaration processing is the core component of any Customs clearance process. Declarations
+are the base document of the Customs Administrations, provide data to control the movement
+of goods into and out of the country, and are the main source of national trade statistics.
+In ASYCUDAWorld, the input and assessment of declarations is done by the importer or their
+representatives. The Customs Officers on the other hand do the control portion of the customs
+declaration process.
+Only registered users can use ASYCUDAWorld. To gain access to the system, a user will apply using
+the user registration form developed for this regard.
+
+
+
+
+                               WELCOME TO ASYCUDAWORLD!
+
+
+
+
+                                                                                      3|Page
+   II. GENERAL INFORMATION
+
+   1. How to access the module
+
+The access to ASYCUDA World is granted through an application process. All users must submit
+the user application and registration form to the Customs and Tax Administration to get access.
+The Customs and Tax Administration will issue a login name and initial password. The appropriate
+access rights will be granted based on the profile of the applicant. To access the Goods clearance
+module, the user must have the relevant rights.
+
+   2. Open the main menu
+
+When the user is logged into ASYCUDAWorld, the main menu is accessed by clicking on the
+
+      button.
+
+
+
+
+Then the main menu opens. The available modules depend on the access level granted to the
+user’s profile.
+
+
+
+
+                                                                                       4|Page
+   3. Declaration fields
+Here is a list of the declaration data fields and the respective description.
+
+
+ Nr Data field             Description
+ A Customs clearance       A customs office at which a declaration is lodged.
+    office
+    Registration      It is assigned automatically by the system when a declaration is validated. It
+    number            is made up of a serial letter and sequence number (e.g. C 427)
+    Registration date Represents the date the declaration is registered in the system
+    Manifest          It represents the reference number of the cargo manifest, which contains the
+                      goods being declared.
+                      It is made up of the manifest reference and the manifest reference number
+                      the two separated by a space (e.g. 2024 12)
+ 1 Declaration        Type of declaration code according to the standard (EX1, EX2, IM4, SD4
+                      etc...).
+ 2 Exporter Code      The business code of the entity that last held ownership of the goods prior
+                      to the importation or exportation. This field is not used when submitting an
+                      import declaration.
+    Exporter Name and The name of the entity that last held ownership of the goods prior to the
+    Address           importation or exportation. This field is not mandatory when submitting an
+                      import declaration.
+ 3 Number of the This is automatic information. It is the sequential number of the current
+    forms             form.
+    Total number of This is automatic information. It is the total number of fields.
+    forms
+ 4 Load List          The number of loading lists, manifests, or similar documents.
+ 5 Items              The total number of the declared items.
+ 6 No. packages       Total number of packages for the whole declaration.
+ 7 Reference number Unique reference number of a declaration provided by the trader.
+ 8 Consignee - code   The person who has possession of the goods or to whom the goods are
+                      consigned. Here, we provide the TIN / Business ID number.
+    Consignee - name  The name or description of the person or business who has possession of the
+                      goods or to whom the goods are consigned. Here, we provide the system will
+                      automatically fill the name and address.
+ 9 Financial          Name and address of the party responsible for the payment of the duties
+                      paid on the declaration. This field will be used when that person / business
+                      is different from the consignee.
+ 10 County last con   Country from which goods have been or will be consigned prior to final
+                      importation
+ 11 Trading cty       Country in which the financial transaction / purchase was finalized.
+ 12 Value details     Additional cost items as provided on the valuation note
+
+
+
+
+                                                                                          5|Page
+13 C.A.P                  Common Agricultural Policy. This field is not used in the FSM.
+14 Declarant - Code       Business ID or TIN of the entity in charge of the clearance. This can be the
+                          Customs clearing agent (broker) code or the trader business ID.
+   Declarant - Name       Name / description of the entity responsible for the clearance.
+15 Country of export      Country from which goods are despatched for the purpose of export.
+
+16 Country of origin    Country in which the goods have been produced or manufactured.
+                        It is the country of origin of the goods and reflects the code entered at the
+                        item level in Box 34. When more than one country of origin is declared, the
+                        word “Many” will be displayed in the field.
+17   C.D. Country of The country to which a consignment is to be delivered to the final consignee.
+     destination        For import declarations, the country of destination will always be FSM.
+18   Identity      and Means of transport used from the border office to the destination.
+     nationality     of (Departure for export, arrival for import)
+     active means of
+     transport       at
+     departure
+19   Ctr                An indication whether goods are transported in a container or not. Ticking
+                        this box will cause a container list to be opened.
+20   Delivery terms - The field describes the particulars of the terms of the commercial contract
+     Code               (terms of delivery) between the buyer and seller of the goods consigned.
+                        The code is the international standard INCOTERMS code
+     Delivery terms - It is the place to where the INCOTERMS are relevant
+     Place
+21   Identity and       Free form description of a type of means of transport arriving at and crossing
+     Nationality     of the border
+     active means of
+     transport Crossing
+     the border
+
+22 Currency - code      The code for the currency in which the commercial invoice is presented.
+   Total       amount   Describes the invoiced price for all goods declared. The Amount represents
+   invoiced             the sum of the all item prices declared in the currency invoiced
+23 Exch. Rate           The exchange rate in force between the invoiced currency and the US Dollar
+                        The appropriate exchange rate is automatically inserted by the system after
+                        selecting the currency code.
+24   Nature of transact Not used in the FSM
+24   Nature of transact Not used in the FSM
+25   Mode transport at Code specifying a type of means of transport at border
+     the border
+26   Inland       mode Code specifying a type of means of transport for in-country transportation.
+     transport          This field is not used in the FSM
+                                                                                          6|Page
+27 Place of discharge    Name of a seaport, airport, freight terminal, rail station or other place at
+                         which goods are loaded onto the means of transport being used for their
+                         carriage.
+28 Financial         and Not used in the FSM
+   banking data
+29 Office of entry       Customs office at which the goods enter the customs territory of destination.
+30 Location of goods     Name of the place where a specific goods item is located and eventual
+                         location in which physical inspection might take place.
+31 Marks             and Marks provided by the supplier on the package 1st part
+   Numbers            of
+   package1
+   Marks         and       Marks provided by the supplier on the package 2nd part
+   Numbers         of
+   package2
+   Number          of      It is the number of packages for the item being declared.
+   packages
+   Kind of packages -      The code used to describe the shape or configuration of a package.
+   code
+   Kind of packages -      Description of the package code
+   name
+   Container number        Reference of the container if the goods are in a container
+   Description     of      The commercial description of the goods
+   goods
+32 Item No.                This box is automatically completed by the computer system; it identifies the
+                           item number currently being completed
+33 Commodity code          Code (Harmonized system) specifying a type of goods for Customs, transport,
+                           or statistical purposes (generic term).
+34 Cty. Orig. Code         A code to identify the country in which the goods have been produced or
+                           manufactured, according to criteria laid down for the application of the
+                           Customs tariff or quantitative restrictions, or any measure related to trade.
+35 Gross mass              Weight (mass) of goods including packaging but excluding the carrier's
+                           equipment.
+36 Prefer. Code            Code specifying a regime according to which tax is assessed such as
+                           preferential duty rate. This field is not used in the FSM
+37 Procedure      -        This field comprises four-digits and identifies the Customs Procedure Code
+   Extended customs        (CPC); whereby the first two-digits represent the procedure being requested,
+   procedure code          followed by a second two-digit representing the previous procedure (if any).
+   Procedure      -        This field represents the Additional National Codes (ANC). It is a three-digit
+   National customs        alpha numeric codes that identify if the goods subject to special duty/tax
+   procedure code          treatment
+38 Net mass                Weight (mass) of goods without any packaging.
+39 Quota                   Field not used in the FSM
+
+40 Summary                 Identifies the bill of lading or airway bill number required to identify the
+                           consignment of goods.
+
+                                                                                              7|Page
+                      In certain CPCs the box is used to refer to a previous document (e.g.
+                      temporary importation or exportation, etc.)
+41   Supplementary    Quantity of the goods in the unit as required by Customs for
+                      tariff, statistical or fiscal purposes
+42   Item price       Amount due for each chargeable item of goods or services before other costs
+                      are added (unless invoice is quoted CIF).
+43   Valuation method Method used to valuate the declared item.
+     code
+44   Additional       Identifier of a document providing additional information.
+     information
+45   Adjustment       Monetary Amount Adjustment Indicator.
+
+46 Statistical value      Result of the Customs value as multiplied by the adjustment indicator. The
+                          Statistical value is used in the tax rules as the tax base.
+47   Calculation of taxes The various duties / taxes /fees due on each item of the consignment are
+                          calculated through the tax rules of the system and the results are displayed
+                          in this box. The taxation rules determine what is displayed in terms of tax
+                          type; tax base; tax rate, the tax amount that is calculated and the mode of
+                          payment. Eight taxes can be displayed on one declaration.
+48   Deferred payment This box is used for the account number if payment is made using a credit or
+                          pre-payment account. If not completed, the declaration will be cash paid.
+49   Identification    of To identify a warehouse where a particular consignment has been stored.
+     warehouse
+     Warehouse time It is the duration in days of the period under which the goods will remain in
+     delay                any suspense regime. This field will be available for warehousing, temporary
+                          imports, temporary exports and any other suspense regime
+B    Accounting Details This box shows the mode of payment, the assessment number and receipt
+                          number when a declaration has been paid, as well as the processing dates.
+                          It includes any global fees calculated, and the sum of all amounts to be paid
+                          in full.
+50   Principal            This field is not used in the FSM.
+51   Intended office of This field is not used in the FSM.
+     transit
+52   Guarantee        not This field is not used in the FSM.
+     valid for
+53   Office            of This field is not used in the FSM.
+     destination and
+
+54 Place and date         To be filled by the representative of the trader indicating the date of the
+                          declaration and the name of the representative.
+
+
+
+
+                                                                                             8|Page
+  III. DECLARATION PROCESSING
+
+  1.   Access the goods clearance module
+
+  Access the Detailed declaration e-document by navigating the Document Library using the
+  Path: ASYCUDA -> Goods clearance -> Declaration -> Detailed declaration -> Detailed
+  declaration.
+
+
+
+
+   2. Open a new declaration
+To create a new declaration, right click on “Detailed Declaration” menu and select “New” option.
+
+
+
+
+                                                                                     9|Page
+The Detailed Declaration e-document will open. It is composed of one main form (S.A.D) and
+other subsequent form. Some forms will be available depending on the information captured on
+the main form. Otherwise, they will be hidden.
+
+
+   a. Completing the S.A.D form (Main form)
+
+The SAD main form consists of two (2) segments:
+ • the general segment,
+ • and the item segment.
+
+The general segment covers the general information about the entire consignment, while the
+item segment contains all the necessary specific information required to clear the consignment.
+Once you click the “New” operation, the declaration form will appear:
+
+   1. The General information part
+
+
+
+
+                                                                                   10 | P a g e
+   2. The item details part
+
+
+
+
+   3. The calculation of taxes part
+
+
+
+
+If you have more than one item, click the   add item icon in the tool bar above the main form
+as illustrated below.
+
+
+
+
+                                                                                 11 | P a g e
+A new numbered tab will be attached to the main form of the declaration with the additional
+item as illustrated below. The fields on this form are identical to the fields of the item segment of
+the main form.
+
+
+
+
+                                                                                         12 | P a g e
+Three items can be added on each new page. If there are more items, the same process is
+
+repeated by clicking the add new page icon       .
+
+
+
+
+   b. Completing the valuation note form
+
+
+This form contains the global invoiced value of all the goods declared in the main S.A.D form. It
+also allows input of value build up information such as freight and insurance costs and
+automatically apportions the costs between the declaration items.
+The invoice value entered for each item on the main form (SAD) will be automatically entered on
+the item on the valuation form.
+
+
+
+
+                                                                                     13 | P a g e
+The information added on the valuation note level include:
+ • The invoice value which is mandatory
+ • The external freight if applicable
+ • The internal freight if applicable
+ • The insurance if applicable
+ • Other costs related to the declaration
+
+
+    c. Completing the assessment notice form
+The Assessment Notice Page outlines the details and totals of all the applicable duties, taxes and
+fees associated with the declaration. These details are displayed in total as the assessed amount
+to be paid. All updates to the declaration that impacts the duties, taxes and fees payable which
+may arise during the clearance process are captured on this page. These updates may include
+additional amounts to be paid or refunded.
+
+
+
+
+                                                                                      14 | P a g e
+   d. Completing the info page form
+
+
+This is a free text page that allows the declarant t to record additional information that may not
+be captured on the other tabs of the declaration. This page also allows the importers to provide
+clarity, note additional comments or responses that may be required for the processing of the
+declaration.
+
+
+
+
+                                                                                      15 | P a g e
+   e. The scan doc form
+
+
+This form allows the importer to upload all relevant documents to support the declaration.
+
+
+
+
+Add a new scanned document
+
+To add a new scanned document, click on the       icon and select the file to upload.
+Then select the type of scanned document in the code dropdown list.
+                                                                                        16 | P a g e
+Click on the       icon to upload the file.
+
+If more than one item is to be uploaded, repeat the same process until all the files are uploaded.
+     f. Completing the container from
+This page is optional and is only required for containerized declarations. The container page is
+triggered by the selection of Box 19 on the Declaration S.A.D page. The Container Page is used to
+capture all associating containers linked to the commodities being declared from a particular
+waybill/shipment. It is essential that during the preparation of the declaration all the commodity
+item lines are completed prior to completing the container page. This will allow the system to fill
+all the relevant details required on this page. After this page is completed the system conducts a
+validation between the details on the container page and the S.A.D declaration to ensure
+consistency prior to submission.
+
+Add a container
+To use the container tab, tick the box 19 on the S.A.D form. Then the Containers tab will be
+available.
+
+
+
+
+                                                                                       17 | P a g e
+Then click on the “Containers” tab to capture the containers linked to the commodities on the
+declaration.
+
+Fill out the container information and click    icon to add the container information.
+
+
+
+
+Repeat the same process to add the container information for all the item lines.
+
+
+   g. Completing the previous document form
+
+
+This page is triggered by a declarant identifying in his declaration that there is a previous
+procedure that related to the operation being carried out. This is triggered by the procedure
+indicated in Box 37 of the declaration. The S.A.D Page must be completed prior to completing the
+Previous Document Tab. The Declarant is then required to enter the details of the registered
+declaration that is being referenced.
+
+                                                                                    18 | P a g e
+If the selected procedure requires the completion of a previous document, the “Previous
+document” tab will be triggered.
+Fill out the information on the previous declaration and the information on the current
+declaration.
+
+
+
+
+Repeat the same process on the current declaration part if more than one item are involved.
+
+The click the   icon and the system will automatically fill the field 40 (Summary declaration /
+Previous document) with the reference of the declaration.
+
+
+
+
+                                                                                   19 | P a g e
+Check declaration validity
+When the user has entered all the information into the system, he can check if all the required
+
+information have been provided. To check click the       icon. If all information have been
+provided, the message below will appear
+
+
+
+
+Otherwise, a list of errors will be displayed.
+
+
+
+
+                                                                                      20 | P a g e
+   3. Store a declaration
+One may choose to store the declaration to retrieve for later use. The importer will store the
+
+declaration by clicking on the    icon. The user can store a declaration at any time and be able
+to retrieve it later.
+
+
+
+
+    4. Find a declaration
+To find a declaration, right click on the Detailed Declaration e-document from the library and
+choose the find option.
+
+
+
+
+                                                                                    21 | P a g e
+A window with search criteria will be opened and the user will use the appropriate criteria to find
+the needed information. Multiple search criteria can be combined to get the right line(s).
+
+
+
+
+Then click the       icon. A list of all records matching the search criteria is displayed.
+
+
+
+
+Details of the operations performed on the records can be viewed by clicking on the “Details”
+operation. The following screen will appear:
+
+
+                                                                                          22 | P a g e
+    5. Retrieve a declaration
+Right click on the declaration and choose “Retrieve” option.
+
+
+
+
+The declaration form will be displayed and when all the modifications are done, the user can store
+or validate the declaration.
+
+
+
+
+                                                                                      23 | P a g e
+   6.   Validate and assess a declaration
+
+This operation corresponds to the submission of the declaration to the Customs and Tax
+Administration. When the importer validates and assesses his declaration, he will no longer be
+able to retrieve it.
+
+
+To validate and assess the declaration, the importer will click on the   icon.
+
+
+
+
+   7. Pay a declaration using a prepayment account
+A declaration can be automatically paid when the importer performs the “Validate and assess”
+operation. This is possible when a pre-payment account is provided on the S.A.D field “Deferred
+payment”.
+
+
+
+
+                                                                                   24 | P a g e
+The pre-payment account is created before it can be used on a declaration.
+
+
+
+
+             CONGRATULATIONS!!! YOU HAVE SUBMITTED YOUR DECLARATION.
+
+
+
+
+                                                                             25 | P a g e
+

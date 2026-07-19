@@ -1,0 +1,1476 @@
+Declaration - Tables Description - V 0.1.0905                                 ASYCUDA World
+
+
+
+
+                              Declaration - Tables Description - V 0.1.0905
+
+
+
+
+UNCTAD/DTL                                                                           Page 1
+Declaration - Tables Description - V 0.1.0905                                                                            ASYCUDA World
+
+
+
+
+Introduction
+
+The following document presents the technical description of the database tables used to record all of the transaction data relevant to
+the SAD (Single Administrative Document).
+
+
+Stucture of the document
+
+This document gives a detailed description of each database table Notes regarding following table data: The data is presented in the
+following format.
+
+Field Name - DOM Representation - Null? - Data Type - Description
+
+The Field Name is the name given to the data element in the table.
+
+The DOM Representation is the Data set structure associated with the Field.
+
+Null? shows whether the Field Value could be empty or not.
+
+Data Type indicates the type and length of data being stored, and how the engine is storing it.
+
+This is useful as an indication of the type validation performed against each element.
+
+The Length is to be treated with caution, where data is stored in a numeric format, the length indicated is that for the table column.
+It may seem different from the length available in the interface screens, but this is because the engine formats the data so that it is
+stored in its most efficient manner. In particular, the date length seems meaningless. This simply indicates that the data is stored in the
+Database server date format, which incorporates the necessary structure and length.
+
+Description is a brief explanation of the Field.
+
+The table columns are presented in the same order that they appear in the actual database tables.
+
+
+
+
+UNCTAD/DTL                                                                                                                          Page 2
+Declaration - Tables Description - V 0.1.0905                                                     ASYCUDA World
+
+
+
+
+Tables Structure
+
+SAD_General_Segment - SAD General Segment
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+InstanceId                                            NOT NULL   INTEGER       Internal key
+RLS_CUO_COD                      RLS.CUO.COD                     VARCHAR(5)    Export Release Customs Office Code
+RLS_CUO_NAM                      RLS.CUO.NAM                     VARCHAR(35)   Export Release Customs Office Name
+RLS_REF                          RLS.REF                         VARCHAR(35)   Export Release Reference
+RLS_INF                          RLS.INF                         VARCHAR(35)   Export Release Information
+RLS_DAT                          RLS.DAT                         DATE          Export Release Date
+RLS_TIM                          RLS.TIM                         TIMESTAMP     Export Release Time
+PRV_DTY                          PRV.DTY                         DOUBLE        Previous amount of duties & taxes for
+                                                                               declaration
+PTY_COL_DSC                      PTY.COL.DSC                     VARCHAR(35)   Selected colour description
+PTY_COL_IND                      PTY.COL.IND                     VARCHAR(1)    Selected colour indicator
+PTY_BLU                          PTY.BLU                         INTEGER       Blue flag
+PTY_RED                          PTY.RED                         INTEGER       Red flag
+PTY_YEL                          PTY.YEL                         INTEGER       Yellow flag
+PTY_GRE                          PTY.GRE                         INTEGER       Green flag
+PTY_OAS                          PTY.OAS                         LONGVARCHAR   Selected other administrations lock
+PTY_QUE                          PTY.QUE                         INTEGER       Query flag
+PTY_WDE                          PTY.WDE                         DATE          Working date
+PTY_FRM_NBR                      PTY.FRM.NBR                     INTEGER       Number of the Form
+PTY_FRM_TOT                      PTY.FRM.TOT                     INTEGER       Total number of Forms
+PTY_NBR_LDL                      PTY.NBR.LDL                     INTEGER       Number of loading lists
+PTY_NBR_ITM                      PTY.NBR.ITM                     INTEGER       Number of items
+PTY_NBR_PCK                      PTY.NBR.PCK                     INTEGER       Total number of packages
+PTY_PLC                          PTY.PLC                         VARCHAR(35)   Place of declaration
+PTY_CDE                          PTY.CDE                         DATE          Date of declaration
+IDE_CUO_COD                      IDE.CUO.COD                     VARCHAR(5)    Office Code
+IDE_CUO_NAM                      IDE.CUO.NAM                     VARCHAR(35)   Office Name
+IDE_TYP_SAD                      IDE.TYP.SAD                     VARCHAR(3)    Model of Declaration
+IDE_TYP_PRC                      IDE.TYP.PRC                     VARCHAR(1)    General Regime
+IDE_TYP_TYP                      PTY.FLW                         VARCHAR(1)    Declaration type (Import, Export)
+IDE_TYP_TRS                      IDE.TYP.TRS                     VARCHAR(5)    Type of Transit document code
+IDE_MAN                          IDE.MAN                         VARCHAR(28)   Manifest reference number
+IDE_BAR                          IDE.BAR                         VARCHAR(60)   Declaration Barcode
+IDE_REG_SER                      IDE.REG.SER                     VARCHAR(1)    Registration serial
+IDE_REG_NBR                      IDE.REG.NBR                     VARCHAR(50)   Registration number
+IDE_REG_DAT                      IDE.REG.DAT                     DATE          Registration Date
+IDE_AST_SER                      IDE.AST.SER                     VARCHAR(1)    Assessment Serial
+IDE_AST_NBR                      IDE.AST.NBR                     VARCHAR(50)   Assessment Number
+IDE_AST_DAT                      IDE.AST.DAT                     DATE          Assessment Date
+IDE_RCP_SER                      IDE.RCP.SER                     VARCHAR(1)    Receipt Serial
+IDE_RCP_NBR                      IDE.RCP.NBR                     VARCHAR(50)   Receipt Number
+IDE_RCP_DAT                      IDE.RCP.DAT                     DATE          Receipt Date
+IDE_RCP_TYP                      IDE.RCP.TYP                     VARCHAR(1)    Receipt type
+IDE_RCP_CUO                      IDE.RCP.CUO                     VARCHAR(5)    Receipt Office
+IDE_PST_NBR                      IDE.PST.NBR                     VARCHAR(50)   Receipt - number
+IDE_PST_DAT                      IDE.PST.DAT                     DATE          Post-entry - date
+IDE_PST_TMP_PRE                  IDE.PST.TMP.PRE                 VARCHAR(50)   Last prepayment account
+IDE_PST_TMP_TY1                  IDE.PST.TMP.TY1                 VARCHAR(1)    Last prepayment account
+IDE_PST_TMP_TY2                  IDE.PST.TMP.TY2                 VARCHAR(1)    Last prepayment account
+CMP_EXP_COD                      CMP.EXP.COD                     VARCHAR(17)   Exporter - code
+CMP_EXP_NAM                      CMP.EXP.NAM                     LONGVARCHAR   Exporter - name & address
+CMP_CON_COD                      CMP.CON.COD                     VARCHAR(17)   Consignee - code
+CMP_CON_NAM                      CMP.CON.NAM                     LONGVARCHAR   Consignee - name & address
+
+
+
+
+UNCTAD/DTL                                                                                                    Page 3
+Declaration - Tables Description - V 0.1.0905                                                  ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation   Null?   Data Type     Description
+CMP_FIS_COD                      CMP.FIS.COD                  VARCHAR(17)   Person resp. for financial settlement -
+                                                                            code
+CMP_FIS_NAM                      CMP.FIS.NAM                  LONGVARCHAR   Person resp. for financial settlement -
+                                                                            name & address
+DEC_FLG                          DEC.FLG                      VARCHAR(1)    Declarant - flag
+DEC_COD                          DEC.COD                      VARCHAR(17)   Declarant Code
+DEC_NAM                          DEC.NAM                      LONGVARCHAR   Declarant Name
+DEC_REF_YER                      DEC.REF.YER                  INTEGER       Declarant reference Year
+DEC_REF_NBR                      DEC.REF.NBR                  VARCHAR(50)   Declarant reference number
+DEC_REP                          DEC.REP                      VARCHAR(35)   Name of representative of declarant
+GEN_CTY_FLT                      GEN.CTY.FLT                  VARCHAR(3)    Country of first destination / last
+                                                                            provenance
+GEN_CTY_TRD                      GEN.CTY.TRD                  VARCHAR(3)    Trading country
+GEN_CTY_EPT_COD                  GEN.CTY.EPT.COD              VARCHAR(3)    Country of export - code
+GEN_CTY_EPT_NAM                  GEN.CTY.EPT.NAM              VARCHAR(35)   Country of export - name
+GEN_CTY_EPT_CRG                  GEN.CTY.EPT.CRG              VARCHAR(4)    Country of export - region code
+GEN_CTY_DES_COD                  GEN.CTY.DES.COD              VARCHAR(3)    Country of destination - code
+GEN_CTY_DES_NAM                  GEN.CTY.DES.NAM              VARCHAR(35)   Country of destination - name
+GEN_CTY_DES_CRG                  GEN.CTY.DES.CRG              VARCHAR(4)    Country of destination - region code
+GEN_CTY_ORG                      GEN.CTY.ORG                  VARCHAR(35)   Country of origin - name
+GEN_VDT                          GEN.VDT                      DOUBLE        Value details
+GEN_CAP                          GEN.CAP                      VARCHAR(5)    Common Agricultural Policy reference
+TPT_MOT_DPA_NAM                  TPT.MOT.DPA.NAM              VARCHAR(35)   Ident. of Means of Transport at depart./
+                                                                            arrival
+TPT_MOT_DPA_CTY                  TPT.MOT.DPA.CTY              VARCHAR(3)    Nat. of Means of Transport at depart./
+                                                                            arrival
+TPT_MOT_BRD_NAM                  TPT.MOT.BRD.NAM              VARCHAR(35)   Identity of Means of Transport at the
+                                                                            border
+TPT_MOT_BRD_CTY                  TPT.MOT.BRD.CTY              VARCHAR(3)    Nationality of Means of Transport at the
+                                                                            border
+TPT_MOT_BRD_COD                  TPT.MOT.BRD.COD              VARCHAR(2)    Mode of transport crossing the border
+TPT_MOT_INL                      TPT.MOT.INL                  VARCHAR(2)    Inland mode of transport
+TPT_CTF                          TPT.CTF                      BIT           Container flag
+TPT_TOD_COD                      TPT.TOD.COD                  VARCHAR(3)    Incoterm, code
+TPT_TOD_PLC                      TPT.TOD.PLC                  VARCHAR(35)   Incoterm, place
+TPT_TOD_SIT                      TPT.TOD.SIT                  VARCHAR(2)    Delivery terms - situation code
+TPT_CUO_COD                      TPT.CUO.COD                  VARCHAR(5)    Border customs office - code
+TPT_CUO_NAM                      TPT.CUO.NAM                  VARCHAR(35)   Border customs office - name
+TPT_LOP_COD                      TPT.LOP.COD                  VARCHAR(5)    Place of loading/unloading - code
+TPT_LOP_NAM                      TPT.LOP.NAM                  VARCHAR(35)   Place of loading/unloading - name
+TPT_LOP_CTY                      TPT.LOP.CTY                  VARCHAR(3)    Place of loading/unloading - country
+                                                                            code
+TPT_LOC                          TPT.LOC                      VARCHAR(17)   Location of goods
+TPT_T1                           TPT.T1                       INTEGER       Reference to T1 (instance id)
+FIN_TRA_NA1                      FIN.TRA.NA1                  VARCHAR(1)    Nature of transaction - code 1
+FIN_TRA_NA2                      FIN.TRA.NA2                  VARCHAR(1)    Nature of transaction - code 2
+FIN_BNK_COD                      FIN.BNK.COD                  VARCHAR(17)   Bank - code
+FIN_BNK_NAM                      FIN.BNK.NAM                  LONGVARCHAR   Bank - name
+FIN_BNK_BRA                      FIN.BNK.BRA                  VARCHAR(17)   Bank branch - code
+FIN_BNK_FRE                      FIN.BNK.FRE                  VARCHAR(35)   Bank file number
+FIN_TOP_COD                      FIN.TOP.COD                  VARCHAR(3)    Terms of payment - code
+FIN_TOP_NAM                      FIN.TOP.NAM                  VARCHAR(35)   Terms of payment - description
+FIN_ACC                          FIN.ACC                      VARCHAR(17)   Accounting Code
+FIN_MPN                          FIN.MPN                      VARCHAR(35)   Mode of Payment
+FIN_AMT_MNL                      FIN.AMT.MNL                  DOUBLE        Total taxes amount by manual input
+FIN_AMT_FEE                      FIN.AMT.FEE                  DOUBLE        Total Global Taxes
+FIN_AMT_DTY                      FIN.AMT.DTY                  DOUBLE        Total General
+FIN_AMT_TBP                      FIN.AMT.TBP                  DOUBLE        Amount for the Situation of payment
+FIN_GTY_NAM                      FIN.GTY.NAM                  VARCHAR(35)   Guarantee reference code
+FIN_GTY_AMT                      FIN.GTY.AMT                  DOUBLE        Guarantee - amount
+
+
+
+
+UNCTAD/DTL                                                                                                  Page 4
+Declaration - Tables Description - V 0.1.0905                                                   ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation   Null?   Data Type     Description
+FIN_GTY_DAT                      FIN.GTY.DAT                  DATE          Guarantee - date
+FIN_GTY_CTY_COD                  FIN.GTY.CTY.COD              VARCHAR(3)    Country code excluded from guarantee
+FIN_GTY_CTY_NAM                  FIN.GTY.CTY.NAM              VARCHAR(35)   Country name excluded from guarantee
+VGS_WRK                          VGS.WRK                      VARCHAR(1)    Calculation working mode
+VGS_WGT_GRS                      VGS.WGT.GRS                  DOUBLE        Gross mass
+VGS_CST                          VGS.CST                      DOUBLE        Total amount of added costs in national
+                                                                            monetary units
+VGS_CIF                          VGS.CIF                      DOUBLE        Total CIF amount in national monetary
+                                                                            units
+VGS_TOT_NMU                      VGS.TOT.NMU                  DOUBLE
+VGS_TOT_FCX                      VGS.TOT.FCX                  DOUBLE        Total items, foreign currency invoice
+                                                                            value
+VGS_TOT_GRS                      VGS.TOT.GRS                  DOUBLE        Total items, gross mass amount
+VGS_INV_AMT_NMU                  VGS.INV.AMT.NMU              DOUBLE        Amount of the invoice in national
+                                                                            monetary units
+VGS_INV_AMT_FCX                  VGS.INV.AMT.FCX              DOUBLE        Amount of the invoice in foreign
+                                                                            currency
+VGS_INV_CUR_COD                  VGS.INV.CUR.COD              VARCHAR(3)    Currrency code for the invoice
+VGS_INV_CUR_NAM                  VGS.INV.CUR.NAM              VARCHAR(35)   Invoice currency - name
+VGS_INV_CUR_RAT                  VGS.INV.CUR.RAT              DOUBLE        Currrency rate for the invoice
+VGS_INV_CUR_REF                  VGS.INV.CUR.REF              DOUBLE        Rate ref unit
+VGS_EFR_AMT_NMU                  VGS.EFR.AMT.NMU              DOUBLE        Amount of the external freight in
+                                                                            national monetary units
+VGS_EFR_AMT_FCX                  VGS.EFR.AMT.FCX              DOUBLE        Amount of the external freight in foreign
+                                                                            currency
+VGS_EFR_CUR_COD                  VGS.EFR.CUR.COD              VARCHAR(3)    Currrency code for the external freight
+VGS_EFR_CUR_NAM                  VGS.EFR.CUR.NAM              VARCHAR(35)   Currency name for the external freight
+VGS_EFR_CUR_RAT                  VGS.EFR.CUR.RAT              DOUBLE        Exchange rate for the external freight
+VGS_EFR_CUR_REF                  VGS.EFR.CUR.REF              DOUBLE        Rate ref unit
+VGS_IFR_AMT_NMU                  VGS.IFR.AMT.NMU              DOUBLE        Amount of the internal freight in national
+                                                                            monetary units
+VGS_IFR_AMT_FCX                  VGS.IFR.AMT.FCX              DOUBLE        Amount of the internal freight in foreign
+                                                                            currency
+VGS_IFR_CUR_COD                  VGS.IFR.CUR.COD              VARCHAR(3)    Currrency code for the internal freight
+VGS_IFR_CUR_NAM                  VGS.IFR.CUR.NAM              VARCHAR(35)   Currrency name for the internal freight
+VGS_IFR_CUR_RAT                  VGS.IFR.CUR.RAT              DOUBLE        Exchange rate for the internal freight
+VGS_IFR_CUR_REF                  VGS.IFR.CUR.REF              DOUBLE        Currency name for the internal freight
+VGS_INS_AMT_NMU                  VGS.INS.AMT.NMU              DOUBLE        Amount of the insurance in national
+                                                                            monetary units
+VGS_INS_AMT_FCX                  VGS.INS.AMT.FCX              DOUBLE        Amount of the insurance in foreign
+                                                                            currency
+VGS_INS_CUR_COD                  VGS.INS.CUR.COD              VARCHAR(3)    Currrency code for the insurance
+VGS_INS_CUR_NAM                  VGS.INS.CUR.NAM              VARCHAR(35)   Currency name for the insurance
+VGS_INS_CUR_RAT                  VGS.INS.CUR.RAT              DOUBLE        Exchange rate for the insurance
+VGS_INS_CUR_REF                  VGS.INS.CUR.REF              DOUBLE        Rate ref unit
+VGS_OTC_AMT_NMU                  VGS.OTC.AMT.NMU              DOUBLE        Amount of the other costs in national
+                                                                            monetary units
+VGS_OTC_AMT_FCX                  VGS.OTC.AMT.FCX              DOUBLE        Amount of the other costs in foreign
+                                                                            currency
+VGS_OTC_CUR_COD                  VGS.OTC.CUR.COD              VARCHAR(3)    Currrency code for the other costs
+VGS_OTC_CUR_NAM                  VGS.OTC.CUR.NAM              VARCHAR(35)   Currency name for the other costs
+VGS_OTC_CUR_RAT                  VGS.OTC.CUR.RAT              DOUBLE        Exchange rate for the other costs
+VGS_OTC_CUR_REF                  VGS.OTC.CUR.REF              DOUBLE        Rate ref unit
+VGS_DED_AMT_NMU                  VGS.DED.AMT.NMU              DOUBLE        Amount of the deductions in national
+                                                                            monetary units
+VGS_DED_AMT_FCX                  VGS.DED.AMT.FCX              DOUBLE        Amount of the deductions in foreign
+                                                                            currency
+VGS_DED_CUR_COD                  VGS.DED.CUR.COD              VARCHAR(3)    Currrency code for the deductions
+VGS_DED_CUR_NAM                  VGS.DED.CUR.NAM              VARCHAR(35)   Currency name for the deductions
+VGS_DED_CUR_RAT                  VGS.DED.CUR.RAT              DOUBLE        Exchange rate for the deductions
+
+
+
+
+UNCTAD/DTL                                                                                                   Page 5
+Declaration - Tables Description - V 0.1.0905                                                      ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+VGS_DED_CUR_REF                  VGS.DED.CUR.REF                 DOUBLE        Rate ref unit
+WHS_COD                          WHS.COD                         VARCHAR(17)   Identification of warehouse
+WHS_TIM                          WHS.TIM                         INTEGER       Warehouse time delay
+TRS_RSP_COD                      TRS.RSP.COD                     VARCHAR(17)   Principal responsible for transit - code
+TRS_RSP_NAM                      TRS.RSP.NAM                     LONGVARCHAR   Principal responsible for transit - name
+TRS_RSP_REP                      TRS.RSP.REP                     VARCHAR(35)   Representative of Principal responsible
+                                                                               for transit
+TRS_SGT_PLC                      TRS.SGT.PLC                     VARCHAR(35)   Place of signature of transit
+TRS_SGT_DAT                      TRS.SGT.DAT                     DATE          Date of signature of transit
+TRS_DES_CUO                      TRS.DES.NAM                     VARCHAR(35)   Customs office of destination for transit
+                                                                               - code
+TRS_DES_COD                      TRS.DES.CUO                     VARCHAR(5)    Customs office of destination for transit
+TRS_DES_CTY                      TRS.DES.CTY                     VARCHAR(3)    Country of customs office of destination
+                                                                               for transit
+TRS_SLS_NBR                      TRS.SLS.NBR                     INTEGER       Seals affixed - Number
+TRS_SLS_IDE                      TRS.SLS.IDE                     VARCHAR(17)   Seals affixed - Identity
+TRS_CTL                          TRS.CTL                         VARCHAR(11)   Results of control
+TRS_LIM                          TRS.LIM                         DATE          Transit time limit (date)
+TRS_COF                          TRS.COF                         VARCHAR(35)   Customs officer name
+AST_RYR                          AST.RYR                         VARCHAR(4)    Registration Year
+AST_AYR                          AST.AYR                         VARCHAR(4)    Assessment Year
+AST_TOT                          AST.TOT                         DOUBLE        Total Items Taxes
+AST_AMT                          AST.AMT                         DOUBLE        Total amount assessed for declaration
+AST_STN                          AST.STN                         VARCHAR(11)   Statement Number
+AST_STD                          AST.STD                         DATE          Statement Date
+AST_STS                          AST.STS                         VARCHAR(1)    Statement Serial
+RLO_NBR                          RLO.NBR                         INTEGER       Release Order Sequential Number
+EXA_SEC                          EXA.SEC                         VARCHAR(17)   Declaration Assigned Section
+EXA_EXA                          EXA.EXA                         VARCHAR(17)   Declaration Assigned Examiner
+EXA_CEX                          EXA.CEX                         VARCHAR(17)   Declaration Assigned Chief Examiner
+EXA_WGT                          EXA.WGT                         INTEGER       Declaration Assigned Weight
+LST_RCP_AMT                      LST.RCP.AMT                     DOUBLE        Total Amount of Last Receipt
+
+
+SAD_Item - SAD Item
+Field Name                       DOM Representation   Null?      Data Type     Description
+InstanceId                                            NOT NULL   INTEGER       Internal key
+KEY_ITM_NBR                      RNK                  NOT NULL   INTEGER       Item Number
+PCK_NBR                          PCK.NBR                         DOUBLE        Number of packages - item
+PCK_MRK1                         PCK.MRK.MK1                     VARCHAR(50)   Marks of Packages 1
+PCK_MRK2                         PCK.MRK.MK2                     VARCHAR(50)   Marks of Packages 2
+PCK_TYP_COD                      PCK.TYP.COD                     VARCHAR(17)   Kind of packages - code
+PCK_TYP_NAM                      PCK.TYP.NAM                     VARCHAR(35)   Kind of packages - name
+TAR_HSC_NB1                      TAR.HSC.NB1                     VARCHAR(8)    Harmonized system commodity code
+TAR_HSC_NB2                      TAR.HSC.NB2                     VARCHAR(3)    Commodity code (national precision 2
+TAR_HSC_NB3                      TAR.HSC.NB3                     VARCHAR(3)    Commodity code (national precision 3
+TAR_HSC_NB4                      TAR.HSC.NB4                     VARCHAR(4)    Commodity code (national precision 4
+TAR_HSC_NB5                      TAR.HSC.NB5                     VARCHAR(4)    Commodity code (national precision 5
+TAR_PRF                          TAR.PRF                         VARCHAR(8)    Preference code
+TAR_PRC_EXT                      TAR.PRC.EXT                     VARCHAR(4)    Extended customs procedure code
+TAR_PRC_NAT                      TAR.PRC.NAT                     VARCHAR(3)    National customs procedure code
+TAR_QUO                          TAR.QUO                         VARCHAR(5)    Quota reference
+TAR_PRI                          TAR.PRI                         DOUBLE        Item price
+TAR_VMT                          TAR.VTM                         VARCHAR(1)    Valuation Method
+TAR_VDT                          TAR.VDT                         VARCHAR(55)   Value details - item
+TAR_ATT                          TAR.ATT                         VARCHAR(55)   Attached documents codes - item
+TAR_AIC                          TAR.AIC                         VARCHAR(3)    A.I. code
+GDS_ORG_CTY                      GDS.ORG.CTY                     VARCHAR(3)    Country of origin - code
+GDS_ORG_CRG                      GDS.ORG.CRG                     VARCHAR(4)    Country of origin - region code
+
+
+
+
+UNCTAD/DTL                                                                                                      Page 6
+Declaration - Tables Description - V 0.1.0905                                                   ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation   Null?   Data Type     Description
+GDS_CTN_CT1                      GDS.CTN.CT1                  VARCHAR(17)   Container Number 1
+GDS_CTN_CT2                      GDS.CTN.CT2                  VARCHAR(17)   Container Number 2
+GDS_CTN_CT3                      GDS.CTN.CT3                  VARCHAR(17)   Container Number 3
+GDS_CTN_CT4                      GDS.CTN.CT4                  VARCHAR(17)   Container Number 4
+GDS_DSC                          GDS.DSC                      LONGVARCHAR   Description of goods
+GDS_DS3                          GDS.DS3                      VARCHAR(44)   Commercial Description of goods
+LNK_TPT                          LNK.TPT                      VARCHAR(26)   Summary declaration (Transport
+                                                                            document number)
+LNK_PRV_DOC                      LNK.PRV.DOC                  VARCHAR(35)   Previous document reference
+LNK_PRV_WHS                      LNK.PRV.WHS                  VARCHAR(17)   Additional warehouse code
+LIC_COD                          LIC.COD                      VARCHAR(17)   Licence reference number
+LIC_AMT_VAL                      LIC.AMT.VAL                  DOUBLE        Value amount deducted from licence
+LIC_AMT_QTY                      LIC.AMT.QTY                  DOUBLE        Quantity deducted from licence
+TXT_FRE                          TXT.FRE                      VARCHAR(35)   Reserved field (use not defined)
+TXT_RSV                          TXT.RSV                      LONGVARCHAR   Free text
+TAX_AMT                          TAX.AMT                      DOUBLE        Item amount of Duties and taxes
+TAX_GTY                          TAX.GTY                      DOUBLE        Item guaranted amount of Duties and
+                                                                            taxes
+TAX_MOP                          TAX.MOP                      VARCHAR(1)    Mode of payment for item amount
+TAX_CTR                          TAX.CTR                      INTEGER       Counter of 'normal' Mode of payments
+TAX_DTY                          TAX.DTY                      DOUBLE        Displayed item amount (normal or
+                                                                            guaranted) of Duties and taxes
+VIT_WGT_GRS                      VIT.WGT.GRS                  DOUBLE        Gross mass
+VIT_WGT_NET                      VIT.WGT.NET                  DOUBLE        Net mass
+VIT_CST                          VIT.CST                      DOUBLE        Amount of added costs in national
+                                                                            monetary units
+VIT_CIF                          VIT.CIF                      DOUBLE        CIF amount in national monetary units
+VIT_ADJ                          VIT.ADJ                      DOUBLE        Rate of adjustment
+VIT_STV                          VIT.STV                      DOUBLE        Statistical value
+VIT_ALP                          VIT.ALP                      DOUBLE        Alpha coefficient of apportionment
+VIT_INV_AMT_NMU                  VIT.INV.AMT.NMU              DOUBLE        Amount of the invoice in national
+                                                                            monetary units
+VIT_INV_AMT_FCX                  VIT.INV.AMT.FCX              DOUBLE        Amount of the invoice in foreign
+                                                                            currency
+VIT_INV_CUR_COD                  VIT.INV.CUR.COD              VARCHAR(3)    Currrency code for the invoice
+VIT_INV_CUR_NAM                  VIT.INV.CUR.NAM              VARCHAR(35)   Currrency name for the invoice
+VIT_INV_CUR_RAT                  VIT.INV.CUR.RAT              DOUBLE        Currrency rate for the invoice
+VIT_INV_CUR_REF                  VIT.INV.CUR.REF              DOUBLE        Currency name for the invoice
+VIT_EFR_AMT_NMU                  VIT.EFR.AMT.NMU              DOUBLE        Amount of the external freight in
+                                                                            national monetary units
+VIT_EFR_AMT_FCX                  VIT.EFR.AMT.FCX              DOUBLE        Amount of the external freight in foreign
+                                                                            currency
+VIT_EFR_CUR_COD                  VIT.EFR.CUR.COD              VARCHAR(3)    Currrency code for the external freight
+VIT_EFR_CUR_NAM                  VIT.EFR.CUR.NAM              VARCHAR(35)   Currency name for the external freight
+VIT_EFR_CUR_RAT                  VIT.EFR.CUR.RAT              DOUBLE        Exchange rate for the external freight
+VIT_EFR_CUR_REF                  VIT.EFR.CUR.REF              DOUBLE        Rate ref unit
+VIT_IFR_AMT_NMU                  VIT.IFR.AMT.NMU              DOUBLE        Amount of the internal freight in national
+                                                                            monetary units
+VIT_IFR_AMT_FCX                  VIT.IFR.AMT.FCX              DOUBLE        Amount of the internal freight in foreign
+                                                                            currency
+VIT_IFR_CUR_COD                  VIT.IFR.CUR.COD              VARCHAR(3)    Currrency code for the internal freight
+VIT_IFR_CUR_NAM                  VIT.IFR.CUR.NAM              VARCHAR(35)   Currency name for the internal freight
+VIT_IFR_CUR_RAT                  VIT.IFR.CUR.RAT              DOUBLE        Exchange rate for the internal freight
+VIT_IFR_CUR_REF                  VIT.IFR.CUR.REF              DOUBLE        Rate ref unit
+VIT_INS_AMT_NMU                  VIT.INS.AMT.NMU              DOUBLE        Amount of the insurance in national
+                                                                            monetary units
+VIT_INS_AMT_FCX                  VIT.INS.AMT.FCX              DOUBLE        Amount of the insurance in foreign
+                                                                            currency
+VIT_INS_CUR_COD                  VIT.INS.CUR.COD              VARCHAR(3)    Currrency code for the insurance
+VIT_INS_CUR_NAM                  VIT.INS.CUR.NAM              VARCHAR(35)   Currency name for the insurance
+
+
+
+
+UNCTAD/DTL                                                                                                   Page 7
+Declaration - Tables Description - V 0.1.0905                                                   ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation   Null?   Data Type     Description
+VIT_INS_CUR_RAT                  VIT.INS.CUR.RAT              DOUBLE        Exchange rate for the insurance
+VIT_INS_CUR_REF                  VIT.INS.CUR.REF              DOUBLE        Rate ref unit
+VIT_OTC_AMT_NMU                  VIT.OTC.AMT.NMU              DOUBLE        Amount of the other costs in national
+                                                                            monetary units
+VIT_OTC_AMT_FCX                  VIT.OTC.AMT.FCX              DOUBLE        Amount of the other costs in foreign
+                                                                            currency
+VIT_OTC_CUR_COD                  VIT.OTC.CUR.COD              VARCHAR(3)    Currrency code for the other costs
+VIT_OTC_CUR_NAM                  VIT.OTC.CUR.NAM              VARCHAR(35)   Currency name for the other costs
+VIT_OTC_CUR_RAT                  VIT.OTC.CUR.RAT              DOUBLE        Exchange rate for the other costs
+VIT_OTC_CUR_REF                  VIT.OTC.CUR.REF              DOUBLE        Rate ref unit
+VIT_DED_AMT_NMU                  VIT.DED.AMT.NMU              DOUBLE        Amount of the deductions in national
+                                                                            monetary units
+VIT_DED_AMT_FCX                  VIT.DED.AMT.FCX              DOUBLE        Amount of the deductions in foreign
+                                                                            currency
+VIT_DED_CUR_COD                  VIT.DED.CUR.COD              VARCHAR(3)    Currrency code for the deductions
+VIT_DED_CUR_NAM                  VIT.DED.CUR.NAM              VARCHAR(35)   Currency name for the deductions
+VIT_DED_CUR_RAT                  VIT.DED.CUR.RAT              DOUBLE        Exchange rate for the deductions
+VIT_DED_CUR_REF                  VIT.DED.CUR.REF              DOUBLE        Rate ref unit
+VIT_MKT_RAT                      VIT.MKT.RAT                  DOUBLE        Market value rate
+VIT_MKT_CUR                      VIT.MKT.CUR                  VARCHAR(3)    National currency code
+VIT_MKT_AMT                      VIT.MKT.AMT                  DOUBLE        Market value amount
+VIT_MKT_BSE_DSC                  VIT.MKT.BSE.DSC              VARCHAR(35)   Market value basis description
+VIT_MKT_BSE_AMT                  VIT.MKT.BSE.AMT              DOUBLE        Market value basis amount
+
+
+SAD_Tax - SAD Taxes
+
+Field Name                       DOM Representation   Null?   Data Type     Description
+InstanceId                                                    INTEGER
+KEY_ITM_NBR                                                   INTEGER       Item Number
+KEY_TAX_RNK                      RNK                          INTEGER       Internal Index Number of Tax
+TAX_LIN_COD                      COD                          VARCHAR(3)    Tax Code
+TAX_LIN_BSE                      BSE                          DOUBLE        Tax Base
+TAX_LIN_RAT                      RAT                          DOUBLE        Tax Rate
+TAX_LIN_AMT                      AMT                          DOUBLE        Tax Amount
+TAX_LIN_MOP                      MOP                          VARCHAR(1)    Tax Mode of Payment
+TAX_LIN_TYP                      TYP                          VARCHAR(1)    Manual/Automatic flag
+
+
+SAD_Ask_Tax - SAD Manual Taxes
+
+Field Name                       DOM Representation   Null?   Data Type     Description
+InstanceId                                                    INTEGER
+KEY_ITM_NBR                                                   INTEGER       Item Number
+KEY_ASK_TAX_RNK                  RNK                          INTEGER       Internal Index Number of Tax
+TAX_LIN_COD                      COD                          VARCHAR(3)    Tax Code
+TAX_LIN_BSE                      BSE                          DOUBLE        Tax Base
+TAX_LIN_RAT                      RAT                          DOUBLE        Tax Rate
+TAX_LIN_AMT                      AMT                          DOUBLE        Tax Amount
+TAX_LIN_MOP                      MOP                          VARCHAR(1)    Tax Mode of Payment
+TAX_LIN_TYP                      TYP                          VARCHAR(1)    Manual/Automatic flag
+
+
+SAD_Global_Taxes - SAD Global Taxes
+
+Field Name                       DOM Representation   Null?   Data Type     Description
+InstanceId                                                    INTEGER
+KEY_TAX_RNK                      RNK                          INTEGER       Internal Index Number of Tax
+TAX_COD                          COD                          VARCHAR(3)    Tax Code
+
+
+
+
+UNCTAD/DTL                                                                                                  Page 8
+Declaration - Tables Description - V 0.1.0905                                                        ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation   Null?      Data Type       Description
+TAX_DSC                          DSC                             VARCHAR(35)     Tax Description
+TAX_BSE                          BSE                             DOUBLE          Tax Base
+TAX_RAT                          RAT                             DOUBLE          Tax Rate
+TAX_AMT                          AMT                             DOUBLE          Tax Amount
+TAX_MOP                          MOP                             VARCHAR(1)      Mode of payment
+TAX_TYP                          TYP                             VARCHAR(1)      Manual/Automatic flag
+
+
+SAD_Tax_Totals - SAD Tax Totals
+
+Field Name                       DOM Representation   Null?      Data Type       Description
+InstanceId                                                       INTEGER
+KEY_RNK                          RNK                             INTEGER         Internal Index Number of Tax
+TAX_COD                          COD                             VARCHAR(3)      Tax Code
+TAX_DSC                          DSC                             VARCHAR(35)     Tax Description
+TAX_AMT                          AMT                             DOUBLE          Total amount for this item tax
+TAX_MOP                          MOP                             VARCHAR(1)      Mode of payment
+
+
+SAD_Attached_Documents - SAD Attached Documents
+
+Field Name                       DOM Representation   Null?      Data Type       Description
+InstanceId                                                       INTEGER
+KEY_ITM_NBR                                                      INTEGER         Item Number
+KEY_RNK                          RNK                             INTEGER         Internal Index Number
+COD                              COD                             VARCHAR(4)      Attached document - code
+NAM                              NAM                             VARCHAR(70)     Attached document - description
+REF                              REF                             VARCHAR(35)     Attached document - reference
+DAT                              DAT                             DATE            Attached document - date
+RUL                              RUL                             VARCHAR(1)      Rule Flag 0:Att Doc captured manually
+                                                                                 1:Comes from a taxation rule
+IMG                              IMG                             LONGVARBINARY   Attached Image
+
+
+SAD_Line_Transactions - SAD Line Transactions
+
+Field Name                       DOM Representation   Null?      Data Type       Description
+InstanceId                                            NOT NULL   INTEGER
+KEY_LIN_ID                       RNK                  NOT NULL   INTEGER         Line Number
+CUO_COD                          CUO.COD                         VARCHAR(5)      Custom office code
+AUT_REF                          AUT.REF                         VARCHAR(17)     Authorization Reference
+SFT                              SFT                             INTEGER         Shift Number
+LIN                              LIN                             INTEGER         Line Number
+DAT                              DAT                             DATE            Date
+TIM                              TIM                             TIMESTAMP       Time
+
+
+SAD_Supplementary_Unit - SAD Supplementary Unit
+
+Field Name                       DOM Representation   Null?      Data Type       Description
+InstanceId                                                       INTEGER
+KEY_ITM_NBR                                                      INTEGER         Item Number
+KEY_SUP_RNK                      RNK                             INTEGER         Internal Index Number
+TAR_SUP_COD                      COD                             VARCHAR(3)      Sub Unit code
+TAR_SUP_NAM                      NAM                             VARCHAR(50)     Sub Unit Name
+TAR_SUP_QTY                      QTY                             DOUBLE          Sub Unit Quantity
+
+
+SAD_Int - SAD Previous Documents
+
+
+
+
+UNCTAD/DTL                                                                                                        Page 9
+Declaration - Tables Description - V 0.1.0905                                                      ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+InstanceId                                            NOT NULL   INTEGER
+KEY_INT_NBR                      RNK                  NOT NULL   INTEGER       Item Number
+PCK_NBR                          PCK.NBR                         INTEGER       Number of packages - item
+TAR_HSC_NB1                      TAR.HSC.NB1                     VARCHAR(8)    Harmonized system commodity code
+TAR_HSC_NB2                      TAR.HSC.NB2                     VARCHAR(3)    Commodity code (national precision 2
+TAR_HSC_ART                      TAR.HSC.ART                     INTEGER       Number of items
+GDS_ORG_CTY                      GDS.ORG.CTY                     VARCHAR(3)    Country of origin - code
+VIT_WGT_NET                      VIT.WGT.NET                     DOUBLE        Net weight
+SUP_QTY                          SUP.QTY                         DOUBLE        Supplementary unit amount
+IDE_REG_SER                      IDE.REG.SER                     VARCHAR(1)    Registration serial
+IDE_REG_NBR                      IDE.REG.NBR                     INTEGER       Registration number
+IDE_REG_DAT                      IDE.REG.DAT                     INTEGER       Registration Date
+IDE_CUO_COD                      IDE.CUO.COD                     VARCHAR(5)    Office Code
+ARC                              ARC                             INTEGER       Item number of current item
+PCP_NBR                          PCP.NBR                         INTEGER       Number of packages of item
+VIP_WGT_NET                      VIP.WGT.NET                     DOUBLE        Net weight of current item
+SPP_QTY                          SPP.QTY                         DOUBLE        Supplementary unit amount item
+VAL_CUR                          VAL.CUR                         DOUBLE        Current value
+VAL_PRC                          VAL.PRC                         DOUBLE        Previous value
+
+
+SAD_Relief - SAD Relief
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+InstanceId                                            NOT NULL   INTEGER
+KEY_REL_ID                       RNK                  NOT NULL   INTEGER       Internal index number
+KEY_ITM_NBR                      ITM                             INTEGER       Item number for which tax belongs
+TAX_CODE                         TXC                             VARCHAR(3)    Tax code
+REL_CODE                         RLC                             VARCHAR(8)    Relief code
+TAX_AMOUNT                       AMT                             DOUBLE        Tax amount
+
+
+SAD_ITM_BLK - Selected SAD Item
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+DEC_REF_YER                      SAD.YEA                         INTEGER       Declarant reference Year
+IDE_CUO_COD                      SAD.CUO                         VARCHAR(5)    Office Code
+DEC_COD                          SAD.DEC                         VARCHAR(17)   Declarant Code
+DEC_REF_NBR                      SAD.NBR                         VARCHAR(50)   Declarant reference number
+KEY_ITM_NBR                      ITM                             INTEGER       Item number (0 = general segment)
+COL_ADM                          ADM                             VARCHAR(5)    Item Administration Colour
+CRI_COD                          CRI                             VARCHAR(17)   Criteria code that hit item
+CRI_TYP                          TYP                             INTEGER       Criteria type (local, regional, ...)
+
+
+SAD_ITM_ADM - Item selectivity administration
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+DEC_REF_YER                      SAD.YEA                         INTEGER       Declarant reference Year
+IDE_CUO_COD                      SAD.CUO                         VARCHAR(5)    Office Code
+DEC_COD                          SAD.DEC                         VARCHAR(17)   Declarant Code
+DEC_REF_NBR                      SAD.NBR                         VARCHAR(50)   Declarant reference number
+IDE_DAT                          SAD.DAT                         DATE          Registration Date
+KEY_ITM_NBR                      ITM                             INTEGER       Numbers Of Items
+COL_ADM                          ADM                             VARCHAR(5)    Administration Lane
+PTY_COL_DSC                      PTY.COL.DSC                     VARCHAR(35)   Selected colour description
+PTY_COL_IND                      PTY.COL.IND                     VARCHAR(1)    Selected colour indicator
+
+
+
+
+UNCTAD/DTL                                                                                                     Page 10
+Declaration - Tables Description - V 0.1.0905                                                      ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+PTY_BLU                          PTY.BLU                         INTEGER       Blue flag
+PTY_RED                          PTY.RED                         INTEGER       Red flag
+PTY_YEL                          PTY.YEL                         INTEGER       Yellow flag
+PTY_GRE                          PTY.GRE                         INTEGER       Green flag
+PTY_QUE                          PTY.QUE                         INTEGER       Query flag
+EXA_DSC1                         DSC1                            LONGVARCHAR   Examination Description
+EXA_DSC2                         DSC2                            LONGVARCHAR   Examination Description
+
+
+SAD_T1_LoadList - SAD Loading List
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCEID                                            NOT NULL   INTEGER
+KEY_LDL_NBR                      RNK                  NOT NULL   INTEGER       Loading List Number
+ITM_NBR                          ITM.NBR                         INTEGER       Item Number
+TPT_NBR                          TPT.NBR                         VARCHAR(17)   Vehicle Ident.
+CTN_NBR                          CTN.NBR                         VARCHAR(17)   Container Number
+PCK_NBR                          PCK.NBR                         INTEGER       Number of packages - item
+PCK_TYP_COD                      PCK.TYP                         VARCHAR(17)   Kind of packages - code
+PCK_TYP_NAM                      PCK.NAM                         VARCHAR(35)   Kind of packages - name
+GDS_DSC                          GDS.DSC                         LONGVARCHAR   Description of goods
+GDS_WGT                          GDS.WGT                         DOUBLE        Gross mass
+T1_REG_NBR                       T1.REG.NBR                      INTEGER       T1 Registration Number
+T1_REG_DAT                       T1.REG.DAT                      DATE          T1 Registration Date
+T1_SER                           T1.SER                          CHAR(1)       T1 Registration Serial
+T1_CUO_COD                       T1.CUO.COD                      CHAR(5)       T1 Office of Departure
+T1_ID                                                            INTEGER       T1 Instance Id
+
+
+SUS_WH_IN - Warehouse declaration entry/exit management table
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER       Internal key
+KEY_CUO                          IDE.CUO.COD                     VARCHAR(5)    Office code
+KEY_YEAR                         DEC.REF.YER                     INTEGER       Declarant reference year
+KEY_NBER                         DEC.REF.NBR                     VARCHAR(17)   Declarant reference number
+KEY_DEC                          DEC.COD                         VARCHAR(17)   Declarant code
+CMP_COD                          CMP.COD                         VARCHAR(17)   Company code
+WHS_COD                          WHS.COD                         VARCHAR(17)   Identification of warehouse
+ITM_NBER                         ITM                             INTEGER       Item number
+HSC_COD                          TAR.HSC.NBR                     VARCHAR(11)   Tariff code
+TAR_SPC                          TAR.HSC.NB5                     VARCHAR(11)   Tariff specification
+CTY_COD                          GDS.ORG.CTY                     VARCHAR(3)    Country of origin
+BEG_DAT                          DAT.BEG                         DATE          Begin date/entry date
+OUT_DAT                          DAT.OUT                         DATE          Exit date
+END_DAT                          DAT.END                         DATE          End of delay date
+WGT_BEG                          WGT.BEG                         DOUBLE        Initial weight
+WGT_OUT                          WGT.OUT                         DOUBLE        Weight exited
+QTY_BEG                          QTY.BEG                         DOUBLE        Initial quantity
+QTY_OUT                          QTY.OUT                         DOUBLE        Quantity exited
+GTY_BEG                          GTY.BEG                         DOUBLE        Initial guarantee amount
+GTY_OUT                          GTY.OUT                         DOUBLE        Guarantee amount credited at exit
+GTY_RLS                          GTY.RLS                         VARCHAR(1)    Flag : Declaration fully released or not
+
+
+WHS_MVT - change of ownership of warehouse goods
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+
+
+
+
+UNCTAD/DTL                                                                                                     Page 11
+Declaration - Tables Description - V 0.1.0905                                                     ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+WHS_COD                          COD                             VARCHAR(35)   Identification of warehouse
+OWN_COD                          OWN.COD                         VARCHAR(35)   Owner code
+OWN_NAM                          OWN.NAM                         VARCHAR(50)   Owner name
+NOW_COD                          NOW.COD                         VARCHAR(35)   New owner code
+NOW_NAM                          NOW.NAM                         VARCHAR(50)   New owner name
+ITM_DLY                          ITM.DLY                         VARCHAR(6)    Delay
+ITM_MVT                          ITM.MVT                         VARCHAR(35)   Mouvement
+ITM_HSC                          ITM.HSC                         VARCHAR(15)   HS code
+ITM_SPC                          ITM.SPC                         VARCHAR(15)   Spec
+ITM_UOM                          ITM.UOM                         VARCHAR(15)   UOM
+ITM_CTY                          ITM.CTY                         VARCHAR(5)    Country
+CHG_DAT                          CHG.DAT                         DATE          New Owner Date
+
+
+WHS_MVT_ITM - change of ownership of warehouse goods items
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                                           NOT NULL   INTEGER       Internal key
+KEY_ITM_NBR                      RNK                  NOT NULL   INTEGER       Item number
+WHS_ITM_COD                      COD                             VARCHAR(35)   Tariff code
+WHS_ITM_SPC                      SPC                             VARCHAR(35)   Tariff specification
+WHS_ITM_UOM                      UOM                             VARCHAR(35)   Supplementary unit
+WHS_ITM_CTY                      CTY                             VARCHAR(35)   Country of origin
+WHS_ITM_QTY                      QTY                             VARCHAR(35)   Quantity transferred
+
+
+WHS_DLY - Warehouse extension of delay AW only
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+WHS_COD                          COD                             VARCHAR(35)   Identification of warehouse
+OWN_COD                          OWN.COD                         VARCHAR(35)   Owner code
+OWN_NAM                          OWN.NAM                         VARCHAR(50)   Owner name
+DLY                              DLY                             INTEGER       Delay extension - days
+IDE_CUO_COD                      IDE.CUO.COD                     VARCHAR(5)    Office Code
+DEC_COD                          DEC.COD                         VARCHAR(17)   Declarant Code
+DEC_REF_YER                      DEC.REF.YER                     INTEGER       Declarant reference Year
+DEC_REF_NBR                      DEC.REF.NBR                     VARCHAR(50)   Declarant reference number
+
+
+WHS_DLY_ITM - Warehouse extension of delay all items belonging to declaration that has been extended
+including items that not been extended and those who have -AW only
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                                           NOT NULL   INTEGER       Internal key
+KEY_ITM_NBR                      RNK                  NOT NULL   INTEGER       Item number
+WHS_ITM_COD                      COD                             VARCHAR(35)   Warehouse code
+WHS_ITM_SPC                      SPC                             VARCHAR(35)   Tariff specification
+WHS_ITM_UOM                      UOM                             VARCHAR(35)   Unit of measurement
+WHS_ITM_CTY                      CTY                             VARCHAR(35)   Country of origin
+WHS_ITM_QTY                      QTY                             VARCHAR(35)   Quantity
+WHS_ITM_DAT                      DAT                             VARCHAR(35)   Date of extension
+
+
+WHS_DLY_SEL - Warehouse extension of delay AW
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                                           NOT NULL   INTEGER       Internal key
+KEY_ITM_NBR                      RNK                  NOT NULL   INTEGER       Item number
+
+
+
+
+UNCTAD/DTL                                                                                                   Page 12
+Declaration - Tables Description - V 0.1.0905                                                       ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+WHS_ITM_COD                      COD                             VARCHAR(35)   Warehouse code
+WHS_ITM_SPC                      SPC                             VARCHAR(35)   Tariff Specification
+WHS_ITM_UOM                      UOM                             VARCHAR(35)   Unit of measurement
+WHS_ITM_CTY                      CTY                             VARCHAR(35)   Country of origin
+WHS_ITM_QTY                      QTY                             VARCHAR(35)   Quantity
+WHS_ITM_DAT                      DAT                             VARCHAR(35)   Date of extension
+
+
+WHS_EXT_DEL - Warehouse extension of delay with management server
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+DEC_YER                          DEC.YER                         VARCHAR(50)   Year
+DEC_CUO                          DEC.CUO                         VARCHAR(50)   Office
+DEC_SER                          DEC.SER                         VARCHAR(50)   Serial
+DEC_NBR                          DEC.NBR                         VARCHAR(50)   Dec. Ref. Nber
+DEC_MOD                          DEC.MOD                         VARCHAR(50)   Model of declaration
+DEC_MDS                          DEC.MDS                         VARCHAR(50)   Model description
+DEC_REG_DAT                      DEC.REG.DAT                     VARCHAR(50)   Registered on
+DEC_EXP_DAT                      DEC.EXP.DAT                     VARCHAR(50)   Expired on
+DLY_MAX                          DLY.MAX                         VARCHAR(50)   Maximum delay
+DEC_EXP_NDA                      DEC.EXP.NDA                     VARCHAR(50)   New expiration date
+DLY_EXT                          DLY.EXT                         VARCHAR(50)   Delay extension
+
+
+SAD_Serial_Storage - SAD Storage Serial Management
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+InstanceId                                            NOT NULL   INTEGER
+YER                              YER                             INTEGER       Year
+SIT_COD                          SIT.COD                         VARCHAR(5)    Customs site, code
+SIT_NAM                          SIT.NAM                         VARCHAR(35)   Customs site, name
+DEC_COD                          DEC.COD                         VARCHAR(17)   Declarant Code
+DEC_NAM                          DEC.NAM                         VARCHAR(35)   Declarant Name
+CHR                              CHR                             VARCHAR(1)    Serial letter or digit
+SER_INI                          SER.INI                         INTEGER       Serial - Initial number
+SER_CUR                          SER.CUR                         INTEGER       Serial - Current number
+
+
+SAD_Serial_Registration - SAD Registration Serial Management
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+InstanceId                                            NOT NULL   INTEGER
+YER                              YER                             INTEGER       Year
+SIT_COD                          SIT.COD                         VARCHAR(5)    Customs site, code
+SIT_NAM                          SIT.NAM                         VARCHAR(35)   Customs site, name
+CHR                              CHR                             VARCHAR(1)    Serial letter or digit
+SER_INI                          SER.INI                         INTEGER       Serial - Initial number
+SER_CUR                          SER.CUR                         INTEGER       Serial - Current number
+
+
+SAD_Serial_Assessment - SAD Assessment Serial Management
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+InstanceId                                            NOT NULL   INTEGER
+YER                              YER                             INTEGER       Year
+SIT_COD                          SIT.COD                         VARCHAR(5)    Customs site, code
+SIT_NAM                          SIT.NAM                         VARCHAR(35)   Customs site, name
+DIR_INP                          DTI                             BIT           Direct trader input flag
+
+
+
+
+UNCTAD/DTL                                                                                                Page 13
+Declaration - Tables Description - V 0.1.0905                                                      ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+CHR                              CHR                             VARCHAR(1)    Serial letter or digit
+SER_INI                          SER.INI                         INTEGER       Serial - Initial number
+SER_CUR                          SER.CUR                         INTEGER       Serial - Current number
+
+
+Exit_Note_General_Segment - Exit Note General Segment
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+IDE_YEA                          IDE.YEA                         INTEGER       Year of exit note
+IDE_SER                          IDE.SER                         VARCHAR(1)    Serial letter of exit note
+IDE_NBR                          IDE.NBR                         VARCHAR(6)    Exit note number
+IDE_CUO_COD                      IDE.CUO.COD                     VARCHAR(5)    Office Code
+IDE_CUO_NAM                      IDE.CUO.NAM                     VARCHAR(35)   Office Name
+SHD_COD                          SHD.COD                         VARCHAR(17)   Transit shed code
+SHD_NAM                          SHD.NAM                         VARCHAR(35)   Transit shed name
+DEC_COD                          DEC.COD                         VARCHAR(17)   Declarant Code
+DEC_NAM                          DEC.NAM                         LONGVARCHAR   Declarant Name
+TPT_IDE                          TPT.IDE                         VARCHAR(35)   Transport ID
+TPT_INF                          TPT.INF                         VARCHAR(35)   Master ID
+TPT_NAT_COD                      TPT.NAT.COD                     VARCHAR(3)    Nationality of transport code
+TPT_NAT_NAM                      TPT.NAT.NAM                     VARCHAR(35)   Nationality of transport description
+VAL_DAT                          VAL.DAT                         DATE          Date of validation
+VAL_TIM                          VAL.TIM                         TIMESTAMP     Time of validation
+VAL_USR                          VAL.USR                         VARCHAR(20)   User
+EXT_PLC                          EXT.PLC                         VARCHAR(35)   Place of exit of goods
+EXT_DAT                          EXT.DAT                         DATE          Date of exit of goods
+EXT_TIM                          EXT.TIM                         TIMESTAMP     Time of exit of goods
+EXT_USR                          EXT.USR                         VARCHAR(20)   User
+
+
+Exit_Note_Item - Exit Note - Items
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                                           NOT NULL   INTEGER
+ITM_NBR                          RNK                  NOT NULL   INTEGER
+SAD_ITM                          SAD.ITM                         INTEGER       Items
+SAD_CUO_COD                      SAD.CUO.COD                     VARCHAR(5)    Office Code
+SAD_CUO_NAM                      SAD.CUO.NAM                     VARCHAR(35)   Office Name
+SAD_DEC_YEA                      SAD.DEC.YEA                     INTEGER       Dec. year
+SAD_DEC_NBR                      SAD.DEC.NBR                     VARCHAR(11)   Dec. number
+SAD_ASS_YEA                      SAD.ASS.YEA                     INTEGER       Ass. year
+SAD_ASS_SER                      SAD.ASS.SER                     VARCHAR(1)    Ass. serial
+SAD_ASS_NBR                      SAD.ASS.NBR                     VARCHAR(11)   Ass. number
+SAD_ASS_DAT                      SAD.ASS.DAT                     DATE          Date
+SAD_PCK_MK1                      SAD.PCK.MK1                     VARCHAR(35)   Marks of packages 1
+SAD_PCK_MK2                      SAD.PCK.MK2                     VARCHAR(35)   Marks of packages 2
+SAD_PCK_NBR                      SAD.PCK.NBR                     DOUBLE        Number of packages
+SAD_PCK_TYP_COD                  SAD.PCK.TYP.COD                 VARCHAR(17)   Type of packages code
+SAD_PCK_TYP_NAM                  SAD.PCK.TYP.NAM                 VARCHAR(35)   Type of packages description
+SAD_WGT_GRS                      SAD.WGT.GRS                     DOUBLE        Gross mass
+MAN_REF                          MAN.REF                         VARCHAR(28)   Manifest reference
+BOL_REF                          BOL.REF                         VARCHAR(17)   B/L reference
+
+
+Item_Exit_Note_General_Segment - Item Exit Note General Segment
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+
+
+
+
+UNCTAD/DTL                                                                                                     Page 14
+Declaration - Tables Description - V 0.1.0905                                                      ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+IDE_YEA                          IDE.YEA                         INTEGER       Year of exit note
+IDE_SER                          IDE.SER                         VARCHAR(1)    Serial letter of exit note
+IDE_NBR                          IDE.NBR                         VARCHAR(6)    Exit note number
+IDE_CUO_COD                      IDE.CUO.COD                     VARCHAR(5)    Office Code
+IDE_CUO_NAM                      IDE.CUO.NAM                     VARCHAR(35)   Office Name
+REG_YEA                          REG.YEA                         INTEGER       Registration Year
+REG_SER                          REG.SER                         VARCHAR(1)    Registration Serial
+REG_NBR                          REG.NBR                         VARCHAR(11)   Registration Number
+REG_DAT                          REG.DAT                         DATE          Registration Date
+ASS_YEA                          ASS.YEA                         INTEGER       Assessment Year
+ASS_SER                          ASS.SER                         VARCHAR(1)    Assessment Seria
+ASS_NBR                          ASS.NBR                         VARCHAR(11)   Assessment Number
+ASS_DAT                          ASS.DAT                         DATE          Assessment date
+MAN_REF                          MAN.REF                         VARCHAR(28)   Manifest reference
+SHD_COD                          SHD.COD                         VARCHAR(17)   Transit shed code
+SHD_NAM                          SHD.NAM                         VARCHAR(35)   Transit shed name
+DEC_COD                          DEC.COD                         VARCHAR(17)   Declarant Code
+DEC_NAM                          DEC.NAM                         LONGVARCHAR   Declarant Name
+DEC_REF_YEA                      DEC.REF.YEA                     INTEGER       User reference - year
+DEC_REF_NBR                      DEC.REF.NBR                     VARCHAR(11)   Declarant reference number
+TPT_IDE                          TPT.IDE                         VARCHAR(35)   Transport ID
+TPT_INF                          TPT.INF                         VARCHAR(35)   Master ID
+TPT_NAT_COD                      TPT.NAT.COD                     VARCHAR(3)    Nationality of transport code
+TPT_NAT_NAM                      TPT.NAT.NAM                     VARCHAR(35)   Nationality of transport description
+VAL_DAT                          VAL.DAT                         DATE          Date of validation
+VAL_TIM                          VAL.TIM                         TIMESTAMP     Time of validation
+VAL_USR                          VAL.USR                         VARCHAR(20)   User
+EXT_PLC                          EXT.PLC                         VARCHAR(35)   Place of exit of goods
+EXT_DAT                          EXT.DAT                         DATE          Date of exit of goods
+EXT_TIM                          EXT.TIM                         TIMESTAMP     Time of exit of goods
+EXT_USR                          EXT.USR                         VARCHAR(20)   User
+STA                              STA                             VARCHAR(17)   Status
+
+
+Item_Exit_Note_Item -
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                                           NOT NULL   INTEGER
+RNK                              RNK                  NOT NULL   INTEGER
+NBR                              NBR                             INTEGER       Item number
+PCK_MK1                          PCK.MK1                         VARCHAR(35)   Marks of packages 1
+PCK_MK2                          PCK.MK2                         VARCHAR(35)   Marks of packages 2
+PCK_NBR                          PCK.NBR                         DOUBLE        Number of packages - item
+PCK_TYP_COD                      PCK.TYP.COD                     VARCHAR(17)   Kind of packages - code
+PCK_TYP_NAM                      PCK.TYP.NAM                     VARCHAR(35)   Kind of packages - name
+GDS_DS1                          GDS.DS1                         VARCHAR(70)   Goods description 1
+GDS_DS2                          GDS.DS2                         VARCHAR(70)   Goods description 2
+CTN_NB1                          CTN.NB1                         VARCHAR(17)   Container number 1
+CTN_NB2                          CTN.NB2                         VARCHAR(17)   Container number 2
+CTN_NB3                          CTN.NB3                         VARCHAR(17)   Container number 3
+CTN_NB4                          CTN.NB4                         VARCHAR(17)   Container number 4
+WGT_GRS                          WGT.GRS                         DOUBLE        Gross mass
+BOL_REF                          BOL.REF                         VARCHAR(17)   B/L reference
+
+
+SAD_Serial_Exit_Note - exit note serial document
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+InstanceId                                            NOT NULL   INTEGER
+
+
+
+
+UNCTAD/DTL                                                                                                     Page 15
+Declaration - Tables Description - V 0.1.0905                                                         ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation   Null?      Data Type      Description
+YER                              YER                             INTEGER        Year
+SIT_COD                          SIT.COD                         VARCHAR(5)     Customs site, code
+SIT_NAM                          SIT.NAM                         VARCHAR(35)    Customs site, name
+CHR                              CHR                             VARCHAR(1)     Serial letter or digit
+SER_INI                          SER.INI                         INTEGER        Serial - Initial number
+SER_CUR                          SER.CUR                         INTEGER        Serial - Current number
+
+
+SEL_LISTS - Selectivity Lists
+
+Field Name                       DOM Representation   Null?      Data Type      Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+LST_COD                          COD                             VARCHAR(17)    Code
+LST_NAM                          DSC                             VARCHAR(35)    Description
+ADM_COD                          ADM                             VARCHAR(5)     Administration
+
+
+SEL_LISTS_CMP - Selectivity Lists - Companies
+
+Field Name                       DOM Representation   Null?      Data Type      Description
+INSTANCE_ID                                           NOT NULL   INTEGER
+COD                              COD                  NOT NULL   VARCHAR(17)    Company code
+NAM                              NAM                             VARCHAR(200)   Company description
+
+
+SEL_LISTS_DEC - Selectivity Lists - Declarants
+
+Field Name                       DOM Representation   Null?      Data Type      Description
+INSTANCE_ID                                           NOT NULL   INTEGER
+COD                              COD                  NOT NULL   VARCHAR(17)    Declarant code
+NAM                              NAM                             VARCHAR(200)   Declarant name
+
+
+SEL_LISTS_CTY - Selectivity Lists - Countries
+
+Field Name                       DOM Representation   Null?      Data Type      Description
+INSTANCE_ID                                           NOT NULL   INTEGER
+COD                              COD                  NOT NULL   VARCHAR(17)    Country code
+NAM                              NAM                             VARCHAR(200)   Country description
+
+
+SEL_LISTS_TAR - Selectivity Lists - Commodity codes
+
+Field Name                       DOM Representation   Null?      Data Type      Description
+INSTANCE_ID                                           NOT NULL   INTEGER
+COD                              COD                  NOT NULL   VARCHAR(17)    Commodity code
+NAM                              NAM                             VARCHAR(200)   Commodity code
+
+
+Sections_General_Segment - Sections
+
+Field Name                       DOM Representation   Null?      Data Type      Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+CUO_COD                          CUO.COD                         VARCHAR(5)     Custom office code
+CUO_NAM                          CUO.NAM                         VARCHAR(35)    Custom office name
+
+
+
+
+UNCTAD/DTL                                                                                                  Page 16
+Declaration - Tables Description - V 0.1.0905                                                        ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation   Null?      Data Type       Description
+COD                              COD                             VARCHAR(17)     Code
+DSC                              DSC                             VARCHAR(35)     Description
+TYP                              TYP                             INTEGER         Type
+COM                              COM                             LONGVARCHAR     Tariff Interval
+TMP_LOC                          TMP.LOC                         LONGVARCHAR     Location of Goods
+VEC                              VEC                             LONGVARBINARY   array of tariff interval (COM already
+                                                                                 parsed saved in database (to avoid
+                                                                                 parsing it every time from asysad))
+FLW_IMP                          FLW.IMP                         VARCHAR(1)      Import Flag
+FLW_EXP                          FLW.EXP                         VARCHAR(1)      Export Flag
+DEL                              DEL                             VARCHAR(1)      flag when document is deleted
+
+
+Sections_Locations_Table - Sections - Locations
+
+Field Name                       DOM Representation   Null?      Data Type       Description
+INSTANCE_ID                                           NOT NULL   INTEGER
+COD                              COD                  NOT NULL   VARCHAR(17)     Location code
+NAM                              NAM                             VARCHAR(200)    Location description
+
+
+Examiners_General_Segment - Examiners
+
+Field Name                       DOM Representation   Null?      Data Type       Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+CUO_COD                          CUO.COD                         VARCHAR(5)      Custom office code
+CUO_NAM                          CUO.NAM                         VARCHAR(35)     Custom office name
+SEC                              SEC                             VARCHAR(17)     Section code
+COD                              COD                             VARCHAR(17)     Examining officer
+NAM                              NAM                             VARCHAR(35)     Extended name
+STA                              STA                             VARCHAR(15)     Status
+DCL                              DCL                             INTEGER         Current number of declarations
+WLD                              WLD                             DOUBLE          Current workload
+WRN                              WRN                             BIT             Receive warning
+CHF                              CHF                             BIT             Chief
+STI                              STI                             VARCHAR(1)      status indicator. Sections purposes
+                                                                                 (asybrk (sad))
+DEL                              DEL                             VARCHAR(1)      flag when document is deleted
+
+
+INSP_ACT_TAB - Inspection Act
+
+Field Name                       DOM Representation   Null?      Data Type       Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+IDE_CUO_COD                      IDE.CUO.COD                     VARCHAR(5)      Office Code
+IDE_CUO_NAM                      IDE.CUO.NAM                     VARCHAR(35)     Office Name
+CFM                              CFM                             BIT             Conform flag
+INF                              INF                             LONGVARCHAR     Information
+SAD_MOD                          SAD.MOD                         VARCHAR(3)      Model
+SAD_ITM                          SAD.ITM                         SMALLINT        Items
+SAD_DEC_COD                      SAD.DEC.COD                     VARCHAR(17)     Declarant code
+SAD_DEC_NAM                      SAD.DEC.NAM                     VARCHAR(35)     Declarant name
+SAD_DEC_REF_YEA                  SAD.DEC.REF.YEA                 SMALLINT        Declaration reference year
+SAD_DEC_REF_NBR                  SAD.DEC.REF.NBR                 VARCHAR(11)     Declaration reference number
+SAD_REG_SER                      SAD.REG.SER                     VARCHAR(1)      Customs reference serial letter
+SAD_REG_NBR                      SAD.REG.NBR                     VARCHAR(11)     Customs reference number
+SAD_REG_DAT                      SAD.REG.DAT                     DATE            Customs reference date
+SAD_AST_SER                      SAD.AST.SER                     VARCHAR(1)      Assessment serial letter
+
+
+
+
+UNCTAD/DTL                                                                                                         Page 17
+Declaration - Tables Description - V 0.1.0905                                                     ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+SAD_AST_NBR                      SAD.AST.NBR                     VARCHAR(11)   Assessment number
+SAD_AST_DAT                      SAD.AST.DAT                     DATE          Assessment date
+FRD_FR1_COD                      FRD.FR1.COD                     VARCHAR(5)    Fraud code 1
+FRD_FR1_NAM                      FRD.FR1.NAM                     VARCHAR(35)   Fraud description 1
+FRD_FR2_COD                      FRD.FR2.COD                     VARCHAR(5)    Fraud code 2
+FRD_FR2_NAM                      FRD.FR2.NAM                     VARCHAR(35)   Fraud description 2
+FRD_FR3_COD                      FRD.FR3.COD                     VARCHAR(5)    Fraud code 3
+FRD_FR3_NAM                      FRD.FR3.NAM                     VARCHAR(35)   Fraud description 3
+FRD_FR4_COD                      FRD.FR4.COD                     VARCHAR(5)    Fraud code 4
+FRD_FR4_NAM                      FRD.FR4.NAM                     VARCHAR(35)   Fraud description 4
+FRD_FR5_COD                      FRD.FR5.COD                     VARCHAR(5)    Fraud code 5
+FRD_FR5_NAM                      FRD.FR5.NAM                     VARCHAR(35)   Fraud description 5
+FRD_FR6_COD                      FRD.FR6.COD                     VARCHAR(5)    Fraud code 6
+FRD_FR6_NAM                      FRD.FR6.NAM                     VARCHAR(35)   Fraud description 6
+PEN_AMT                          PEN.AMT                         DOUBLE        Penalty amount
+PEN_REF                          PEN.REF                         VARCHAR(25)   Penalty reference
+PEN_DAT                          PEN.DAT                         DATE          Penalty date
+DIS_REF                          DIS.REF                         VARCHAR(25)   Disputed claims reference
+DIS_DAT                          DIS.DAT                         DATE          Disputed claims date
+CRI_CR1                          CRI.CR1                         VARCHAR(17)   Criteria 1
+CRI_CR2                          CRI.CR2                         VARCHAR(17)   Criteria 2
+CRI_CR3                          CRI.CR3                         VARCHAR(17)   Criteria 3
+SAD_AMT_REV                      SAD.AMT.REV                     DOUBLE        Loss of revenue
+SAD_AMT_RFD                      SAD.AMT.RFD                     DOUBLE        Refund
+SAD_SID                          SAD.SID                         INTEGER       Corresponding SAD Instance Id
+
+
+SEL_PARAM_TAB - Selectivity Parameters
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+EXP_FLG                          EXP                             BIT           Export Flag
+IMP_FLG                          IMP                             BIT           Import Flag
+DEL                              DEL                             INTEGER       Delay for manual action - hours
+AUT                              AUT                             INTEGER       Automatic switch to BLUE
+DEL_MIN                          MIN                             INTEGER       Delay for manual action - minutes
+CUO_COD                          CUO.COD                         VARCHAR(5)    Custom office code
+CUO_NAM                          CUO.NAM                         VARCHAR(35)   Custom office name
+RAT_EXP_RED                      RAT.EXP.RED                     DOUBLE        Expected rate
+RAT_EXP_YEL                      RAT.EXP.YEL                     DOUBLE        Expected rate
+RAT_EXP_BLU                      RAT.EXP.BLU                     DOUBLE        Expected rate
+RAT_EXP_GRE                      RAT.EXP.GRE                     DOUBLE        Expected rate
+RAT_RDM_RED                      RAT.RDM.RED                     DOUBLE        Minimum random rate
+RAT_RDM_YEL                      RAT.RDM.YEL                     DOUBLE        Minimum random rate
+RAT_RDM_BLU                      RAT.RDM.BLU                     DOUBLE        Minimum random rate
+HIT_RED                          HIT.RED                         INTEGER       Maximum hits with no selection
+HIT_YEL                          HIT.YEL                         INTEGER       Maximum hits with no selection
+HIT_BLU                          HIT.BLU                         INTEGER       Maximum hits with no selection
+WGT_DCL                          WGT.DCL                         INTEGER       Declaration Weight
+WGT_ITM                          WGT.ITM                         INTEGER       Item Weight
+
+
+SEL_NAT_PARAM_TAB - Selectivity national criteria
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+CRI_COD                          COD                             VARCHAR(17)   Criteria Code
+DAT_BEG                          DAT.BEG                         DATE          Begining date
+
+
+
+
+UNCTAD/DTL                                                                                                   Page 18
+Declaration - Tables Description - V 0.1.0905                                                      ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation   Null?      Data Type       Description
+DAT_END                          DAT.END                         DATE            End Date
+EXP_FLG                          EXP                             BIT             Export Flag
+IMP_FLG                          IMP                             BIT             Import Flag
+CRI_DOC                          DOC                             LONGVARCHAR     Documentation
+CRI_RUL                          CRI                             LONGVARBINARY   Actual Criteria
+CRI_TYP                          TYP                             INTEGER         Criteria Type
+ADM_COD                          ADM                             VARCHAR(5)      Administration
+
+
+
+SEL_REG_PARAM_TAB - Selectivity regional criteria
+
+Field Name                       DOM Representation   Null?      Data Type       Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+CRI_COD                          COD                             VARCHAR(17)
+DAT_BEG                          DAT.BEG                         DATE            Begining date
+DAT_END                          DAT.END                         DATE            End Date
+EXP_FLG                          EXP                             BIT             Export Flag
+IMP_FLG                          IMP                             BIT             Import Flag
+CRI_DOC                          DOC                             LONGVARCHAR     Documentation
+CRI_RUL                          CRI                             LONGVARBINARY   Actual Criteria
+CRI_TYP                          TYP                             INTEGER         Criteria Type
+ADM_COD                          ADM                             VARCHAR(5)      Administration
+
+
+
+SEL_LOC_PARAM_TAB - Selectivity local criteria
+
+Field Name                       DOM Representation   Null?      Data Type       Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+CUO_COD                          CUO.COD                         VARCHAR(5)      Custom office code
+CUO_NAM                          CUO.NAM                         VARCHAR(35)     Custom office name
+CRI_COD                          COD                             VARCHAR(17)
+DAT_BEG                          DAT.BEG                         DATE            Begining date
+DAT_END                          DAT.END                         DATE            End Date
+EXP_FLG                          EXP                             BIT             Export Flag
+IMP_FLG                          IMP                             BIT             Import Flag
+CRI_DOC                          DOC                             LONGVARCHAR     Documentation
+CRI_RUL                          CRI                             LONGVARBINARY   Actual Criteria
+CRI_TYP                          TYP                             INTEGER         Criteria Type
+ADM_COD                          ADM                             VARCHAR(5)      Administration
+
+
+
+VAL_CTL_TAB - Valuation control table
+
+Field Name                       DOM Representation   Null?      Data Type       Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+COM_COD                          COD                             VARCHAR(11)
+TAR_SPC                          SPC                             VARCHAR(5)
+CTY_COD                          CTY.COD                         VARCHAR(3)      Country code
+CTY_NAM                          CTY.NAM                         VARCHAR(35)     Country name
+TAR_DSC                          DSC                             LONGVARCHAR
+FOR_COD                          FOR.COD                         VARCHAR(17)     Formula code
+FOR_NAM                          FOR.NAM                         VARCHAR(60)     Formula name
+MAN_MIN                          MMI                             INTEGER         Minimum manual value
+MAN_MAX                          MMA                             INTEGER         Maximum manual value
+CAL_ITM                          ITM                             INTEGER         Calculated items
+CAL_MIN                          CMI                             INTEGER         Calculated minimum
+CAL_MAX                          CMA                             INTEGER         Calculated maximum
+
+
+
+
+UNCTAD/DTL                                                                                               Page 19
+Declaration - Tables Description - V 0.1.0905                                                          ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation   Null?      Data Type       Description
+CAL_AVE                          CAV                             INTEGER         Calculated average
+CAL_VAR                          CVV                             INTEGER         Calculated variance
+
+
+VAL_FOR_TAB - Valuation control formula table
+
+Field Name                       DOM Representation   Null?      Data Type       Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+FOR_COD                          COD                             VARCHAR(17)     Formula code
+FOR_NAM                          NAM                             VARCHAR(60)     Formula name
+FOR_RUL                          FOR                             LONGVARBINARY   Formula rule
+
+
+SEL_LCA - manifest selectivity lists general information
+
+Field Name                       DOM Representation   Null?      Data Type       Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+LST_COD                          COD                             VARCHAR(17)     List code
+LST_NAM                          DSC                             VARCHAR(35)     List name
+
+
+SEL_CAR - manifest selectivity lists manifests
+
+Field Name                       DOM Representation   Null?      Data Type       Description
+INSTANCE_ID                                           NOT NULL   INTEGER
+CAR_RNK                          RNK                  NOT NULL   INTEGER         Internal index number
+CAR_REF                          CAR                  NOT NULL   VARCHAR(28)     Manifest reference
+CAR_DSC                          DSC                             VARCHAR(35)     Manifest description
+
+
+SEL_BOL - manifest selectivity lists B/Ls
+
+Field Name                       DOM Representation   Null?      Data Type       Description
+INSTANCE_ID                                           NOT NULL   INTEGER         Internal key
+BOL_RNK                          RNK                  NOT NULL   INTEGER         Internal index number
+CAR_REF                                               NOT NULL   VARCHAR(28)     Manifest reference
+BOL_REF                          BOL                  NOT NULL   VARCHAR(26)     B/L reference
+
+
+RPT_ATITINV_TAB - Temporary admission reports
+
+Field Name                       DOM Representation   Null?      Data Type       Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+FLG_IMP                          FLG.IMP                         BIT             Importation flag
+FLG_EXP                          FLG.EXP                         BIT             Exportation flag
+FLG_PRO                          FLG.PRO                         BIT             Product flag
+FLG_CMP                          FLG.CMP                         BIT             Importer flag
+CPC_COD                          CPC.COD                         VARCHAR(4)      Procedure code
+CPC_NAM                          CPC.NAM                         VARCHAR(70)     Procedure name
+PRO_CO1                          PRO.CO1                         VARCHAR(6)      Product code
+PRO_CO2                          PRO.CO2                         VARCHAR(2)      Product code
+PRO_CO3                          PRO.CO3                         VARCHAR(3)      Product code
+PRO_CO4                          PRO.CO4                         VARCHAR(4)      Product code
+PRO_NAM                          PRO.NAM                         VARCHAR(88)     Product description
+CMP_COD                          CMP.COD                         VARCHAR(17)     Company code
+CMP_NAM                          CMP.NAM                         VARCHAR(35)     Company name
+
+
+
+
+UNCTAD/DTL                                                                                                   Page 20
+Declaration - Tables Description - V 0.1.0905                                                     ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+OPT_PGE                                                          INTEGER       obsolete
+DES_PRT                                                          BIT           obsolete
+DES_FIL                                                          BIT           obsolete
+PRI_HGH                                                          BIT           obsolete
+PRI_LOW                                                          BIT           obsolete
+PRI_DEL                                                          BIT           obsolete
+PRI_DAT                                                          DATE          obsolete
+PRI_TIM                                                          TIMESTAMP     obsolete
+CUO_COD                          CUO.COD                         VARCHAR(5)    Custom office code
+CUO_NAM                          CUO.NAM                         VARCHAR(35)   Custom office name
+
+
+
+RPT_ATITLST_TAB - Temporary admission reports
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+FLG_IMP                          FLG.IMP                         BIT           Importation flag
+FLG_EXP                          FLG.EXP                         BIT           Exportation flag
+FLG_CLO                          FLG.CLO                         BIT           Closed flag
+FLG_OPE                          FLG.OPE                         BIT           Opened flag
+FLG_EXR                          FLG.EXR                         BIT           Expired flag
+FLG_EXT                          FLG.EXT                         BIT           Extended flag
+FLG_DAT                          FLG.DAT                         BIT           By expiry date flag
+CPC_COD                          CPC.COD                         VARCHAR(4)    Procedure code
+CPC_NAM                          CPC.NAM                         VARCHAR(70)   Procedure name
+PRO_CO1                          PRO.CO1                         VARCHAR(6)    Product code
+PRO_CO2                          PRO.CO2                         VARCHAR(2)    Product code
+PRO_CO3                          PRO.CO3                         VARCHAR(3)    Product code
+PRO_CO4                          PRO.CO4                         VARCHAR(4)    Product code
+PRO_NAM                          PRO.NAM                         VARCHAR(35)   Product description
+LST_DAT                          LST.DAT                         DATE          Date for list
+CUO_COD                          CUO.COD                         VARCHAR(5)    Custom office code
+CUO_NAM                          CUO.NAM                         VARCHAR(35)   Custom office name
+
+
+
+RPT_ATITACC_TAB - Temporary admission reports
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+FLG_IMP                          FLG.IMP                         BIT           Importation flag
+FLG_EXP                          FLG.EXP                         BIT           Exportation flag
+DEC_COD                          DEC.COD                         VARCHAR(17)   Declarant Code
+DEC_NAM                          DEC.NAM                         VARCHAR(35)   Declarant Name
+DEC_YEA                          DEC.YEA                         INTEGER       Declarant reference year
+DEC_REF                          DEC.REF                         VARCHAR(17)   Declarant reference number
+CUO_COD                          CUO.COD                         VARCHAR(5)    Custom office code
+CUO_NAM                          CUO.NAM                         VARCHAR(35)   Custom office name
+
+
+
+RPT_WHSINV_TAB - Warehouse Inventory reports
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+FLG_PRO                          CBX.PRO                         BIT           Product flag
+FLG_CMP                          CBX.CMP                         BIT           Importer flag
+FLG_CTY                          CBX.CTY                         BIT           Country Flag
+WHS_COD                          WHS.COD                         VARCHAR(17)   Identification of warehouse
+
+
+
+
+UNCTAD/DTL                                                                                                   Page 21
+Declaration - Tables Description - V 0.1.0905                                                        ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+WHS_NAM                          WHS.NAM                         VARCHAR(35)   Warehouse name
+PRO_CO1                          PRO.COD                         VARCHAR(6)    Product code
+PRO_CO2                          PRO.CO2                         VARCHAR(2)    Product code
+PRO_CO3                          PRO.CO3                         VARCHAR(2)    Product code
+PRO_CO4                          PRO.CO4                         VARCHAR(4)    Product code
+PRO_NAM                          PRO.NAM                         VARCHAR(35)   Product description
+CMP_COD                          CMP.COD                         VARCHAR(17)   Company code
+CMP_NAM                          CMP.NAM                         VARCHAR(35)   Company name
+CTY_COD                          CTY.COD                         VARCHAR(5)    Country code
+CTY_NAM                          CTY.NAM                         VARCHAR(35)   Country name
+OPT_PGE                                                          INTEGER       obsolete
+DES_PRT                                                          BIT           obsolete
+DES_FIL                                                          BIT           obsolete
+PRI_HGH                                                          BIT           obsolete
+PRI_LOW                                                          BIT           obsolete
+PRI_DEL                                                          BIT           obsolete
+PRI_DAT                                                          DATE          obsolete
+PRI_TIM                                                          TIMESTAMP     obsolete
+
+
+
+RPT_WHSLST_TAB - Warehouse Summary Reports
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+FLG_CLO                          FLG.CLO                         BIT           Closed flag
+FLG_OPE                          FLG.OPE                         BIT           Opened flag
+FLG_EXR                          FLG.EXR                         BIT           Expired flag
+FLG_EXT                          FLG.EXT                         BIT           Extended flag
+WHS_COD                          WHS.COD                         VARCHAR(17)   Identification of warehouse
+WHS_NAM                          WHS.NAM                         VARCHAR(35)   Warehouse name
+LST_DAT                          LST.DAT                         DATE          Date for list
+OPT_PGE                                                          INTEGER       obsolete
+DES_PRT                                                          BIT           obsolete
+DES_FIL                                                          BIT           obsolete
+PRI_HGH                                                          BIT           obsolete
+PRI_LOW                                                          BIT           obsolete
+PRI_DEL                                                          BIT           obsolete
+PRI_DAT                                                          DATE          obsolete
+PRI_TIM                                                          TIMESTAMP     obsolete
+
+
+
+RPT_DAYBOOK_TAB - Obsolete
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                                           NOT NULL   INTEGER
+NBR_REG                                                          BIT
+NBR_ASS                                                          BIT
+NBR_POS                                                          BIT
+CUO_COD                                                          VARCHAR(5)    Custom office code
+CUO_NAM                                                          VARCHAR(35)   Custom office name
+DAT                                                              DATE          Date
+
+
+
+RPT_MONTHLY_TAB - Obsolete
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                                           NOT NULL   INTEGER
+
+
+
+
+UNCTAD/DTL                                                                                                   Page 22
+Declaration - Tables Description - V 0.1.0905                                                   ASYCUDA World
+
+
+
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+NBR_REG                                                          BIT
+NBR_ASS                                                          BIT
+NBR_POS                                                          BIT
+CUO_COD                                                          VARCHAR(5)    Custom office code
+CUO_NAM                                                          VARCHAR(35)   Custom office name
+YEA                                                              INTEGER
+MTH                                                              INTEGER
+
+
+
+RPT_DATETODATE_TAB - Date to Date Report
+
+Field Name                       DOM Representation   Null?      Data Type     Description
+INSTANCE_ID                      INSTANCE_ID          NOT NULL   INTEGER
+NBR_REG                          NBR.REG                         BIT           Registered Flag
+NBR_ASS                          NBR.ASS                         BIT           Assessed Flag
+NBR_POS                          NBR.POS                         BIT           Post Entry Flag
+CUO_COD                          CUO.COD                         VARCHAR(5)    Custom office code
+CUO_NAM                          CUO.NAM                         VARCHAR(35)   Custom office name
+DAT_FROM                         DAT.BEG                         DATE          Date From
+DAT_TO                           DAT.END                         DATE          Date To
+
+
+
+
+UNCTAD/DTL                                                                                            Page 23
+

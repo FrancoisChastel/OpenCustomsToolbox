@@ -1,0 +1,1412 @@
+The ASYCUDAWorld Reference Tables
+
+
+
+
+                 The ASYCUDAWorld
+                  Reference Tables
+
+
+
+
+UNCTAD/DTL                           Page 1
+The ASYCUDAWorld Reference Tables
+
+
+
+
+The ASYCUDAWorld Reference Tables
+
+I- INTRODUCTION
+
+        This document encompasses all the Reference Tables belonging to
+ASYCUDAWorld. For each table, the fields, field lengths, keys and descriptions are
+specified.
+
+II- THE REFERENCE TABLES SUMMARY
+
+       Following is the list of the reference tables in alphabetical order. The column
+“Table Name” takes the reader to the respective table section.
+Note : All the Reference Tables names are starting with "UN" (Except LogTable), replace
+"xx" by "UN" for the complete name.
+       All reference tables (Except LogTable) have two fields VALID_FROM and
+VALID_TO that define its validity in time. This icon indicates if a field is a primary
+key or not.
+
+    Table name                        Description
+  LogTable        Actions (procedures)
+  xxACTTAB        Actions (procedures)
+  xxADMTAB        Selectivity administration
+  xxAGCTAB        Carrier's agents (link)
+  xxAGDTAB        Declarant's agents (link)
+  xxAGRCMP        Agreements & companies
+  xxAGRTAB        Agreements
+  xxATDTAB        Attached documents
+  xxATITAB        Accounting transactions (IN)
+  xxATOTAB        Accounting transactions (OUT)
+  xxBNKTAB        Banks
+  xxBRATAB        Bank branches (link)
+  xxBUDTAB        Budget codes
+  xxCAPTAB        Common Agricultural Policies
+  xxCARTAB        Carriers
+  xxCMPTAB        Companies
+
+
+
+UNCTAD/DTL                                                                  Page 2
+The ASYCUDAWorld Reference Tables
+
+
+
+
+  xxCOFSHD       Customs officers & transit sheds (link)
+  xxCOFTAB       Customs officers
+  xxCOFWHS       Customs officers & warehouses (link)
+  xxCOLTAB       Additional tariff column names
+  xxCP1TAB       General procedures
+  xxCP3TAB       Additional codes
+  xxCP4CP3       National fiscal procedures (link)
+  xxCP4TAB       Extended procedures
+  xxCPPTAB       Previous procedures
+  xxCPRTAB       Requested procedures
+  xxCTNTAB       Types of containers
+  xxCTYMOT       Countries & modes of transport (link)
+  xxCTYTAB       Countries
+  xxCUOMOT       Customs offices & modes of transport (link)
+  xxCUOTAB       Customs offices
+  xxCURTAB       Currencies
+  xxDECTAB       Declarants
+  xxFRDTAB       Frauds/Selectivity
+  xxHOLTAB       Non-working days
+  xxHS1TAB       Sections
+  xxHS2TAB       Chapters
+  xxHS3TAB       Sub-chapters
+  xxHS4TAB       Headings
+  xxHS5TAB       Sub-Headings (5 digits)
+  xxHS6TAB       HS Codes
+  xxINDTAB       Empty/Full indicators
+  xxKWDHS6       Keywords on HS 6
+  xxKWDTAB       Keywords
+  xxLNGTAB       Languages
+  xxLOCTAB       Places of loading (locode)
+  xxMKTTAB       Market values
+  xxMODTAB       Models of declarations
+  xxMOPTAB       Means of payment
+  xxMOTTAB       Modes of transport
+  xxMUQTAB       Measurement unit qualifiers
+  xxNATTAB       B/L nature
+  xxNOTTAB       Notes
+
+
+UNCTAD/DTL                                                     Page 3
+The ASYCUDAWorld Reference Tables
+
+
+
+
+  xxPKGTAB       Types of packages
+  xxPRFCTY       Preferences & countries (link)
+  xxPRFTAB       Preferences
+  xxPRGCUO       Processing programs & CUO (link)
+  xxPRGTAB       Processing programs
+  xxPRPTAB       Principals
+  xxPRTTAB       Printers
+  xxQUOTAB       Quotas
+  xxRATTAB       Exchange rates (link)
+  xxREGTAB       Country regions (link)
+  xxRTXTAB       General notes
+  xxRULTAB       Taxation Rules
+  xxSCNTAB       Scanned attached documents
+  xxSEATAB       Seals parties
+  xxSHDCAR       Transit sheds & carriers (link)
+  xxSHDCMP       Transit sheds & companies (link)
+  xxSHDDEC       Transit sheds & declarants (link)
+  xxSHDTAB       Transit Sheds
+  xxSHLTAB       Location in transit shed
+  xxTARCOL       Additional tariff columns
+  xxTARTAB       National commodity codes
+  xxTARTRAC      Integrated tariff auditing
+  K
+  xxTAXCMP       Taxation lists - Companies
+  xxTAXLST       Taxation lists
+  xxTAXTAB       Tax codes
+  xxTAXTAR       Taxation lists – Tariff codes
+  xxTIRCTY       TIR member countries
+  xxTIRTAB       Associations
+  xxTODTAB       Terms of delivery
+  xxTOPTAB       Terms of payment
+  xxTR1TAB       Nature of transaction #1
+  xxTR2TAB       Nature of transaction #2
+  xxTRDMOT       Transport documents & MOT’s (link)
+  xxTRDTAB       Transport documents
+  xxUOMTAB       Statistical units
+  xxWHSCMP       Customs warehouses & companies
+
+
+
+UNCTAD/DTL                                            Page 4
+The ASYCUDAWorld Reference Tables
+
+
+
+
+  xxWHSTAB       Warehouses
+  xxVAMTAB       Valuation method
+
+III- REFERENCE TABLES DETAILS
+1-LogTable
+
+     Key             Name                Type                    Description
+                 TAB_NAM            VARCHAR (35)   Table name
+                 UPD_DAT            TIMESTAMP      Change date
+                 USR_NAM            VARCHAR (35)   User name
+                 LOG_TXT            LONGVARCHAR    Information
+
+2-ACTTAB
+
+     Key             Name               Type                     Description
+                 ACT_COD            VARCHAR (2)    Action code
+                 VALID_FROM         TIMESTAMP
+                 ACT_DSC            VARCHAR (35)   Action description
+                 VALID_TO           TIMESTAMP
+
+3-ADMTAB
+
+     Key             Name               Type                    Description
+                 ADM_COD            VARCHAR (5)    Administration Code Description
+                 ADM_CUO_COD        VARCHAR (5)    Office Code of Administration
+                 VALID_FROM         TIMESTAMP
+                 ADM_ADR            VARCHAR (35)   Administration Address
+                 ADM_AD2            VARCHAR (35)   Administration Address
+                 ADM_AD3            VARCHAR (35)   Administration Address
+                 ADM_AD4            VARCHAR (35)   Administration Address
+                 ADM_NAM            VARCHAR (35)   Administration name Description
+                 ADM_NAM2           VARCHAR (35)   Administration name Description
+                 ADM_NAM3           VARCHAR (35)   Administration name Description
+                 ADM_FAX            VARCHAR (15)   Administration Fax
+                 ADM_TEL            VARCHAR (15)   Administration Telephone
+                 VALID_TO           TIMESTAMP
+
+
+
+
+UNCTAD/DTL                                                              Page 5
+The ASYCUDAWorld Reference Tables
+
+
+
+
+4-AGCTAB
+
+     Key             Name               Type                     Description
+                 AGC_NAM            VARCHAR (17)   Carrier’s agent name
+                 CAR_COD            VARCHAR (35)   Carrier’s agent code
+                 VALID_FROM         TIMESTAMP
+                 VALID_TO           TIMESTAMP
+
+5-AGDTAB
+
+     Key             Name               Type                    Description
+                 AGD_NAM            VARCHAR (35)   Declarant’s agent name
+                 DEC_COD            VARCHAR (17)   Declarant’s agent code
+                 VALID_FROM         TIMESTAMP
+                 VALID_TO           TIMESTAMP
+
+6-AGRCMP
+
+     Key             Name               Type                   Description
+                 AGR_COD            VARCHAR (2)    Agreements-Company code
+                 CMP_COD            TIMESTAMP      Company code
+                 VALID_FROM         TIMESTAMP
+                 VALID_TO           TIMESTAMP
+
+7-AGRTAB
+
+     Key             Name                Type                 Description
+                 AGR_COD            VARCHAR (17)   Agreement code
+                 VALID_FROM         TIMESTAMP
+                 AGR_DSC            VARCHAR (35)   Agreement description
+                 AGR_DEL            DOUBLE         Delay
+                 CP3_COD            VARCHAR (3)    Additional code
+                 RUL_COD            VARCHAR (17)   Rule code
+                 SEL_HSC            LONGVARCHAR    Commodity details
+                 VALID_TO           TIMESTAMP
+
+8-ATDTAB
+
+
+
+UNCTAD/DTL                                                          Page 6
+The ASYCUDAWorld Reference Tables
+
+
+
+
+     Key             Name               Type                   Description
+                 ATD_COD            VARCHAR (4)    Attached document code
+                 VALID_FROM         TIMESTAMP
+                 ATD_DSC            VARCHAR (70)   Description
+                 ATD_DSC2           VARCHAR (70)   Description
+                 ATD_DSC3           VARCHAR (70)   Description
+                 VALID_TO           TIMESTAMP
+
+9-ATITAB
+
+     Key             Name               Type                    Description
+                 ATI_COD            VARCHAR (3)    Transaction code
+                 VALID_FROM         TIMESTAMP
+                                                   Format flag (0/1/2) – determines
+                 ATI_FRM            VARCHAR (1)    reference field in other payments in or
+                                                   out is free text or other
+                 ATI_LDC            VARCHAR (35)   Long description
+                 ATI_SDC            VARCHAR (17)   Short description
+                 BUD_COD            VARCHAR (17)   Budget code
+                 BUD_LIN            VARCHAR (17)   Budgetary line
+                 TAX_COD            VARCHAR (3)    Tax code
+                 VALID_TO           TIMESTAMP
+
+10-ATOTAB
+
+     Key             Name               Type                    Description
+                 ATO_COD            VARCHAR (3)    Transaction code
+                 VALID_FROM         TIMESTAMP
+                                                   Format flag (0/1/2) - determines
+                 ATO_FRM            VARCHAR (1)    reference field in other payments in or
+                                                   out is free text or other
+                 ATO_LDC            VARCHAR (35)   Long description
+                 ATO_SDC            VARCHAR (17)   Short description
+                 BUD_COD            VARCHAR (17)   Budget code
+                 BUD_LIN            VARCHAR (17)   Budgetary line
+                 TAX_COD            VARCHAR (3)    Tax code
+                 VALID_TO           TIMESTAMP
+
+
+
+
+UNCTAD/DTL                                                           Page 7
+The ASYCUDAWorld Reference Tables
+
+
+
+
+11-BNKTAB
+
+     Key             Name               Type                   Description
+                 BNK_COD            VARCHAR (17)   Bank code
+                 VALID_FROM         TIMESTAMP
+                 BNK_NAM            VARCHAR (35)   Bank name
+                 BNK_NAM2           VARCHAR (35)   Bank name
+                 BNK_NAM3           VARCHAR (35)   Bank name
+                 BNK_ADR            VARCHAR (35)   Bank address
+                 BNK_AD2            VARCHAR (35)   Bank address
+                 BNK_AD3            VARCHAR (35)   Bank address
+                 BNK_AD4            VARCHAR (35)   Bank address
+                 BNK_FAX            VARCHAR (15)   Bank fax number
+                 BNK_SWF            VARCHAR (15)   Bank SWIFT number
+                 BNK_TEL            VARCHAR (15)   Bank telephone number
+                 BNK_TLX            VARCHAR (15)   Bank telex number
+                 VALID_TO           TIMESTAMP
+
+12-BRATAB
+
+     Key             Name               Type                   Description
+                 BNK_COD            VARCHAR (17)   Bank code
+                 BRA_COD            VARCHAR (17)   Bank branch code
+                 VALID_FROM         TIMESTAMP
+                 BRA_ADR            VARCHAR (35)   Branch address
+                 BRA_AD2            VARCHAR (35)   Branch address
+                 BRA_AD3            VARCHAR (35)   Branch address
+                 BRA_AD4            VARCHAR (35)   Branch address
+                 BRA_NAM            VARCHAR (35)   Branch name
+                 BRA_NAM2           VARCHAR (35)   Branch name
+                 BRA_NAM3           VARCHAR (35)   Branch name
+                 BRA_FAX            VARCHAR (15)   Branch fax number
+                 BRA_SWF            VARCHAR (15)   Branch SWIFT number
+                 BRA_TEL            VARCHAR (15)   Branch telephone number
+                 BRA_TLX            VARCHAR (15)   Branch telex number
+                 VALID_TO           TIMESTAMP
+
+
+
+
+UNCTAD/DTL                                                         Page 8
+The ASYCUDAWorld Reference Tables
+
+
+
+
+13-BUDTAB
+
+     Key             Name               Type                      Description
+                 BUD_COD            VARCHAR (17)   Budget code
+                 VALID_FROM         TIMESTAMP
+                 BUD_DSC            VARCHAR (35)   Budget description
+                 VALID_TO           TIMESTAMP
+
+14-CAPTAB
+
+     Key             Name               Type                 Description
+                 CAP_COD            VARCHAR (5)    Common Agricultural Policy code
+                 VALID_FROM         TIMESTAMP
+                                                   Common Agricultural Policy
+                 CAP_DSC            VARCHAR (50)
+                                                   description
+                                                   Common Agricultural Policy
+                 CAP_DSC2           VARCHAR (50)   descriptionCommon Agricultural
+                                                   Policy description
+                                                   Common Agricultural Policy
+                 CAP_DSC3           VARCHAR (50)
+                                                   description
+                 CAP_LIC            VARCHAR (1)    CAP licence required (yes/no)
+                 VALID_TO           TIMESTAMP
+
+15-CARTAB
+
+     Key             Name               Type                      Description
+                 CAR_COD            VARCHAR (17)   Carrier code
+                 VALID_FROM         TIMESTAMP
+                 CAR_ADR            VARCHAR (35)   Carrier address
+                 CAR_AD2            VARCHAR (35)   Carrier address
+                 CAR_AD3            VARCHAR (35)   Carrier address
+                 CAR_AD4            VARCHAR (35)   Carrier address
+                 CAR_FAX            VARCHAR (15)   Carrier fax number
+                 CAR_NAM            VARCHAR (35)   Carrier name
+                 CAR_TEL            VARCHAR (15)   Carrier telephone number
+                 CAR_TLX            VARCHAR (15)   Carrier telex number
+                 CMP_COD            VARCHAR (17)   Company code
+                 VALID_TO           TIMESTAMP
+
+
+
+UNCTAD/DTL                                                            Page 9
+The ASYCUDAWorld Reference Tables
+
+
+
+
+16-CMPTAB
+
+     Key             Name               Type                  Description
+                 CMP_COD            VARCHAR (17)   Company code
+                 VALID_FROM         TIMESTAMP
+                 CMP_ADR            VARCHAR (35)   Company address
+                 CMP_AD2            VARCHAR (35)   Company address
+                 CMP_AD3            VARCHAR (35)   Company address
+                 CMP_AD4            VARCHAR (35)   Company address
+                 CMP_FAX            VARCHAR (15)   Company fax number
+                 CMP_NAM            VARCHAR (35)   Company name
+                 CMP_STA            INTEGER        Suspended status (yes/no)
+                 CMP_TEL            VARCHAR (15)   Company telephone number
+                 CMP_TLX            VARCHAR (15)   Company telex number
+                 VALID_TO           TIMESTAMP
+
+17-COFSHD
+
+     Key             Name               Type                     Description
+                 COF_COD            VARCHAR (17)   Examining officer’s code
+                 SHD_COD            VARCHAR (17)   Transit shed code
+                 VALID_FROM         TIMESTAMP
+                 VALID_TO           TIMESTAMP
+
+18-COFTAB
+
+     Key             Name               Type                   Description
+                 COF_COD            VARCHAR (17)   Examining officer code
+                 VALID_FROM         TIMESTAMP
+                 COF_NAM            VARCHAR (35)   Examining officer name
+                 VALID_TO           TIMESTAMP
+
+19-COFWHS
+
+     Key             Name               Type                   Description
+                 COF_COD            VARCHAR (17)   Examining officer code
+                 WHS_COD            VARCHAR (17)   Warehouse code
+                 VALID_FROM         TIMESTAMP
+
+
+UNCTAD/DTL                                                          Page 10
+The ASYCUDAWorld Reference Tables
+
+
+
+
+                 VALID_TO           TIMESTAMP
+
+20-COLTAB
+
+     Key             Name               Type                    Description
+                 COL_NUM            VARCHAR (2)    Additional column number
+                 VALID_FROM         TIMESTAMP
+                 COL_DSC            VARCHAR (35)   Additional column description
+                 VALID_TO           TIMESTAMP
+
+21-CP1TAB
+
+     Key             Name               Type                    Description
+                 CP1_COD            VARCHAR (1)    General procedure code
+                 VALID_FROM         TIMESTAMP
+                 CP1_DSC            VARCHAR (35)   General procedure description
+                 VALID_TO           TIMESTAMP
+
+22-CP3TAB
+
+     Key             Name               Type                    Description
+                 CP3_COD            VARCHAR (3)    Additional code
+                 VALID_FROM         TIMESTAMP
+                 CP3_AGR            VARCHAR (1)    Associated agreement
+                 CP3_DSC            VARCHAR (70)   Additional code description
+                 CPR_DS2            VARCHAR (70)   Description of above code
+                                                   Customs procedure code (Version 3
+                 CPR_VE2            VARCHAR (4)
+                                                   ECOWAS)
+                 RUL_COD            VARCHAR (17)   Rule code
+                 VALID_TO           TIMESTAMP
+
+23-CP4CP3
+
+     Key             Name               Type                    Description
+                 CP3_COD            VARCHAR (3)    Additional code
+                 CP4_COD            VARCHAR (4)    Customs/Fiscal procedure code
+                 VALID_FROM         TIMESTAMP
+                 CP3_DSC            VARCHAR (70)   Additional code description
+
+
+
+UNCTAD/DTL                                                           Page 11
+The ASYCUDAWorld Reference Tables
+
+
+
+
+                 VALID_TO           TIMESTAMP
+
+24-CP4TAB
+
+     Key             Name               Type                   Description
+                 CP4_COD            VARCHAR (4)    Extended procedure code
+                 VALID_FROM         TIMESTAMP
+                 CP4_DSC            VARCHAR (70)   Extended procedure description
+                 CP4_DSC2           VARCHAR (70)   Extended procedure description
+                 CP4_DSC3           VARCHAR (70)   Extended procedure description
+                 CPP_COD            VARCHAR (2)    Previous procedure code
+                 CPR_COD            VARCHAR (2)    Requested procedure code
+                 GEN_TRA            VARCHAR (1)    General trade regime
+                 SPE_TRA            VARCHAR (1)    Special trade regime
+                 VALID_TO           TIMESTAMP
+
+25-CPPTAB
+
+     Key             Name               Type                    Description
+                 CPP_COD            VARCHAR (2)    Previous procedure code
+                 VALID_FROM         TIMESTAMP
+                 ACT_COD            VARCHAR (2)    Action code
+                 CP1_COD            VARCHAR (1)    Type of procedure
+                 CPP_DSC            VARCHAR (50)   Previous procedure description
+                 VALID_TO           TIMESTAMP
+
+26-CPRTAB
+
+     Key             Name               Type                    Description
+                 CPR_COD            VARCHAR (2)    Requested procedure code
+                 VALID_FROM         TIMESTAMP
+                 ACT_COD            VARCHAR (2)    Action code
+                 CP1_COD            VARCHAR (1)    Type of procedure
+                 CPR_DEL            DOUBLE         Delay
+                 CPR_DSC            VARCHAR (50)   Requested procedure description
+                 VALID_TO           TIMESTAMP
+
+
+
+
+UNCTAD/DTL                                                           Page 12
+The ASYCUDAWorld Reference Tables
+
+
+
+
+27-CTNTAB
+
+     Key             Name               Type                    Description
+                 CTN_TYP            VARCHAR (4)    Type of container identifier
+                 VALID_FROM         TIMESTAMP
+                 CTN_DSC            VARCHAR (35)   Type of container description
+                 VALID_TO           TIMESTAMP
+
+28-CTYMOT
+
+     Key             Name               Type                      Description
+                 CTY_COD            VARCHAR (3)    Country code
+                 MOT_COD            VARCHAR (3)    Mode of transport code
+                 VALID_FROM         TIMESTAMP
+                 VALID_TO           TIMESTAMP
+
+29-CTYTAB
+
+     Key             Name               Type                      Description
+                 CTY_COD                           Country code
+                 VALID_FROM         TIMESTAMP
+                 CTY_DSC            VARCHAR (35)   Country description
+                 CTY_DSC2           VARCHAR (35)   Country description
+                 CTY_DSC3           VARCHAR (35)   Country description
+                 RUL_COD            VARCHAR (17)   Rule code
+                 VALID_TO           TIMESTAMP
+
+30-CUOMOT
+
+     Key             Name               Type                    Description
+                 CUO_COD            VARCHAR (5)    Customs office code
+                 MOT_COD            VARCHAR (3)    Mode of transport code
+                 VALID_FROM         TIMESTAMP
+                 VALID_TO           TIMESTAMP
+
+31-CUOTAB
+
+     Key               Name             Type                      Description
+
+
+UNCTAD/DTL                                                            Page 13
+The ASYCUDAWorld Reference Tables
+
+
+
+
+                 CUO_COD            VARCHAR (5)    Customs office code
+                 VALID_FROM         TIMESTAMP
+                 BNK_COD            VARCHAR (17)   Bank code
+                 BRA_COD            VARCHAR (17)   Branch code (of above bank)
+                 CUO_ACC            VARCHAR (17)   Account number
+                 CUO_ADR            VARCHAR (35)   Customs office address
+                 CUO_AD2            VARCHAR (35)   Customs office address
+                 CUO_AD3            VARCHAR (35)   Customs office address
+                 CUO_AD4            VARCHAR (35)   Customs office address
+                 CUO_BRD            VARCHAR (1)    Border office flag
+                 CUO_CAP            VARCHAR (1)    CAP goods allowed in office (yes/no)
+                 CUO_CLR            VARCHAR (1)    Customs office flag
+                 CUO_FAX            VARCHAR (15)   Customs office fax number
+                 CUO_NAM            VARCHAR (35)   Customs office name
+                 CUO_NAM2           VARCHAR (35)   Customs office name
+                 CUO_NAM3           VARCHAR (35)   Customs office name
+                 CUO_TEL            VARCHAR (15)   Customs office telephone number
+                 CUO_TLX            VARCHAR (15)   Customs office telex number
+                 VALID_TO           TIMESTAMP
+
+32-CURTAB
+
+     Key             Name               Type                   Description
+                 CUR_COD            VARCHAR (3)    Currency code
+                 VALID_FROM         TIMESTAMP
+                 CUR_DSC            VARCHAR (35)   Currency description
+                 CUR_DSC2           VARCHAR (35)   Currency description
+                 CUR_DSC3           VARCHAR (35)   Currency description
+                 CUR_RAT            DOUBLE         Currency rate
+                 VALID_TO           TIMESTAMP
+
+33-DECTAB
+
+     Key             Name               Type                    Description
+                 DEC_COD            VARCHAR (17)   Declarant code
+                 VALID_FROM         TIMESTAMP
+                 CMP_COD            VARCHAR (17)   Suspended status (yes/no)
+                 DEC_ADR            VARCHAR (35)   Declarant address
+
+
+
+UNCTAD/DTL                                                           Page 14
+The ASYCUDAWorld Reference Tables
+
+
+
+
+                 DEC_AD2            VARCHAR (35)     Declarant address
+                 DEC_AD3            VARCHAR (35)     Declarant address
+                 DEC_AD4            VARCHAR (35)     Declarant address
+                 DEC_BRK            VARCHAR (15)     Company code
+                 DEC_FAX            VARCHAR (15)     Declarant fax number
+                 DEC_NAM            VARCHAR (35)     Declarant name
+                 DEC_STA            INTEGER          Status: Active/Suspended
+                 DEC_TLX            VARCHAR (15)     Declarant telex number
+                 DEC_TEL            VARCHAR (15)     Declarant telephone number
+                 VALID_TO           TIMESTAMP
+
+
+34-FRDTAB
+
+     Key             Name               Type                      Description
+                 FRD_COD            VARCHAR (5)      Fraud code
+                 VALID_FROM         TIMESTAMP
+                 FRD_DSC            VARCHAR (35)     Fraud description
+                 VALID_TO           TIMESTAMP
+
+36-HOLTAB
+
+     Key             Name               Type                      Description
+                 CUO_COD            VARCHAR (5)      Office code
+                 HOLIDAY            TIMESTAMP        Date of non-working day
+                 VALID_FROM         TIMESTAMP
+                                                     Indicator flag (0=holiday day for whole
+                 HOL_FLA            VARCHAR (1)
+                                                     county, 1=holiday day just for office)
+                 VALID_TO           TIMESTAMP
+
+37-HS1TAB
+
+     Key             Name                 Type                     Description
+                 HS1_COD            VARCHAR (2)         Section code
+                 VALID_FROM         TIMESTAMP
+                 HS1_DSC            VARCHAR (1000)      Section description
+                 HS1_TXT            LONGVARCHAR         Harmonized system note
+                 NOT_COD            VARCHAR (10)        National note
+
+
+
+UNCTAD/DTL                                                               Page 15
+The ASYCUDAWorld Reference Tables
+
+
+
+
+                 VALID_TO           TIMESTAMP
+
+38-HS2TAB
+
+     Key             Name                 Type                  Description
+                 HS2_COD            VARCHAR (2)      Chapter code
+                 VALID_FROM         TIMESTAMP
+                 HS1_COD            VARCHAR (2)      Section code
+                 HS2_DSC            VARCHAR (1000)   Chapter description
+                 HS2_TXT            LONGVARCHAR      Harmonized system note
+                 NOT_COD            VARCHAR (10)     National note
+                 VALID              TIMESTAMP
+
+39-HS3TAB
+
+     Key             Name                 Type                  Description
+                 HS3_COD            VARCHAR (4)      Sub-chapter code
+                 VALID_FROM         TIMESTAMP
+                 HS2_COD            VARCHAR (2)      Sub-chapter description
+                 HS3_DSC            VARCHAR (1000)   Sub-chapter description
+                 VALID_TO           TIMESTAMP
+
+40-HS4TAB
+
+     Key             Name                 Type                 Description
+                 HS4_COD            VARCHAR (4)      Heading code
+                 VALID_FROM         TIMESTAMP
+                 HS2_COD            VARCHAR (2)      Heading description
+                 HS3_COD            VARCHAR (4)      Sub-chapter code
+                 HS4_DSC            VARCHAR (1000)   Heading description
+                 VALID_TO           TIMESTAMP
+
+41-HS5TAB
+
+     Key             Name                 Type                 Description
+                 HS5_COD            VARCHAR (5)      Sub-heading code
+                 VALID_FROM         TIMESTAMP
+                 HS4_COD            VARCHAR (4)      Heading code
+
+
+
+UNCTAD/DTL                                                          Page 16
+The ASYCUDAWorld Reference Tables
+
+
+
+
+                 HS5_DSC            VARCHAR (1000)      Sub-heading description
+                 VALID_TO           TIMESTAMP
+
+42-HS6TAB
+
+     Key             Name                 Type                    Description
+                 HS6_COD            VARCHAR (6)         Harmonized system code
+                 VALID_FROM         TIMESTAMP
+                 HS4_COD            VARCHAR (4)         Heading code
+                 HS5_COD            VARCHAR (5)         Sub-heading code
+                 HS6_DSC            VARCHAR (1000)      Harmonized description
+                 VALID_TO           TIMESTAMP
+
+43-INDTAB
+
+     Key             Name               Type                      Description
+                 IND_COD            VARCHAR (3)      Indicator code
+                 VALID_FROM         TIMESTAMP
+                 IND_DSC            VARCHAR (35)     Indicator description
+                 VALID_TO           TIMESTAMP
+
+44-KWDHS6
+
+     Key             Name               Type                      Description
+                 HS6_COD            VARCHAR (6)      HS code
+                 KWD_COD            VARCHAR (30)     Keyword code
+                 VALID_FROM         TIMESTAMP
+                 VALID_TO           TIMESTAMP
+
+45-KWDTAB
+
+     Key             Name               Type                      Description
+                 KWD_COD            VARCHAR (30)     Keyword
+                 VALID_FROM         TIMESTAMP
+                 VALID_TO           TIMESTAMP
+
+46-LNGTAB
+
+
+
+UNCTAD/DTL                                                             Page 17
+The ASYCUDAWorld Reference Tables
+
+
+
+
+     Key             Name               Type                   Description
+                 LNG_COD            VARCHAR (2)    Language code
+                 VALID_FROM         TIMESTAMP
+                 LNG_IND            VARCHAR (1)    Multiple language indicator
+                 LNG_DSC            VARCHAR (20)   Language description
+                 VALID_TO           TIMESTAMP
+
+47-LOCTAB
+
+     Key             Name               Type                    Description
+                 LOC_COD            VARCHAR (5)    Location code
+                 VALID_FROM         TIMESTAMP
+                 LOC_DSC            VARCHAR (35)   Location description
+                 LOC_DSC2           VARCHAR (35)   Location description
+                 LOC_DSC3           VARCHAR (35)   Location description
+                 VALID_TO           TIMESTAMP
+
+48-MKTTAB
+
+     Key             Name                 Type                   Description
+                 MKT_COD            VARCHAR (17)      Market value
+                 VALID_FROM         TIMESTAMP
+                 EGW_CUR            VARCHAR (3)       Currency for the above
+                 EGW_VAL            DOUBLE            Rate per gross weight for export
+                 ENW_CUR            VARCHAR (3)       Currency for the above
+                 ENW_VAL            DOUBLE            Rate per net weight for export
+                 EU1_CUR            VARCHAR (3)       Currency for the above
+                 EU1_VAL            DOUBLE            Rate per statistical unit for export
+                 EU2_CUR            VARCHAR (3)       Currency for the above
+                                                      Rate per supplementary value 1 for
+                 EU2_VAL            DOUBLE
+                                                      export
+                 EU3_CUR            VARCHAR (3)       Currency for the above
+                                                      Rate per supplementary value 2 for
+                 EU3_VAL            DOUBLE
+                                                      export
+                 IGW_CUR            VARCHAR (3)       Currency of the above
+                 IGW_VAL            DOUBLE            Rate per gross weight for import
+                 INW_CUR            VARCHAR (3)       Currency for the above
+                 INW_VAL            DOUBLE            Rate per net weight for import
+
+
+
+UNCTAD/DTL                                                           Page 18
+The ASYCUDAWorld Reference Tables
+
+
+
+
+                 IU1_CUR            VARCHAR (3)     Currency for the above
+                 IU1_VAL            DOUBLE          Rate per statistical unit for import
+                 IU2_CUR            VARCHAR (3)     Currency for the above
+                                                    Rate per supplementary value 1 for
+                 IU2_VAL            DOUBLE
+                                                    import
+                 IU3_CUR            VARCHAR (3)     Currency for the above
+                                                    Rate per supplementary value 2 for
+                 IU3_VAL            DOUBLE
+                                                    import
+                 MKT_DSC            VARCHAR (35)    Market value description
+                 MKT_MOD            INTEGER         Highest value flag
+                 MKT_TXT            LONGVARCHAR     Market value document
+                 RUL_COD            VARCHAR (17)    Rule code
+                 ST1_UNT            VARCHAR (3)     Supplementary unit 1
+                 ST2_UNT            VARCHAR (3)     Supplementary unit 2
+                 ST3_UNT            VARCHAR (3)     Supplementary unit 3
+                 STA_MOD            INTEGER         Replace statistical value flag
+                 VALID_TO           TIMESTAMP
+
+49-MODTAB
+
+     Key             Name                 Type                 Description
+                 CP1_COD            VARCHAR (1)      General procedure code
+                 MOD_COD            VARCHAR (3)      Model of declaration code
+                 VALID_FROM         TIMESTAMP
+                                                     Assessment reference serial letter/
+                 ASS_SER            VARCHAR (1)
+                                                     number
+                                                     Customs reference serial
+                 CUS_SER            VARCHAR (1)
+                                                     letter/number
+                 MOD_CON            LONGVARBINARY    Configuration rule for model
+                 MOD_DSC            VARCHAR (70)     Model description
+                 MOD_DSC2           VARCHAR (70)     Model description
+                 MOD_DSC3           VARCHAR (70)     Model description
+                                                     Model flow (0 - export, 1 -
+                 MOD_FLW            VARCHAR (1)
+                                                     import)
+                 VALID_TO           TIMESTAMP
+
+50-MOPTAB
+
+
+
+
+UNCTAD/DTL                                                         Page 19
+The ASYCUDAWorld Reference Tables
+
+
+
+
+     Key             Name               Type                   Description
+                 MOP_COD            VARCHAR (2)    Means of payment code
+                 VALID_FROM         TIMESTAMP
+                 MOP_BNK            VARCHAR (1)    Means of payment reference
+                 MOP_DSC            VARCHAR (70)   Means of payment description
+                 MOP_NUM            VARCHAR (1)    Means of payment number
+                 MOP_VAL            DOUBLE         Maximum amount
+                 VALID_TO           TIMESTAMP
+
+51-MOTTAB
+
+     Key             Name               Type                    Description
+                 MOT_COD            VARCHAR (3)    Mode of transport code
+                 VALID_FROM         TIMESTAMP
+                 MOT_DSC            VARCHAR (35)   Mode of transport description
+                 MOT_DSC2           VARCHAR (35)   Mode of transport description
+                 MOT_DSC3           VARCHAR (35)   Mode of transport description
+                 VALID_TO           TIMESTAMP
+
+52-MUQTAB
+
+     Key             Name               Type                  Description
+                 MUQ_COD            VARCHAR (3)    Measurement unit qualifier code
+                 VALID_FROM         TIMESTAMP
+                 MUQ_DSC            VARCHAR (50)   Measurement unit qualifier description
+                 VALID_TO           TIMESTAMP
+
+53-NATTAB
+
+     Key             Name               Type                    Description
+                 NAT_COD            VARCHAR (2)    B/L nature code
+                 VALID_FROM         TIMESTAMP
+                 NAT_DSC            VARCHAR (35)   B/L nature description
+                 VALID_TO           TIMESTAMP
+
+54-NOTTAB
+
+     Key               Name              Type                     Description
+
+
+
+UNCTAD/DTL                                                           Page 20
+The ASYCUDAWorld Reference Tables
+
+
+
+
+                 NOT_COD            VARCHAR (10)   National note code
+                 VALID_FROM         TIMESTAMP
+                 NOT_DSC            VARCHAR (35)   National note description
+                 NOT_TXT            LONGVARCHAR    Free text
+                 VALID_TO           TIMESTAMP
+
+55-PKGTAB
+
+     Key             Name                 Type                Description
+                 PKG_COD            VARCHAR (17)   Packaging code
+                 VALID_FROM         TIMESTAMP
+                 PKG_DSC            VARCHAR (35)   Packaging description
+                 PKG_DSC2           VARCHAR (35)   Packaging description
+                 PKG_DSC3           VARCHAR (35)   Packaging description
+                 PKG_BLK            VARCHAR (1)    Bulk flag
+                 VALID_TO           TIMESTAMP
+
+56-PRFCTY
+
+     Key             Name                 Type                 Description
+                 CTY_COD            VARCHAR (3)    Country code
+                 PRF_COD            VARCHAR (17)   Preference code
+                 VALID_FROM         TIMESTAMP
+                 VALID_TO           TIMESTAMP
+
+57-PRFTAB
+
+     Key             Name                 Type                 Description
+                 PRF_COD            VARCHAR (17)   Preference code
+                 VALID_FROM         TIMESTAMP
+                 PRF_DSC            VARCHAR (35)   PRF_DSC
+                 PRF_DSC2           VARCHAR (35)   PRF_DSC
+                 PRF_DSC3           VARCHAR (35)   PRF_DSC
+                 PRF_QUO            VARCHAR (1)    Use of quota required (yes/no)
+                 RUL_COD            VARCHAR (17)   Rule code
+                 VALID_TO           TIMESTAMP
+
+
+
+
+UNCTAD/DTL                                                       Page 21
+The ASYCUDAWorld Reference Tables
+
+
+
+
+58-PRGCUO
+
+     Key             Name                 Type                Description
+                 CUO_COD            VARCHAR (5)    Customs office code
+                 PRG_COD            VARCHAR (17)   Program code
+                 VALID_FROM         TIMESTAMP
+                 VALID_TO           TIMESTAMP
+
+59-PRGTAB
+
+     Key             Name                 Type                Description
+                 PRG_COD            VARCHAR (17)   Processing program code
+                 VALID_FROM         TIMESTAMP
+                 ACT_COD            VARCHAR (2)    Action code
+                 CMP_COD            VARCHAR (17)   Company code
+                 PRG_DEL            DOUBLE         Delay
+                 PRG_DSC            VARCHAR (35)   Program description
+                 VALID_TO           TIMESTAMP
+
+60-PRPTAB
+
+     Key             Name                 Type              Description
+                 CMP_COD            VARCHAR (17)   Company code
+                 VALID_FROM         TIMESTAMP
+                 CMP_NAM            VARCHAR (35)   Company name
+                 PRP_NAM            VARCHAR (35)   Comments
+                 VALID_TO           TIMESTAMP
+
+61-PRTTAB
+
+     Key             Name                 Type                 Description
+                 PRT_COD            VARCHAR (3)    Printer code
+                 VALID_FROM         TIMESTAMP
+                 PRT_DSC            VARCHAR (30)   Printer description
+                 PRT_STP            VARCHAR (70)   Printer set-up
+                 VALID_TO           TIMESTAMP
+
+
+
+
+UNCTAD/DTL                                                        Page 22
+The ASYCUDAWorld Reference Tables
+
+
+
+
+62-QUOTAB
+
+     Key             Name                 Type                Description
+                 QUO_COD            VARCHAR (6)    Quota reference code
+                 VALID_FROM         TIMESTAMP
+                 QUO_DSC            VARCHAR (50)   Quota code description
+                 QUO_DSC2           VARCHAR (50)   Quota code description
+                 QUO_DSC3           VARCHAR (50)   Quota code description
+                 VALID_TO           TIMESTAMP
+
+63-RATTAB
+
+     Key             Name                 Type                Description
+                 CUR_COD            VARCHAR (3)    Currency code
+                 VALID_FROM         TIMESTAMP
+                 CUR_REF            DOUBLE         Reference unit of currency
+                 RAT_EXC            DOUBLE         Exchange rate
+                 VALID_TO           TIMESTAMP
+
+64-REGTAB
+
+     Key             Name                 Type                Description
+                 CTY_COD            VARCHAR (3)    Country code
+                 REG_COD            VARCHAR (4)    Region code
+                 VALID_FROM         TIMESTAMP
+                 REG_DSC            VARCHAR (35)   Region description
+                 VALID_TO           TIMESTAMP
+
+65-RTXTAB
+
+     Key             Name                 Type                Description
+                 RTX_COD            VARCHAR (9)    General note
+                 VALID_FROM         TIMESTAMP
+                 RTX_DSC            VARCHAR (35)   General note description
+                 RTX_RAT            DOUBLE         Rate
+                 VALID_TO           TIMESTAMP
+
+
+
+
+UNCTAD/DTL                                                       Page 23
+The ASYCUDAWorld Reference Tables
+
+
+
+
+66-RULTAB
+
+     Key             Name                 Type                  Description
+                 RUL_COD            VARCHAR (17)    Rule code
+                 VALID_FROM         TIMESTAMP
+                 RUL_DSC            VARCHAR (35)    Description
+                 RUL_PTY            VARCHAR (2)     Priority
+                 RUL_DEF            LONGVARBINARY   Free text
+                 VALID_TO           TIMESTAMP
+
+67-SCNTAB
+
+     Key             Name                 Type                  Description
+                 SCN_COD            VARCHAR (4)     Scan code
+                 VALID_FROM         TIMESTAMP
+                 SCN_DSC            VARCHAR (70)    Scan description
+                 SCN_DSC2           VARCHAR (70)    Scan description 2
+                 SCN_DSC3           VARCHAR (70)    Scan description 3
+                 VALID_TO           TIMESTAMP
+
+68-SEATAB
+
+     Key             Name                 Type                 Description
+                 SEA_COD            VARCHAR (3)     Sealing party code
+                 VALID_FROM         TIMESTAMP
+                 SEA_DSC            VARCHAR (35)    Sealing party description
+                 VALID_TO           TIMESTAMP
+
+69-SHDCAR
+
+     Key             Name                 Type                 Description
+                 SHD_COD            VARCHAR (17)    Transit shed code
+                 CAR_COD            VARCHAR (17)    Carrier code
+                 VALID_FROM         TIMESTAMP
+                 VALID_TO           TIMESTAMP
+
+70-SHDCMP
+
+
+
+UNCTAD/DTL                                                        Page 24
+The ASYCUDAWorld Reference Tables
+
+
+
+
+     Key             Name                 Type                Description
+                 SHD_COD            VARCHAR (17)   Transit shed code
+                 CMP_COD            VARCHAR (17)   Company code
+                 VALID_FROM         TIMESTAMP
+                 VALID_TO           TIMESTAMP
+
+71-SHDDEC
+
+     Key             Name                 Type                Description
+                 SHD_COD            VARCHAR (17)   Transit shed code
+                 DEC_COD            VARCHAR (17)   Declarant code
+                 VALID_FROM         TIMESTAMP
+                 VALID_TO           TIMESTAMP
+
+72-SHDTAB
+
+     Key             Name                 Type                Description
+                 SHD_COD            VARCHAR (17)   Transit shed code
+                 VALID_FROM         TIMESTAMP
+                 SHD_ADR            VARCHAR (35)   Transit shed address
+                 SHD_AD2            VARCHAR (35)   Transit shed address
+                 SHD_AD3            VARCHAR (35)   Transit shed address
+                 SHD_AD4            VARCHAR (35)   Transit shed address
+                 SHD_FAX            VARCHAR (15)   Transit shed fax number
+                 SHD_NAM            VARCHAR (35)   Transit shed name
+                 SHD_NAM2           VARCHAR (35)   Transit shed name
+                 SHD_NAM3           VARCHAR (35)   Transit shed name
+                 SHD_PUB            VARCHAR (1)    Public flag (yes/no)
+                 SHD_TEL            VARCHAR (15)   Transit shed telephone number
+                 SHD_TLX            VARCHAR (15)   Transit shed telex number
+                 VALID_TO           TIMESTAMP
+
+73-SHLTAB
+
+     Key             Name                 Type                Description
+                 SHD_COD            VARCHAR (17)   Transit shed code
+                 SHL_COD            VARCHAR (17)   Location code in transit shed
+                 VALID_FROM         TIMESTAMP
+
+
+
+UNCTAD/DTL                                                      Page 25
+The ASYCUDAWorld Reference Tables
+
+
+
+
+                 SHL_NAM            VARCHAR (35)        Location code in transit shed name
+                 VALID_TO           TIMESTAMP
+
+74-TARCOL
+
+     Key             Name                 Type                     Description
+                 COL_NUM            VARCHAR (2)         Additional column number
+                 HSC_COD            VARCHAR (11)        Commodity code
+                 VALID_FROM         TIMESTAMP
+                 TAR_TXX            VARCHAR (9)         Tax rate
+                 VALID_TO           TIMESTAMP
+
+76-TARTAB
+
+     Key              Name                  Type                    Description
+                 HS6_COD               VARCHAR (6)        Commodity code
+                 TAR_PR1               VARCHAR (3)        Tariff precision
+                 TAR_PR2               VARCHAR (3)        Tariff precision
+                 TAR_PR3               VARCHAR (4)        Tariff precision
+                 TAR_PR4               VARCHAR (4)        Tariff precision
+                 VALID_FROM            TIMESTAMP
+                 MKT_COD               VARCHAR (17)       Market value code
+                 NOT_COD               VARCHAR (10)       National note code
+                 OPERATION_DATE        TIMESTAMP          Date of operation carried out
+                 OPERATION_NAME        VARCHAR (80)       Name of operation carried out
+                 RUL_COD               VARCHAR (17)       Rule code
+                 TAR_ALL               VARCHAR (1200)
+                 TAR_DSC               VARCHAR (88)
+                                                          Tariff columns 1-15 (Additional
+                 TAR_T01               VARCHAR (9)        columns belong to the table
+                                                          xxCOLTAB)
+                 TAR_T02               VARCHAR (9)                       //
+                 TAR_T03               VARCHAR (9)                       //
+                 TAR_T04               VARCHAR (9)                       //
+                 TAR_T05               VARCHAR (9)                       //
+                 TAR_T06               VARCHAR (9)                       //
+                 TAR_T07               VARCHAR (9)                       //
+                 TAR_T08               VARCHAR (9)                       //
+
+
+
+UNCTAD/DTL                                                           Page 26
+The ASYCUDAWorld Reference Tables
+
+
+
+
+                 TAR_T09               VARCHAR (9)                         //
+                 TAR_T10               VARCHAR (9)                         //
+                 TAR_T11               VARCHAR (9)                         //
+                 TAR_T12               VARCHAR (9)                         //
+                 TAR_T13               VARCHAR (9)                         //
+                 TAR_T14               VARCHAR (9)                         //
+                 TAR_T15               VARCHAR (9)                         //
+                 UOM_COD1              VARCHAR (3)        Statistical units 1,2 and 3
+                 UOM_COD2              VARCHAR (3)        Statistical units 1,2 and 3
+                 UOM_COD3              VARCHAR (3)        Statistical units 1,2 and 3
+                 USER_NAME             VARCHAR (80)       Users whom modified tariff
+                 VALID_TO              TIMESTAMP
+
+77-TARTRACK
+
+     Key              Name                  Type                     Description
+                 HS6_COD               VARCHAR (6)        Harmonized system code
+                 OPERATION_DATE        TIMESTAMP          Operation Date
+                 TAR_PR1               VARCHAR (2)        Tariff preference 1
+                 TAR_PR2               VARCHAR (3)        Tariff preference 2
+                 TAR_PR3               VARCHAR (4)        Tariff preference 3
+                 TAR_PR4               VARCHAR (4)        Tariff preference 4
+                 TEXTLOG               VARCHAR (1000)     Information
+                 VALID_FROM            TIMESTAMP
+                 OPERATION_NAME        VARCHAR (80)       Operation Name
+                 USER_NAME             VARCHAR (80)       User Name
+                 VALID_TO              TIMESTAMP
+
+78-TAXCMP
+
+     Key             Name                 Type                    Description
+                 CMP_COD            VARCHAR (17)        Company code
+                 LST_COD            VARCHAR (17)        List code
+                 VALID_FROM         TIMESTAMP
+                 VALID_TO           TIMESTAMP
+
+79-TAXLST
+
+
+
+
+UNCTAD/DTL                                                           Page 27
+The ASYCUDAWorld Reference Tables
+
+
+
+
+     Key             Name                 Type                Description
+                 LST_COD            VARCHAR (17)   Taxation list code
+                 VALID_FROM         TIMESTAMP
+                 LST_DSC            VARCHAR (35)   List description
+                 VALID_TO           TIMESTAMP
+
+80-TAXTAB
+
+     Key             Name                 Type                Description
+                 TAX_COD            VARCHAR (3)    Tax code
+                 VALID_FROM         TIMESTAMP
+                 BUD_COD            VARCHAR (17)   Budget code
+                 TAX_DSC            VARCHAR (35)   Tax description
+                 TAX_DSC2           VARCHAR (35)   Tax description
+                 TAX_DSC3           VARCHAR (35)   Tax description
+                 TAX_LIN            VARCHAR (17)   Budgetary line
+                 VALID_TO           TIMESTAMP
+
+81-TAXTAR
+
+     Key             Name                 Type                Description
+                 HSC_COD            VARCHAR (11)   Tariff code
+                 LST_COD            VARCHAR (17)   Taxation list code
+                 VALID_FROM         TIMESTAMP
+                 VALID_TO           TIMESTAMP
+
+82-TIRCTY
+
+     Key             Name                 Type             Description
+                 CTY_COD            VARCHAR (3)    TIR member country code
+                 VALID_FROM         TIMESTAMP
+                 CTY_DSC            VARCHAR (35)   TIR member country name
+                 VALID_TO           TIMESTAMP
+
+83-TIRTAB
+
+     Key             Name                Type                 Description
+                 TIR_CTY            VARCHAR (3)    Association country code
+
+
+
+UNCTAD/DTL                                                       Page 28
+The ASYCUDAWorld Reference Tables
+
+
+
+
+                 TIR_RNK            VARCHAR (2)    Association rank
+                 VALID_FROM         TIMESTAMP
+                 CTY_DSC            VARCHAR (35)   Country code description
+                 TIR_AD1            VARCHAR (35)   Association address 1
+                 TIR_AD2            VARCHAR (35)   Association address 2
+                 TIR_AD3            VARCHAR (35)   Association address 3
+                 TIR_NAM            VARCHAR (35)   Association name
+                 VALID_TO           TIMESTAMP
+
+84-TODTAB
+
+     Key             Name                 Type               Description
+                 TOD_COD            VARCHAR (3)    Terms of delivery code
+                 VALID_FROM         TIMESTAMP
+                 TOD_DSC            VARCHAR (35)   Terms of delivery description
+                 TOD_DSC2           VARCHAR (35)   Terms of delivery description
+                 TOD_DSC3           VARCHAR (35)   Terms of delivery description
+                 VALID_TO           TIMESTAMP
+
+85-TOPTAB
+
+     Key             Name                 Type               Description
+                 TOP_COD            VARCHAR (3)    Terms of payment
+                 VALID_FROM         TIMESTAMP
+                 TOP_DSC            VARCHAR (35)   Terms of payment description
+                 TOP_DSC2           VARCHAR (35)   Terms of payment description
+                 TOP_DSC3           VARCHAR (35)   Terms of payment description
+                 VALID_TO           TIMESTAMP
+
+86-TR1TAB
+
+     Key             Name                 Type                Description
+                 TR1_COD            VARCHAR (1)    Basic nature of transaction code
+                 VALID_FROM         TIMESTAMP
+                 TR1_DSC            VARCHAR (35)   Description of the above
+                 TR1_DSC2           VARCHAR (35)   Description of the above
+                 TR1_DSC3           VARCHAR (35)   Description of the above
+                 VALID_TO           TIMESTAMP
+
+
+
+UNCTAD/DTL                                                      Page 29
+The ASYCUDAWorld Reference Tables
+
+
+
+
+87-TR2TAB
+
+     Key             Name                 Type                 Description
+                 TR1_COD            VARCHAR (1)    Nature of transaction code
+                 TR2_COD            VARCHAR (1)    Basic nature of transaction code
+                 VALID_FROM         TIMESTAMP
+                 TR2_DSC            VARCHAR (35)   Description of the above
+                 TR2_DSC2           VARCHAR (35)   Description of the above
+                 TR2_DSC3           VARCHAR (35)   Description of the above
+                 VALID_TO           TIMESTAMP
+
+88-TRDMOT
+
+     Key             Name                 Type                Description
+                 MOT_COD            VARCHAR (3)    Mode of transport code
+                 TRD_COD            VARCHAR (3)    Transport document code
+                 VALID_FROM         TIMESTAMP
+                 VALID_TO           TIMESTAMP
+
+89-TRDTAB
+
+     Key             Name                 Type                Description
+                 TRD_COD            VARCHAR (3)    Transport document code
+                 VALID_FROM         TIMESTAMP
+                 TRD_CTL            VARCHAR (2)    Control of TIR carnet
+                 TRD_DSC            VARCHAR (35)   Transport description
+                 TRD_GRP            VARCHAR (1)    Transport grouping flag
+                 VALID_TO           TIMESTAMP
+
+90-UOMTAB
+
+     Key             Name                 Type                  Description
+                 UOM_COD            VARCHAR (3)    Statistical unit code
+                 VALID_FROM         TIMESTAMP
+                 UOM_DSC            VARCHAR (50)   Statistical unit description
+                 UOM_DSC2           VARCHAR (50)   Statistical unit description
+                 UOM_DSC3           VARCHAR (50)   Statistical unit description
+                 VALID_TO           TIMESTAMP
+
+
+UNCTAD/DTL                                                       Page 30
+The ASYCUDAWorld Reference Tables
+
+
+
+
+91-WHSCMP
+
+     Key             Name                 Type              Description
+                 WHS_COD            VARCHAR (17)   Warehouse code
+                 CMP_COD            VARCHAR (17)   Company code
+                 VALID_FROM         TIMESTAMP
+                 VALID_TO           TIMESTAMP
+
+92-WHSTAB
+
+     Key             Name                 Type              Description
+                 WHS_COD            VARCHAR (17)   Customs warehouse code
+                 VALID_FROM         TIMESTAMP
+                 WHS_ADR            VARCHAR (35)   Warehouse address
+                 WHS_AD2            VARCHAR (35)   Warehouse address
+                 WHS_AD3            VARCHAR (35)   Warehouse address
+                 WHS_AD4            VARCHAR (35)   Warehouse address
+                 WHS_FAX            VARCHAR (15)   Warehouse fax number
+                 WHS_NAM            VARCHAR (35)   Warehouse name
+                 WHS_NAM2           VARCHAR (35)   Warehouse name
+                 WHS_NAM3           VARCHAR (35)   Warehouse name
+                 WHS_PUB            VARCHAR (31)   Public warehouse flag (yes/no)
+                 WHS_TEL            VARCHAR (15)   Warehouse telephone number
+                 WHS_TLX            VARCHAR (15)   Warehouse telex number
+                 VALID_TO           TIMESTAMP
+
+93-VAMTAB
+
+     Key             Name                 Type                Description
+                 VAM_COD            VARCHAR (1)    Valuation method code
+                 VALID_FROM         TIMESTAMP
+                 VAM_DSC            VARCHAR (35)   Valuation method description
+                 VALID_TO           TIMESTAMP
+
+
+
+
+UNCTAD/DTL                                                      Page 31
+
