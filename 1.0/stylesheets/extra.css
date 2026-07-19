@@ -1,46 +1,46 @@
 /* =====================================================================
-   Open Customs Toolbox — theme polish.
+   Sydonia Toolkit — theme polish.
    Design direction: disciplined "customs / maritime" — deep teal hulls,
    amber manifest stamps, generous rhythm, layered surfaces. Tokens first,
    then components. Animation stays on transform/opacity only.
    ===================================================================== */
 
 :root {
-  --oct-ink: #0b2b30;
-  --oct-teal: #0f766e;
-  --oct-teal-deep: #0b4f4a;
-  --oct-amber: #d97706;
-  --oct-mist: #eef6f5;
+  --syt-ink: #0b2b30;
+  --syt-teal: #0f766e;
+  --syt-teal-deep: #0b4f4a;
+  --syt-amber: #d97706;
+  --syt-mist: #eef6f5;
 
-  --oct-radius: 14px;
-  --oct-shadow-sm: 0 1px 2px rgba(9, 42, 46, 0.06), 0 2px 8px rgba(9, 42, 46, 0.05);
-  --oct-shadow-md: 0 6px 24px rgba(9, 42, 46, 0.10);
-  --oct-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --syt-radius: 14px;
+  --syt-shadow-sm: 0 1px 2px rgba(9, 42, 46, 0.06), 0 2px 8px rgba(9, 42, 46, 0.05);
+  --syt-shadow-md: 0 6px 24px rgba(9, 42, 46, 0.10);
+  --syt-ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Tighten Material's teal to our hull-teal in both schemes. */
 [data-md-color-primary="teal"] {
-  --md-primary-fg-color: var(--oct-teal);
-  --md-primary-fg-color--dark: var(--oct-teal-deep);
+  --md-primary-fg-color: var(--syt-teal);
+  --md-primary-fg-color--dark: var(--syt-teal-deep);
 }
 
 /* ---- Hero ---------------------------------------------------------- */
-.oct-hero {
+.syt-hero {
   position: relative;
   margin: 0 0 3rem;
   padding: clamp(2.5rem, 1.5rem + 5vw, 5rem) clamp(1.25rem, 0.5rem + 3vw, 3.5rem);
-  border-radius: var(--oct-radius);
+  border-radius: var(--syt-radius);
   overflow: hidden;
   color: #eafffb;
   background:
     radial-gradient(120% 140% at 85% -10%, rgba(217, 119, 6, 0.35), transparent 55%),
-    linear-gradient(135deg, var(--oct-teal-deep), var(--oct-ink) 70%);
-  box-shadow: var(--oct-shadow-md);
+    linear-gradient(135deg, var(--syt-teal-deep), var(--syt-ink) 70%);
+  box-shadow: var(--syt-shadow-md);
   isolation: isolate;
 }
 
 /* faint "container ship" grid texture, drawn with a repeating gradient */
-.oct-hero::after {
+.syt-hero::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -53,7 +53,7 @@
   opacity: 0.6;
 }
 
-.oct-hero__eyebrow {
+.syt-hero__eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 0.5ch;
@@ -65,7 +65,7 @@
   margin: 0 0 0.85rem;
 }
 
-.oct-hero h1 {
+.syt-hero h1 {
   color: #ffffff;
   font-weight: 800;
   line-height: 1.02;
@@ -74,7 +74,7 @@
   margin: 0 0 0.75rem;
 }
 
-.oct-hero p {
+.syt-hero p {
   max-width: 60ch;
   font-size: clamp(1rem, 0.95rem + 0.3vw, 1.2rem);
   line-height: 1.55;
@@ -82,13 +82,13 @@
   margin: 0 0 1.75rem;
 }
 
-.oct-hero__cta {
+.syt-hero__cta {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
 }
 
-.oct-btn {
+.syt-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.5ch;
@@ -97,37 +97,37 @@
   font-weight: 700;
   font-size: 0.9rem;
   text-decoration: none !important;
-  transition: transform var(--oct-ease) 220ms, box-shadow var(--oct-ease) 220ms;
+  transition: transform var(--syt-ease) 220ms, box-shadow var(--syt-ease) 220ms;
   will-change: transform;
 }
-.oct-btn--primary {
-  background: var(--oct-amber);
+.syt-btn--primary {
+  background: var(--syt-amber);
   color: #241100 !important;
   box-shadow: 0 6px 18px rgba(217, 119, 6, 0.35);
 }
-.oct-btn--ghost {
+.syt-btn--ghost {
   background: rgba(255, 255, 255, 0.08);
   color: #eafffb !important;
   border: 1px solid rgba(255, 255, 255, 0.28);
 }
-.oct-btn:hover { transform: translateY(-2px); }
-.oct-btn--primary:hover { box-shadow: 0 10px 26px rgba(217, 119, 6, 0.45); }
+.syt-btn:hover { transform: translateY(-2px); }
+.syt-btn--primary:hover { box-shadow: 0 10px 26px rgba(217, 119, 6, 0.45); }
 
 /* ---- Stat strip ---------------------------------------------------- */
-.oct-stats {
+.syt-stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 1rem;
   margin: 0 0 3rem;
 }
-.oct-stat {
+.syt-stat {
   padding: 1.1rem 1.25rem;
-  border-radius: var(--oct-radius);
+  border-radius: var(--syt-radius);
   background: var(--md-code-bg-color);
   border: 1px solid var(--md-default-fg-color--lightest);
-  box-shadow: var(--oct-shadow-sm);
+  box-shadow: var(--syt-shadow-sm);
 }
-.oct-stat b {
+.syt-stat b {
   display: block;
   font-size: 1.9rem;
   line-height: 1;
@@ -135,7 +135,7 @@
   color: var(--md-primary-fg-color);
   letter-spacing: -0.02em;
 }
-.oct-stat span {
+.syt-stat span {
   display: block;
   margin-top: 0.35rem;
   font-size: 0.8rem;
@@ -144,15 +144,15 @@
 
 /* ---- Card grid polish (Material `.grid.cards`) --------------------- */
 .md-typeset .grid.cards > ul > li {
-  border-radius: var(--oct-radius);
+  border-radius: var(--syt-radius);
   border: 1px solid var(--md-default-fg-color--lightest);
-  transition: transform var(--oct-ease) 220ms, box-shadow var(--oct-ease) 220ms,
-    border-color var(--oct-ease) 220ms;
+  transition: transform var(--syt-ease) 220ms, box-shadow var(--syt-ease) 220ms,
+    border-color var(--syt-ease) 220ms;
   will-change: transform;
 }
 .md-typeset .grid.cards > ul > li:hover {
   transform: translateY(-4px);
-  box-shadow: var(--oct-shadow-md);
+  box-shadow: var(--syt-shadow-md);
   border-color: var(--md-primary-fg-color);
 }
 
@@ -168,14 +168,14 @@
   white-space: nowrap;
 }
 .md-typeset .prov--documented {
-  background: color-mix(in oklab, var(--oct-teal) 16%, transparent);
-  color: var(--oct-teal);
-  border: 1px solid color-mix(in oklab, var(--oct-teal) 34%, transparent);
+  background: color-mix(in oklab, var(--syt-teal) 16%, transparent);
+  color: var(--syt-teal);
+  border: 1px solid color-mix(in oklab, var(--syt-teal) 34%, transparent);
 }
 .md-typeset .prov--inferred {
-  background: color-mix(in oklab, var(--oct-amber) 16%, transparent);
-  color: var(--oct-amber);
-  border: 1px solid color-mix(in oklab, var(--oct-amber) 40%, transparent);
+  background: color-mix(in oklab, var(--syt-amber) 16%, transparent);
+  color: var(--syt-amber);
+  border: 1px solid color-mix(in oklab, var(--syt-amber) 40%, transparent);
 }
 
 /* Mermaid diagrams: give them breathing room and center. */

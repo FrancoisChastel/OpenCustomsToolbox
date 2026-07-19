@@ -10,8 +10,8 @@
 
 <!-- source: docs/index.md -->
 
-<div class="oct-hero" markdown="1">
-<span class="oct-hero__eyebrow">:material-anchor: SYDONIA · ASYCUDA World · PostgreSQL</span>
+<div class="syt-hero" markdown="1">
+<span class="syt-hero__eyebrow">:material-anchor: SYDONIA · ASYCUDA World · PostgreSQL</span>
 
 # Query Sydonia: write friendly, run genuine
 
@@ -22,19 +22,19 @@ instance. The abstraction is easy; the output is real. Underneath is a faithful,
 **fully-sourced** reconstruction of the whole customs model — now the logical
 layer the compiler maps *from*.
 
-<div class="oct-hero__cta">
-<a class="oct-btn oct-btn--primary" href="compiler/">Query Sydonia →</a>
-<a class="oct-btn oct-btn--ghost" href="getting-started/quickstart/">Quickstart</a>
-<a class="oct-btn oct-btn--ghost" href="schema/">Explore the schema</a>
-<a class="oct-btn oct-btn--ghost" href="https://github.com/FrancoisChastel/sydonia-toolkit">GitHub</a>
+<div class="syt-hero__cta">
+<a class="syt-btn syt-btn--primary" href="compiler/">Query Sydonia →</a>
+<a class="syt-btn syt-btn--ghost" href="getting-started/quickstart/">Quickstart</a>
+<a class="syt-btn syt-btn--ghost" href="schema/">Explore the schema</a>
+<a class="syt-btn syt-btn--ghost" href="https://github.com/FrancoisChastel/sydonia-toolkit">GitHub</a>
 </div>
 </div>
 
-<div class="oct-stats" markdown>
-<div class="oct-stat"><b>55</b><span>tables across 8 modules</span></div>
-<div class="oct-stat"><b>49&nbsp;/&nbsp;6</b><span>documented / inferred</span></div>
-<div class="oct-stat"><b>100%</b><span>cited public sourcing</span></div>
-<div class="oct-stat"><b>0</b><span>errors on a clean load</span></div>
+<div class="syt-stats" markdown>
+<div class="syt-stat"><b>55</b><span>tables across 8 modules</span></div>
+<div class="syt-stat"><b>49&nbsp;/&nbsp;6</b><span>documented / inferred</span></div>
+<div class="syt-stat"><b>100%</b><span>cited public sourcing</span></div>
+<div class="syt-stat"><b>0</b><span>errors on a clean load</span></div>
 </div>
 
 ## Why it exists
@@ -6744,11 +6744,11 @@ The credibility of this project rests on one promise: **every table is either
 grounded in a cited public source or honestly marked as inferred — nothing is
 invented and dressed up as documented.** This section is the evidence.
 
-<div class="oct-stats" markdown>
-<div class="oct-stat"><b>49</b><span>tables documented (<code>-- src:</code>)</span></div>
-<div class="oct-stat"><b>6</b><span>tables inferred (<code>-- inferred</code>)</span></div>
-<div class="oct-stat"><b>100%</b><span>cited, cached sourcing</span></div>
-<div class="oct-stat"><b>0</b><span>fabricated citations</span></div>
+<div class="syt-stats" markdown>
+<div class="syt-stat"><b>49</b><span>tables documented (<code>-- src:</code>)</span></div>
+<div class="syt-stat"><b>6</b><span>tables inferred (<code>-- inferred</code>)</span></div>
+<div class="syt-stat"><b>100%</b><span>cited, cached sourcing</span></div>
+<div class="syt-stat"><b>0</b><span>fabricated citations</span></div>
 </div>
 
 <div class="grid cards" markdown>
@@ -6899,10 +6899,10 @@ These map directly to the [`customs-validate`](../skills/index.md) skill.
 
 ## How the model was actually built
 
-<div class="oct-stats" markdown>
-<div class="oct-stat"><b>7</b><span>research phases</span></div>
-<div class="oct-stat"><b>100%</b><span>sources fetched &amp; cached</span></div>
-<div class="oct-stat"><b>55</b><span>tables, 100% tagged</span></div>
+<div class="syt-stats" markdown>
+<div class="syt-stat"><b>7</b><span>research phases</span></div>
+<div class="syt-stat"><b>100%</b><span>sources fetched &amp; cached</span></div>
+<div class="syt-stat"><b>55</b><span>tables, 100% tagged</span></div>
 </div>
 
 1. **Orient** — a SAD overview, a WCO Data Model briefing, and a cargo-manifest
