@@ -1,0 +1,190 @@
+# =====================================================================
+# asycuda-world.yml — LOGICAL → GENUINE ASYCUDA World mapping.
+#
+# Each `tables:` entry maps one of the toolbox's friendly logical tables to
+# its real ASYCUDA World source: the physical table, and for every logical
+# column the physical expression that produces it. The compiler turns these
+# into CTEs (or persistent views) so queries written against the friendly
+# names run against the wide, denormalised real schema.
+#
+# TARGET = the publicly-DOCUMENTED physical shape (FIT.md, xml-messages.md):
+#   pinned where public — SAD_Tax COD/BSE/RAT/AMT/MOP, TAR_HSC_NB1..5,
+#   PTY_* colour flags, VIT_CIF/VIT_STV, VALID_FROM/VALID_TO.
+#   The remaining physical column names are instance/version-specific and
+#   NOT public; the defaults here follow AW's prefix conventions and are what
+#   the bundled mock database (Sydonia/adapters/mock_asycuda_world.sql) uses.
+#   For a real deployment, override names in a per-instance file — see
+#   compiler/mappings/overrides.example.yml.
+#
+# Shape gotchas handled here (so queries never see them): INSTANCE_ID -> id,
+# general-segment repetition -> DISTINCT, HS split NB1..5 -> concat, code+name
+# inline -> code-keyed ref_* views, VALID_FROM/TO -> validity filter.
+# =====================================================================
+meta:
+  target: ASYCUDA World (v4)
+  shape: documented-default
+
+tables:
+
+  # ---- Reference / code tables (AW UN*/xx*TAB, code-keyed: id := code) ----
+  ref_country:
+    source: UNCTYTAB
+    alias: c
+    valid: { from: c.VALID_FROM, to: c.VALID_TO }
+    columns:
+      id: c.CTY_COD
+      iso_alpha2: c.CTY_COD
+      name: c.CTY_NAM
+
+  ref_customs_office:
+    source: UNCUOTAB
+    alias: o
+    valid: { from: o.VALID_FROM, to: o.VALID_TO }
+    columns:
+      id: o.CUO_COD
+      office_code: o.CUO_COD
+      name: o.CUO_NAM
+      country_id: o.CUO_CTY_COD
+
+  ref_tax_type:
+    source: UNTAXTAB
+    alias: t
+    valid: { from: t.VALID_FROM, to: t.VALID_TO }
+    columns:
+      id: t.TAX_COD
+      code: t.TAX_COD
+      name: t.TAX_NAM
+
+  # Lanes are a colour domain in AW (PTY flags), not a catalogue — materialise them.
+  ref_selectivity_lane:
+    raw: |
+      SELECT code AS id, code, name, requires_exam, description
+      FROM (VALUES
+        ('GREEN','Green lane',  false, 'Automatic release'),
+        ('YELLOW','Yellow lane',true,  'Documentary check'),
+        ('RED','Red lane',      true,  'Physical examination'),
+        ('BLUE','Blue lane',    false, 'Post-clearance audit')
+      ) AS lane(code, name, requires_exam, description)
+
+  # Declaration status is a coded STA in AW with no rich public catalogue — materialise the lifecycle.
+  ref_declaration_status:
+    raw: |
+      SELECT code AS id, code, name, sort_order
+      FROM (VALUES
+        ('stored','Stored',1),('registered','Registered',2),('assessed','Assessed',3),
+        ('paid','Paid',4),('released','Released',5),('queried','Queried',6),('cancelled','Cancelled',7)
+      ) AS st(code, name, sort_order)
+
+  trader:
+    source: UNOPTAB            # economic operators (AW xxCAR/DEC/CMP/PRPTAB family)
+    alias: p
+    columns:
+      id: p.OPR_TIN            # code-keyed by TIN
+      tin: p.OPR_TIN
+      name: p.OPR_NAM
+      country_id: p.OPR_CTY_COD
+
+  # ---- Declaration spine (AW SAD_*) --------------------------------------
+  declaration:
+    source: SAD_General_Segment
+    alias: g
+    distinct: true            # AW repeats the general segment per item -> one row per declaration
+    columns:
+      id: g.INSTANCE_ID
+      office_id: g.SGS_CUO_COD
+      declaration_type_id: g.SGS_TYP_COD
+      registration_number: g.SGS_REG_NBR
+      registration_date: g.SGS_REG_DAT
+      trader_reference: g.SGS_DEC_REF
+      consignee_id: g.SGS_CNE_COD
+      declarant_id: g.SGS_DCL_COD
+      exporter_id: g.SGS_EXP_COD
+      currency_id: g.SGS_CUR_COD
+      total_invoice_amount: g.SGS_INV_AMT
+      total_cif_value: g.SGS_CIF_AMT
+      status_id: g.STA
+      selectivity_lane_id: >-
+        CASE WHEN g.PTY_RED = '1' THEN 'RED' WHEN g.PTY_YEL = '1' THEN 'YELLOW'
+             WHEN g.PTY_GRE = '1' THEN 'GREEN' WHEN g.PTY_BLU = '1' THEN 'BLUE' END
+
+  declaration_item:
+    source: SAD_Item
+    alias: i
+    columns:
+      id: i.INSTANCE_ID
+      declaration_id: i.ITM_SGS_ID
+      item_number: i.ITM_NBR
+      hs_code: concat(i.TAR_HSC_NB1, i.TAR_HSC_NB2, i.TAR_HSC_NB3, i.TAR_HSC_NB4, i.TAR_HSC_NB5)
+      customs_value: i.VIT_CIF
+      statistical_value: i.VIT_STV
+      net_mass: i.ITM_NET_MAS
+      gross_mass: i.ITM_GRS_MAS
+      country_origin_id: i.ITM_ORG_COD
+      number_of_packages: i.ITM_PKG_NBR
+
+  declaration_tax_line:
+    source: SAD_Tax
+    alias: x
+    columns:
+      id: x.INSTANCE_ID
+      declaration_item_id: x.TAX_ITM_ID
+      tax_type_id: x.COD
+      tax_base: x.BSE
+      rate_percent: x.RAT
+      tax_amount: x.AMT
+      mode_of_payment: x.MOP
+      is_manual: "(x.TYP = '1')"
+
+  item_value_note:
+    source: SAD_Item
+    alias: v
+    columns:
+      id: v.INSTANCE_ID
+      declaration_item_id: v.INSTANCE_ID
+      item_fob: v.VIT_FOB
+      apportioned_freight: v.VIT_FRT
+      apportioned_insurance: v.VIT_INS
+      item_cif: v.VIT_CIF
+
+  # ---- Selectivity / risk ------------------------------------------------
+  selectivity_result:
+    source: SAD_SELECTIVITY
+    alias: s
+    columns:
+      id: s.INSTANCE_ID
+      declaration_id: s.SEL_SGS_ID
+      lane_id: s.SEL_LANE
+      criterion_id: s.SEL_CRIT
+      triggered_at: s.SEL_DAT
+      officer_id: s.SEL_OFF_ID
+
+  risk_criterion:
+    source: SEL_PARAM_TAB
+    alias: rc
+    columns:
+      id: rc.SEL_COD
+      code: rc.SEL_COD
+      name: rc.SEL_NAM
+      target_lane_id: rc.SEL_LANE
+
+  inspection_act:
+    source: INSP_ACT_TAB
+    alias: a
+    columns:
+      id: a.INSTANCE_ID
+      declaration_id: a.INS_SGS_ID
+      result: a.INS_RES
+      findings: a.INS_FND
+      inspected_at: a.INS_DAT
+      officer_id: a.INS_OFF_ID
+
+  declaration_status_history:
+    source: SAD_STATUS_LOG      # inferred history; instance-specific
+    alias: h
+    columns:
+      id: h.INSTANCE_ID
+      declaration_id: h.LOG_SGS_ID
+      status_id: h.LOG_STA
+      changed_at: h.LOG_DAT
+      changed_by: h.LOG_USR
+      note: h.LOG_NOTE

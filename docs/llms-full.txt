@@ -13,15 +13,18 @@
 <div class="oct-hero" markdown="1">
 <span class="oct-hero__eyebrow">:material-anchor: SYDONIA · ASYCUDA World · PostgreSQL</span>
 
-# The customs data model, reconstructed in the open
+# Query Sydonia: write friendly, run genuine
 
-A faithful, **fully-sourced** relational model of the UNCTAD **ASYCUDA World
-(SYDONIA)** customs management system — manifests, SAD declarations, valuation,
-taxes, selectivity, accounting and suspense regimes — ready to `psql` into a
-sandbox, an analytics warehouse, or an integration test bed.
+Write customs analytics against a **friendly logical model** — `declaration`,
+`declaration_item`, `hs_code`, `tax_amount` — and **compile them to genuine
+ASYCUDA World (SYDONIA) SQL you can actually run**, read-only, against a real
+instance. The abstraction is easy; the output is real. Underneath is a faithful,
+**fully-sourced** reconstruction of the whole customs model — now the logical
+layer the compiler maps *from*.
 
 <div class="oct-hero__cta">
-<a class="oct-btn oct-btn--primary" href="getting-started/quickstart/">Quickstart →</a>
+<a class="oct-btn oct-btn--primary" href="compiler/">Query Sydonia →</a>
+<a class="oct-btn oct-btn--ghost" href="getting-started/quickstart/">Quickstart</a>
 <a class="oct-btn oct-btn--ghost" href="schema/">Explore the schema</a>
 <a class="oct-btn oct-btn--ghost" href="https://github.com/FrancoisChastel/OpenCustomsToolbox">GitHub</a>
 </div>
@@ -37,11 +40,14 @@ sandbox, an analytics warehouse, or an integration test bed.
 ## Why it exists
 
 ASYCUDA World is the customs platform used by **100+ countries**, but its
-internal database schema is proprietary. This project rebuilds an
+internal database schema is **wide, denormalised and proprietary** — painful to
+query for analytics. So this project does two things. It rebuilds an
 **information-equivalent reference model** using *only* public documentation —
 UNCTAD/DTL technical table descriptions, national ASYCUDA World user manuals,
-and open ISO/UN/WCO standards. Every table is traceable to a citation, or is
-honestly flagged as inferred.
+and open ISO/UN/WCO standards, every table traceable to a citation or honestly
+flagged as inferred. And it ships a [**query compiler**](compiler/index.md) that
+lets you write against that clean model and **compile to genuine Sydonia SQL** —
+so the friendly names are the ergonomics, and the runnable statement is real.
 
 The modeled version is **ASYCUDA World (v4)** — the current standard. The
 [platform section](platform/index.md) covers the full version lineage
@@ -58,6 +64,25 @@ have.
 ## What you can do with it
 
 <div class="grid cards" markdown>
+
+-   :material-cog-transfer:{ .lg .middle } &nbsp;**Compile to genuine Sydonia SQL**
+
+    ---
+
+    Write a query against the friendly logical model; the compiler rewrites it
+    into runnable ASYCUDA World SQL via a CTE prelude. **Write friendly, run
+    genuine.**
+
+    [:octicons-arrow-right-24: The query compiler](compiler/index.md)
+
+-   :material-database-search:{ .lg .middle } &nbsp;**Query a real ASYCUDA World**
+
+    ---
+
+    Point the same queries and skills at a live instance — read-only, metadata
+    only — for analytics, feature extraction and selectivity on *your* data.
+
+    [:octicons-arrow-right-24: Querying Sydonia](querying-sydonia/index.md)
 
 -   :material-database-import:{ .lg .middle } &nbsp;**Stand up a customs sandbox**
 
@@ -677,6 +702,1591 @@ significant action is written to the cross-cutting `audit_log`.
 
 ---
 
+<!-- source: docs/querying-sydonia/index.md -->
+
+# Querying Sydonia
+
+ASYCUDA World — **Sydonia** in its French-speaking installs — does not keep a
+tidy relational model under the hood. Its physical database is **wide,
+denormalised, and optimised for the Java engine**, not for the analyst. The
+general segment is copied into every item row, HS codes are shattered across five
+columns, code and name live side by side with no foreign key, and every reference
+table carries a validity window. UNCTAD **does not publish the physical schema**,
+so most of what follows is reconstructed from the public layer — the official
+Tables Description documents (**S013 reference, S014 declaration, S015 manifest,
+S016 accounting**) and the XML wire format.
+
+This section is the part of the toolbox about **querying the real thing**. It
+walks the real table families you would hit against a live Sydonia RDBMS, names
+the columns that *are* publicly pinned, and is honest about the ones that are not.
+
+!!! warning "The must-request gap — exact physical names are instance-specific"
+    A handful of column and table names **are** public and appear verbatim below,
+    because they show up in the [Tables Description](../platform/asycuda-world.md)
+    and the [XML messages](../platform/xml-messages.md): the `SAD_Tax`
+    `COD`/`BSE`/`RAT`/`AMT`/`MOP`/`TYP` roots, the HS split `TAR_HSC_NB1..5`, the
+    `PTY_RED`/`YEL`/`GRE`/`BLU` colour flags, `VIT_CIF`/`VIT_STV`, the `INSTANCE_ID`
+    engine key, and `VALID_FROM`/`VALID_TO`. **Everything else is the shape, not
+    the exact spelling.** The remaining column names on these pages follow AW's
+    prefix conventions and match the toolbox's [mock database](https://github.com/FrancoisChastel/OpenCustomsToolbox/blob/master/Sydonia/adapters/mock_asycuda_world.sql)
+    — treat them as *plausible defaults you must confirm against your instance*,
+    not as guaranteed identifiers. When you get real access, the physical names
+    are the first thing to request.
+
+## Two ways to query
+
+<div class="grid cards" markdown>
+
+-   :material-database-search:{ .lg .middle } &nbsp;**Directly, against the real tables**
+
+    ---
+
+    Write SQL against `SAD_General_Segment`, `SAD_Item`, `SAD_Tax`, `GEN_TAB`,
+    `BOL_TAB`, the `UN*` reference tables — and handle the denormalisation
+    yourself. This section documents those tables so you can.
+
+    [:octicons-arrow-right-24: Declaration tables](declaration-tables.md)
+
+-   :material-wand:{ .lg .middle } &nbsp;**Via the logical model + compiler**
+
+    ---
+
+    Write friendly SQL against the toolbox's clean logical names; the **query
+    compiler** rewrites it into genuine Sydonia SQL — dedup, HS concat, validity
+    filtering and all — so you never touch the gotchas by hand.
+
+    [:octicons-arrow-right-24: The query compiler](../compiler/index.md)
+
+</div>
+
+Both hit the same real database. Direct SQL gives you full control and nothing
+between you and the engine; the compiler trades that for correctness-by-default on
+the five things that reliably bite (see [joins & gotchas](joins-and-gotchas.md)).
+
+## The real table families
+
+The physical schema falls into four layers. Reference tables sit underneath
+everything (codes + validity); manifests describe cargo that arrives; declarations
+clear it; tax and selectivity hang off each declaration.
+
+```mermaid
+flowchart TD
+    subgraph ref["Reference — S013 (UN* / xx*TAB)"]
+      R1["UNCTYTAB · UNCURTAB · UNCUOTAB<br/>UNTAXTAB · UNHS*TAB · UNCP*TAB<br/>(code + name inline · VALID_FROM/TO)"]
+    end
+    subgraph man["Manifest — S015"]
+      M1["GEN_TAB<br/>general segment"]
+      M2["BOL_TAB<br/>bills of lading"]
+      M3["CTN_TAB / BOL_CTN_TAB<br/>containers + goods lines"]
+      M1 --> M2 --> M3
+    end
+    subgraph dec["Declaration — S014"]
+      D1["SAD_General_Segment<br/>one declaration (repeated per item)"]
+      D2["SAD_Item<br/>per commodity · TAR_HSC_NB1..5"]
+      D1 --> D2
+    end
+    subgraph tax["Tax & selectivity — S014/S016"]
+      T1["SAD_Tax<br/>COD/BSE/RAT/AMT/MOP/TYP"]
+      T2["SAD_SELECTIVITY · INSP_ACT_TAB<br/>PTY_* colour flags"]
+    end
+    ref -.->|codes| man
+    ref -.->|codes| dec
+    man -->|write-off| dec
+    D2 --> T1
+    D1 --> T2
+```
+
+## The four sub-pages
+
+<div class="grid cards" markdown>
+
+-   :material-file-document-outline:{ .lg .middle } &nbsp;**Declaration tables**
+
+    ---
+
+    `SAD_General_Segment`, `SAD_Item`, `SAD_Tax` — the SAD spine, the HS split,
+    the valuation build-up and the tax roots, with real-SQL examples.
+
+    [:octicons-arrow-right-24: Declaration tables](declaration-tables.md)
+
+-   :material-ferry:{ .lg .middle } &nbsp;**Manifest tables**
+
+    ---
+
+    `GEN_TAB`, `BOL_TAB`, `CTN_TAB` / `BOL_CTN_TAB` — the cargo manifest, its
+    bills of lading and containers, master ⇄ house.
+
+    [:octicons-arrow-right-24: Manifest tables](manifest-tables.md)
+
+-   :material-table-key:{ .lg .middle } &nbsp;**Reference tables**
+
+    ---
+
+    The `UN*` / `xx*TAB` code catalogue — code + name inline (no FK) and the
+    `VALID_FROM`/`VALID_TO` temporal-validity pattern.
+
+    [:octicons-arrow-right-24: Reference tables](reference-tables.md)
+
+-   :material-alert-octagon-outline:{ .lg .middle } &nbsp;**Joins & gotchas**
+
+    ---
+
+    The five things that bite — `INSTANCE_ID`, repeated general segment, HS split,
+    code+name inline, validity windows — each with symptom and fix.
+
+    [:octicons-arrow-right-24: Joins & gotchas](joins-and-gotchas.md)
+
+</div>
+
+## Related
+
+- [ASYCUDA World — the modeled version](../platform/asycuda-world.md) — what the
+  real platform is and where the public/private line falls.
+- [XML messages & the wire format](../platform/xml-messages.md) — the other public
+  window onto the field-level model.
+- [How faithful is the reconstruction?](../provenance/fit.md) — the table-by-table
+  official-vs-toolbox fit, the source of every real name here.
+- [Useful queries](../guides/useful-queries.md) — worked queries against the clean
+  logical model.
+
+
+
+---
+
+<!-- source: docs/querying-sydonia/declaration-tables.md -->
+
+# Querying the declaration tables
+
+The declaration — the **Single Administrative Document** — is the core of
+ASYCUDA World's data. Physically it lives in three tables you will query most
+often: **`SAD_General_Segment`** (consignment level), **`SAD_Item`** (per
+commodity) and **`SAD_Tax`** (per tax line). These names come straight from the
+official S014 Declaration Tables and are used verbatim by the toolbox's
+[compiler mapping](https://github.com/FrancoisChastel/OpenCustomsToolbox/blob/master/compiler/mappings/asycuda-world.yml).
+
+!!! info "What is pinned vs. instance-specific"
+    Column names printed in **bold** are publicly documented (S014 / the XML
+    layer) and appear verbatim in the [fit analysis](../provenance/fit.md) — the
+    `SAD_Tax` roots, `TAR_HSC_NB1..5`, `VIT_CIF`/`VIT_STV`, the `PTY_*` flags,
+    `INSTANCE_ID`. Plain-code names (e.g. `SGS_CUO_COD`) follow AW's prefix
+    conventions and match the bundled mock DB, but the exact spelling on a real
+    instance is *instance-specific* — confirm it.
+
+## `SAD_General_Segment` — one declaration, repeated per item
+
+The general segment carries the consignment-level facts: office, type, parties,
+currency, totals, status and the selectivity colour flags. The catch that defines
+querying it: **AW repeats the entire general segment into every item row** — so a
+naïve join over items double-counts it. Deduplicate with `DISTINCT` on
+**`INSTANCE_ID`** (see [joins & gotchas](joins-and-gotchas.md#repeated-general-segment)).
+
+| Physical column | Meaning | Logical equivalent |
+|-----------------|---------|--------------------|
+| **`INSTANCE_ID`** | Engine key — the declaration's identity | `declaration.id` |
+| `SGS_CUO_COD` | Customs office code | `declaration.office_id` |
+| `SGS_TYP_COD` | Declaration model/type (IM4, EX1…) | `declaration.declaration_type_id` |
+| `SGS_REG_NBR`, `SGS_REG_DAT` | Registration serial + date | `declaration.registration_number` · `registration_date` |
+| `SGS_DEC_REF` | Declarant reference (LRN/UCR) | `declaration.trader_reference` |
+| `SGS_EXP_COD`, `SGS_CNE_COD`, `SGS_DCL_COD` | Exporter · consignee · declarant | `declaration.exporter_id` · `consignee_id` · `declarant_id` |
+| `SGS_CUR_COD` | Invoice currency | `declaration.currency_id` |
+| `SGS_INV_AMT`, `SGS_CIF_AMT` | Total invoice · total CIF | `declaration.total_invoice_amount` · `total_cif_value` |
+| **`STA`** | Lifecycle status code | `declaration.status_id` |
+| **`PTY_RED`**, **`PTY_YEL`**, **`PTY_GRE`**, **`PTY_BLU`** | Selectivity lane colour flags (`'1'`/`'0'`) | `declaration.selectivity_lane_id` |
+
+The **`STA`** status code drives the clearance state machine (stored →
+registered → assessed → paid → released); the **`PTY_*`** flags are a
+colour *domain*, not a foreign key — exactly one is set to `'1'`. Decode them with
+a `CASE`:
+
+```sql
+-- Declarations registered this month, with their assigned lane.
+SELECT g.INSTANCE_ID,
+       g.SGS_REG_NBR,
+       g.SGS_REG_DAT,
+       g.STA                                        AS status,
+       CASE WHEN g.PTY_RED = '1' THEN 'RED'
+            WHEN g.PTY_YEL = '1' THEN 'YELLOW'
+            WHEN g.PTY_GRE = '1' THEN 'GREEN'
+            WHEN g.PTY_BLU = '1' THEN 'BLUE' END    AS lane
+FROM SAD_General_Segment g
+WHERE g.SGS_REG_DAT >= DATE '2026-07-01'
+ORDER BY g.SGS_REG_DAT;
+```
+
+## `SAD_Item` — one row per commodity line
+
+Each item carries the HS code, origin, mass, packages and the valuation values.
+Two documented shapes matter here:
+
+- **HS is split across `TAR_HSC_NB1..5`** — five national-precision fragments you
+  must concatenate to get a full commodity code
+  ([gotcha](joins-and-gotchas.md#hs-split)).
+- **`VIT_CIF` is the customs value** (the tax base) and **`VIT_STV` the
+  statistical value**; the build-up columns **`VIT_FOB` / `VIT_FRT` / `VIT_INS`**
+  hold FOB + apportioned freight + insurance that sum toward CIF.
+
+| Physical column | Meaning | Logical equivalent |
+|-----------------|---------|--------------------|
+| **`INSTANCE_ID`** | Item identity | `declaration_item.id` |
+| `ITM_SGS_ID` | Parent general-segment key | `declaration_item.declaration_id` |
+| `ITM_NBR` | Item/line number | `declaration_item.item_number` |
+| **`TAR_HSC_NB1..5`** | HS code, split into 5 fragments | `declaration_item.hs_code` (concatenated) |
+| **`VIT_CIF`** | Customs value (the tax base) | `declaration_item.customs_value` |
+| **`VIT_STV`** | Statistical value | `declaration_item.statistical_value` |
+| **`VIT_FOB`**, **`VIT_FRT`**, **`VIT_INS`** | FOB + apportioned freight + insurance → CIF | `item_value_note.item_fob` · `apportioned_freight` · `apportioned_insurance` |
+| `ITM_NET_MAS`, `ITM_GRS_MAS` | Net / gross mass | `declaration_item.net_mass` · `gross_mass` |
+| `ITM_ORG_COD` | Country of origin | `declaration_item.country_origin_id` |
+| `ITM_PKG_NBR` | Number of packages | `declaration_item.number_of_packages` |
+
+```sql
+-- Items on one declaration, with the HS code reassembled and the value build-up.
+SELECT i.ITM_NBR,
+       i.TAR_HSC_NB1 || i.TAR_HSC_NB2 || i.TAR_HSC_NB3
+         || i.TAR_HSC_NB4 || i.TAR_HSC_NB5              AS hs_code,
+       i.ITM_ORG_COD                                    AS origin,
+       i.VIT_FOB, i.VIT_FRT, i.VIT_INS,
+       i.VIT_CIF                                        AS customs_value
+FROM SAD_Item i
+WHERE i.ITM_SGS_ID = 1          -- the declaration's INSTANCE_ID
+ORDER BY i.ITM_NBR;
+```
+
+!!! note "The build-up is denormalised onto the item"
+    Unlike the toolbox's separate `item_value_note` table, the real `SAD_Item`
+    carries `VIT_FOB`/`VIT_FRT`/`VIT_INS`/`VIT_CIF` *inline* on the same row. The
+    invoice is usually FOB but duty is charged on CIF, so this is where the tax
+    base is assembled per item.
+
+## `SAD_Tax` — the tax lines (the pinned roots)
+
+`SAD_Tax` is the one table whose **column roots are fully public**. One row per
+item per applicable tax; because taxes cascade (VAT on customs value + duty), the
+base is stored per line rather than recomputed.
+
+| Physical column | Meaning | Logical equivalent |
+|-----------------|---------|--------------------|
+| **`INSTANCE_ID`** | Tax-line identity | `declaration_tax_line.id` |
+| `TAX_ITM_ID` | Parent item key | `declaration_tax_line.declaration_item_id` |
+| **`COD`** | Tax type (duty / VAT / excise / fee) | `declaration_tax_line.tax_type_id` |
+| **`BSE`** | Tax base (amount the rate applies to) | `declaration_tax_line.tax_base` |
+| **`RAT`** | Rate (ad valorem) | `declaration_tax_line.rate_percent` |
+| **`AMT`** | Computed amount | `declaration_tax_line.tax_amount` |
+| **`MOP`** | Mode of payment | `declaration_tax_line.mode_of_payment` |
+| **`TYP`** | Manual (`'1'`) vs auto-calculated | `declaration_tax_line.is_manual` |
+
+```sql
+-- Duty & VAT collected per declaration, from the real tax roots.
+SELECT g.INSTANCE_ID,
+       g.SGS_REG_NBR,
+       sum(x.AMT) FILTER (WHERE x.COD = 'IMP') AS import_duty,
+       sum(x.AMT) FILTER (WHERE x.COD = 'VAT') AS vat,
+       sum(x.AMT)                              AS total_tax
+FROM SAD_General_Segment g
+JOIN SAD_Item i ON i.ITM_SGS_ID = g.INSTANCE_ID
+JOIN SAD_Tax  x ON x.TAX_ITM_ID = i.INSTANCE_ID
+GROUP BY g.INSTANCE_ID, g.SGS_REG_NBR
+ORDER BY total_tax DESC;
+```
+
+!!! tip "Manual taxes and totals — the derived siblings"
+    - Manual (officer-keyed) taxes live in **`SAD_Ask_Tax`** in the official
+      model; the toolbox folds them into `SAD_Tax` via the **`TYP`** flag
+      (`TYP = '1'`).
+    - **`SAD_Global_Taxes`** and **`SAD_Tax_Totals`** are *summary* tables. Prefer
+      to **derive** these by aggregating `SAD_Tax` (as above) rather than trusting
+      a possibly-stale total — the toolbox never stores them.
+
+## Assemble a full declaration
+
+Because the general segment repeats, dedupe it before you total taxes — or you
+count the header once per item.
+
+```sql
+-- Declaration header + item lines + per-item tax, correctly deduplicated.
+WITH decl AS (
+  SELECT DISTINCT g.INSTANCE_ID, g.SGS_REG_NBR, g.STA
+  FROM SAD_General_Segment g
+  WHERE g.SGS_DEC_REF = 'REF-2026-0001'
+)
+SELECT d.SGS_REG_NBR,
+       i.ITM_NBR,
+       i.TAR_HSC_NB1 || i.TAR_HSC_NB2 || i.TAR_HSC_NB3
+         || i.TAR_HSC_NB4 || i.TAR_HSC_NB5   AS hs_code,
+       i.VIT_CIF                              AS customs_value,
+       sum(x.AMT)                             AS taxes
+FROM decl d
+JOIN SAD_Item i ON i.ITM_SGS_ID = d.INSTANCE_ID
+LEFT JOIN SAD_Tax x ON x.TAX_ITM_ID = i.INSTANCE_ID
+GROUP BY d.SGS_REG_NBR, i.ITM_NBR, i.TAR_HSC_NB1, i.TAR_HSC_NB2,
+         i.TAR_HSC_NB3, i.TAR_HSC_NB4, i.TAR_HSC_NB5, i.VIT_CIF
+ORDER BY i.ITM_NBR;
+```
+
+The same query, written against the friendly logical names and compiled for you,
+is on the [declaration schema page](../schema/declaration.md#example-assemble-a-declaration).
+
+## Related
+
+- [Manifest tables](manifest-tables.md) — the cargo the declaration writes off.
+- [Reference tables](reference-tables.md) — decode `SGS_CUO_COD`, `COD`, `ITM_ORG_COD`.
+- [Joins & gotchas](joins-and-gotchas.md) — the dedup, HS-concat and validity traps.
+- [XML messages](../platform/xml-messages.md) — the SAD box → XML tag → column map.
+- [Declaration schema](../schema/declaration.md) — the same fields, normalised.
+
+
+
+---
+
+<!-- source: docs/querying-sydonia/manifest-tables.md -->
+
+# Querying the manifest tables
+
+The **cargo manifest** is what the carrier declares is on board — the upstream
+document the importer's declaration later writes off against. Physically it sits
+in the S015 Manifest Tables: **`GEN_TAB`** (the manifest general segment),
+**`BOL_TAB`** (bills of lading) and **`CTN_TAB`** / **`BOL_CTN_TAB`**
+(containers), plus goods lines within each B/L. These table names come from the
+official S015 description and the [fit analysis](../provenance/fit.md#manifest-module-official-s015-our-tables);
+the XML equivalent is the **AWMDS** stream documented in
+[XML messages](../platform/xml-messages.md#cargo-manifest-awmds).
+
+!!! warning "Manifest column names are almost entirely instance-specific"
+    S015 pins the **table** names (`GEN_TAB`, `BOL_TAB`, `CTN_TAB`,
+    `BOL_CTN_TAB`) and the *field semantics* (voyage, ports, totals, parties,
+    seals…), but **not the physical column names** — unlike `SAD_Tax`, no public
+    root list exists for the manifest columns. The `GEN_*` / `BOL_*` / `CTN_*`
+    names below follow AW's prefix conventions and are *illustrative defaults*.
+    Confirm every one against your instance before running.
+
+## `GEN_TAB` — the manifest general segment
+
+One row per manifest: office, voyage/flight, carrier and shipping agent, ports of
+loading/unloading, dates, declared totals and status. It is the parent of every
+bill of lading on the voyage.
+
+| Physical column | Meaning | Logical equivalent |
+|-----------------|---------|--------------------|
+| **`INSTANCE_ID`** | Manifest identity (engine key) | `manifest.id` |
+| `GEN_CUO_COD` | Customs office of arrival | `manifest.office_id` |
+| `GEN_REG_YER`, `GEN_REG_NBR`, `GEN_REG_DAT` | Registration year / number / date | `manifest.manifest_year` · `registration_number` |
+| `GEN_VOY_NBR` | Voyage / flight number | `manifest.voyage_number` |
+| `GEN_TSP_IDE` | Identity of transport (vessel) | `manifest.identity_of_transport` |
+| `GEN_CAR_COD` + `GEN_CAR_NAM` | Carrier — **code and name inline** | `manifest.carrier_id` |
+| `GEN_AGT_COD` + `GEN_AGT_NAM` | Shipping agent (code + name inline) | `manifest.shipping_agent_id` |
+| `GEN_POL_COD`, `GEN_POD_COD` | Place of loading / unloading (UN/LOCODE) | `manifest.place_departure_id` · `place_destination_id` |
+| `GEN_DEP_DAT`, `GEN_ARR_DAT` | Departure / arrival dates | `manifest.date_of_departure` · `date_of_arrival` |
+| `GEN_TOT_BOL`, `GEN_TOT_PKG`, `GEN_TOT_CTN`, `GEN_TOT_GRS` | Total B/Ls · packages · containers · gross mass | `manifest.total_bols` · `total_packages` · `total_containers` · `total_gross_mass` |
+| `STA` | Manifest lifecycle status | `manifest.status_id` |
+
+!!! note "Carrier is code + name inline"
+    Like all AW coded fields, the carrier is stored as **`GEN_CAR_COD` and
+    `GEN_CAR_NAM` together on the same row** — there is no FK to a carrier table.
+    See [code+name inline](joins-and-gotchas.md#code-name-inline).
+
+## `BOL_TAB` — the bills of lading
+
+One row per transport document. A **master** B/L covers a full container moving
+carrier-to-carrier; a **house** B/L is one consignee's consignment inside it
+(**degroupage**), expressed by a self-reference on the previous-master B/L
+reference.
+
+| Physical column | Meaning | Logical equivalent |
+|-----------------|---------|--------------------|
+| **`INSTANCE_ID`** | B/L identity | `bill_of_lading.id` |
+| `BOL_GEN_ID` | Parent manifest key | `bill_of_lading.manifest_id` |
+| `BOL_REF` | B/L reference number | `bill_of_lading.bl_reference` |
+| `BOL_LIN_NBR`, `BOL_SUB_NBR` | Line / sub-line number | — |
+| `BOL_NAT_COD` | Nature (22 export / 23 import / 24 transit / 28 transhipment) | `bill_of_lading.bl_nature_id` |
+| `BOL_MST_REF` | Previous **master** B/L reference (degroupage) | `bill_of_lading.master_bl_id` |
+| `BOL_EXP_COD`, `BOL_CNE_COD`, `BOL_NOT_COD` | Exporter · consignee · notify party | — |
+| `BOL_PKG_NBR`, `BOL_GRS_MAS`, `BOL_VOL` | Packages · gross mass · volume | `bill_of_lading.number_of_packages` · `gross_mass` |
+| `BOL_FRT_AMT`, `BOL_INS_AMT` | Freight / insurance value + currency | — |
+
+```sql
+-- All bills of lading on one voyage, with package and mass totals per B/L.
+SELECT b.BOL_REF,
+       b.BOL_NAT_COD                    AS nature,
+       b.BOL_PKG_NBR                    AS packages,
+       b.BOL_GRS_MAS                    AS gross_mass,
+       CASE WHEN b.BOL_MST_REF IS NULL THEN 'master' ELSE 'house' END AS bl_role
+FROM GEN_TAB   g
+JOIN BOL_TAB   b ON b.BOL_GEN_ID = g.INSTANCE_ID
+WHERE g.GEN_VOY_NBR = 'V2026-042'
+ORDER BY b.BOL_REF;
+```
+
+## `CTN_TAB` / `BOL_CTN_TAB` — containers & goods lines
+
+Containers are attached to a B/L. Depending on the instance they are held in a
+standalone **`CTN_TAB`** or a B/L-scoped **`BOL_CTN_TAB`** junction; both carry
+the container reference, ISO 6346 type, empty/full flag, seals, weights, volume
+and dangerous-goods flag. Goods/commodity lines (HS, description, packages) sit
+within each B/L.
+
+| Physical column | Meaning | Logical equivalent |
+|-----------------|---------|--------------------|
+| **`INSTANCE_ID`** | Container identity | `container.id` |
+| `CTN_BOL_ID` | Parent B/L key | `container.bl_id` |
+| `CTN_REF` | Container reference (ISO 6346) | `container.container_number` |
+| `CTN_TYP_COD` | Container type code | `container.container_type_id` |
+| `CTN_IND` | Empty / full indicator | `container.empty_full` |
+| `CTN_PKG_NBR` | Packages inside | `container.number_of_packages` |
+| `CTN_GRS_MAS`, `CTN_VOL` | Gross mass · volume | `container.gross_mass` · `volume` |
+| `CTN_SEAL` | Seal numbers | `container.seals` |
+| `CTN_DGR` | Dangerous-goods flag | `container.dangerous_goods` |
+
+```sql
+-- Containers and their B/Ls for an arriving voyage, with fill status.
+SELECT b.BOL_REF,
+       c.CTN_REF,
+       c.CTN_TYP_COD                              AS iso_type,
+       CASE WHEN c.CTN_IND = 'F' THEN 'full' ELSE 'empty' END AS fill,
+       c.CTN_GRS_MAS                              AS gross_mass
+FROM GEN_TAB g
+JOIN BOL_TAB b     ON b.BOL_GEN_ID = g.INSTANCE_ID
+JOIN CTN_TAB c     ON c.CTN_BOL_ID = b.INSTANCE_ID
+WHERE g.GEN_VOY_NBR = 'V2026-042'
+ORDER BY b.BOL_REF, c.CTN_REF;
+```
+
+!!! info "Vehicle sub-segment — a known gap"
+    The manifest XML also defines a **vehicle sub-segment** (chassis/VIN/engine/make
+    for RoRo cargo). It is documented but **not modelled** as a table in the
+    toolbox — noted in [Coverage](../provenance/coverage.md). If your instance
+    carries it, the physical name is instance-specific; request it.
+
+## Grounded in the wire format
+
+Each of these tables maps onto a segment of the **AWMDS** cargo XML stream
+(root `<Awmds>`), so the same field semantics are visible two ways:
+
+| AWMDS element | Manifest table | Toolbox table |
+|---------------|----------------|---------------|
+| `<General_segment>` | `GEN_TAB` | `manifest` |
+| `<Bol_segment>` | `BOL_TAB` | `bill_of_lading` |
+| `<ctn_segment>` | `CTN_TAB` / `BOL_CTN_TAB` | `container` |
+| `<Goods_segment>` / `<Commodity_Segment>` | goods lines in `BOL_TAB` | `manifest_cargo_item` |
+
+## Related
+
+- [Declaration tables](declaration-tables.md) — what clears this cargo.
+- [Reference tables](reference-tables.md) — decode office, nature, container type.
+- [Joins & gotchas](joins-and-gotchas.md) — `INSTANCE_ID` keys and code+name inline.
+- [XML messages — AWMDS](../platform/xml-messages.md#cargo-manifest-awmds) — the cargo stream.
+- [Manifest schema](../schema/manifest.md) — the same fields, normalised.
+
+
+
+---
+
+<!-- source: docs/querying-sydonia/reference-tables.md -->
+
+# Querying the reference tables
+
+Everything coded on a declaration or manifest — the office, the country of
+origin, the currency, the tax type, the HS chapter, the procedure — resolves
+through ASYCUDA World's **reference tables**: the S013 `UN*` / `xx*TAB` code
+catalogue. Two patterns define how you query them, and both differ sharply from
+the toolbox's normalised `ref_*` model.
+
+!!! info "Two prefixes, one catalogue"
+    You will see both **`UN*`** (the shared UNCTAD base, e.g. `UNCTYTAB`) and
+    **`xx*TAB`** (national instance tables, where `xx` is the country code) for
+    the same domains. The domain roots (`CTY`, `CUR`, `CUO`, `TAX`, `HS`, `CP`…)
+    are documented in [S013](../platform/asycuda-world.md); the exact prefix on
+    your instance is instance-specific.
+
+## Pattern 1 — code + name stored inline (no foreign key)
+
+The toolbox normalises coded fields into an FK pointing at a `ref_*` table. The
+**real AW schema does the opposite**: it stores the **code *and* its name
+together on the same row** of the referencing table — e.g. a manifest carries
+both `GEN_CAR_COD` and `GEN_CAR_NAM`. The reference table then holds the same
+`_COD` + `_NAM` pair as its own two columns.
+
+This is confirmed in the [fit analysis](../provenance/fit.md): *"store code **and**
+name inline (`GEN_CAR_COD` + `GEN_CAR_NAM`)"* versus the toolbox's *"FK to a
+`ref_*` table"*. Practically, it means **you often do not need to join at all** —
+the human-readable name is already sitting beside the code. When you *do* join a
+reference table (to filter on validity, or to pull an attribute not denormalised
+onto the fact row), you join **on the code**, not on a surrogate id
+([details](joins-and-gotchas.md#code-name-inline)).
+
+## Pattern 2 — temporal validity (`VALID_FROM` / `VALID_TO`)
+
+Every `UN*` reference table carries **`VALID_FROM`** and **`VALID_TO`** dates. A
+code is only valid for a declaration if the declaration's date falls inside that
+window — a currency, tariff line or tax rate can be superseded, and the old row
+stays in the table so historical declarations still resolve correctly. An open
+`VALID_TO` (`NULL`) means "still current".
+
+The toolbox collapses this to an `is_active` boolean (plus explicit
+`valid_from/to` on rate tables), but against the real database **you must filter
+by date yourself**, or you will match retired codes and multiply rows.
+
+```sql
+-- Currently-valid customs offices (as of today).
+SELECT o.CUO_COD, o.CUO_NAM
+FROM UNCUOTAB o
+WHERE o.VALID_FROM <= CURRENT_DATE
+  AND (o.VALID_TO IS NULL OR o.VALID_TO >= CURRENT_DATE)
+ORDER BY o.CUO_COD;
+```
+
+```sql
+-- Resolve a code as it was valid ON a specific declaration date — the correct,
+-- point-in-time lookup for historical declarations.
+SELECT t.TAX_COD, t.TAX_NAM
+FROM UNTAXTAB t
+WHERE t.TAX_COD = 'VAT'
+  AND t.VALID_FROM <= DATE '2026-07-06'
+  AND (t.VALID_TO IS NULL OR t.VALID_TO >= DATE '2026-07-06');
+```
+
+!!! warning "Filter to one valid row, or you double-count"
+    Skipping the validity predicate is the classic reference-table bug: a code
+    that was re-issued has **two rows**, so an unfiltered join returns each fact
+    twice. Always constrain to the row valid on the relevant date. The
+    [query compiler](../compiler/index.md) injects this filter automatically.
+
+## The main reference tables (S013 crib)
+
+Drawn from the [fit analysis](../provenance/fit.md#reference-module-official-s013-un-tables-our-ref_-tables)
+direct-match list. Every one carries the code + name inline and the
+`VALID_FROM`/`VALID_TO` window.
+
+| AW table | Domain | Toolbox `ref_*` |
+|----------|--------|-----------------|
+| `xxCTYTAB` / `UNCTYTAB` | Countries | `ref_country` |
+| `xxCURTAB` | Currencies | `ref_currency` |
+| `xxRATTAB` | Exchange rates | `ref_exchange_rate` |
+| `xxCUOTAB` / `UNCUOTAB` | Customs offices | `ref_customs_office` |
+| `xxLOCTAB` | Locations (UN/LOCODE) | `ref_location` |
+| `xxMOTTAB` | Transport modes | `ref_transport_mode` |
+| `xxPKGTAB` | Package types | `ref_package_type` |
+| `xxCTNTAB` | Container types | `ref_container_type` |
+| `xxUOMTAB` | Units of measure | `ref_unit_of_measure` |
+| `xxTODTAB` | Incoterms | `ref_incoterm` |
+| `xxHS1-6TAB` / `xxTARTAB` | Tariff / HS | `ref_hs_tariff` |
+| `xxCP1/3/4TAB` | Procedures (CPC / regime) | `ref_cpc_regime` |
+| `xxTAXTAB` / `UNTAXTAB` | Tax types | `ref_tax_type` |
+| `xxRULTAB` / `xxTAXTAR` | Tax rules / rates | `ref_tax_rate` |
+| `xxATDTAB` | Document types | `ref_document_type` |
+| `xxCP3TAB` | Exemption / relief codes | `ref_exemption_code` |
+| `xxMODTAB` | Declaration types | `ref_declaration_type` |
+| `xxNATTAB` | B/L nature | `ref_bl_nature` |
+| `xxWHSTAB` | Warehouses | `ref_warehouse` |
+| `xxCAR/DEC/CMP/PRPTAB` | Economic operators | `trader` (+ `trader_role`) |
+
+!!! note "Some `UN*` tables are folded inline, not modelled separately"
+    Domains such as preference (`xxPRFTAB`), valuation method (`xxVAMTAB`), means
+    of payment (`xxMOPTAB`) and quota (`xxQUOTAB`) exist as reference tables in AW
+    but the toolbox keeps them as plain coded columns on the fact row rather than
+    as separate `ref_*` tables — see the [fit analysis](../provenance/fit.md) and
+    [Coverage](../provenance/coverage.md) for the full list and rationale.
+
+## A join that resolves codes correctly
+
+Putting both patterns together — decode a declaration's office and origin against
+reference tables, valid on the registration date:
+
+```sql
+SELECT g.SGS_REG_NBR,
+       o.CUO_NAM                         AS office,
+       ctry.CTY_NAM                      AS origin_country
+FROM SAD_General_Segment g
+JOIN SAD_Item i  ON i.ITM_SGS_ID = g.INSTANCE_ID
+JOIN UNCUOTAB o  ON o.CUO_COD = g.SGS_CUO_COD
+                AND o.VALID_FROM <= g.SGS_REG_DAT
+                AND (o.VALID_TO IS NULL OR o.VALID_TO >= g.SGS_REG_DAT)
+JOIN UNCTYTAB ctry ON ctry.CTY_COD = i.ITM_ORG_COD
+                  AND ctry.VALID_FROM <= g.SGS_REG_DAT
+                  AND (ctry.VALID_TO IS NULL OR ctry.VALID_TO >= g.SGS_REG_DAT)
+WHERE g.SGS_DEC_REF = 'REF-2026-0001';
+```
+
+## Related
+
+- [Joins & gotchas](joins-and-gotchas.md) — code+name inline and validity, in depth.
+- [Declaration tables](declaration-tables.md) · [Manifest tables](manifest-tables.md) — the codes that resolve here.
+- [The query compiler](../compiler/index.md) — writes the validity filter for you.
+- [Reference & config schema](../schema/reference-config.md) — the normalised `ref_*` side.
+
+
+
+---
+
+<!-- source: docs/querying-sydonia/joins-and-gotchas.md -->
+
+# Joins & gotchas
+
+Querying the real ASYCUDA World database is not hard because the SQL is exotic —
+it is hard because the schema is **wide and denormalised** in five specific ways
+that quietly produce wrong answers. Each one below is drawn from the
+["Aspect" table in the fit analysis](../provenance/fit.md#verdict) and reproduced
+in the toolbox's [mock database](https://github.com/FrancoisChastel/OpenCustomsToolbox/blob/master/Sydonia/adapters/mock_asycuda_world.sql).
+For each: the **symptom** you will see, and the **fix**.
+
+## 1. `INSTANCE_ID` — the engine keys {: #instance-id }
+
+AW keys rows on **`INSTANCE_ID`** (the object-engine identity), not on a
+business-friendly surrogate. Child rows reference their parent's `INSTANCE_ID`
+through a `*_*_ID` column — `SAD_Item.ITM_SGS_ID` → `SAD_General_Segment.INSTANCE_ID`,
+`SAD_Tax.TAX_ITM_ID` → `SAD_Item.INSTANCE_ID`, `BOL_TAB.BOL_GEN_ID` →
+`GEN_TAB.INSTANCE_ID`.
+
+!!! danger "Symptom"
+    You join on a registration number or a reference string and get duplicates or
+    misses — those are not unique keys. Or you assume an auto-increment `id` and
+    find none.
+
+**Fix** — always traverse via `INSTANCE_ID` and the `*_ID` parent pointers:
+
+```sql
+JOIN SAD_Item i ON i.ITM_SGS_ID = g.INSTANCE_ID     -- item → general segment
+JOIN SAD_Tax  x ON x.TAX_ITM_ID = i.INSTANCE_ID     -- tax  → item
+```
+
+## 2. The general segment is repeated into every item {: #repeated-general-segment }
+
+The single most surprising shape: **AW copies the entire general segment into
+every `SAD_Item` row** (and, on the cargo side, into every `BOL_TAB` row). There
+is not one header row and N item rows — there are N rows that each carry the full
+header *plus* their item.
+
+!!! danger "Symptom"
+    Header-level totals come out multiplied by the item count. `sum(SGS_CIF_AMT)`
+    over a joined result counts the CIF once per item; a declaration with 3 items
+    reports 3× its value.
+
+**Fix** — deduplicate the header on `INSTANCE_ID` before aggregating:
+
+```sql
+WITH decl AS (
+  SELECT DISTINCT g.INSTANCE_ID, g.SGS_REG_NBR, g.SGS_CIF_AMT
+  FROM SAD_General_Segment g
+)
+SELECT sum(SGS_CIF_AMT) AS total_cif FROM decl;   -- counts each declaration once
+```
+
+## 3. HS code is split across `TAR_HSC_NB1..5` {: #hs-split }
+
+The commodity code is stored as **five national-precision fragments** —
+`TAR_HSC_NB1`, `TAR_HSC_NB2`, `TAR_HSC_NB3`, `TAR_HSC_NB4`, `TAR_HSC_NB5` — not a
+single `hs_code`. The first fragments give the HS-2/HS-4/HS-6 international code;
+the later ones carry national precision and may be blank.
+
+!!! danger "Symptom"
+    Filtering `WHERE hs_code = '851712'` finds nothing — there is no such column.
+    Grouping "by HS" groups by one fragment and merges unrelated commodities.
+
+**Fix** — concatenate the fragments (and be aware trailing fragments can be
+empty strings, not `NULL`):
+
+```sql
+SELECT i.TAR_HSC_NB1 || i.TAR_HSC_NB2 || i.TAR_HSC_NB3
+         || i.TAR_HSC_NB4 || i.TAR_HSC_NB5   AS hs_code
+FROM SAD_Item i;
+-- prefix match on a 6-digit code:
+-- WHERE i.TAR_HSC_NB1 || i.TAR_HSC_NB2 || i.TAR_HSC_NB3 = '851712'
+```
+
+## 4. Code and name are stored inline — there is no FK {: #code-name-inline }
+
+AW stores a coded value as **the code and its name together on the same row**
+(`GEN_CAR_COD` + `GEN_CAR_NAM`), not as an FK into a lookup table. The reference
+table holds the same `_COD` + `_NAM` pair.
+
+!!! danger "Symptom"
+    You look for a foreign-key `carrier_id` to join and there isn't one. Or you
+    join a reference table on a numeric id and match nothing — the join key is the
+    **code string**, and validity is unfiltered so you may match a retired row.
+
+**Fix** — the name is usually already on the row, so *no join is needed*; when
+you do join a reference table, join **on the code**, and add the validity
+predicate (gotcha 5):
+
+```sql
+-- the name is inline — no join required:
+SELECT g.GEN_CAR_COD, g.GEN_CAR_NAM FROM GEN_TAB g;
+
+-- when you must join, join on the code + filter validity:
+JOIN UNCTYTAB c ON c.CTY_COD = i.ITM_ORG_COD
+              AND c.VALID_FROM <= g.SGS_REG_DAT
+              AND (c.VALID_TO IS NULL OR c.VALID_TO >= g.SGS_REG_DAT)
+```
+
+## 5. Reference tables carry `VALID_FROM` / `VALID_TO` {: #validity }
+
+Every `UN*` reference table keeps **superseded codes** alongside current ones,
+distinguished by a **`VALID_FROM`/`VALID_TO`** window. A code is correct for a
+declaration only if the declaration's date falls inside it; `VALID_TO IS NULL`
+means still current.
+
+!!! danger "Symptom"
+    A reference join returns two rows for one code (old + new), silently doubling
+    the fact rows. Or a historical declaration resolves against today's re-issued
+    code and shows the wrong name/rate.
+
+**Fix** — constrain every reference join to the row valid on the relevant date:
+
+```sql
+JOIN UNTAXTAB t ON t.TAX_COD = x.COD
+              AND t.VALID_FROM <= g.SGS_REG_DAT
+              AND (t.VALID_TO IS NULL OR t.VALID_TO >= g.SGS_REG_DAT)
+```
+
+## The compiler handles all five for you
+
+Every fix above is mechanical — which is exactly why the toolbox's
+[**query compiler**](../compiler/index.md) bakes them in. You write friendly SQL
+against clean logical names; it emits **genuine Sydonia SQL** with the
+`INSTANCE_ID` traversal, the `DISTINCT` dedup, the HS `concat`, the code-keyed
+reference views and the `VALID_FROM`/`VALID_TO` filter already applied — so you
+never re-derive them and never ship a query that silently double-counts.
+
+!!! example "Before / after — logical vs compiled"
+    **You write** (against the logical model — no gotchas visible):
+
+    ```sql
+    SELECT hs_code, sum(customs_value) AS value
+    FROM declaration_item
+    GROUP BY hs_code;
+    ```
+
+    **The compiler emits** (against the real `SAD_Item` — gotchas 1, 3 handled):
+
+    ```sql
+    SELECT concat(i.TAR_HSC_NB1, i.TAR_HSC_NB2, i.TAR_HSC_NB3,
+                  i.TAR_HSC_NB4, i.TAR_HSC_NB5)   AS hs_code,
+           sum(i.VIT_CIF)                          AS value
+    FROM SAD_Item i
+    GROUP BY concat(i.TAR_HSC_NB1, i.TAR_HSC_NB2, i.TAR_HSC_NB3,
+                    i.TAR_HSC_NB4, i.TAR_HSC_NB5);
+    ```
+
+    The mapping that drives this rewrite —
+    [`compiler/mappings/asycuda-world.yml`](https://github.com/FrancoisChastel/OpenCustomsToolbox/blob/master/compiler/mappings/asycuda-world.yml)
+    — is the same one whose physical names this section documents, so the docs and
+    the tooling never drift apart.
+
+## Quick reference
+
+| # | Gotcha | Symptom | Fix |
+|:-:|--------|---------|-----|
+| 1 | `INSTANCE_ID` keys | Duplicates/misses on business keys | Traverse via `INSTANCE_ID` + `*_ID` pointers |
+| 2 | General segment repeated | Header totals × item count | `DISTINCT` header on `INSTANCE_ID` |
+| 3 | HS split `NB1..5` | No `hs_code` column; wrong grouping | Concatenate the 5 fragments |
+| 4 | Code + name inline | No FK; join on wrong key | Read inline name, or join on the code |
+| 5 | `VALID_FROM`/`VALID_TO` | Double rows; wrong historical code | Filter to the row valid on the date |
+
+## Related
+
+- [Declaration tables](declaration-tables.md) · [Manifest tables](manifest-tables.md) · [Reference tables](reference-tables.md)
+- [The query compiler](../compiler/index.md) — the automated way past all five.
+- [How faithful is the reconstruction?](../provenance/fit.md) — the source "Aspect" table.
+- [Useful queries](../guides/useful-queries.md) — worked queries on the logical model.
+
+
+
+---
+
+<!-- source: docs/compiler/index.md -->
+
+# The query compiler
+
+**Write friendly, run genuine.** You write analytics queries against the
+toolbox's clean [logical model](../schema/index.md) — `declaration`,
+`declaration_item`, `tax_amount`, `hs_code` — and the compiler rewrites them into
+**genuine ASYCUDA World SQL** that executes against the real, wide, denormalised
+physical schema. The friendly names are the ergonomics; the compiled statement is
+what a real SYDONIA instance would run.
+
+!!! abstract "The pivot, in one line"
+    This toolbox is no longer only a *reference model*. Its primary job is now to
+    let you **query a real ASYCUDA World** — you write against the reconstruction,
+    and the compiler turns that into runnable Sydonia SQL. The reconstruction
+    became the **logical layer** the compiler maps *from*.
+
+## The abstraction in one picture
+
+```text
+  query spec (no SQL)  ──build──►  LOGICAL SQL  ──compile──►  GENUINE SYDONIA SQL
+   from / where / select            declaration,               SAD_General_Segment,
+                                     tax_amount, hs_code        SAD_Tax.AMT, TAR_HSC…
+```
+
+Two entry points, one destination:
+
+```mermaid
+flowchart LR
+    A[query spec<br/><small>YAML · no SQL</small>] -->|build| B[LOGICAL SQL<br/><small>friendly names</small>]
+    B2[LOGICAL SQL<br/><small>hand-written</small>] --> C
+    B -->|compile| C[GENUINE SYDONIA SQL<br/><small>runs on real AW</small>]
+    C -->|read-only| D[(real / mock<br/>ASYCUDA World)]
+    style B fill:#0f766e22,stroke:#0f766e
+    style C fill:#d9770622,stroke:#d97706
+```
+
+## Why an abstraction at all
+
+A real ASYCUDA World database is **wide, denormalised, and mostly non-public**.
+Writing analytics directly against it is painful, because:
+
+| The real schema does this… | …so a raw query must |
+|----------------------------|----------------------|
+| Keys are engine `INSTANCE_ID` values | know the engine key convention |
+| The general segment is repeated into **every item row** | `DISTINCT` the header itself |
+| The HS code is split across `TAR_HSC_NB1..5` | concatenate five columns |
+| Code **and** name are stored inline (`GEN_CAR_COD` + `GEN_CAR_NAM`) | fake a foreign key by code |
+| `UN*` / `xx*TAB` reference rows carry `VALID_FROM` / `VALID_TO` | filter to currently-valid rows |
+| Tax roots are `COD` / `BSE` / `RAT` / `AMT` / `MOP` on `SAD_Tax` | remember the terse field roots |
+
+The logical model hides every one of these. You write
+`di.hs_code`, `sum(tl.tax_amount)` and `d.selectivity_lane_id = 'RED'`; the
+compiler bakes the gotchas into the output.
+
+## How it works — the CTE prelude
+
+The compiler scans your query for the **logical tables** it references, then
+prepends each one as a **Common Table Expression** that `SELECT`s-and-aliases
+from the real ASYCUDA World tables (per the [mapping](mapping.md)). Your query is
+left **untouched** — the CTEs simply make the friendly names resolve to the real
+schema. The result is **one standalone statement**, runnable anywhere, needing no
+privilege to create views.
+
+## Before and after
+
+You write this friendly logical query:
+
+```sql
+SELECT di.hs_code, sum(tl.tax_amount) AS taxes
+FROM declaration_item di
+JOIN declaration_tax_line tl ON tl.declaration_item_id = di.id
+GROUP BY di.hs_code;
+```
+
+`python -m compiler compile` turns it into this genuine Sydonia SQL — note the
+`concat` of the split HS code and the `SAD_Tax` field roots, all injected by the
+prelude while your `SELECT` stays exactly as written:
+
+```sql
+WITH
+  declaration_item AS (
+    SELECT
+        i.INSTANCE_ID AS id,
+        i.ITM_SGS_ID AS declaration_id,
+        i.ITM_NBR AS item_number,
+        concat(i.TAR_HSC_NB1, i.TAR_HSC_NB2, i.TAR_HSC_NB3, i.TAR_HSC_NB4, i.TAR_HSC_NB5) AS hs_code,
+        i.VIT_CIF AS customs_value,
+        i.VIT_STV AS statistical_value,
+        i.ITM_NET_MAS AS net_mass,
+        i.ITM_GRS_MAS AS gross_mass,
+        i.ITM_ORG_COD AS country_origin_id,
+        i.ITM_PKG_NBR AS number_of_packages
+    FROM SAD_Item i
+  ),
+  declaration_tax_line AS (
+    SELECT
+        x.INSTANCE_ID AS id,
+        x.TAX_ITM_ID AS declaration_item_id,
+        x.COD AS tax_type_id,
+        x.BSE AS tax_base,
+        x.RAT AS rate_percent,
+        x.AMT AS tax_amount,
+        x.MOP AS mode_of_payment,
+        (x.TYP = '1') AS is_manual
+    FROM SAD_Tax x
+  )
+SELECT di.hs_code, sum(tl.tax_amount) AS taxes
+FROM declaration_item di
+JOIN declaration_tax_line tl ON tl.declaration_item_id = di.id
+GROUP BY di.hs_code;
+```
+
+!!! success "The round-trip guarantee"
+    The **same** logical query returns the **same** results whether run on the
+    reconstruction sandbox (logical) or compiled and run on the mock physical
+    database (genuine). See [Running the compiled SQL](running.md).
+
+## Install
+
+The compiler is pure standard library except for **PyYAML** (the mapping is
+human-edited YAML):
+
+```bash
+pip install pyyaml
+python -m compiler compile my_query.sql
+```
+
+## Where to go next
+
+<div class="grid cards" markdown>
+
+-   :material-code-braces:{ .lg .middle } &nbsp;**Write logical SQL**
+
+    ---
+
+    Author queries against the friendly names, `compile` them from a file or
+    stdin, and see what the compiler detects and rewrites.
+
+    [:octicons-arrow-right-24: Logical SQL & compile](logical-sql.md)
+
+-   :material-form-select:{ .lg .middle } &nbsp;**Build without SQL**
+
+    ---
+
+    A tiny YAML query spec — `from` / `join` / `where` / `select` — that becomes
+    logical SQL, then genuine Sydonia SQL.
+
+    [:octicons-arrow-right-24: The query builder](builder.md)
+
+-   :material-map:{ .lg .middle } &nbsp;**The mapping**
+
+    ---
+
+    How each logical table maps to its real AW source, per-instance overrides,
+    and materialising persistent views with `emit-views`.
+
+    [:octicons-arrow-right-24: The mapping](mapping.md)
+
+-   :material-play-circle:{ .lg .middle } &nbsp;**Run it**
+
+    ---
+
+    The sandbox, the mock ASYCUDA World database (proving the round-trip), and a
+    real instance — read-only.
+
+    [:octicons-arrow-right-24: Running the SQL](running.md)
+
+</div>
+
+## Related
+
+- [Querying Sydonia](../querying-sydonia/index.md) — the wider story of running
+  against a real ASYCUDA World, and the [joins and gotchas](../querying-sydonia/joins-and-gotchas.md).
+- [Querying the model](../guides/querying.md) and
+  [useful queries](../guides/useful-queries.md) — the logical queries the compiler
+  turns genuine.
+- [Running on a real ASYCUDA World](../platform/running-on-real-asycuda.md) — the
+  deployment, FDW and ETL detail behind the compiled SQL.
+
+!!! note "Scope"
+    The compiler targets read **analytics** queries (`SELECT` / `WITH`) — the
+    project's use case. It is not a general SQL transpiler and deliberately does
+    **not** handle writes or DDL.
+
+
+
+---
+
+<!-- source: docs/compiler/logical-sql.md -->
+
+# Writing logical SQL
+
+**Logical SQL is just SQL against the friendly names.** The names you use — the
+tables and columns of the [reconstructed schema](../schema/index.md) —
+`declaration`, `declaration_item`, `declaration_tax_line`, `ref_country`,
+`hs_code`, `tax_amount` — are exactly the [logical layer](../schema/index.md) the
+compiler maps *from*. If a query runs on the sandbox, it compiles.
+
+!!! tip "You already know the names"
+    Everything in the [querying guide](../guides/querying.md) and the
+    [useful queries](../guides/useful-queries.md) library **is** logical SQL. Any
+    of those queries can be piped straight through `compile`.
+
+## The `compile` command
+
+`compile` reads one logical SQL statement and prints the genuine Sydonia SQL. It
+takes a **file**, or `-` for **stdin**:
+
+```bash
+# from a file
+python -m compiler compile my_query.sql
+
+# from stdin
+echo "SELECT * FROM declaration WHERE selectivity_lane_id = 'RED'" \
+  | python -m compiler compile -
+```
+
+Add `--logical` to stop *before* compiling and just echo the logical SQL back —
+handy when the SQL comes from the [builder](builder.md) and you want to inspect
+it first:
+
+```bash
+python -m compiler compile my_query.sql --logical
+```
+
+!!! note "One dependency"
+    The compiler needs **PyYAML** (`pip install pyyaml`) to read the mapping.
+    Nothing else — it is otherwise pure standard library.
+
+## What the compiler detects and rewrites
+
+The mechanism is the **CTE prelude**. The compiler:
+
+1. **Scans** your query for logical table names — literal- and comment-aware, so
+   a table name inside a string or a `--` comment never triggers a false match.
+2. **Emits a CTE** for each referenced table, `SELECT`-ing and aliasing from the
+   real ASYCUDA World source per the [mapping](mapping.md), in the mapping's
+   declaration order (stable, dependency-friendly output).
+3. **Prepends** those CTEs to your query. If your query already starts with
+   `WITH`, the compiler *splices* its CTEs in front of your list rather than
+   nesting a second `WITH`.
+4. **Drops** a leading `SET search_path …;` — irrelevant once the friendly names
+   are resolved by CTEs.
+
+Your original `SELECT` body is otherwise left byte-for-byte unchanged.
+
+## The gotchas it bakes in
+
+Each CTE quietly handles a shape difference so your query never sees it:
+
+| Real-schema gotcha | What the CTE does |
+|--------------------|-------------------|
+| Engine `INSTANCE_ID` keys | aliased `AS id` so surrogate-PK joins keep working |
+| General segment repeated per item row | `declaration` is emitted `SELECT DISTINCT` — one row per declaration |
+| HS code split `TAR_HSC_NB1..5` | `concat(...)` into a single `hs_code` |
+| Code + name stored inline | `ref_*` CTEs are code-keyed (`id` := the business code) |
+| `VALID_FROM` / `VALID_TO` on reference rows | a `WHERE now()::date BETWEEN …` validity filter |
+| Colour flags `PTY_RED/YEL/GRE/BLU` | a `CASE` collapses them to a `selectivity_lane_id` code |
+
+## A worked example — declaration header
+
+The `declaration` logical table demaps the header's repetition and the colour
+flags. This logical query:
+
+```sql
+SELECT id, registration_number, selectivity_lane_id
+FROM declaration
+WHERE selectivity_lane_id = 'RED';
+```
+
+compiles to (note `SELECT DISTINCT` and the injected `CASE`):
+
+```sql
+WITH
+  declaration AS (
+    SELECT DISTINCT
+        g.INSTANCE_ID AS id,
+        g.SGS_CUO_COD AS office_id,
+        g.SGS_TYP_COD AS declaration_type_id,
+        g.SGS_REG_NBR AS registration_number,
+        g.SGS_REG_DAT AS registration_date,
+        g.SGS_DEC_REF AS trader_reference,
+        g.SGS_CNE_COD AS consignee_id,
+        g.SGS_DCL_COD AS declarant_id,
+        g.SGS_EXP_COD AS exporter_id,
+        g.SGS_CUR_COD AS currency_id,
+        g.SGS_INV_AMT AS total_invoice_amount,
+        g.SGS_CIF_AMT AS total_cif_value,
+        g.STA AS status_id,
+        CASE WHEN g.PTY_RED = '1' THEN 'RED' WHEN g.PTY_YEL = '1' THEN 'YELLOW'
+     WHEN g.PTY_GRE = '1' THEN 'GREEN' WHEN g.PTY_BLU = '1' THEN 'BLUE' END AS selectivity_lane_id
+    FROM SAD_General_Segment g
+  )
+SELECT id, registration_number, selectivity_lane_id
+FROM declaration
+WHERE selectivity_lane_id = 'RED';
+```
+
+## A worked example — a reference table
+
+Reference tables carry the validity filter automatically. This logical query:
+
+```sql
+SELECT c.name FROM ref_country c WHERE c.id = 'CN';
+```
+
+compiles to — the code-keyed `id`, the code-keyed `iso_alpha2`, and the
+`VALID_FROM`/`VALID_TO` filter, all injected:
+
+```sql
+WITH
+  ref_country AS (
+    SELECT
+        c.CTY_COD AS id,
+        c.CTY_COD AS iso_alpha2,
+        c.CTY_NAM AS name
+    FROM UNCTYTAB c
+    WHERE now()::date BETWEEN c.VALID_FROM AND coalesce(c.VALID_TO, DATE '9999-12-31')
+  )
+SELECT c.name FROM ref_country c WHERE c.id = 'CN';
+```
+
+!!! info "Placeholders warn, not fail"
+    If the active mapping (base + [overrides](mapping.md)) still contains an
+    unfilled `{{placeholder}}`, `compile` prints the SQL and emits a
+    `-- warning:` on stderr naming the placeholders — a nudge to supply a
+    per-instance overrides file, not a hard error.
+
+## Test the result read-only
+
+Compiled SQL is genuine Sydonia SQL — so validate it **before** you trust it on
+real data. Both paths are **privacy-preserving**: they check the query against
+schema metadata and a read-only plan, and never return row data.
+
+```bash
+# the bundled shell tester (read-only, metadata only)
+skills/customs-query/scripts/test_query.sh "<your compiled SQL>"
+```
+
+The [`customs-query`](../skills/index.md) skill drives the same
+**customs-query-tester** MCP from plain English — safe against a database holding
+real customs declarations. See [Running the compiled SQL](running.md) for how to
+point it at the sandbox, the mock database, or a real instance.
+
+## Related
+
+- [The query builder](builder.md) — generate logical SQL from a no-SQL spec.
+- [The mapping](mapping.md) — what each logical name resolves to, and how to
+  override it per instance.
+- [Querying the model](../guides/querying.md) ·
+  [Useful queries](../guides/useful-queries.md) — the logical query library.
+
+
+
+---
+
+<!-- source: docs/compiler/builder.md -->
+
+# The query builder
+
+The **builder** turns a small, no-SQL **query spec** into logical SQL — which the
+[compiler](logical-sql.md) then turns into genuine Sydonia SQL. It is deliberately
+thin: a convenience over logical SQL for people who would rather describe a query
+than write it, **not** a new query language.
+
+```text
+  query spec (YAML)  ──build──►  LOGICAL SQL  ──compile──►  GENUINE SYDONIA SQL
+```
+
+## The spec shape
+
+A spec is YAML (or JSON). It maps directly onto the clauses of a `SELECT`:
+
+```yaml
+from: declaration
+join:
+  - declaration_item on declaration_item.declaration_id = declaration.id
+  - declaration_tax_line on declaration_tax_line.declaration_item_id = declaration_item.id
+where:
+  - declaration.selectivity_lane_id = 'RED'
+select:
+  - declaration_item.hs_code
+  - sum(declaration_tax_line.tax_amount) as taxes
+group_by: [declaration_item.hs_code]
+order_by: [taxes desc]
+limit: 10
+```
+
+### The keys
+
+Only `from` and `select` are required; everything else is optional. Each key
+accepts a single value or a list.
+
+| Key | Accepts | Becomes |
+|-----|---------|---------|
+| `from` | a logical table name (**required**) | `FROM <table>` |
+| `select` | expression(s) (**required**) | `SELECT <expr>, …` |
+| `join` | `"<table> on <condition>"` **or** a `{table, on, type}` object | `JOIN <table> ON <condition>` |
+| `where` | condition(s), AND-ed | `WHERE … AND …` |
+| `group_by` | expression(s) | `GROUP BY …` |
+| `having` | condition(s), AND-ed | `HAVING … AND …` |
+| `order_by` | expression(s) | `ORDER BY …` |
+| `limit` | an integer | `LIMIT n` |
+
+!!! note "Two ways to write a join"
+    The string form `"declaration_item on declaration_item.declaration_id = declaration.id"`
+    always produces an inner `JOIN`. For an outer join, use the object form and
+    set `type`:
+    ```yaml
+    join:
+      - table: inspection_act
+        on: inspection_act.declaration_id = declaration.id
+        type: left join
+    ```
+
+## Worked example — spec to logical to genuine
+
+Run the builder on the spec above with `--logical` to see the generated
+**logical SQL**:
+
+```bash
+python -m compiler build my_spec.yml --logical
+```
+
+```sql
+SELECT declaration_item.hs_code,
+       sum(declaration_tax_line.tax_amount) as taxes
+FROM declaration
+JOIN declaration_item ON declaration_item.declaration_id = declaration.id
+JOIN declaration_tax_line ON declaration_tax_line.declaration_item_id = declaration_item.id
+WHERE declaration.selectivity_lane_id = 'RED'
+GROUP BY declaration_item.hs_code
+ORDER BY taxes desc
+LIMIT 10;
+```
+
+Drop the `--logical` flag and the same command runs it through the compiler to
+produce **genuine Sydonia SQL** — the three referenced logical tables become
+CTEs over `SAD_General_Segment`, `SAD_Item` and `SAD_Tax`, and your body is
+left as written:
+
+```bash
+python -m compiler build my_spec.yml
+```
+
+```sql
+WITH
+  declaration AS (
+    SELECT DISTINCT
+        g.INSTANCE_ID AS id,
+        …
+        CASE WHEN g.PTY_RED = '1' THEN 'RED' … END AS selectivity_lane_id
+    FROM SAD_General_Segment g
+  ),
+  declaration_item AS (
+    SELECT
+        i.INSTANCE_ID AS id,
+        i.ITM_SGS_ID AS declaration_id,
+        concat(i.TAR_HSC_NB1, i.TAR_HSC_NB2, i.TAR_HSC_NB3, i.TAR_HSC_NB4, i.TAR_HSC_NB5) AS hs_code,
+        …
+    FROM SAD_Item i
+  ),
+  declaration_tax_line AS (
+    SELECT
+        x.TAX_ITM_ID AS declaration_item_id,
+        x.AMT AS tax_amount,
+        …
+    FROM SAD_Tax x
+  )
+SELECT declaration_item.hs_code,
+       sum(declaration_tax_line.tax_amount) as taxes
+FROM declaration
+JOIN declaration_item ON declaration_item.declaration_id = declaration.id
+JOIN declaration_tax_line ON declaration_tax_line.declaration_item_id = declaration_item.id
+WHERE declaration.selectivity_lane_id = 'RED'
+GROUP BY declaration_item.hs_code
+ORDER BY taxes desc
+LIMIT 10;
+```
+
+The builder and the compiler share the same `--mapping` and `--overrides`
+options, so a spec targets a specific instance exactly the way raw logical SQL
+does — see [the mapping](mapping.md).
+
+## When to prefer raw logical SQL instead
+
+The builder is intentionally minimal. Reach for **[logical SQL](logical-sql.md)**
+directly whenever a query needs anything the spec can't express, including:
+
+- **CTEs / `WITH`** — window-function preludes, pre-aggregation before a join
+  (as in the [effective-rate](../guides/useful-queries.md) and league-table
+  queries).
+- **`LATERAL`** subqueries — e.g. the assessed-vs-paid reconciliation.
+- **Window functions**, `FILTER (WHERE …)`, `percentile_cont`, `DISTINCT ON`, set
+  operations, or anything else beyond the flat clause list above.
+
+There is no loss of power in dropping to logical SQL — the compiler treats both
+identically. The spec is simply the easiest on-ramp for straightforward
+`from / join / where / select / group_by` reports.
+
+## Related
+
+- [Writing logical SQL](logical-sql.md) — the target of the builder, and the
+  richer queries the spec can't cover.
+- [The mapping](mapping.md) — how referenced tables resolve, and per-instance
+  overrides.
+- [Running the compiled SQL](running.md) — where to actually run the output.
+
+
+
+---
+
+<!-- source: docs/compiler/mapping.md -->
+
+# The mapping
+
+The **mapping** is the single source of truth the compiler reads to build every
+CTE — and the same file drives the persistent-view adapter. It lives at
+[`compiler/mappings/asycuda-world.yml`](https://github.com/FrancoisChastel/OpenCustomsToolbox/blob/master/compiler/mappings/asycuda-world.yml)
+and maps each of the toolbox's friendly logical tables to its real ASYCUDA World
+source: the physical table, and for every logical column the physical expression
+that produces it.
+
+## The structure
+
+Each entry under `tables:` describes one logical table. A typical entry:
+
+```yaml
+tables:
+  declaration:
+    source: SAD_General_Segment
+    alias: g
+    distinct: true            # AW repeats the general segment per item -> one row per declaration
+    columns:
+      id: g.INSTANCE_ID
+      office_id: g.SGS_CUO_COD
+      registration_number: g.SGS_REG_NBR
+      status_id: g.STA
+      selectivity_lane_id: >-
+        CASE WHEN g.PTY_RED = '1' THEN 'RED' WHEN g.PTY_YEL = '1' THEN 'YELLOW'
+             WHEN g.PTY_GRE = '1' THEN 'GREEN' WHEN g.PTY_BLU = '1' THEN 'BLUE' END
+```
+
+| Field | Meaning |
+|-------|---------|
+| `source` | the real AW physical table this logical table reads from |
+| `alias` | the alias bound to that source inside the CTE (default `t`) |
+| `columns` | a map of **logical → physical**: each logical column name to the SQL expression that produces it (`i.VIT_CIF`, a `concat(...)`, a `CASE`, …) |
+| `distinct` | emit `SELECT DISTINCT` — used for `declaration`, whose header is repeated into every item row |
+| `valid` | `{from:, to:}` — adds a `now()::date BETWEEN … AND coalesce(…, DATE '9999-12-31')` validity filter for `UN*`/`xx*TAB` reference tables |
+| `where` | an extra predicate AND-ed into the CTE |
+| `raw` | a literal CTE body used for tables with **no real catalogue** — e.g. selectivity lanes and declaration statuses are materialised from a `VALUES` list |
+
+The compiler renders each entry as a CTE (`build_cte`) — that's the whole
+mechanism. Column expressions are copied verbatim into the `SELECT`, aliased to
+the logical name.
+
+## What the default targets
+
+The default mapping targets the **publicly-documented physical shape**. Some names
+are pinned because the public docs fix them; the rest follow AW's prefix
+conventions:
+
+| Pinned from public docs | Following AW conventions (instance-specific) |
+|-------------------------|----------------------------------------------|
+| `SAD_Tax` roots `COD` / `BSE` / `RAT` / `AMT` / `MOP` / `TYP` | the `SGS_*` general-segment columns |
+| `TAR_HSC_NB1..5` HS split | `SAD_STATUS_LOG`, `INSP_ACT_TAB`, `SEL_PARAM_TAB` names |
+| `PTY_*` colour flags | the `UN*TAB` / `xx*TAB` reference table names |
+| `VIT_CIF` / `VIT_STV` valuation build-up | operator/trader source `UNOPTAB` |
+| `VALID_FROM` / `VALID_TO` on reference rows | |
+
+!!! warning "Exact physical names are instance-specific"
+    A **real** deployment's physical table and column names are
+    version/instance-specific and **not public**. The defaults here are what the
+    bundled [mock database](running.md) uses; for a real instance, pin the true
+    names in a **per-instance overrides file**.
+
+## Per-instance overrides
+
+Overrides are a second YAML file **deep-merged over the base** mapping — you
+override **only what differs**, and everything else is inherited. See
+[`compiler/mappings/overrides.example.yml`](https://github.com/FrancoisChastel/OpenCustomsToolbox/blob/master/compiler/mappings/overrides.example.yml):
+
+```yaml
+# overrides.example.yml — only the differences
+tables:
+  declaration:
+    source: SAD_GEN               # this instance calls it SAD_GEN
+    columns:
+      office_id: g.GEN_OFFICE     # override just this column's expression
+  declaration_tax_line:
+    source: SAD_TAXATION          # and the tax table SAD_TAXATION
+    # COD/BSE/RAT/AMT/MOP are documented roots — usually no override needed
+```
+
+Pass it with `--overrides` on either `compile` or `build`:
+
+```bash
+python -m compiler compile q.sql --overrides compiler/mappings/myinstance.yml
+```
+
+The merge is recursive: setting `columns.office_id` for `declaration` replaces
+**only that column's expression**, leaving every other column and every other
+table exactly as the base mapping defines them.
+
+!!! tip "Use the mock as your worked example"
+    The default names line up with the bundled mock ASYCUDA World database. Get
+    your compiled SQL running against the mock first; then write the overrides for
+    the real instance — you are only changing names, not logic.
+
+## Materialise persistent views with `emit-views`
+
+The compiler prelude is per-query and needs no privileges. If instead you want
+**persistent compatibility views** — logical tables physically present as
+`CREATE VIEW` objects over the real schema, so *any* tool can query them —
+`emit-views` renders the whole mapping as `CREATE OR REPLACE VIEW`:
+
+```bash
+python -m compiler emit-views > Sydonia/adapters/asycuda_world_compat.sql
+python -m compiler emit-views --overrides compiler/mappings/myinstance.yml > my_compat.sql
+```
+
+It emits the schema preamble and one view per logical table (same CTE body,
+wrapped as a view):
+
+```sql
+-- Generated from compiler/mappings by `python -m compiler emit-views`.
+CREATE SCHEMA IF NOT EXISTS asycuda;
+SET search_path TO asycuda, public;
+
+CREATE OR REPLACE VIEW ref_country AS
+    SELECT
+        c.CTY_COD AS id,
+        c.CTY_COD AS iso_alpha2,
+        c.CTY_NAM AS name
+    FROM UNCTYTAB c
+    WHERE now()::date BETWEEN c.VALID_FROM AND coalesce(c.VALID_TO, DATE '9999-12-31');
+```
+
+This is the same adapter documented at
+[running on a real ASYCUDA World](../platform/running-on-real-asycuda.md) — the
+CTE prelude and the persistent views are two renderings of **one** mapping, so
+they always agree.
+
+## Related
+
+- [Writing logical SQL](logical-sql.md) — the queries these mappings resolve.
+- [Running the compiled SQL](running.md) — the sandbox, the mock database, and a
+  real instance.
+- [Running on a real ASYCUDA World](../platform/running-on-real-asycuda.md) — the
+  deployment / FDW / ETL detail behind the persistent views.
+- [Schema overview](../schema/index.md) — the logical layer these expressions map
+  *from*.
+
+
+
+---
+
+<!-- source: docs/compiler/running.md -->
+
+# Running the compiled SQL
+
+The compiler produces one standalone genuine Sydonia statement. This page is
+about **where you run it**. There are three targets, each with a different job:
+
+```mermaid
+flowchart LR
+    A[sandbox<br/><small>reconstruction schema</small>] -->|develop| B[logical SQL]
+    B -->|compile| C[genuine Sydonia SQL]
+    C -->|prove| D[mock ASYCUDA World<br/><small>documented physical shape</small>]
+    C -->|run read-only| E[(real instance)]
+    style A fill:#0f766e22,stroke:#0f766e
+    style E fill:#d9770622,stroke:#d97706
+```
+
+| Target | Job | Runs |
+|--------|-----|------|
+| **Sandbox** | develop and verify logical queries | logical SQL |
+| **Mock AW DB** | prove the compiled SQL actually runs and matches | genuine SQL |
+| **Real instance** | run against your own declarations, read-only | genuine SQL |
+
+## 1 · The reconstruction sandbox — develop logical queries
+
+Load the toolbox's normalised `asycuda` schema as usual, and write **logical
+SQL** against it directly. This is where you iterate — the friendly names, the
+seeded [end-to-end example](../guides/worked-example.md), fast feedback:
+
+```bash
+createdb customs_sandbox
+psql -v ON_ERROR_STOP=1 -d customs_sandbox -f Sydonia/schema/asycuda.sql
+psql -v ON_ERROR_STOP=1 -d customs_sandbox -f Sydonia/schema/seed_reference.sql
+psql -v ON_ERROR_STOP=1 -d customs_sandbox -f Sydonia/examples/e2e.sql
+```
+
+Everything in the [querying guide](../guides/querying.md) and the
+[useful queries](../guides/useful-queries.md) library runs here. When a logical
+query gives the answer you want, `compile` it for the targets below.
+
+## 2 · The mock ASYCUDA World database — prove the round-trip
+
+[`Sydonia/adapters/mock_asycuda_world.sql`](https://github.com/FrancoisChastel/OpenCustomsToolbox/blob/master/Sydonia/adapters/mock_asycuda_world.sql)
+is a **mock ASYCUDA World physical database**: tables in the documented
+wide/denormalised AW shape (`SAD_General_Segment`, `SAD_Item`, `SAD_Tax`, the
+`UN*` reference tables), with the exact column names the default mapping targets,
+seeded from the toolbox's end-to-end example reshaped into that physical shape.
+It is the executable stand-in for a real deployment — no non-public instance
+required.
+
+```bash
+createdb aw_mock
+psql -v ON_ERROR_STOP=1 -d aw_mock -f Sydonia/adapters/mock_asycuda_world.sql
+
+# compile a logical query and run the genuine SQL straight into the mock DB
+python -m compiler compile my_query.sql \
+  | psql -d aw_mock -c 'SET search_path TO aw, public;' -f -
+```
+
+!!! success "The round-trip guarantee (verified in CI)"
+    The **same** logical query returns the **same** results whether run on the
+    reconstruction sandbox (logical) or compiled and run on the mock physical
+    database (genuine). Run the friendly query on the sandbox, `compile | psql`
+    it into the mock, and compare — the numbers match. That is the proof the
+    abstraction is faithful: **write friendly, run genuine.**
+
+## 3 · A real ASYCUDA World instance — read-only
+
+Two ways to run against a real deployment; both are read-only.
+
+**Run compiled SQL directly.** Compile with your
+[per-instance overrides](mapping.md) so the CTEs address the real physical names,
+then run the output against the live database:
+
+```bash
+python -m compiler compile my_query.sql \
+  --overrides compiler/mappings/myinstance.yml \
+  | psql "$CUSTOMS_DB"
+```
+
+**Or load persistent views once.** Materialise the mapping as compatibility views
+with [`emit-views`](mapping.md) and load them into the real database, so any tool
+can address the friendly names without a compile step:
+
+```bash
+python -m compiler emit-views --overrides compiler/mappings/myinstance.yml \
+  | psql "$CUSTOMS_DB"
+```
+
+Point **`CUSTOMS_DB`** at the real DSN (ideally a **`SELECT`-only role** on a
+**read-replica**), and set `CUSTOMS_SCHEMA` to `asycuda` (or wherever you created
+the views).
+
+!!! note "Read-only via the tester — metadata only, never row data"
+    Validate compiled SQL through the **customs-query-tester** MCP — driven by
+    the [`customs-query`](../skills/index.md) skill, or the bundled
+    `skills/customs-query/scripts/test_query.sh`. It returns column names/types,
+    an aggregate row count and duration — and **never** row data — so it is safe
+    against a database holding real customs declarations. The compiled SQL and the
+    views are read-only by construction, so the privacy guarantees hold.
+
+## Deployment, FDW and ETL
+
+Pointing at a real instance raises questions this page doesn't: cross-dialect
+deployments (Oracle / MS SQL Server / MySQL), foreign-data-wrapper front-ends
+(`oracle_fdw` / `tds_fdw`), the `SELECT`-only role and read-replica setup, and the
+**ETL-into-the-reference-model** alternative for bulk analytics and model
+training.
+
+All of that is covered in depth in
+[**Running on a real ASYCUDA World**](../platform/running-on-real-asycuda.md) —
+the compiler is the easiest path to *running the queries*; that page is the
+deployment detail behind it.
+
+## The recipes at a glance
+
+| I want to… | Command |
+|------------|---------|
+| Develop a logical query | run it on the **sandbox** (`customs_sandbox`) |
+| Prove the compiled SQL runs | `python -m compiler compile q.sql \| psql -d aw_mock -c 'SET search_path TO aw, public;' -f -` |
+| Run against a real instance | `python -m compiler compile q.sql --overrides …myinstance.yml \| psql "$CUSTOMS_DB"` |
+| Install persistent views once | `python -m compiler emit-views --overrides …myinstance.yml \| psql "$CUSTOMS_DB"` |
+| Validate without reading rows | the [`customs-query`](../skills/index.md) skill / `test_query.sh` (metadata only) |
+
+## Related
+
+- [The mapping](mapping.md) — overrides and `emit-views`.
+- [Writing logical SQL](logical-sql.md) — authoring and testing the queries.
+- [Running on a real ASYCUDA World](../platform/running-on-real-asycuda.md) — the
+  FDW / ETL / privacy deep dive.
+- [Querying Sydonia](../querying-sydonia/index.md) ·
+  [joins and gotchas](../querying-sydonia/joins-and-gotchas.md).
+
+
+
+---
+
 <!-- source: docs/schema/index.md -->
 
 # Schema overview
@@ -685,6 +2295,12 @@ One file, `Sydonia/schema/asycuda.sql`, defines **55 tables** across **8
 modules** and loads top-to-bottom into a dedicated `asycuda` schema. This page
 is the map; each module has its own page, and every column is defined in the
 [data dictionary](data-dictionary.md).
+
+!!! tip "This is now the logical layer"
+    This reconstructed model is the **friendly logical layer** the
+    [query compiler](../compiler/index.md) maps *from*: you write queries against
+    the table and column names below, and the compiler rewrites them into genuine
+    ASYCUDA World SQL you can run. **Write friendly, run genuine.**
 
 The modeled system is **ASYCUDA World (v4)**, grounded in the official
 UNCTAD/DTL Tables Description documents — see
@@ -3265,6 +4881,15 @@ work — for analytics, machine-learning risk models, and smarter selectivity.**
 The reference schema, the queries and the skills are the vehicle; your live
 ASYCUDA World database is the destination. This page is the bridge between them.
 
+!!! tip "The easiest path: the query compiler"
+    You usually don't need to hand-write the adapter below. The
+    [**query compiler**](../compiler/index.md) compiles logical queries into
+    genuine ASYCUDA World SQL on the fly (a CTE prelude, no view-creation
+    privilege needed), and can also emit these persistent compatibility views for
+    you (`emit-views`, with your per-instance overrides). Start there; this page is
+    the deployment, FDW and ETL detail behind it — read on when you need the bulk
+    ETL alternative or the cross-dialect / read-replica specifics.
+
 !!! abstract "Why you're here"
     You want to analyse real declarations, engineer features, train a
     fraud / valuation model, or feed risk signals back into the clearance lanes —
@@ -4147,6 +5772,12 @@ yours by copying the template.
     ```sql
     SET search_path TO asycuda, public;
     ```
+
+!!! tip "These are logical queries — compile them to genuine Sydonia SQL"
+    Every query here is written against the friendly **logical model**. To run the
+    same SQL on a real ASYCUDA World instance, pipe it through the
+    [**query compiler**](../compiler/index.md): it rewrites each into genuine
+    Sydonia SQL over the real physical tables. Write friendly, run genuine.
 
 !!! abstract "Built for analytics, ML and selectivity"
     These are more than dashboards. The `risk`, `valuation` and `trader` queries

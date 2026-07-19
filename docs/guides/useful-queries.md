@@ -22,6 +22,12 @@ yours by copying the template.
     SET search_path TO asycuda, public;
     ```
 
+!!! tip "These are logical queries — compile them to genuine Sydonia SQL"
+    Every query here is written against the friendly **logical model**. To run the
+    same SQL on a real ASYCUDA World instance, pipe it through the
+    [**query compiler**](../compiler/index.md): it rewrites each into genuine
+    Sydonia SQL over the real physical tables. Write friendly, run genuine.
+
 !!! abstract "Built for analytics, ML and selectivity"
     These are more than dashboards. The `risk`, `valuation` and `trader` queries
     below are the **feature-extraction and selectivity-analytics building blocks**

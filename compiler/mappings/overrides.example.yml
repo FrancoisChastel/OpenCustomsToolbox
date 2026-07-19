@@ -1,0 +1,18 @@
+# overrides.example.yml — per-instance overrides, deep-merged over the base
+# mapping. Use this to pin the REAL physical table/column names for YOUR
+# ASYCUDA World deployment (obtained from your DBA / the requested schema).
+# Only include what differs from the documented default; everything else is
+# inherited from compiler/mappings/asycuda-world.yml.
+#
+#   python -m compiler compile q.sql --overrides compiler/mappings/myinstance.yml
+#
+# Example: this deployment calls the tax table SAD_TAXATION and the general
+# segment SAD_GEN, and its office code column is GEN_OFFICE.
+tables:
+  declaration:
+    source: SAD_GEN
+    columns:
+      office_id: g.GEN_OFFICE      # override just this column's expression
+  declaration_tax_line:
+    source: SAD_TAXATION
+    # COD/BSE/RAT/AMT/MOP are documented roots — usually no override needed

@@ -11,15 +11,18 @@ hide:
 <div class="oct-hero" markdown="1">
 <span class="oct-hero__eyebrow">:material-anchor: SYDONIA · ASYCUDA World · PostgreSQL</span>
 
-# The customs data model, reconstructed in the open
+# Query Sydonia: write friendly, run genuine
 
-A faithful, **fully-sourced** relational model of the UNCTAD **ASYCUDA World
-(SYDONIA)** customs management system — manifests, SAD declarations, valuation,
-taxes, selectivity, accounting and suspense regimes — ready to `psql` into a
-sandbox, an analytics warehouse, or an integration test bed.
+Write customs analytics against a **friendly logical model** — `declaration`,
+`declaration_item`, `hs_code`, `tax_amount` — and **compile them to genuine
+ASYCUDA World (SYDONIA) SQL you can actually run**, read-only, against a real
+instance. The abstraction is easy; the output is real. Underneath is a faithful,
+**fully-sourced** reconstruction of the whole customs model — now the logical
+layer the compiler maps *from*.
 
 <div class="oct-hero__cta">
-<a class="oct-btn oct-btn--primary" href="getting-started/quickstart/">Quickstart →</a>
+<a class="oct-btn oct-btn--primary" href="compiler/">Query Sydonia →</a>
+<a class="oct-btn oct-btn--ghost" href="getting-started/quickstart/">Quickstart</a>
 <a class="oct-btn oct-btn--ghost" href="schema/">Explore the schema</a>
 <a class="oct-btn oct-btn--ghost" href="https://github.com/FrancoisChastel/OpenCustomsToolbox">GitHub</a>
 </div>
@@ -35,11 +38,14 @@ sandbox, an analytics warehouse, or an integration test bed.
 ## Why it exists
 
 ASYCUDA World is the customs platform used by **100+ countries**, but its
-internal database schema is proprietary. This project rebuilds an
+internal database schema is **wide, denormalised and proprietary** — painful to
+query for analytics. So this project does two things. It rebuilds an
 **information-equivalent reference model** using *only* public documentation —
 UNCTAD/DTL technical table descriptions, national ASYCUDA World user manuals,
-and open ISO/UN/WCO standards. Every table is traceable to a citation, or is
-honestly flagged as inferred.
+and open ISO/UN/WCO standards, every table traceable to a citation or honestly
+flagged as inferred. And it ships a [**query compiler**](compiler/index.md) that
+lets you write against that clean model and **compile to genuine Sydonia SQL** —
+so the friendly names are the ergonomics, and the runnable statement is real.
 
 The modeled version is **ASYCUDA World (v4)** — the current standard. The
 [platform section](platform/index.md) covers the full version lineage
@@ -56,6 +62,25 @@ have.
 ## What you can do with it
 
 <div class="grid cards" markdown>
+
+-   :material-cog-transfer:{ .lg .middle } &nbsp;**Compile to genuine Sydonia SQL**
+
+    ---
+
+    Write a query against the friendly logical model; the compiler rewrites it
+    into runnable ASYCUDA World SQL via a CTE prelude. **Write friendly, run
+    genuine.**
+
+    [:octicons-arrow-right-24: The query compiler](compiler/index.md)
+
+-   :material-database-search:{ .lg .middle } &nbsp;**Query a real ASYCUDA World**
+
+    ---
+
+    Point the same queries and skills at a live instance — read-only, metadata
+    only — for analytics, feature extraction and selectivity on *your* data.
+
+    [:octicons-arrow-right-24: Querying Sydonia](querying-sydonia/index.md)
 
 -   :material-database-import:{ .lg .middle } &nbsp;**Stand up a customs sandbox**
 

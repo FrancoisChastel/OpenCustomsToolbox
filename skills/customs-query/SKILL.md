@@ -8,9 +8,11 @@ description: >-
   stored), and the canonical join paths (declaration → item → tax line;
   manifest → bill of lading → cargo). Can test/validate generated queries via
   the customs-query-tester MCP (or a bundled script): metadata only, never row
-  data — safe against databases holding real customs declarations. Use when the
-  user asks for a query, report, or number from the customs / declaration /
-  manifest data, or wants a query checked, tested or validated.
+  data — safe against databases holding real customs declarations. Can also
+  COMPILE a logical query into genuine ASYCUDA World SQL (SAD_General_Segment,
+  SAD_Tax…) to run on a real Sydonia database. Use when the user asks for a
+  query, report, or number from the customs / declaration / manifest data, wants
+  a query checked/tested/validated, or wants to run it against a real Sydonia.
 ---
 
 # Customs query
@@ -88,6 +90,24 @@ Key tables by intent:
    report the verification result — e.g. *"valid; returns 42 rows, 5 columns,
    0.2 s"*. Do **not** run the query unguarded to show sample rows unless the
    user explicitly asks you to display their data.
+
+## Run it on a real Sydonia — compile to genuine SQL
+
+The queries above use the toolbox's friendly **logical** names. A real ASYCUDA
+World database is wide and denormalised with different names
+(`SAD_General_Segment`, `SAD_Tax.AMT`, `TAR_HSC_NB1..5`…). To run the *same*
+logical query there, **compile it** — don't rewrite it by hand:
+
+- **MCP:** `compile_query {sql, test?}` — returns genuine ASYCUDA World SQL; with
+  `test: true` it also runs it read-only (metadata only).
+- **Fallback:** `bash scripts/compile.sh --test "SELECT ... FROM declaration ..."`
+
+The compiler (`compiler/`) wraps the friendly names in a CTE prelude over the
+real tables and bakes in the gotchas (INSTANCE_ID, general-segment repetition,
+HS split, validity dates). Pin your instance's real column names with a
+per-instance overrides file (`--overrides`, env `CUSTOMS_OVERRIDES`). Develop
+against `customs_sandbox` (logical), then compile and test against the real DSN —
+always read-only. See `compiler/README.md`.
 
 ## Privacy rules (non-negotiable)
 

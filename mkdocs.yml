@@ -122,7 +122,19 @@ nav:
       - Quickstart: getting-started/quickstart.md
       - Installation: getting-started/installation.md
       - Customs concepts: getting-started/concepts.md
-  - Schema:
+  - Querying Sydonia:
+      - querying-sydonia/index.md
+      - Declaration tables: querying-sydonia/declaration-tables.md
+      - Manifest tables: querying-sydonia/manifest-tables.md
+      - Reference tables: querying-sydonia/reference-tables.md
+      - Joins & gotchas: querying-sydonia/joins-and-gotchas.md
+  - The query compiler:
+      - compiler/index.md
+      - Logical SQL: compiler/logical-sql.md
+      - The query builder: compiler/builder.md
+      - The mapping: compiler/mapping.md
+      - Running it: compiler/running.md
+  - The logical model:
       - schema/index.md
       - Reference & configuration: schema/reference-config.md
       - Manifest & cargo: schema/manifest.md

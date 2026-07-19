@@ -12,9 +12,25 @@ For the entire documentation as a single file, see [llms-full.txt](https://franc
 - [Installation](https://francoischastel.github.io/OpenCustomsToolbox/latest/getting-started/installation/): PostgreSQL 14+, the `asycuda` schema, idempotent reloads, Docker, troubleshooting.
 - [Customs concepts](https://francoischastel.github.io/OpenCustomsToolbox/latest/getting-started/concepts/): domain primer — manifest, bill of lading, the SAD, valuation, taxes, selectivity, lifecycle — mapped to tables.
 
-## Schema
+## Querying Sydonia (the real ASYCUDA World tables)
 
-- [Schema overview](https://francoischastel.github.io/OpenCustomsToolbox/latest/schema/): the 8 modules, conventions, and provenance legend.
+- [Querying Sydonia](https://francoischastel.github.io/OpenCustomsToolbox/latest/querying-sydonia/): how to query a real ASYCUDA World database — the wide, denormalised real tables, and the two ways to query them (directly, or via the friendly logical model + compiler).
+- [Declaration tables](https://francoischastel.github.io/OpenCustomsToolbox/latest/querying-sydonia/declaration-tables/): SAD_General_Segment, SAD_Item, SAD_Tax — columns, the documented COD/BSE/RAT/AMT/MOP tax roots, HS split across TAR_HSC_NB1..5, PTY colour flags.
+- [Manifest tables](https://francoischastel.github.io/OpenCustomsToolbox/latest/querying-sydonia/manifest-tables/): GEN_TAB, BOL_TAB, CTN_TAB — manifest general segment, bills of lading, containers.
+- [Reference tables](https://francoischastel.github.io/OpenCustomsToolbox/latest/querying-sydonia/reference-tables/): the UN*/xx*TAB code tables — code+name stored inline, VALID_FROM/VALID_TO temporal validity.
+- [Joins & gotchas](https://francoischastel.github.io/OpenCustomsToolbox/latest/querying-sydonia/joins-and-gotchas/): INSTANCE_ID keys, general-segment repetition, HS split, code+name inline, validity dates — and how the compiler handles each automatically.
+
+## The query compiler (write friendly, run genuine)
+
+- [The query compiler](https://francoischastel.github.io/OpenCustomsToolbox/latest/compiler/): compile friendly logical SQL (or a no-SQL query spec) into genuine ASYCUDA World SQL you can run read-only on a real Sydonia — via a CTE prelude over the real tables.
+- [Logical SQL](https://francoischastel.github.io/OpenCustomsToolbox/latest/compiler/logical-sql/): write against the friendly names; `python -m compiler compile` emits the genuine SQL.
+- [The query builder](https://francoischastel.github.io/OpenCustomsToolbox/latest/compiler/builder/): a no-SQL query spec (from/join/where/select) → logical SQL → genuine SQL.
+- [The mapping](https://francoischastel.github.io/OpenCustomsToolbox/latest/compiler/mapping/): the logical→physical mapping, documented default + per-instance overrides, and emit-views for persistent compatibility views.
+- [Running it](https://francoischastel.github.io/OpenCustomsToolbox/latest/compiler/running/): the reconstruction sandbox, the mock ASYCUDA World database (proves the round-trip), and a real instance — read-only, privacy-preserving.
+
+## The logical model
+
+- [Schema overview](https://francoischastel.github.io/OpenCustomsToolbox/latest/schema/): the 8 modules, conventions, and provenance legend — the friendly logical layer the compiler maps from.
 - [Reference & configuration](https://francoischastel.github.io/OpenCustomsToolbox/latest/schema/reference-config/): the `ref_*` code tables (ISO/UN/WCO standards) plus traders and system users.
 - [Manifest & cargo](https://francoischastel.github.io/OpenCustomsToolbox/latest/schema/manifest/): manifest, bills of lading (master/house degroupage), containers, cargo lines.
 - [Declaration (the SAD)](https://francoischastel.github.io/OpenCustomsToolbox/latest/schema/declaration/): general + item segments, valuation notes, tax lines, attached/previous documents.

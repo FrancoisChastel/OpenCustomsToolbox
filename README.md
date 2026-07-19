@@ -1,10 +1,14 @@
 # Open Customs Toolbox
 
-A faithful, **fully-sourced** PostgreSQL reference data model of the UNCTAD
-**ASYCUDA World (SYDONIA)** customs management system — manifests, SAD
-declarations, valuation, taxes, selectivity, accounting and suspense regimes —
-reconstructed from *public documentation only*, for sandbox, analytics,
-integration and training use.
+**Query real ASYCUDA World (SYDONIA) customs data.** Write analytics against a
+friendly logical model — `declaration`, `declaration_item`, `hs_code`,
+`tax_amount` — and **compile them to genuine ASYCUDA World SQL you can run**,
+read-only, on a real instance. The abstraction is easy; the output is real.
+
+Underneath is a faithful, **fully-sourced** PostgreSQL reconstruction of the
+whole customs model (manifests, SAD declarations, valuation, taxes, selectivity,
+accounting, suspense) — reconstructed from *public documentation only*, and now
+the **logical layer** the compiler maps *from*.
 
 📖 **Documentation:** <https://francoischastel.github.io/OpenCustomsToolbox/>
 · 🤖 **For LLMs:** [`llms.txt`](https://francoischastel.github.io/OpenCustomsToolbox/latest/llms.txt)
@@ -21,7 +25,8 @@ integration and training use.
 
 | | |
 |---|---|
-| 🗄️ **The model** | `Sydonia/schema/asycuda.sql` — 55 tables across 8 modules, every `CREATE TABLE` provenance-tagged. Loads into a dedicated `asycuda` schema on PostgreSQL 14+. |
+| 🧭 **Query compiler** | `compiler/` — write friendly logical SQL (or a no-SQL query spec) and compile it to **genuine ASYCUDA World SQL** (`SAD_General_Segment`, `SAD_Tax`…) to run on a real Sydonia. Per-instance name overrides; a mock AW database (`Sydonia/adapters/mock_asycuda_world.sql`) proves the round-trip. |
+| 🗄️ **The logical model** | `Sydonia/schema/asycuda.sql` — 55 tables across 8 modules, every `CREATE TABLE` provenance-tagged. Loads into a dedicated `asycuda` schema on PostgreSQL 14+. The friendly names the compiler maps from — and a local sandbox. |
 | 🌱 **Seed data** | `Sydonia/schema/seed_reference.sql` — reference/code-table values grounded in ISO/UN/WCO standards. |
 | ▶️ **Worked example** | `Sydonia/examples/e2e.sql` — a full manifest → declaration → valuation → taxes → selectivity → payment → release, balancing end to end. |
 | 📚 **Docs site** | A MkDocs Material site (`docs/`, `mkdocs.yml`) — concepts, per-module schema guide, querying/extending guides, and full provenance. |

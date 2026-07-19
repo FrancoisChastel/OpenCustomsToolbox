@@ -12,6 +12,12 @@ modules** and loads top-to-bottom into a dedicated `asycuda` schema. This page
 is the map; each module has its own page, and every column is defined in the
 [data dictionary](data-dictionary.md).
 
+!!! tip "This is now the logical layer"
+    This reconstructed model is the **friendly logical layer** the
+    [query compiler](../compiler/index.md) maps *from*: you write queries against
+    the table and column names below, and the compiler rewrites them into genuine
+    ASYCUDA World SQL you can run. **Write friendly, run genuine.**
+
 The modeled system is **ASYCUDA World (v4)**, grounded in the official
 UNCTAD/DTL Tables Description documents — see
 [the platform](../platform/index.md) for the version lineage and

@@ -246,6 +246,48 @@ def tool_test_query(args: dict) -> tuple[str, bool]:
     ), False
 
 
+# --------------------------------------------------------------------------
+# Compiler bridge — logical query -> genuine ASYCUDA World SQL
+# --------------------------------------------------------------------------
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+MAPPING = os.environ.get("CUSTOMS_MAPPING", "asycuda-world")
+OVERRIDES = os.environ.get("CUSTOMS_OVERRIDES", "")
+
+
+def run_compiler(logical_sql: str) -> tuple[int, str, str]:
+    cmd = [sys.executable, "-m", "compiler", "compile", "-", "--mapping", MAPPING]
+    if OVERRIDES:
+        cmd += ["--overrides", OVERRIDES]
+    try:
+        proc = subprocess.run(
+            cmd, input=logical_sql, capture_output=True, text=True, timeout=30, cwd=REPO_ROOT
+        )
+        return proc.returncode, proc.stdout, proc.stderr
+    except FileNotFoundError:
+        return 127, "", "python interpreter not found"
+    except subprocess.TimeoutExpired:
+        return 124, "", "compiler timed out"
+
+
+def tool_compile_query(args: dict) -> tuple[str, bool]:
+    logical = args.get("sql", "")
+    reason = guard(logical)  # only single SELECT/WITH logical queries may be compiled
+    if reason:
+        return f"REJECTED: {reason}", True
+    rc, genuine, err = run_compiler(logical)
+    if rc != 0:
+        return f"COMPILE FAILED:\n{err.strip() or 'compiler error'}", True
+
+    parts = ["Genuine ASYCUDA World SQL (compiled from the logical query):\n", genuine.strip()]
+    if err.strip():  # compiler warnings, e.g. unfilled per-instance placeholders
+        parts.append("\n" + err.strip())
+    if args.get("test"):
+        vtext, verr = tool_test_query({"sql": genuine})
+        parts.append("\n--- test_query on the compiled SQL (read-only, metadata only) ---\n" + vtext)
+        return "\n".join(parts), verr
+    return "\n".join(parts), False
+
+
 TOOLS = [
     {
         "name": "describe_schema",
@@ -290,12 +332,34 @@ TOOLS = [
             "required": ["sql"],
         },
     },
+    {
+        "name": "compile_query",
+        "description": (
+            "Compile a LOGICAL query (written against the toolbox's friendly names "
+            "— declaration, declaration_item, tax_amount, hs_code…) into GENUINE "
+            "ASYCUDA World SQL (SAD_General_Segment, SAD_Tax.AMT, TAR_HSC concat…) "
+            "that runs on a real Sydonia database. Set test=true to also run the "
+            "compiled SQL read-only and report metadata (never row data)."
+        ),
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "sql": {"type": "string", "description": "The logical SQL query."},
+                "test": {
+                    "type": "boolean",
+                    "description": "Also execute the compiled SQL read-only and report metadata.",
+                },
+            },
+            "required": ["sql"],
+        },
+    },
 ]
 
 HANDLERS = {
     "describe_schema": tool_describe_schema,
     "validate_query": tool_validate_query,
     "test_query": tool_test_query,
+    "compile_query": tool_compile_query,
 }
 
 

@@ -15,6 +15,15 @@ work — for analytics, machine-learning risk models, and smarter selectivity.**
 The reference schema, the queries and the skills are the vehicle; your live
 ASYCUDA World database is the destination. This page is the bridge between them.
 
+!!! tip "The easiest path: the query compiler"
+    You usually don't need to hand-write the adapter below. The
+    [**query compiler**](../compiler/index.md) compiles logical queries into
+    genuine ASYCUDA World SQL on the fly (a CTE prelude, no view-creation
+    privilege needed), and can also emit these persistent compatibility views for
+    you (`emit-views`, with your per-instance overrides). Start there; this page is
+    the deployment, FDW and ETL detail behind it — read on when you need the bulk
+    ETL alternative or the cross-dialect / read-replica specifics.
+
 !!! abstract "Why you're here"
     You want to analyse real declarations, engineer features, train a
     fraud / valuation model, or feed risk signals back into the clearance lanes —

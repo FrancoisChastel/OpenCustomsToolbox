@@ -1,0 +1,2 @@
+# The Sydonia query compiler needs only PyYAML (the mapping is YAML).
+PyYAML>=6,<7
