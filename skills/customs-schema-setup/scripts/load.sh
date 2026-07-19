@@ -28,6 +28,7 @@ done
 find_schema_dir() {
   local d
   for d in "$SCHEMA_DIR" "Sydonia/schema" "../Sydonia/schema" "./schema" \
+           "$(dirname "$0")/../../../Sydonia/schema" \
            "$(dirname "$0")/../../../../Sydonia/schema"; do
     [[ -n "$d" && -f "$d/asycuda.sql" ]] && { (cd "$d" && pwd); return 0; }
   done

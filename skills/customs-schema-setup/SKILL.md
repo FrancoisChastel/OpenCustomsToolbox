@@ -30,10 +30,11 @@ database (querying, seeding, validating).
 
 ## How to run
 
-Use the bundled loader — it enforces load order and `ON_ERROR_STOP=1`:
+Use the bundled loader (relative to this skill's folder) — it enforces load
+order and `ON_ERROR_STOP=1`:
 
 ```bash
-bash .claude/skills/customs-schema-setup/scripts/load.sh [DB_NAME] [options]
+bash scripts/load.sh [DB_NAME] [options]
 ```
 
 Options:

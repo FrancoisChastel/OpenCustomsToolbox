@@ -7,8 +7,8 @@ reconstructed from *public documentation only*, for sandbox, analytics,
 integration and training use.
 
 📖 **Documentation:** <https://francoischastel.github.io/OpenCustomsToolbox/>
-· 🤖 **For LLMs:** [`llms.txt`](https://francoischastel.github.io/OpenCustomsToolbox/llms.txt)
-· [`llms-full.txt`](https://francoischastel.github.io/OpenCustomsToolbox/llms-full.txt)
+· 🤖 **For LLMs:** [`llms.txt`](https://francoischastel.github.io/OpenCustomsToolbox/latest/llms.txt)
+· [`llms-full.txt`](https://francoischastel.github.io/OpenCustomsToolbox/latest/llms-full.txt)
 
 > [!NOTE]
 > This is a **reference reconstruction** for sandbox/analytics/integration/training
@@ -27,7 +27,7 @@ integration and training use.
 | 📚 **Docs site** | A MkDocs Material site (`docs/`, `mkdocs.yml`) — concepts, per-module schema guide, querying/extending guides, and full provenance. |
 | 🌐 **Platform reference** | The ASYCUDA platform itself: version lineage (v1 → ++ → **World (v4, the modeled version)** → ASY5), the SAD→XML wire-format map, integration surfaces, and the selectivity/clearance process — distilled from a ~90-source deep-research pass. |
 | 🧠 **ML blueprint** | A guide to ML on customs declarations: DATE/BACUDA features mapped to SAD boxes *and* this schema's columns, labels from the Inspection Act, and the risk-engine integration loop. |
-| 🤖 **Claude Code skills** | `.claude/skills/customs-*` — set up, query, seed, extend and validate the model in your own codebase. |
+| 🤖 **Agent Skills** | `skills/customs-*` — set up, query, seed, extend and validate the model in your own codebase. Installable into any agent (Claude Code, Cursor, Codex, …) via `npx skills add`. |
 | 🔎 **Provenance** | `Sydonia/SOURCES.md`, `COVERAGE.md`, `FIT.md`, `DATA_DICTIONARY.md`, `ERD.md`, `RESEARCH_LOG.md`. |
 
 ## Quickstart
@@ -52,7 +52,7 @@ psql -v ON_ERROR_STOP=1 -d customs_sandbox -f Sydonia/examples/e2e.sql
 A complete import — two items, freight/insurance apportioned to per-item CIF,
 duty and VAT assessed, routed RED, inspected, paid and released — inserts with
 full referential integrity. See the
-[quickstart](https://francoischastel.github.io/OpenCustomsToolbox/getting-started/quickstart/).
+[quickstart](https://francoischastel.github.io/OpenCustomsToolbox/latest/getting-started/quickstart/).
 
 ## The eight modules
 
@@ -66,9 +66,9 @@ full referential integrity. See the
 7. **Audit & workflow** — audit log and the status-history pattern.
 
 Full map: the
-[schema overview](https://francoischastel.github.io/OpenCustomsToolbox/schema/)
+[schema overview](https://francoischastel.github.io/OpenCustomsToolbox/latest/schema/)
 and the
-[ER diagram](https://francoischastel.github.io/OpenCustomsToolbox/schema/erd/).
+[ER diagram](https://francoischastel.github.io/OpenCustomsToolbox/latest/schema/erd/).
 
 ## Provenance — why you can trust it
 
@@ -81,14 +81,23 @@ manuals, and open ISO/UN/WCO standards). Audit it yourself:
 grep -niE 'create[ \t]+table' Sydonia/schema/asycuda.sql   # every one is tagged
 ```
 
-The [methodology](https://francoischastel.github.io/OpenCustomsToolbox/provenance/methodology/)
-and [fit/gap analysis](https://francoischastel.github.io/OpenCustomsToolbox/provenance/fit/)
+The [methodology](https://francoischastel.github.io/OpenCustomsToolbox/latest/provenance/methodology/)
+and [fit/gap analysis](https://francoischastel.github.io/OpenCustomsToolbox/latest/provenance/fit/)
 document the evidence-first approach and how the model maps to the official tables.
 
-## Claude Code skills
+## Agent Skills
 
-Drive the model in plain English inside your own project — copy
-`.claude/skills/customs-*` into your repo (or `~/.claude/skills/`):
+Drive the model in plain English inside your own project. These are standard
+**Agent Skills** (`SKILL.md` format), installable into any agent the
+[skills CLI](https://github.com/vercel-labs/skills) supports — Claude Code,
+Cursor, Codex, opencode, … — with one command:
+
+```bash
+npx skills add FrancoisChastel/OpenCustomsToolbox
+# or a single skill: npx skills add FrancoisChastel/OpenCustomsToolbox --skill customs-query
+```
+
+Then just ask:
 
 ```text
 > set up the customs model in a throwaway database and run the example
@@ -97,8 +106,8 @@ Drive the model in plain English inside your own project — copy
 > validate the schema is still clean and fully grounded
 ```
 
-See [`.claude/skills/README.md`](.claude/skills/README.md) and the
-[skills docs](https://francoischastel.github.io/OpenCustomsToolbox/skills/).
+See [`skills/README.md`](skills/README.md) and the
+[skills docs](https://francoischastel.github.io/OpenCustomsToolbox/latest/skills/).
 
 ## Repository layout
 
@@ -111,7 +120,9 @@ OpenCustomsToolbox/
 │   ├── SOURCES.md · COVERAGE.md · FIT.md
 │   └── DATA_DICTIONARY.md · ERD.md · RESEARCH_LOG.md
 ├── docs/                       # MkDocs Material documentation site
-├── .claude/skills/customs-*    # Claude Code skills
+├── skills/customs-*            # Agent Skills (npx skills add …)
+│                               #   (.claude/skills → symlink to skills/, for Claude Code)
+├── mcp/customs-query-tester/   # privacy-preserving SQL-testing MCP server
 ├── scripts/gen_llms_full.py    # builds docs/llms-full.txt
 └── mkdocs.yml
 ```

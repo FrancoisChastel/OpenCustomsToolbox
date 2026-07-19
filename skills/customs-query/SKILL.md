@@ -72,10 +72,11 @@ Key tables by intent:
    - `test_query {sql}` — runs it read-only and time-boxed; returns **column
      names/types, row count, duration only**.
 
-   **Fallback — the bundled script** (same guarantees through plain `psql`):
+   **Fallback — the bundled script** (relative to this skill's folder; same
+   guarantees through plain `psql`):
 
    ```bash
-   bash .claude/skills/customs-query/scripts/test_query.sh "SELECT ..."
+   bash scripts/test_query.sh "SELECT ..."
    # env/flags: CUSTOMS_DB / --db · CUSTOMS_SCHEMA / --schema (defaults: customs_sandbox / asycuda)
    ```
 

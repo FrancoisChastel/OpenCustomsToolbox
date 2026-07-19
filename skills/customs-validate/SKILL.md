@@ -22,11 +22,11 @@ clean and fully sourced?".
 
 ## How to run
 
-The bundled script does everything against a throwaway database and cleans up
-after itself:
+The bundled script (relative to this skill's folder) does everything against a
+throwaway database and cleans up after itself:
 
 ```bash
-bash .claude/skills/customs-validate/scripts/verify.sh [--sydonia-dir DIR] [--db NAME]
+bash scripts/verify.sh [--sydonia-dir DIR] [--db NAME]
 ```
 
 - Auto-detects the `Sydonia/` directory from the project root; pass

@@ -98,7 +98,7 @@ spawns the process and owns its stdin/stdout.
 
 ## Relationship to the `customs-query` skill
 
-The [`customs-query`](../../.claude/skills/customs-query/) Claude Code skill
+The [`customs-query`](../../skills/customs-query/) Claude Code skill
 teaches the model the schema's join paths and generates the SQL; this server is
 its **verification arm**. If the MCP isn't connected, the skill falls back to
 `scripts/test_query.sh`, which applies the *same* guarantees (read-only

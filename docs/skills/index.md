@@ -1,16 +1,21 @@
 ---
-title: Claude Code skills
-description: A suite of Claude Code Skills to set up, query, seed, extend and validate the model in your own codebase.
+title: Agent Skills
+description: A suite of Agent Skills to set up, query, seed, extend and validate the model in your own codebase — installable into any agent harness.
 tags:
   - skills
 ---
 
-# Claude Code skills
+# Agent Skills
 
-The toolbox ships a suite of **[Claude Code](https://claude.com/claude-code)
-Skills** so you can drive the customs model in plain English, right inside your
-own project. They live in [`.claude/skills/`](https://github.com/FrancoisChastel/OpenCustomsToolbox/tree/main/.claude/skills)
+The toolbox ships a suite of standard **[Agent Skills](https://code.claude.com/docs/en/skills)**
+(the `SKILL.md` format) so you can drive the customs model in plain English,
+right inside your own project. They live in
+[`skills/`](https://github.com/FrancoisChastel/OpenCustomsToolbox/tree/master/skills)
 and are focused on one thing: **using the model on your own codebase.**
+
+They are harness-agnostic — installable into **Claude Code, Cursor, Codex,
+opencode** and any other agent the [skills CLI](https://github.com/vercel-labs/skills)
+supports.
 
 ## The suite
 
@@ -66,27 +71,26 @@ and are focused on one thing: **using the model on your own codebase.**
 
 ## Install into your codebase
 
-Claude Code auto-discovers skills in a project's `.claude/skills/` directory.
-To use these on **your own** project, copy the folder in:
+Install the whole suite into your current project with the
+[`skills`](https://skills.sh) CLI — it auto-detects your agent (Claude Code,
+Cursor, Codex, opencode, …) and drops the skills where that harness discovers
+them:
 
 ```bash
-# from the root of your project
-git clone https://github.com/FrancoisChastel/OpenCustomsToolbox.git /tmp/oct
+npx skills add FrancoisChastel/OpenCustomsToolbox
+```
 
-# option A — project-scoped (committed with your repo, shared with your team)
-mkdir -p .claude/skills
-cp -R /tmp/oct/.claude/skills/customs-* .claude/skills/
+Add a single skill with `--skill`:
 
-# option B — personal (available in every project on your machine)
-mkdir -p ~/.claude/skills
-cp -R /tmp/oct/.claude/skills/customs-* ~/.claude/skills/
+```bash
+npx skills add FrancoisChastel/OpenCustomsToolbox --skill customs-query
 ```
 
 Also copy the model itself (the `Sydonia/` folder, or at least
 `Sydonia/schema/` and `Sydonia/examples/`) so the skills have SQL to load. The
 skills accept a `--schema-dir` argument if you put it elsewhere.
 
-Verify Claude Code sees them:
+In Claude Code, verify it sees them:
 
 ```text
 /skills          # lists available skills; customs-* should appear
@@ -110,7 +114,7 @@ front-matter, details loaded only when needed.
 ## The privacy-preserving query tester (optional MCP)
 
 `customs-query` ships with a companion **MCP server**,
-[`customs-query-tester`](https://github.com/FrancoisChastel/OpenCustomsToolbox/tree/main/mcp/customs-query-tester)
+[`customs-query-tester`](https://github.com/FrancoisChastel/OpenCustomsToolbox/tree/master/mcp/customs-query-tester)
 (pre-registered in the repo's `.mcp.json`), that closes the generate→verify
 loop: the assistant can **prove a query is valid and runs** — against a
 database that may contain *real, sensitive customs declarations* — without any

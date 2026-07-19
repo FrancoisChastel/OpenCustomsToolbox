@@ -19,7 +19,9 @@ while [[ $# -gt 0 ]]; do
 done
 
 # --- locate Sydonia/ -------------------------------------------------------
-for d in "$SYDONIA" "Sydonia" "../Sydonia" "." "$(dirname "$0")/../../../../Sydonia"; do
+for d in "$SYDONIA" "Sydonia" "../Sydonia" "." \
+         "$(dirname "$0")/../../../Sydonia" \
+         "$(dirname "$0")/../../../../Sydonia"; do
   [[ -n "$d" && -f "$d/schema/asycuda.sql" ]] && { SYDONIA="$(cd "$d" && pwd)"; break; }
 done
 if [[ -z "${SYDONIA:-}" || ! -f "$SYDONIA/schema/asycuda.sql" ]]; then
