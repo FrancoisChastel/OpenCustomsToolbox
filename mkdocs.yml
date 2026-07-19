@@ -11,7 +11,7 @@ copyright: >-
 
 repo_url: https://github.com/FrancoisChastel/OpenCustomsToolbox
 repo_name: FrancoisChastel/OpenCustomsToolbox
-edit_uri: edit/main/docs/
+edit_uri: edit/master/docs/
 
 docs_dir: docs
 
@@ -98,6 +98,8 @@ plugins:
   - tags
 
 extra:
+  version:
+    provider: mike
   status:
     documented: Grounded in a cited public source
     inferred: Introduced by modelling judgement

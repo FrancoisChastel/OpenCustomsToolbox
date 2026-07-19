@@ -4,3 +4,4 @@
 # Build:    mkdocs build --strict
 mkdocs-material>=9.5,<10
 pymdown-extensions>=10.7
+mike>=2,<3  # doc versioning (versions deployed to gh-pages)

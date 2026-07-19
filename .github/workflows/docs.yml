@@ -1,9 +1,19 @@
 name: Docs
 
-# Build the docs and deploy them to GitHub Pages on every push to main.
+# Versioned documentation via mike.
+#
+# Model: `mike` builds each docs version and commits it as a subtree on the
+# `gh-pages` branch (one directory per version/alias, e.g. `1.0/`, `latest/`).
+# GitHub Pages serves that `gh-pages` branch directly, so published docs live
+# under the version/alias path (…/OpenCustomsToolbox/latest/…). The bare site
+# root only carries a redirect that mike writes to the default alias (latest).
+#
+# On every push to master we redeploy version `1.0` (aliased `latest`) and keep
+# `latest` as the default. `mkdocs build --strict` runs first purely as a
+# verification gate to catch broken links / config before anything is pushed.
 on:
   push:
-    branches: [main]
+    branches: [master]
     paths:
       - docs/**
       - mkdocs.yml
@@ -13,20 +23,21 @@ on:
       - .github/workflows/docs.yml
   workflow_dispatch:
 
+# mike pushes the built docs to the gh-pages branch.
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
-  group: pages
+  group: docs-deploy
   cancel-in-progress: true
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
@@ -40,23 +51,18 @@ jobs:
       - name: Regenerate llms-full.txt
         run: python scripts/gen_llms_full.py
 
-      - name: Build site (strict)
+      - name: Build site (strict verification)
         run: mkdocs build --strict
 
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: site
+      - name: Configure git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Fetch gh-pages branch
+        run: git fetch origin gh-pages --depth=1 || true
+
+      - name: Deploy version with mike
+        run: |
+          mike deploy --push --update-aliases 1.0 latest
+          mike set-default --push latest
