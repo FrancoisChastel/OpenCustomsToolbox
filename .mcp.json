@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "customs-query-tester": {
+      "command": "python3",
+      "args": ["mcp/customs-query-tester/server.py"],
+      "env": {
+        "CUSTOMS_DB": "customs_sandbox",
+        "CUSTOMS_SCHEMA": "asycuda",
+        "CUSTOMS_TIMEOUT_MS": "5000"
+      }
+    }
+  }
+}

@@ -7,7 +7,7 @@ it, and validate it — all by describing what you want in plain English.
 | Skill | Does | Say something like |
 |-------|------|--------------------|
 | [`customs-schema-setup`](customs-schema-setup/) | Create a database and load schema + seed (+ e2e) in order | *"set up the customs sandbox"* |
-| [`customs-query`](customs-query/) | Write correct SQL — knows the `asycuda` search path and join paths | *"duty revenue by HS chapter"* |
+| [`customs-query`](customs-query/) | Generate correct SQL — and verify it privacy-preservingly (via the [`customs-query-tester` MCP](../../mcp/customs-query-tester/) or a bundled script: metadata only, never row data) | *"duty revenue by HS chapter — and test it"* |
 | [`customs-seed`](customs-seed/) | Add reference values or generate sample declarations/manifests | *"generate 3 test declarations"* |
 | [`customs-extend`](customs-extend/) | Add tables/columns keeping conventions + provenance | *"add a container gate-move table"* |
 | [`customs-validate`](customs-validate/) | Re-run the done-conditions: clean load, fully tagged, sources resolve | *"validate the schema is still clean"* |
@@ -43,11 +43,21 @@ needed:
 
 ```
 customs-schema-setup/  SKILL.md + scripts/load.sh
-customs-query/         SKILL.md + reference/cookbook.sql
+customs-query/         SKILL.md + reference/cookbook.sql + scripts/test_query.sh
 customs-seed/          SKILL.md + reference/patterns.sql
 customs-extend/        SKILL.md + reference/conventions.md
 customs-validate/      SKILL.md + scripts/verify.sh
 ```
+
+## Optional companion MCP: privacy-preserving query testing
+
+`customs-query` pairs with the **[`customs-query-tester` MCP server](../../mcp/customs-query-tester/)**
+(registered in this repo's `.mcp.json`): it lets the model *prove* a generated
+query runs — read-only session, single-SELECT allowlist, statement timeout —
+while returning **only metadata** (column names/types, row count, duration).
+Row values never reach the model, so it is safe to point at a database holding
+real customs data. Without the MCP, the skill falls back to
+`customs-query/scripts/test_query.sh`, which applies the same guarantees.
 
 ## Scope
 
