@@ -131,12 +131,21 @@ nav:
       - Audit & workflow: schema/audit.md
       - Entity-relationship diagram: schema/erd.md
       - Data dictionary: schema/data-dictionary.md
+  - The platform:
+      - platform/index.md
+      - Version lineage: platform/versions.md
+      - ASYCUDA World: platform/asycuda-world.md
+      - XML messages & wire format: platform/xml-messages.md
+      - Integration surfaces: platform/integration.md
+      - Selectivity & clearance: platform/selectivity-clearance.md
+      - Further reading: platform/resources.md
   - Guides:
       - guides/index.md
       - Loading the schema: guides/loading.md
       - Querying the model: guides/querying.md
       - Extending the schema: guides/extending.md
       - Worked example: guides/worked-example.md
+      - ML on customs data: guides/ml-risk-engine.md
   - Provenance:
       - provenance/index.md
       - Reconstruction methodology: provenance/methodology.md

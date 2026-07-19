@@ -25,6 +25,8 @@ integration and training use.
 | 🌱 **Seed data** | `Sydonia/schema/seed_reference.sql` — reference/code-table values grounded in ISO/UN/WCO standards. |
 | ▶️ **Worked example** | `Sydonia/examples/e2e.sql` — a full manifest → declaration → valuation → taxes → selectivity → payment → release, balancing end to end. |
 | 📚 **Docs site** | A MkDocs Material site (`docs/`, `mkdocs.yml`) — concepts, per-module schema guide, querying/extending guides, and full provenance. |
+| 🌐 **Platform reference** | The ASYCUDA platform itself: version lineage (v1 → ++ → **World (v4, the modeled version)** → ASY5), the SAD→XML wire-format map, integration surfaces, and the selectivity/clearance process — distilled from a ~90-source deep-research pass. |
+| 🧠 **ML blueprint** | A guide to ML on customs declarations: DATE/BACUDA features mapped to SAD boxes *and* this schema's columns, labels from the Inspection Act, and the risk-engine integration loop. |
 | 🤖 **Claude Code skills** | `.claude/skills/customs-*` — set up, query, seed, extend and validate the model in your own codebase. |
 | 🔎 **Provenance** | `Sydonia/SOURCES.md`, `COVERAGE.md`, `FIT.md`, `DATA_DICTIONARY.md`, `ERD.md`, `RESEARCH_LOG.md`. |
 

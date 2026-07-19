@@ -12,6 +12,12 @@ modules** and loads top-to-bottom into a dedicated `asycuda` schema. This page
 is the map; each module has its own page, and every column is defined in the
 [data dictionary](data-dictionary.md).
 
+The modeled system is **ASYCUDA World (v4)**, grounded in the official
+UNCTAD/DTL Tables Description documents — see
+[the platform](../platform/index.md) for the version lineage and
+[ASYCUDA World in depth](../platform/asycuda-world.md) for how this normalised
+model relates to the real (unpublished) physical schema.
+
 ## Provenance at a glance
 
 Every `CREATE TABLE` is tagged. A table is either grounded in a cited public

@@ -25,12 +25,23 @@ For the entire documentation as a single file, see [llms-full.txt](https://franc
 - [Entity-relationship diagram](https://francoischastel.github.io/OpenCustomsToolbox/schema/erd/): every foreign key, rendered from the loaded schema.
 - [Data dictionary](https://francoischastel.github.io/OpenCustomsToolbox/schema/data-dictionary/): every table and column with type, nullability and source.
 
+## The platform (ASYCUDA itself)
+
+- [The platform](https://francoischastel.github.io/OpenCustomsToolbox/platform/): which ASYCUDA version this toolbox models (ASYCUDA World, v4) and how to fingerprint the one you have.
+- [Version lineage](https://francoischastel.github.io/OpenCustomsToolbox/platform/versions/): the five generations (v1 1981 → v2 → ASYCUDA++ → ASYCUDA World → ASY5/New Generation), compared.
+- [ASYCUDA World](https://francoischastel.github.io/OpenCustomsToolbox/platform/asycuda-world/): the modeled version in depth — XML e-document model, Java client, closed protocol, and how our schema relates to the unpublished physical one.
+- [XML messages & wire format](https://francoischastel.github.io/OpenCustomsToolbox/platform/xml-messages/): the SAD Box → AW XML tag → toolbox column map, the `<ASYCUDA>`-root wire-format gotcha, the AWMDS manifest stream, WCO Data Model and EDIFACT lineage.
+- [Integration surfaces](https://francoischastel.github.io/OpenCustomsToolbox/platform/integration/): the doors that actually exist (RDBMS/ETL, ASYHUB, IATA Cargo-XML, XML import, ASY5) and the restricted specs you must request.
+- [Selectivity & clearance](https://francoischastel.github.io/OpenCustomsToolbox/platform/selectivity-clearance/): the clearance state machine (C/L/PRN serials) and four-lane risk model, mapped to the schema.
+- [Further reading](https://francoischastel.github.io/OpenCustomsToolbox/platform/resources/): curated map of the public ASYCUDA documentation landscape (~90 sources) and what is member-restricted.
+
 ## Guides
 
 - [Loading the schema](https://francoischastel.github.io/OpenCustomsToolbox/guides/loading/): integration patterns — CI, test resets, coexisting with your own tables, namespacing.
 - [Querying the model](https://francoischastel.github.io/OpenCustomsToolbox/guides/querying/): the key join paths and an analytics cookbook (revenue by HS, assessed-vs-paid, lane throughput, warehouse stock).
 - [Extending the schema](https://francoischastel.github.io/OpenCustomsToolbox/guides/extending/): add tables/columns while keeping conventions and provenance intact.
 - [Worked example](https://francoischastel.github.io/OpenCustomsToolbox/guides/worked-example/): `e2e.sql` narrated step by step.
+- [ML on customs data](https://francoischastel.github.io/OpenCustomsToolbox/guides/ml-risk-engine/): the ML risk-engine blueprint — DATE/BACUDA features mapped to SAD boxes and toolbox columns, labels from the Inspection Act, the lane loop, prototyping on this schema.
 
 ## Provenance
 

@@ -190,3 +190,5 @@ significant action is written to the cross-cutting `audit_log`.
 - [Schema overview](../schema/index.md) — the 8 modules in one map.
 - [Worked example](../guides/worked-example.md) — this whole story, as SQL.
 - [Data dictionary](../schema/data-dictionary.md) — every column, defined.
+- [The platform](../platform/index.md) — ASYCUDA itself: versions, wire
+  formats, and the real clearance state machine behind this lifecycle.

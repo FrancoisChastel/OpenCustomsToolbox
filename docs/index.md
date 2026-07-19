@@ -41,6 +41,12 @@ UNCTAD/DTL technical table descriptions, national ASYCUDA World user manuals,
 and open ISO/UN/WCO standards. Every table is traceable to a citation, or is
 honestly flagged as inferred.
 
+The modeled version is **ASYCUDA World (v4)** — the current standard. The
+[platform section](platform/index.md) covers the full version lineage
+(ASYCUDA++ → World → ASY5), the XML wire formats, and where external systems
+can integrate, so you can place this model against the deployment you actually
+have.
+
 !!! quote "Scope, stated plainly"
     This is a **functional/reference reconstruction** for sandbox, integration,
     analytics and training use. It is **not** an attempt to obtain or reproduce
@@ -104,6 +110,24 @@ honestly flagged as inferred.
     the model directly inside your own codebase.
 
     [:octicons-arrow-right-24: Claude Code skills](skills/index.md)
+
+-   :material-earth:{ .lg .middle } &nbsp;**Know the platform**
+
+    ---
+
+    ASYCUDA itself: the version lineage (v1 → World → ASY5), the XML wire
+    formats, the integration doors, and the clearance process.
+
+    [:octicons-arrow-right-24: The platform](platform/index.md)
+
+-   :material-brain:{ .lg .middle } &nbsp;**Build ML on it**
+
+    ---
+
+    The research-backed blueprint for ML on declarations and plugging a risk
+    engine into selectivity — prototyped on this schema.
+
+    [:octicons-arrow-right-24: ML on customs data](guides/ml-risk-engine.md)
 
 </div>
 
