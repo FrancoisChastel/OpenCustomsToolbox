@@ -1,0 +1,6 @@
+# Documentation toolchain for the Open Customs Toolbox docs site.
+# Install:  python -m venv .venv-docs && . .venv-docs/bin/activate && pip install -r requirements-docs.txt
+# Serve:    mkdocs serve
+# Build:    mkdocs build --strict
+mkdocs-material>=9.5,<10
+pymdown-extensions>=10.7

@@ -1,0 +1,146 @@
+site_name: Open Customs Toolbox
+site_description: >-
+  A faithful, fully-sourced PostgreSQL reference data model of the UNCTAD
+  ASYCUDA World (SYDONIA) customs management system — reconstructed from public
+  documentation for sandbox, analytics, integration and training use.
+site_url: https://francoischastel.github.io/OpenCustomsToolbox/
+site_author: François Chastel
+copyright: >-
+  Reconstructed from public documentation only. Not affiliated with UNCTAD.
+  See the Provenance section for full sourcing.
+
+repo_url: https://github.com/FrancoisChastel/OpenCustomsToolbox
+repo_name: FrancoisChastel/OpenCustomsToolbox
+edit_uri: edit/main/docs/
+
+docs_dir: docs
+
+theme:
+  name: material
+  language: en
+  icon:
+    logo: material/anchor
+    repo: fontawesome/brands/github
+  favicon: assets/favicon.svg
+  font:
+    text: Inter
+    code: JetBrains Mono
+  palette:
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: deep orange
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: amber
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.tracking
+    - navigation.footer
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.tooltips
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      permalink_title: Anchor link to this section
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets:
+      base_path:
+        - .
+        - Sydonia
+      check_paths: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+plugins:
+  - search
+  - tags
+
+extra:
+  status:
+    documented: Grounded in a cited public source
+    inferred: Introduced by modelling judgement
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/FrancoisChastel/OpenCustomsToolbox
+      name: Source on GitHub
+
+extra_css:
+  - stylesheets/extra.css
+
+not_in_nav: |
+  llms.txt
+  llms-full.txt
+
+nav:
+  - Home: index.md
+  - Getting started:
+      - getting-started/index.md
+      - Quickstart: getting-started/quickstart.md
+      - Installation: getting-started/installation.md
+      - Customs concepts: getting-started/concepts.md
+  - Schema:
+      - schema/index.md
+      - Reference & configuration: schema/reference-config.md
+      - Manifest & cargo: schema/manifest.md
+      - Declaration (the SAD): schema/declaration.md
+      - Selectivity & risk: schema/selectivity.md
+      - Accounting: schema/accounting.md
+      - Transit & suspense: schema/transit-suspense.md
+      - Audit & workflow: schema/audit.md
+      - Entity-relationship diagram: schema/erd.md
+      - Data dictionary: schema/data-dictionary.md
+  - Guides:
+      - guides/index.md
+      - Loading the schema: guides/loading.md
+      - Querying the model: guides/querying.md
+      - Extending the schema: guides/extending.md
+      - Worked example: guides/worked-example.md
+  - Provenance:
+      - provenance/index.md
+      - Reconstruction methodology: provenance/methodology.md
+      - Sources: provenance/sources.md
+      - Coverage: provenance/coverage.md
+      - Official fit & gap: provenance/fit.md
+  - Claude Code skills: skills/index.md
