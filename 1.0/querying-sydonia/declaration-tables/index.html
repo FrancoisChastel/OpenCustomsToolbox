@@ -6,19 +6,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Integration patterns — CI, test resets, loading alongside your own tables.">
+        <meta name="description" content="The real SAD tables in ASYCUDA World — SAD_General_Segment, SAD_Item and SAD_Tax — their documented columns, and real SQL against them.">
       
       
         <meta name="author" content="François Chastel">
       
       
-        <link rel="canonical" href="https://francoischastel.github.io/OpenCustomsToolbox/1.0/guides/loading/">
+        <link rel="canonical" href="https://francoischastel.github.io/OpenCustomsToolbox/1.0/querying-sydonia/declaration-tables/">
       
       
         <link rel="prev" href="../">
       
       
-        <link rel="next" href="../querying/">
+        <link rel="next" href="../manifest-tables/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>Loading the schema - Open Customs Toolbox</title>
+        <title>Querying the declaration tables - Open Customs Toolbox</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#loading-the-schema" class="md-skip">
+        <a href="#querying-the-declaration-tables" class="md-skip">
           Skip to content
         </a>
       
@@ -122,7 +122,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Loading the schema
+              Querying the declaration tables
             
           </span>
         </div>
@@ -273,11 +273,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../querying-sydonia/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -361,13 +363,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../guides/" class="md-tabs__link">
           
   
   
@@ -668,6 +668,8 @@
       
   
   
+    
+  
   
   
     
@@ -689,20 +691,23 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../querying-sydonia/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -720,13 +725,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -743,10 +748,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../querying-sydonia/declaration-tables/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Declaration tables
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -762,6 +794,81 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sad_general_segment-one-declaration-repeated-per-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SAD_General_Segment — one declaration, repeated per item
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sad_item-one-row-per-commodity-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SAD_Item — one row per commodity line
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sad_tax-the-tax-lines-the-pinned-roots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SAD_Tax — the tax lines (the pinned roots)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assemble-a-full-declaration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assemble a full declaration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -774,7 +881,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../querying-sydonia/manifest-tables/" class="md-nav__link">
+      <a href="../manifest-tables/" class="md-nav__link">
         
   
   
@@ -802,7 +909,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../querying-sydonia/reference-tables/" class="md-nav__link">
+      <a href="../reference-tables/" class="md-nav__link">
         
   
   
@@ -830,7 +937,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../querying-sydonia/joins-and-gotchas/" class="md-nav__link">
+      <a href="../joins-and-gotchas/" class="md-nav__link">
         
   
   
@@ -1684,8 +1791,6 @@
       
   
   
-    
-  
   
   
     
@@ -1711,23 +1816,20 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../guides/" class="md-nav__link ">
               
   
   
@@ -1745,13 +1847,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="">
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1768,37 +1870,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Loading the schema
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../guides/loading/" class="md-nav__link">
         
   
   
@@ -1814,92 +1889,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#load-order-always" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Load order (always)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#living-alongside-your-own-tables" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Living alongside your own tables
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#reset-between-tests" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Reset between tests
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#continuous-integration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Continuous integration
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#loading-into-a-specific-schema-name" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Loading into a specific schema name
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#verify-the-load-programmatically" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Verify the load programmatically
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1912,7 +1901,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../querying/" class="md-nav__link">
+      <a href="../../guides/querying/" class="md-nav__link">
         
   
   
@@ -1940,7 +1929,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../useful-queries/" class="md-nav__link">
+      <a href="../../guides/useful-queries/" class="md-nav__link">
         
   
   
@@ -1968,7 +1957,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../extending/" class="md-nav__link">
+      <a href="../../guides/extending/" class="md-nav__link">
         
   
   
@@ -1996,7 +1985,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../worked-example/" class="md-nav__link">
+      <a href="../../guides/worked-example/" class="md-nav__link">
         
   
   
@@ -2024,7 +2013,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ml-risk-engine/" class="md-nav__link">
+      <a href="../../guides/ml-risk-engine/" class="md-nav__link">
         
   
   
@@ -2300,10 +2289,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#load-order-always" class="md-nav__link">
+  <a href="#sad_general_segment-one-declaration-repeated-per-item" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Load order (always)
+        SAD_General_Segment — one declaration, repeated per item
       
     </span>
   </a>
@@ -2311,10 +2300,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#living-alongside-your-own-tables" class="md-nav__link">
+  <a href="#sad_item-one-row-per-commodity-line" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Living alongside your own tables
+        SAD_Item — one row per commodity line
       
     </span>
   </a>
@@ -2322,10 +2311,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#reset-between-tests" class="md-nav__link">
+  <a href="#sad_tax-the-tax-lines-the-pinned-roots" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reset between tests
+        SAD_Tax — the tax lines (the pinned roots)
       
     </span>
   </a>
@@ -2333,10 +2322,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#continuous-integration" class="md-nav__link">
+  <a href="#assemble-a-full-declaration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Continuous integration
+        Assemble a full declaration
       
     </span>
   </a>
@@ -2344,21 +2333,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#loading-into-a-specific-schema-name" class="md-nav__link">
+  <a href="#related" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Loading into a specific schema name
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#verify-the-load-programmatically" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Verify the load programmatically
+        Related
       
     </span>
   </a>
@@ -2386,7 +2364,7 @@
       
       
       
-        <span class="md-tag">guides</span>
+        <span class="md-tag">querying-sydonia</span>
       
     
   </nav>
@@ -2396,79 +2374,306 @@
   
 
 
-<h1 id="loading-the-schema">Loading the schema<a class="headerlink" href="#loading-the-schema" title="Anchor link to this section">&para;</a></h1>
-<p>The <a href="../../getting-started/installation/">installation page</a> covers first-time
-setup. This guide is about <strong>integrating loading into a workflow</strong> — tests, CI,
-and living alongside your application's own tables.</p>
-<h2 id="load-order-always">Load order (always)<a class="headerlink" href="#load-order-always" title="Anchor link to this section">&para;</a></h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>1. Sydonia/schema/asycuda.sql          # schema + tables (drops &amp; recreates `asycuda`)
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>2. Sydonia/schema/seed_reference.sql   # reference / code data
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>3. Sydonia/examples/e2e.sql            # optional worked example
-</span></code></pre></div>
-<p><code>asycuda.sql</code> begins with <code>DROP SCHEMA IF EXISTS asycuda CASCADE;</code>, so <strong>every
-load is a clean reset</strong> of the <code>asycuda</code> namespace.</p>
-<h2 id="living-alongside-your-own-tables">Living alongside your own tables<a class="headerlink" href="#living-alongside-your-own-tables" title="Anchor link to this section">&para;</a></h2>
-<p>Because the model lives entirely in the <code>asycuda</code> schema, it coexists with your
-application. Keep your tables in <code>public</code> (or your own schema); reference the
-model explicitly or via <code>search_path</code>:</p>
-<div class="language-sql highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">-- your app tables in public, the customs model in asycuda</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">registration_number</span><span class="p">,</span><span class="w"> </span><span class="n">my</span><span class="p">.</span><span class="n">note</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">FROM</span><span class="w"> </span><span class="n">asycuda</span><span class="p">.</span><span class="n">declaration</span><span class="w"> </span><span class="n">d</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">JOIN</span><span class="w"> </span><span class="k">public</span><span class="p">.</span><span class="n">my_annotations</span><span class="w"> </span><span class="n">my</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">my</span><span class="p">.</span><span class="n">declaration_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>
-</span></code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">Reloading discards <code>asycuda</code> contents</p>
-<p>Re-running <code>asycuda.sql</code> drops the whole <code>asycuda</code> schema. Never put data you
-want to keep <strong>inside</strong> <code>asycuda</code> — keep it in your own schema and reference
-across.</p>
+<h1 id="querying-the-declaration-tables">Querying the declaration tables<a class="headerlink" href="#querying-the-declaration-tables" title="Anchor link to this section">&para;</a></h1>
+<p>The declaration — the <strong>Single Administrative Document</strong> — is the core of
+ASYCUDA World's data. Physically it lives in three tables you will query most
+often: <strong><code>SAD_General_Segment</code></strong> (consignment level), <strong><code>SAD_Item</code></strong> (per
+commodity) and <strong><code>SAD_Tax</code></strong> (per tax line). These names come straight from the
+official S014 Declaration Tables and are used verbatim by the toolbox's
+<a href="https://github.com/FrancoisChastel/OpenCustomsToolbox/blob/master/compiler/mappings/asycuda-world.yml">compiler mapping</a>.</p>
+<div class="admonition info">
+<p class="admonition-title">What is pinned vs. instance-specific</p>
+<p>Column names printed in <strong>bold</strong> are publicly documented (S014 / the XML
+layer) and appear verbatim in the <a href="../../provenance/fit/">fit analysis</a> — the
+<code>SAD_Tax</code> roots, <code>TAR_HSC_NB1..5</code>, <code>VIT_CIF</code>/<code>VIT_STV</code>, the <code>PTY_*</code> flags,
+<code>INSTANCE_ID</code>. Plain-code names (e.g. <code>SGS_CUO_COD</code>) follow AW's prefix
+conventions and match the bundled mock DB, but the exact spelling on a real
+instance is <em>instance-specific</em> — confirm it.</p>
 </div>
-<h2 id="reset-between-tests">Reset between tests<a class="headerlink" href="#reset-between-tests" title="Anchor link to this section">&para;</a></h2>
-<p>The idempotent load makes per-suite resets trivial:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># fast reset: reload schema + seed only (skip the e2e example)</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>psql<span class="w"> </span>-v<span class="w"> </span><span class="nv">ON_ERROR_STOP</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TEST_DB</span><span class="s2">&quot;</span><span class="w"> </span>-f<span class="w"> </span>Sydonia/schema/asycuda.sql
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>psql<span class="w"> </span>-v<span class="w"> </span><span class="nv">ON_ERROR_STOP</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TEST_DB</span><span class="s2">&quot;</span><span class="w"> </span>-f<span class="w"> </span>Sydonia/schema/seed_reference.sql
+<h2 id="sad_general_segment-one-declaration-repeated-per-item"><code>SAD_General_Segment</code> — one declaration, repeated per item<a class="headerlink" href="#sad_general_segment-one-declaration-repeated-per-item" title="Anchor link to this section">&para;</a></h2>
+<p>The general segment carries the consignment-level facts: office, type, parties,
+currency, totals, status and the selectivity colour flags. The catch that defines
+querying it: <strong>AW repeats the entire general segment into every item row</strong> — so a
+naïve join over items double-counts it. Deduplicate with <code>DISTINCT</code> on
+<strong><code>INSTANCE_ID</code></strong> (see <a href="../joins-and-gotchas/#repeated-general-segment">joins &amp; gotchas</a>).</p>
+<table>
+<thead>
+<tr>
+<th>Physical column</th>
+<th>Meaning</th>
+<th>Logical equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>INSTANCE_ID</code></strong></td>
+<td>Engine key — the declaration's identity</td>
+<td><code>declaration.id</code></td>
+</tr>
+<tr>
+<td><code>SGS_CUO_COD</code></td>
+<td>Customs office code</td>
+<td><code>declaration.office_id</code></td>
+</tr>
+<tr>
+<td><code>SGS_TYP_COD</code></td>
+<td>Declaration model/type (IM4, EX1…)</td>
+<td><code>declaration.declaration_type_id</code></td>
+</tr>
+<tr>
+<td><code>SGS_REG_NBR</code>, <code>SGS_REG_DAT</code></td>
+<td>Registration serial + date</td>
+<td><code>declaration.registration_number</code> · <code>registration_date</code></td>
+</tr>
+<tr>
+<td><code>SGS_DEC_REF</code></td>
+<td>Declarant reference (LRN/UCR)</td>
+<td><code>declaration.trader_reference</code></td>
+</tr>
+<tr>
+<td><code>SGS_EXP_COD</code>, <code>SGS_CNE_COD</code>, <code>SGS_DCL_COD</code></td>
+<td>Exporter · consignee · declarant</td>
+<td><code>declaration.exporter_id</code> · <code>consignee_id</code> · <code>declarant_id</code></td>
+</tr>
+<tr>
+<td><code>SGS_CUR_COD</code></td>
+<td>Invoice currency</td>
+<td><code>declaration.currency_id</code></td>
+</tr>
+<tr>
+<td><code>SGS_INV_AMT</code>, <code>SGS_CIF_AMT</code></td>
+<td>Total invoice · total CIF</td>
+<td><code>declaration.total_invoice_amount</code> · <code>total_cif_value</code></td>
+</tr>
+<tr>
+<td><strong><code>STA</code></strong></td>
+<td>Lifecycle status code</td>
+<td><code>declaration.status_id</code></td>
+</tr>
+<tr>
+<td><strong><code>PTY_RED</code></strong>, <strong><code>PTY_YEL</code></strong>, <strong><code>PTY_GRE</code></strong>, <strong><code>PTY_BLU</code></strong></td>
+<td>Selectivity lane colour flags (<code>'1'</code>/<code>'0'</code>)</td>
+<td><code>declaration.selectivity_lane_id</code></td>
+</tr>
+</tbody>
+</table>
+<p>The <strong><code>STA</code></strong> status code drives the clearance state machine (stored →
+registered → assessed → paid → released); the <strong><code>PTY_*</code></strong> flags are a
+colour <em>domain</em>, not a foreign key — exactly one is set to <code>'1'</code>. Decode them with
+a <code>CASE</code>:</p>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">-- Declarations registered this month, with their assigned lane.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">g</span><span class="p">.</span><span class="n">INSTANCE_ID</span><span class="p">,</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">       </span><span class="k">g</span><span class="p">.</span><span class="n">SGS_REG_NBR</span><span class="p">,</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">       </span><span class="k">g</span><span class="p">.</span><span class="n">SGS_REG_DAT</span><span class="p">,</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">       </span><span class="k">g</span><span class="p">.</span><span class="n">STA</span><span class="w">                                        </span><span class="k">AS</span><span class="w"> </span><span class="n">status</span><span class="p">,</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">       </span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="k">g</span><span class="p">.</span><span class="n">PTY_RED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;RED&#39;</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">            </span><span class="k">WHEN</span><span class="w"> </span><span class="k">g</span><span class="p">.</span><span class="n">PTY_YEL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;YELLOW&#39;</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">            </span><span class="k">WHEN</span><span class="w"> </span><span class="k">g</span><span class="p">.</span><span class="n">PTY_GRE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;GREEN&#39;</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">            </span><span class="k">WHEN</span><span class="w"> </span><span class="k">g</span><span class="p">.</span><span class="n">PTY_BLU</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;BLUE&#39;</span><span class="w"> </span><span class="k">END</span><span class="w">    </span><span class="k">AS</span><span class="w"> </span><span class="n">lane</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="k">FROM</span><span class="w"> </span><span class="n">SAD_General_Segment</span><span class="w"> </span><span class="k">g</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="k">WHERE</span><span class="w"> </span><span class="k">g</span><span class="p">.</span><span class="n">SGS_REG_DAT</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="nb">DATE</span><span class="w"> </span><span class="s1">&#39;2026-07-01&#39;</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">g</span><span class="p">.</span><span class="n">SGS_REG_DAT</span><span class="p">;</span>
 </span></code></pre></div>
-<p>For many fast resets, <code>DROP SCHEMA asycuda CASCADE;</code> + reload is cheaper than
-recreating the database.</p>
-<h2 id="continuous-integration">Continuous integration<a class="headerlink" href="#continuous-integration" title="Anchor link to this section">&para;</a></h2>
-<p>A minimal GitHub Actions job that proves a clean load on every push:</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">jobs</span><span class="p">:</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">load</span><span class="p">:</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nt">services</span><span class="p">:</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">      </span><span class="nt">postgres</span><span class="p">:</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres:16</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span><span class="nt">env</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> POSTGRES_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="nv">postgres</span><span class="w"> </span><span class="p p-Indicator">}</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">        </span><span class="nt">ports</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;5432:5432&#39;</span><span class="p p-Indicator">]</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span><span class="nt">options</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">          </span><span class="no">--health-cmd pg_isready --health-interval 10s</span>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">          </span><span class="no">--health-timeout 5s --health-retries 5</span>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="nt">env</span><span class="p">:</span>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">      </span><span class="nt">PGPASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">      </span><span class="nt">PSQL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">psql -v ON_ERROR_STOP=1 -h localhost -U postgres -d customs</span>
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
-</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">createdb -h localhost -U postgres customs</span>
-</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$PSQL -f Sydonia/schema/asycuda.sql</span>
-</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$PSQL -f Sydonia/schema/seed_reference.sql</span>
-</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$PSQL -f Sydonia/examples/e2e.sql</span>
+<h2 id="sad_item-one-row-per-commodity-line"><code>SAD_Item</code> — one row per commodity line<a class="headerlink" href="#sad_item-one-row-per-commodity-line" title="Anchor link to this section">&para;</a></h2>
+<p>Each item carries the HS code, origin, mass, packages and the valuation values.
+Two documented shapes matter here:</p>
+<ul>
+<li><strong>HS is split across <code>TAR_HSC_NB1..5</code></strong> — five national-precision fragments you
+  must concatenate to get a full commodity code
+  (<a href="../joins-and-gotchas/#hs-split">gotcha</a>).</li>
+<li><strong><code>VIT_CIF</code> is the customs value</strong> (the tax base) and <strong><code>VIT_STV</code> the
+  statistical value</strong>; the build-up columns <strong><code>VIT_FOB</code> / <code>VIT_FRT</code> / <code>VIT_INS</code></strong>
+  hold FOB + apportioned freight + insurance that sum toward CIF.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Physical column</th>
+<th>Meaning</th>
+<th>Logical equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>INSTANCE_ID</code></strong></td>
+<td>Item identity</td>
+<td><code>declaration_item.id</code></td>
+</tr>
+<tr>
+<td><code>ITM_SGS_ID</code></td>
+<td>Parent general-segment key</td>
+<td><code>declaration_item.declaration_id</code></td>
+</tr>
+<tr>
+<td><code>ITM_NBR</code></td>
+<td>Item/line number</td>
+<td><code>declaration_item.item_number</code></td>
+</tr>
+<tr>
+<td><strong><code>TAR_HSC_NB1..5</code></strong></td>
+<td>HS code, split into 5 fragments</td>
+<td><code>declaration_item.hs_code</code> (concatenated)</td>
+</tr>
+<tr>
+<td><strong><code>VIT_CIF</code></strong></td>
+<td>Customs value (the tax base)</td>
+<td><code>declaration_item.customs_value</code></td>
+</tr>
+<tr>
+<td><strong><code>VIT_STV</code></strong></td>
+<td>Statistical value</td>
+<td><code>declaration_item.statistical_value</code></td>
+</tr>
+<tr>
+<td><strong><code>VIT_FOB</code></strong>, <strong><code>VIT_FRT</code></strong>, <strong><code>VIT_INS</code></strong></td>
+<td>FOB + apportioned freight + insurance → CIF</td>
+<td><code>item_value_note.item_fob</code> · <code>apportioned_freight</code> · <code>apportioned_insurance</code></td>
+</tr>
+<tr>
+<td><code>ITM_NET_MAS</code>, <code>ITM_GRS_MAS</code></td>
+<td>Net / gross mass</td>
+<td><code>declaration_item.net_mass</code> · <code>gross_mass</code></td>
+</tr>
+<tr>
+<td><code>ITM_ORG_COD</code></td>
+<td>Country of origin</td>
+<td><code>declaration_item.country_origin_id</code></td>
+</tr>
+<tr>
+<td><code>ITM_PKG_NBR</code></td>
+<td>Number of packages</td>
+<td><code>declaration_item.number_of_packages</code></td>
+</tr>
+</tbody>
+</table>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">-- Items on one declaration, with the HS code reassembled and the value build-up.</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">ITM_NBR</span><span class="p">,</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">       </span><span class="n">i</span><span class="p">.</span><span class="n">TAR_HSC_NB1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">TAR_HSC_NB2</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">TAR_HSC_NB3</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">         </span><span class="o">||</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">TAR_HSC_NB4</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">TAR_HSC_NB5</span><span class="w">              </span><span class="k">AS</span><span class="w"> </span><span class="n">hs_code</span><span class="p">,</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">       </span><span class="n">i</span><span class="p">.</span><span class="n">ITM_ORG_COD</span><span class="w">                                    </span><span class="k">AS</span><span class="w"> </span><span class="n">origin</span><span class="p">,</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">       </span><span class="n">i</span><span class="p">.</span><span class="n">VIT_FOB</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">VIT_FRT</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">VIT_INS</span><span class="p">,</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">       </span><span class="n">i</span><span class="p">.</span><span class="n">VIT_CIF</span><span class="w">                                        </span><span class="k">AS</span><span class="w"> </span><span class="n">customs_value</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="k">FROM</span><span class="w"> </span><span class="n">SAD_Item</span><span class="w"> </span><span class="n">i</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">ITM_SGS_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w">          </span><span class="c1">-- the declaration&#39;s INSTANCE_ID</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">ITM_NBR</span><span class="p">;</span>
 </span></code></pre></div>
-<p>The <a href="../../skills/"><code>customs-validate</code></a> skill wraps exactly this check for
-local use.</p>
-<h2 id="loading-into-a-specific-schema-name">Loading into a specific schema name<a class="headerlink" href="#loading-into-a-specific-schema-name" title="Anchor link to this section">&para;</a></h2>
-<p>Prefer a different namespace? The model hardcodes <code>asycuda</code>, but you can rename
-after loading, or <code>sed</code> the three <code>asycuda</code> references at the top of the file:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sed<span class="w"> </span><span class="s1">&#39;s/\basycuda\b/customs/g&#39;</span><span class="w"> </span>Sydonia/schema/asycuda.sql<span class="w"> </span><span class="p">|</span><span class="w"> </span>psql<span class="w"> </span>-v<span class="w"> </span><span class="nv">ON_ERROR_STOP</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>-d<span class="w"> </span>mydb<span class="w"> </span>-f<span class="w"> </span>-
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1"># remember to apply the same rename to seed_reference.sql and e2e.sql (their SET search_path lines)</span>
+<div class="admonition note">
+<p class="admonition-title">The build-up is denormalised onto the item</p>
+<p>Unlike the toolbox's separate <code>item_value_note</code> table, the real <code>SAD_Item</code>
+carries <code>VIT_FOB</code>/<code>VIT_FRT</code>/<code>VIT_INS</code>/<code>VIT_CIF</code> <em>inline</em> on the same row. The
+invoice is usually FOB but duty is charged on CIF, so this is where the tax
+base is assembled per item.</p>
+</div>
+<h2 id="sad_tax-the-tax-lines-the-pinned-roots"><code>SAD_Tax</code> — the tax lines (the pinned roots)<a class="headerlink" href="#sad_tax-the-tax-lines-the-pinned-roots" title="Anchor link to this section">&para;</a></h2>
+<p><code>SAD_Tax</code> is the one table whose <strong>column roots are fully public</strong>. One row per
+item per applicable tax; because taxes cascade (VAT on customs value + duty), the
+base is stored per line rather than recomputed.</p>
+<table>
+<thead>
+<tr>
+<th>Physical column</th>
+<th>Meaning</th>
+<th>Logical equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>INSTANCE_ID</code></strong></td>
+<td>Tax-line identity</td>
+<td><code>declaration_tax_line.id</code></td>
+</tr>
+<tr>
+<td><code>TAX_ITM_ID</code></td>
+<td>Parent item key</td>
+<td><code>declaration_tax_line.declaration_item_id</code></td>
+</tr>
+<tr>
+<td><strong><code>COD</code></strong></td>
+<td>Tax type (duty / VAT / excise / fee)</td>
+<td><code>declaration_tax_line.tax_type_id</code></td>
+</tr>
+<tr>
+<td><strong><code>BSE</code></strong></td>
+<td>Tax base (amount the rate applies to)</td>
+<td><code>declaration_tax_line.tax_base</code></td>
+</tr>
+<tr>
+<td><strong><code>RAT</code></strong></td>
+<td>Rate (ad valorem)</td>
+<td><code>declaration_tax_line.rate_percent</code></td>
+</tr>
+<tr>
+<td><strong><code>AMT</code></strong></td>
+<td>Computed amount</td>
+<td><code>declaration_tax_line.tax_amount</code></td>
+</tr>
+<tr>
+<td><strong><code>MOP</code></strong></td>
+<td>Mode of payment</td>
+<td><code>declaration_tax_line.mode_of_payment</code></td>
+</tr>
+<tr>
+<td><strong><code>TYP</code></strong></td>
+<td>Manual (<code>'1'</code>) vs auto-calculated</td>
+<td><code>declaration_tax_line.is_manual</code></td>
+</tr>
+</tbody>
+</table>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">-- Duty &amp; VAT collected per declaration, from the real tax roots.</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">g</span><span class="p">.</span><span class="n">INSTANCE_ID</span><span class="p">,</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">       </span><span class="k">g</span><span class="p">.</span><span class="n">SGS_REG_NBR</span><span class="p">,</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">       </span><span class="k">sum</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">AMT</span><span class="p">)</span><span class="w"> </span><span class="n">FILTER</span><span class="w"> </span><span class="p">(</span><span class="k">WHERE</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">COD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;IMP&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">import_duty</span><span class="p">,</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">       </span><span class="k">sum</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">AMT</span><span class="p">)</span><span class="w"> </span><span class="n">FILTER</span><span class="w"> </span><span class="p">(</span><span class="k">WHERE</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">COD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;VAT&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">vat</span><span class="p">,</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">       </span><span class="k">sum</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">AMT</span><span class="p">)</span><span class="w">                              </span><span class="k">AS</span><span class="w"> </span><span class="n">total_tax</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="k">FROM</span><span class="w"> </span><span class="n">SAD_General_Segment</span><span class="w"> </span><span class="k">g</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="k">JOIN</span><span class="w"> </span><span class="n">SAD_Item</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">ITM_SGS_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">g</span><span class="p">.</span><span class="n">INSTANCE_ID</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="k">JOIN</span><span class="w"> </span><span class="n">SAD_Tax</span><span class="w">  </span><span class="n">x</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">TAX_ITM_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">INSTANCE_ID</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">g</span><span class="p">.</span><span class="n">INSTANCE_ID</span><span class="p">,</span><span class="w"> </span><span class="k">g</span><span class="p">.</span><span class="n">SGS_REG_NBR</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">total_tax</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
 </span></code></pre></div>
-<h2 id="verify-the-load-programmatically">Verify the load programmatically<a class="headerlink" href="#verify-the-load-programmatically" title="Anchor link to this section">&para;</a></h2>
-<div class="language-sql highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">SET</span><span class="w"> </span><span class="n">search_path</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">asycuda</span><span class="p">,</span><span class="w"> </span><span class="k">public</span><span class="p">;</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">SELECT</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">information_schema</span><span class="p">.</span><span class="n">tables</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">   </span><span class="k">WHERE</span><span class="w"> </span><span class="n">table_schema</span><span class="o">=</span><span class="s1">&#39;asycuda&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">table_type</span><span class="o">=</span><span class="s1">&#39;BASE TABLE&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">tables</span><span class="p">,</span><span class="w">      </span><span class="c1">-- 55</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">ref_transport_mode</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">transport_modes</span><span class="p">,</span><span class="w">              </span><span class="c1">-- 9</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">ref_selectivity_lane</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">lanes</span><span class="p">;</span><span class="w">                      </span><span class="c1">-- 4</span>
+<div class="admonition tip">
+<p class="admonition-title">Manual taxes and totals — the derived siblings</p>
+<ul>
+<li>Manual (officer-keyed) taxes live in <strong><code>SAD_Ask_Tax</code></strong> in the official
+  model; the toolbox folds them into <code>SAD_Tax</code> via the <strong><code>TYP</code></strong> flag
+  (<code>TYP = '1'</code>).</li>
+<li><strong><code>SAD_Global_Taxes</code></strong> and <strong><code>SAD_Tax_Totals</code></strong> are <em>summary</em> tables. Prefer
+  to <strong>derive</strong> these by aggregating <code>SAD_Tax</code> (as above) rather than trusting
+  a possibly-stale total — the toolbox never stores them.</li>
+</ul>
+</div>
+<h2 id="assemble-a-full-declaration">Assemble a full declaration<a class="headerlink" href="#assemble-a-full-declaration" title="Anchor link to this section">&para;</a></h2>
+<p>Because the general segment repeats, dedupe it before you total taxes — or you
+count the header once per item.</p>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">-- Declaration header + item lines + per-item tax, correctly deduplicated.</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">WITH</span><span class="w"> </span><span class="n">decl</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="k">g</span><span class="p">.</span><span class="n">INSTANCE_ID</span><span class="p">,</span><span class="w"> </span><span class="k">g</span><span class="p">.</span><span class="n">SGS_REG_NBR</span><span class="p">,</span><span class="w"> </span><span class="k">g</span><span class="p">.</span><span class="n">STA</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">SAD_General_Segment</span><span class="w"> </span><span class="k">g</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="k">WHERE</span><span class="w"> </span><span class="k">g</span><span class="p">.</span><span class="n">SGS_DEC_REF</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;REF-2026-0001&#39;</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">)</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">SGS_REG_NBR</span><span class="p">,</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">       </span><span class="n">i</span><span class="p">.</span><span class="n">ITM_NBR</span><span class="p">,</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">       </span><span class="n">i</span><span class="p">.</span><span class="n">TAR_HSC_NB1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">TAR_HSC_NB2</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">TAR_HSC_NB3</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">         </span><span class="o">||</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">TAR_HSC_NB4</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">TAR_HSC_NB5</span><span class="w">   </span><span class="k">AS</span><span class="w"> </span><span class="n">hs_code</span><span class="p">,</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">       </span><span class="n">i</span><span class="p">.</span><span class="n">VIT_CIF</span><span class="w">                              </span><span class="k">AS</span><span class="w"> </span><span class="n">customs_value</span><span class="p">,</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">       </span><span class="k">sum</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">AMT</span><span class="p">)</span><span class="w">                             </span><span class="k">AS</span><span class="w"> </span><span class="n">taxes</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="k">FROM</span><span class="w"> </span><span class="n">decl</span><span class="w"> </span><span class="n">d</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="k">JOIN</span><span class="w"> </span><span class="n">SAD_Item</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">ITM_SGS_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">INSTANCE_ID</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">SAD_Tax</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">TAX_ITM_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">INSTANCE_ID</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">SGS_REG_NBR</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">ITM_NBR</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">TAR_HSC_NB1</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">TAR_HSC_NB2</span><span class="p">,</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">         </span><span class="n">i</span><span class="p">.</span><span class="n">TAR_HSC_NB3</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">TAR_HSC_NB4</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">TAR_HSC_NB5</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">VIT_CIF</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">ITM_NBR</span><span class="p">;</span>
 </span></code></pre></div>
+<p>The same query, written against the friendly logical names and compiled for you,
+is on the <a href="../../schema/declaration/#example-assemble-a-declaration">declaration schema page</a>.</p>
+<h2 id="related">Related<a class="headerlink" href="#related" title="Anchor link to this section">&para;</a></h2>
+<ul>
+<li><a href="../manifest-tables/">Manifest tables</a> — the cargo the declaration writes off.</li>
+<li><a href="../reference-tables/">Reference tables</a> — decode <code>SGS_CUO_COD</code>, <code>COD</code>, <code>ITM_ORG_COD</code>.</li>
+<li><a href="../joins-and-gotchas/">Joins &amp; gotchas</a> — the dedup, HS-concat and validity traps.</li>
+<li><a href="../../platform/xml-messages/">XML messages</a> — the SAD box → XML tag → column map.</li>
+<li><a href="../../schema/declaration/">Declaration schema</a> — the same fields, normalised.</li>
+</ul>
 
 
 
@@ -2507,7 +2712,7 @@ after loading, or <code>sed</code> the three <code>asycuda</code> references at 
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Guides">
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Querying Sydonia">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -2517,20 +2722,20 @@ after loading, or <code>sed</code> the three <code>asycuda</code> references at 
                 Previous
               </span>
               <div class="md-ellipsis">
-                Guides
+                Querying Sydonia
               </div>
             </div>
           </a>
         
         
           
-          <a href="../querying/" class="md-footer__link md-footer__link--next" aria-label="Next: Querying the model">
+          <a href="../manifest-tables/" class="md-footer__link md-footer__link--next" aria-label="Next: Manifest tables">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Querying the model
+                Manifest tables
               </div>
             </div>
             <div class="md-footer__button md-icon">
