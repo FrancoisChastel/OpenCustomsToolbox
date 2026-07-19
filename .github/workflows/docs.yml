@@ -1,12 +1,6 @@
 name: Docs
 
-# Build the docs on every push (a green "does it build?" check). The deploy job
-# is gated to manual dispatch because GitHub Pages is not enabled for this repo
-# yet (private repo / plan). To go live later:
-#   1. enable a host — make the repo public (Pages works free), upgrade the plan,
-#      or point an external host (Netlify/Cloudflare/Vercel) at the built site/;
-#   2. run this workflow from the Actions tab (Run workflow), or restore the
-#      push trigger on the deploy job.
+# Build the docs and deploy them to GitHub Pages on every push to main.
 on:
   push:
     branches: [main]
@@ -55,8 +49,6 @@ jobs:
           path: site
 
   deploy:
-    # Manual-only until a host is chosen (see the note at the top of this file).
-    if: github.event_name == 'workflow_dispatch'
     needs: build
     runs-on: ubuntu-latest
     environment:
