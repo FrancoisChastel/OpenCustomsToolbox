@@ -139,12 +139,14 @@ nav:
       - ASYCUDA World: platform/asycuda-world.md
       - XML messages & wire format: platform/xml-messages.md
       - Integration surfaces: platform/integration.md
+      - Running on a real ASYCUDA World: platform/running-on-real-asycuda.md
       - Selectivity & clearance: platform/selectivity-clearance.md
       - Further reading: platform/resources.md
   - Guides:
       - guides/index.md
       - Loading the schema: guides/loading.md
       - Querying the model: guides/querying.md
+      - Useful queries: guides/useful-queries.md
       - Extending the schema: guides/extending.md
       - Worked example: guides/worked-example.md
       - ML on customs data: guides/ml-risk-engine.md
