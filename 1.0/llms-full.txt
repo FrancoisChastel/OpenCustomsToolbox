@@ -104,14 +104,15 @@ have.
 
     [:octicons-arrow-right-24: Provenance](provenance/index.md)
 
--   :material-robot-happy:{ .lg .middle } &nbsp;**Drive it with Claude Code**
+-   :material-robot-happy:{ .lg .middle } &nbsp;**Drive it with Agent Skills**
 
     ---
 
-    A suite of Claude Code Skills that set up, query, seed, extend and validate
-    the model directly inside your own codebase.
+    A suite of standard Agent Skills — installable into any agent (Claude Code,
+    Cursor, Codex, …) via `npx skills add` — that set up, query, seed, extend and
+    validate the model directly inside your own codebase.
 
-    [:octicons-arrow-right-24: Claude Code skills](skills/index.md)
+    [:octicons-arrow-right-24: Agent Skills](skills/index.md)
 
 -   :material-earth:{ .lg .middle } &nbsp;**Know the platform**
 
@@ -162,7 +163,7 @@ paid and released — inserts with full referential integrity.
 
 This site publishes an [`llms.txt`](llms.txt) index and a concatenated
 [`llms-full.txt`](llms-full.txt) so you can hand the entire model to an LLM in
-one paste. See the [Claude Code skills](skills/index.md) to wire it into an
+one paste. See the [Agent Skills](skills/index.md) to wire it into an
 agent workflow.
 
 ---
@@ -465,12 +466,13 @@ done
 | Bare table names "not found" in `psql` | Run `SET search_path TO asycuda, public;` for the session. |
 | Syntax errors on `GENERATED ALWAYS AS IDENTITY` | Your server is < PostgreSQL 10 — upgrade; the model targets 14+. |
 
-## Automate it with Claude Code
+## Automate it with an agent
 
-If you use Claude Code, the [`customs-schema-setup`](../skills/index.md) skill
-does all of the above for you — creating the database, loading the files in
-order, and reporting a clean/failed result — and
-[`customs-validate`](../skills/index.md) re-runs the full done-condition checks.
+The [`customs-schema-setup`](../skills/index.md) Agent Skill does all of the
+above for you — creating the database, loading the files in order, and reporting
+a clean/failed result — and [`customs-validate`](../skills/index.md) re-runs the
+full done-condition checks. The skills install into any agent (Claude Code,
+Cursor, Codex, …) via `npx skills add`.
 
 ## Tear it down
 
@@ -3895,7 +3897,7 @@ JOIN ref_declaration_status st   ON st.id   = d.status_id
 JOIN ref_selectivity_lane   lane ON lane.id = d.selectivity_lane_id;
 ```
 
-!!! tip "Let Claude Code write the joins"
+!!! tip "Let an Agent Skill write the joins"
     The [`customs-query`](../skills/index.md) skill knows these join paths and the
     `search_path` requirement, so you can ask for a report in plain English and get
     a correct query back.
@@ -4006,7 +4008,7 @@ dropdb oct_check
 grep -niE 'create[ \t]+table' Sydonia/schema/asycuda.sql | wc -l
 ```
 
-!!! tip "Let Claude Code enforce this"
+!!! tip "Let an Agent Skill enforce this"
     The [`customs-extend`](../skills/index.md) skill applies this whole checklist —
     conventions, provenance tag, doc updates, and a re-load — for you, and
     [`customs-validate`](../skills/index.md) confirms the schema still loads clean
@@ -4997,7 +4999,7 @@ Also copy the model itself (the `Sydonia/` folder, or at least
 `Sydonia/schema/` and `Sydonia/examples/`) so the skills have SQL to load. The
 skills accept a `--schema-dir` argument if you put it elsewhere.
 
-In Claude Code, verify it sees them:
+Verify your agent sees them — in Claude Code, for example:
 
 ```text
 /skills          # lists available skills; customs-* should appear
@@ -5005,7 +5007,7 @@ In Claude Code, verify it sees them:
 
 ## Use them
 
-Just describe what you want — Claude Code matches the request to a skill:
+Just describe what you want — your agent matches the request to a skill:
 
 ```text
 > set up the customs model in a throwaway database and run the example

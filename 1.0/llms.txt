@@ -50,9 +50,9 @@ For the entire documentation as a single file, see [llms-full.txt](https://franc
 - [Coverage](https://francoischastel.github.io/OpenCustomsToolbox/latest/provenance/coverage/): every module/table marked documented / partial / inferred, with known gaps.
 - [Official fit & gap](https://francoischastel.github.io/OpenCustomsToolbox/latest/provenance/fit/): table-by-table mapping against the official UNCTAD/DTL ASYCUDA World tables.
 
-## Claude Code skills
+## Agent Skills
 
-- [Claude Code skills](https://francoischastel.github.io/OpenCustomsToolbox/latest/skills/): a suite of skills (setup, query, seed, extend, validate) to use the model on your own codebase.
+- [Agent Skills](https://francoischastel.github.io/OpenCustomsToolbox/latest/skills/): a suite of standard Agent Skills (setup, query, seed, extend, validate) — installable into any agent (Claude Code, Cursor, Codex, opencode, …) via `npx skills add` — to use the model on your own codebase.
 
 ## Optional
 

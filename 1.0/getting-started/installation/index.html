@@ -371,7 +371,7 @@
   
     
   
-  Claude Code skills
+  Agent Skills
 
       </a>
     </li>
@@ -695,10 +695,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#automate-it-with-claude-code" class="md-nav__link">
+  <a href="#automate-it-with-an-agent" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Automate it with Claude Code
+        Automate it with an agent
       
     </span>
   </a>
@@ -1790,7 +1790,7 @@
   <span class="md-ellipsis">
     
   
-    Claude Code skills
+    Agent Skills
   
 
     
@@ -1896,10 +1896,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#automate-it-with-claude-code" class="md-nav__link">
+  <a href="#automate-it-with-an-agent" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Automate it with Claude Code
+        Automate it with an agent
       
     </span>
   </a>
@@ -2067,11 +2067,12 @@ table count is <strong>55</strong>, and <code>e2e.sql</code> prints the declarat
 </tr>
 </tbody>
 </table>
-<h2 id="automate-it-with-claude-code">Automate it with Claude Code<a class="headerlink" href="#automate-it-with-claude-code" title="Anchor link to this section">&para;</a></h2>
-<p>If you use Claude Code, the <a href="../../skills/"><code>customs-schema-setup</code></a> skill
-does all of the above for you — creating the database, loading the files in
-order, and reporting a clean/failed result — and
-<a href="../../skills/"><code>customs-validate</code></a> re-runs the full done-condition checks.</p>
+<h2 id="automate-it-with-an-agent">Automate it with an agent<a class="headerlink" href="#automate-it-with-an-agent" title="Anchor link to this section">&para;</a></h2>
+<p>The <a href="../../skills/"><code>customs-schema-setup</code></a> Agent Skill does all of the
+above for you — creating the database, loading the files in order, and reporting
+a clean/failed result — and <a href="../../skills/"><code>customs-validate</code></a> re-runs the
+full done-condition checks. The skills install into any agent (Claude Code,
+Cursor, Codex, …) via <code>npx skills add</code>.</p>
 <h2 id="tear-it-down">Tear it down<a class="headerlink" href="#tear-it-down" title="Anchor link to this section">&para;</a></h2>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>dropdb<span class="w"> </span>customs_sandbox
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="c1"># or, to keep the database but drop just the model:</span>
