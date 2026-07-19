@@ -3,7 +3,7 @@ name: customs-seed
 description: >-
   Add reference/code-table values or generate realistic sample operational data
   (manifests, SAD declarations with items, valuation notes, tax lines, payments)
-  for the Open Customs Toolbox customs model, respecting every foreign key and
+  for the Sydonia Toolkit customs model, respecting every foreign key and
   the natural-key insert pattern. Use when the user wants more seed data, test
   declarations or manifests, demo data, or additional countries / tax types / HS
   codes / offices in the customs schema.

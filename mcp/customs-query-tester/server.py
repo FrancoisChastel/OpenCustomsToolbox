@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """customs-query-tester — a privacy-preserving MCP server for testing SQL
-against the Open Customs Toolbox schema (or any PostgreSQL database).
+against the Sydonia Toolkit schema (or any PostgreSQL database).
 
 The model can VERIFY that a generated query is valid and runs, without ever
 seeing row data. Guarantees, enforced server-side on every call:
@@ -392,7 +392,7 @@ def main() -> None:
                 "capabilities": {"tools": {}},
                 "serverInfo": SERVER_INFO,
                 "instructions": (
-                    "Privacy-preserving SQL tester for the Open Customs Toolbox "
+                    "Privacy-preserving SQL tester for the Sydonia Toolkit "
                     "schema. test_query/validate_query return metadata only — "
                     "never row data. Target DB: " + DB
                 ),

@@ -5,7 +5,7 @@ name: Docs
 # Model: `mike` builds each docs version and commits it as a subtree on the
 # `gh-pages` branch (one directory per version/alias, e.g. `1.0/`, `latest/`).
 # GitHub Pages serves that `gh-pages` branch directly, so published docs live
-# under the version/alias path (…/OpenCustomsToolbox/latest/…). The bare site
+# under the version/alias path (…/sydonia-toolkit/latest/…). The bare site
 # root only carries a redirect that mike writes to the default alias (latest).
 #
 # On every push to master we redeploy version `1.0` (aliased `latest`) and keep

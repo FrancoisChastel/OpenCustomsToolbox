@@ -27,8 +27,8 @@ database. Total time: about a minute.
 ## 1 · Get the files
 
 ```bash
-git clone https://github.com/FrancoisChastel/OpenCustomsToolbox.git
-cd OpenCustomsToolbox
+git clone https://github.com/FrancoisChastel/sydonia-toolkit.git
+cd sydonia-toolkit
 ```
 
 The SQL lives under `Sydonia/`:

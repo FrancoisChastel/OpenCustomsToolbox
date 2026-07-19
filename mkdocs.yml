@@ -1,16 +1,16 @@
-site_name: Open Customs Toolbox
+site_name: Sydonia Toolkit
 site_description: >-
   A faithful, fully-sourced PostgreSQL reference data model of the UNCTAD
   ASYCUDA World (SYDONIA) customs management system — reconstructed from public
   documentation for sandbox, analytics, integration and training use.
-site_url: https://francoischastel.github.io/OpenCustomsToolbox/
+site_url: https://francoischastel.github.io/sydonia-toolkit/
 site_author: François Chastel
 copyright: >-
   Reconstructed from public documentation only. Not affiliated with UNCTAD.
   See the Provenance section for full sourcing.
 
-repo_url: https://github.com/FrancoisChastel/OpenCustomsToolbox
-repo_name: FrancoisChastel/OpenCustomsToolbox
+repo_url: https://github.com/FrancoisChastel/sydonia-toolkit
+repo_name: FrancoisChastel/sydonia-toolkit
 edit_uri: edit/master/docs/
 
 docs_dir: docs
@@ -105,7 +105,7 @@ extra:
     inferred: Introduced by modelling judgement
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/FrancoisChastel/OpenCustomsToolbox
+      link: https://github.com/FrancoisChastel/sydonia-toolkit
       name: Source on GitHub
 
 extra_css:

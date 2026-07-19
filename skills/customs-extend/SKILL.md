@@ -1,7 +1,7 @@
 ---
 name: customs-extend
 description: >-
-  Add or modify tables and columns in the Open Customs Toolbox customs schema
+  Add or modify tables and columns in the Sydonia Toolkit customs schema
   while preserving its conventions (snake_case, ref_/sys_ prefixes, identity PKs,
   FK-to-ref coded columns, numeric money/mass types) and — critically — its
   provenance trail (every CREATE TABLE tagged -- src: or -- inferred, coverage

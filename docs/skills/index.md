@@ -10,7 +10,7 @@ tags:
 The toolbox ships a suite of standard **[Agent Skills](https://code.claude.com/docs/en/skills)**
 (the `SKILL.md` format) so you can drive the customs model in plain English,
 right inside your own project. They live in
-[`skills/`](https://github.com/FrancoisChastel/OpenCustomsToolbox/tree/master/skills)
+[`skills/`](https://github.com/FrancoisChastel/sydonia-toolkit/tree/master/skills)
 and are focused on one thing: **using the model on your own codebase.**
 
 They are harness-agnostic — installable into **Claude Code, Cursor, Codex,
@@ -77,13 +77,13 @@ Cursor, Codex, opencode, …) and drops the skills where that harness discovers
 them:
 
 ```bash
-npx skills add FrancoisChastel/OpenCustomsToolbox
+npx skills add FrancoisChastel/sydonia-toolkit
 ```
 
 Add a single skill with `--skill`:
 
 ```bash
-npx skills add FrancoisChastel/OpenCustomsToolbox --skill customs-query
+npx skills add FrancoisChastel/sydonia-toolkit --skill customs-query
 ```
 
 Also copy the model itself (the `Sydonia/` folder, or at least
@@ -114,7 +114,7 @@ front-matter, details loaded only when needed.
 ## The privacy-preserving query tester (optional MCP)
 
 `customs-query` ships with a companion **MCP server**,
-[`customs-query-tester`](https://github.com/FrancoisChastel/OpenCustomsToolbox/tree/master/mcp/customs-query-tester)
+[`customs-query-tester`](https://github.com/FrancoisChastel/sydonia-toolkit/tree/master/mcp/customs-query-tester)
 (pre-registered in the repo's `.mcp.json`), that closes the generate→verify
 loop: the assistant can **prove a query is valid and runs** — against a
 database that may contain *real, sensitive customs declarations* — without any

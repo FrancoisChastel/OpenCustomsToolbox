@@ -1,4 +1,4 @@
-"""Open Customs Toolbox — Sydonia query compiler CLI.
+"""Sydonia Toolkit — Sydonia query compiler CLI.
 
 Turn friendly LOGICAL queries into GENUINE ASYCUDA World SQL you can run.
 

@@ -48,7 +48,7 @@ query gives the answer you want, `compile` it for the targets below.
 
 ## 2 · The mock ASYCUDA World database — prove the round-trip
 
-[`Sydonia/adapters/mock_asycuda_world.sql`](https://github.com/FrancoisChastel/OpenCustomsToolbox/blob/master/Sydonia/adapters/mock_asycuda_world.sql)
+[`Sydonia/adapters/mock_asycuda_world.sql`](https://github.com/FrancoisChastel/sydonia-toolkit/blob/master/Sydonia/adapters/mock_asycuda_world.sql)
 is a **mock ASYCUDA World physical database**: tables in the documented
 wide/denormalised AW shape (`SAD_General_Segment`, `SAD_Item`, `SAD_Tax`, the
 `UN*` reference tables), with the exact column names the default mapping targets,

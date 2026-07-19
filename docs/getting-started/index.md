@@ -1,6 +1,6 @@
 ---
 title: Getting started
-description: Install, load and understand the Open Customs Toolbox in minutes.
+description: Install, load and understand the Sydonia Toolkit in minutes.
 ---
 
 # Getting started

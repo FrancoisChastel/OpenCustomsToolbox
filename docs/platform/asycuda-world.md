@@ -9,7 +9,7 @@ tags:
 
 # ASYCUDA World — the modeled version
 
-This is the version the Open Customs Toolbox models. Everything in the
+This is the version the Sydonia Toolkit models. Everything in the
 [Schema](../schema/index.md) tab is a reconstruction of **ASYCUDA World (v4)** —
 so it is worth knowing what the real platform is, how it stores data, and where
 the line falls between what is public and what is not.

@@ -1,6 +1,6 @@
 # Schema conventions — the rulebook
 
-The full set of conventions the Open Customs Toolbox schema follows. Keep these
+The full set of conventions the Sydonia Toolkit schema follows. Keep these
 when extending it so a fork reads like the original and stays auditable.
 
 ## Namespace

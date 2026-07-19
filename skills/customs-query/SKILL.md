@@ -1,7 +1,7 @@
 ---
 name: customs-query
 description: >-
-  Generate correct SQL against the Open Customs Toolbox ASYCUDA / SYDONIA
+  Generate correct SQL against the Sydonia Toolkit ASYCUDA / SYDONIA
   customs model — reports, lookups, reconciliations, analytics — and verify it
   privacy-preservingly. Knows the `asycuda` schema search_path, that coded
   columns are foreign keys to ref_* tables, that totals are derived (not

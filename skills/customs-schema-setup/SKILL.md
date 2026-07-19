@@ -1,7 +1,7 @@
 ---
 name: customs-schema-setup
 description: >-
-  Set up, install, load, bootstrap or reset the Open Customs Toolbox ASYCUDA /
+  Set up, install, load, bootstrap or reset the Sydonia Toolkit ASYCUDA /
   SYDONIA PostgreSQL reference schema in a database. Creates the database, loads
   the schema then the reference seed then (optionally) the end-to-end example in
   the correct order, and reports a clean or failed result. Use when the user

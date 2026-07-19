@@ -1,4 +1,4 @@
-# Documentation toolchain for the Open Customs Toolbox docs site.
+# Documentation toolchain for the Sydonia Toolkit docs site.
 # Install:  python -m venv .venv-docs && . .venv-docs/bin/activate && pip install -r requirements-docs.txt
 # Serve:    mkdocs serve
 # Build:    mkdocs build --strict

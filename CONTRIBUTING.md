@@ -1,4 +1,4 @@
-# Contributing to Open Customs Toolbox
+# Contributing to Sydonia Toolkit
 
 Thanks for helping out! This project is a friendly-SQL → genuine-ASYCUDA-World-SQL
 toolkit: a reconstructed data model, a query compiler, docs, and Agent Skills.

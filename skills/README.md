@@ -1,4 +1,4 @@
-# Open Customs Toolbox — Agent Skills
+# Sydonia Toolkit — Agent Skills
 
 A suite of standard **[Agent Skills](https://code.claude.com/docs/en/skills)**
 (the `SKILL.md` format) for **using the customs data model on your own
@@ -16,13 +16,13 @@ Install the whole suite into your current project with the
 skills where that harness discovers them:
 
 ```bash
-npx skills add FrancoisChastel/OpenCustomsToolbox
+npx skills add FrancoisChastel/sydonia-toolkit
 ```
 
 Add a single skill with `--skill`:
 
 ```bash
-npx skills add FrancoisChastel/OpenCustomsToolbox --skill customs-query
+npx skills add FrancoisChastel/sydonia-toolkit --skill customs-query
 ```
 
 Also bring the model itself — copy the `Sydonia/` directory (at least
@@ -85,4 +85,4 @@ with `CUSTOMS_DB` (database name or DSN) and `CUSTOMS_SCHEMA` (default
 These skills **use** the model. They will not decompile ASYCUDA, touch a live
 customs system, or fabricate source citations — the same source policy that
 governs the model (see `Sydonia/SYDONIA-GOAL.md`) governs the skills. Full
-documentation: <https://francoischastel.github.io/OpenCustomsToolbox/latest/skills/>.
+documentation: <https://francoischastel.github.io/sydonia-toolkit/latest/skills/>.

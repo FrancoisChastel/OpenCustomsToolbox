@@ -32,7 +32,7 @@ the columns that *are* publicly pinned, and is honest about the ones that are no
     `PTY_RED`/`YEL`/`GRE`/`BLU` colour flags, `VIT_CIF`/`VIT_STV`, the `INSTANCE_ID`
     engine key, and `VALID_FROM`/`VALID_TO`. **Everything else is the shape, not
     the exact spelling.** The remaining column names on these pages follow AW's
-    prefix conventions and match the toolbox's [mock database](https://github.com/FrancoisChastel/OpenCustomsToolbox/blob/master/Sydonia/adapters/mock_asycuda_world.sql)
+    prefix conventions and match the toolbox's [mock database](https://github.com/FrancoisChastel/sydonia-toolkit/blob/master/Sydonia/adapters/mock_asycuda_world.sql)
     — treat them as *plausible defaults you must confirm against your instance*,
     not as guaranteed identifiers. When you get real access, the physical names
     are the first thing to request.

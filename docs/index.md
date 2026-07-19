@@ -1,5 +1,5 @@
 ---
-title: Open Customs Toolbox
+title: Sydonia Toolkit
 description: >-
   A faithful, fully-sourced PostgreSQL reference data model of UNCTAD ASYCUDA
   World (SYDONIA), reconstructed from public documentation.
@@ -24,7 +24,7 @@ layer the compiler maps *from*.
 <a class="oct-btn oct-btn--primary" href="compiler/">Query Sydonia →</a>
 <a class="oct-btn oct-btn--ghost" href="getting-started/quickstart/">Quickstart</a>
 <a class="oct-btn oct-btn--ghost" href="schema/">Explore the schema</a>
-<a class="oct-btn oct-btn--ghost" href="https://github.com/FrancoisChastel/OpenCustomsToolbox">GitHub</a>
+<a class="oct-btn oct-btn--ghost" href="https://github.com/FrancoisChastel/sydonia-toolkit">GitHub</a>
 </div>
 </div>
 
@@ -191,6 +191,6 @@ agent workflow.
 
 ---
 
-<small>Open Customs Toolbox is independent and reconstructed from public
+<small>Sydonia Toolkit is independent and reconstructed from public
 documentation. ASYCUDA and SYDONIA are programmes of UNCTAD; this project is not
 affiliated with or endorsed by UNCTAD.</small>

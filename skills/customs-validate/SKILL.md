@@ -1,7 +1,7 @@
 ---
 name: customs-validate
 description: >-
-  Validate, verify or audit the Open Customs Toolbox customs schema against its
+  Validate, verify or audit the Sydonia Toolkit customs schema against its
   done-conditions — a clean load (schema + seed + end-to-end example, zero
   errors), every table carrying a provenance tag, and every cited source ID
   resolving in SOURCES.md. Use when the user wants to check the schema still

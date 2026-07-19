@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🛃 Open Customs Toolbox
+# 🛃 Sydonia Toolkit
 
 ### Write friendly SQL. Run it on a real ASYCUDA World (SYDONIA) customs database.
 
@@ -8,17 +8,17 @@ You write a clean query against a friendly model — `declaration`, `hs_code`,
 `tax_amount`. The compiler turns it into **genuine ASYCUDA World SQL** you can
 run, read-only, on a live instance. *The abstraction is easy; the output is real.*
 
-[![Docs](https://img.shields.io/badge/docs-latest-14b8a6?logo=readthedocs&logoColor=white)](https://francoischastel.github.io/OpenCustomsToolbox/latest/)
-[![Docs build](https://github.com/FrancoisChastel/OpenCustomsToolbox/actions/workflows/docs.yml/badge.svg)](https://github.com/FrancoisChastel/OpenCustomsToolbox/actions/workflows/docs.yml)
+[![Docs](https://img.shields.io/badge/docs-latest-14b8a6?logo=readthedocs&logoColor=white)](https://francoischastel.github.io/sydonia-toolkit/latest/)
+[![Docs build](https://github.com/FrancoisChastel/sydonia-toolkit/actions/workflows/docs.yml/badge.svg)](https://github.com/FrancoisChastel/sydonia-toolkit/actions/workflows/docs.yml)
 [![License: AGPL v3](https://img.shields.io/badge/license-AGPL--3.0-blue.svg)](LICENSE)
 [![PostgreSQL 14+](https://img.shields.io/badge/PostgreSQL-14%2B-336791?logo=postgresql&logoColor=white)](#-quickstart)
-[![llms.txt](https://img.shields.io/badge/llms.txt-%E2%9C%93-black)](https://francoischastel.github.io/OpenCustomsToolbox/latest/llms.txt)
-[![Stars](https://img.shields.io/github/stars/FrancoisChastel/OpenCustomsToolbox?style=social)](https://github.com/FrancoisChastel/OpenCustomsToolbox/stargazers)
+[![llms.txt](https://img.shields.io/badge/llms.txt-%E2%9C%93-black)](https://francoischastel.github.io/sydonia-toolkit/latest/llms.txt)
+[![Stars](https://img.shields.io/github/stars/FrancoisChastel/sydonia-toolkit?style=social)](https://github.com/FrancoisChastel/sydonia-toolkit/stargazers)
 
-[**Docs**](https://francoischastel.github.io/OpenCustomsToolbox/latest/) ·
-[**Query Sydonia**](https://francoischastel.github.io/OpenCustomsToolbox/latest/querying-sydonia/) ·
-[**The compiler**](https://francoischastel.github.io/OpenCustomsToolbox/latest/compiler/) ·
-[**Agent Skills**](https://francoischastel.github.io/OpenCustomsToolbox/latest/skills/)
+[**Docs**](https://francoischastel.github.io/sydonia-toolkit/latest/) ·
+[**Query Sydonia**](https://francoischastel.github.io/sydonia-toolkit/latest/querying-sydonia/) ·
+[**The compiler**](https://francoischastel.github.io/sydonia-toolkit/latest/compiler/) ·
+[**Agent Skills**](https://francoischastel.github.io/sydonia-toolkit/latest/skills/)
 
 </div>
 
@@ -62,8 +62,8 @@ sensitive customs data.
 ## 🚀 Quickstart
 
 ```bash
-git clone https://github.com/FrancoisChastel/OpenCustomsToolbox.git
-cd OpenCustomsToolbox
+git clone https://github.com/FrancoisChastel/sydonia-toolkit.git
+cd sydonia-toolkit
 
 # 1) stand up the friendly logical model (a local sandbox)
 createdb customs_sandbox
@@ -106,12 +106,12 @@ targets the **publicly-documented physical shape** by default; pin your
 deployment's exact names once in a small **overrides file**, then every query and
 skill runs unchanged against the live system — read-only.
 
-→ [Running on a real ASYCUDA World](https://francoischastel.github.io/OpenCustomsToolbox/latest/platform/running-on-real-asycuda/)
+→ [Running on a real ASYCUDA World](https://francoischastel.github.io/sydonia-toolkit/latest/platform/running-on-real-asycuda/)
 
 ## 🤖 Agent Skills
 
 ```bash
-npx skills add FrancoisChastel/OpenCustomsToolbox
+npx skills add FrancoisChastel/sydonia-toolkit
 ```
 
 Then just ask your agent: *“compile a duty-revenue-by-HS query for our Sydonia and

@@ -14,7 +14,7 @@ ASYCUDA World's data. Physically it lives in three tables you will query most
 often: **`SAD_General_Segment`** (consignment level), **`SAD_Item`** (per
 commodity) and **`SAD_Tax`** (per tax line). These names come straight from the
 official S014 Declaration Tables and are used verbatim by the toolbox's
-[compiler mapping](https://github.com/FrancoisChastel/OpenCustomsToolbox/blob/master/compiler/mappings/asycuda-world.yml).
+[compiler mapping](https://github.com/FrancoisChastel/sydonia-toolkit/blob/master/compiler/mappings/asycuda-world.yml).
 
 !!! info "What is pinned vs. instance-specific"
     Column names printed in **bold** are publicly documented (S014 / the XML

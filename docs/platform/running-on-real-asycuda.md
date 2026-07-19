@@ -119,8 +119,8 @@ FROM SAD_Tax x;                                -- TODO(instance): confirm real t
 The full template — every core table (`ref_*`, `trader`, `declaration`,
 `declaration_item`, `declaration_tax_line`, `manifest`, `bill_of_lading`,
 `container`) — is in
-[`Sydonia/adapters/asycuda_world_compat.sql`](https://github.com/FrancoisChastel/OpenCustomsToolbox/blob/master/Sydonia/adapters/asycuda_world_compat.sql),
-with a [README](https://github.com/FrancoisChastel/OpenCustomsToolbox/blob/master/Sydonia/adapters/README.md)
+[`Sydonia/adapters/asycuda_world_compat.sql`](https://github.com/FrancoisChastel/sydonia-toolkit/blob/master/Sydonia/adapters/asycuda_world_compat.sql),
+with a [README](https://github.com/FrancoisChastel/sydonia-toolkit/blob/master/Sydonia/adapters/README.md)
 covering the workflow.
 
 !!! warning "The template will not run as-is"

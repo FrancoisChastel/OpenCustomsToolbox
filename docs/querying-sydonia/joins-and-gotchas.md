@@ -14,7 +14,7 @@ Querying the real ASYCUDA World database is not hard because the SQL is exotic �
 it is hard because the schema is **wide and denormalised** in five specific ways
 that quietly produce wrong answers. Each one below is drawn from the
 ["Aspect" table in the fit analysis](../provenance/fit.md#verdict) and reproduced
-in the toolbox's [mock database](https://github.com/FrancoisChastel/OpenCustomsToolbox/blob/master/Sydonia/adapters/mock_asycuda_world.sql).
+in the toolbox's [mock database](https://github.com/FrancoisChastel/sydonia-toolkit/blob/master/Sydonia/adapters/mock_asycuda_world.sql).
 For each: the **symptom** you will see, and the **fix**.
 
 ## 1. `INSTANCE_ID` — the engine keys {: #instance-id }
@@ -156,7 +156,7 @@ never re-derive them and never ship a query that silently double-counts.
     ```
 
     The mapping that drives this rewrite —
-    [`compiler/mappings/asycuda-world.yml`](https://github.com/FrancoisChastel/OpenCustomsToolbox/blob/master/compiler/mappings/asycuda-world.yml)
+    [`compiler/mappings/asycuda-world.yml`](https://github.com/FrancoisChastel/sydonia-toolkit/blob/master/compiler/mappings/asycuda-world.yml)
     — is the same one whose physical names this section documents, so the docs and
     the tooling never drift apart.
 

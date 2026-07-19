@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# load.sh — load the Open Customs Toolbox schema into a PostgreSQL database,
+# load.sh — load the Sydonia Toolkit schema into a PostgreSQL database,
 # in the correct order, failing loudly on the first error.
 #
 # Usage:  load.sh [DB_NAME] [--schema-dir DIR] [--examples-dir DIR] [--no-e2e] [--keep]

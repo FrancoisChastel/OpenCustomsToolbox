@@ -12,7 +12,7 @@ tags:
 
 The **mapping** is the single source of truth the compiler reads to build every
 CTE — and the same file drives the persistent-view adapter. It lives at
-[`compiler/mappings/asycuda-world.yml`](https://github.com/FrancoisChastel/OpenCustomsToolbox/blob/master/compiler/mappings/asycuda-world.yml)
+[`compiler/mappings/asycuda-world.yml`](https://github.com/FrancoisChastel/sydonia-toolkit/blob/master/compiler/mappings/asycuda-world.yml)
 and maps each of the toolbox's friendly logical tables to its real ASYCUDA World
 source: the physical table, and for every logical column the physical expression
 that produces it.
@@ -75,7 +75,7 @@ conventions:
 
 Overrides are a second YAML file **deep-merged over the base** mapping — you
 override **only what differs**, and everything else is inherited. See
-[`compiler/mappings/overrides.example.yml`](https://github.com/FrancoisChastel/OpenCustomsToolbox/blob/master/compiler/mappings/overrides.example.yml):
+[`compiler/mappings/overrides.example.yml`](https://github.com/FrancoisChastel/sydonia-toolkit/blob/master/compiler/mappings/overrides.example.yml):
 
 ```yaml
 # overrides.example.yml — only the differences

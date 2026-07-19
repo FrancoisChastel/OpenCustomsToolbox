@@ -1,13 +1,13 @@
 # Share kit
 
-Copy-paste posts for launching / sharing **Open Customs Toolbox**. No source
+Copy-paste posts for launching / sharing **Sydonia Toolkit**. No source
 links or specific document names — safe to post as-is.
 
 ## One-liner
 
 > Write friendly SQL, compile it to genuine ASYCUDA World (SYDONIA) customs SQL
 > you can run read-only. Open-source data model + query compiler + docs.
-> https://francoischastel.github.io/OpenCustomsToolbox/latest/
+> https://francoischastel.github.io/sydonia-toolkit/latest/
 
 ## X / Twitter thread
 
@@ -41,12 +41,12 @@ links or specific document names — safe to post as-is.
 
 **6/**
 > Drive the whole thing from your AI agent — Claude Code, Cursor, Codex… —
-> `npx skills add FrancoisChastel/OpenCustomsToolbox`. Ask in plain English,
+> `npx skills add FrancoisChastel/sydonia-toolkit`. Ask in plain English,
 > get a tested, compiled query back.
 
 **7/ (CTA)**
 > Docs, quickstart, and the compiler here 👇 open-source (AGPL-3.0). ⭐ if useful.
-> https://francoischastel.github.io/OpenCustomsToolbox/latest/
+> https://francoischastel.github.io/sydonia-toolkit/latest/
 
 ## Hashtags / topics
 
@@ -55,7 +55,7 @@ links or specific document names — safe to post as-is.
 
 ## LinkedIn / longer post
 
-> **Open Customs Toolbox** — an open-source way to query ASYCUDA World (SYDONIA)
+> **Sydonia Toolkit** — an open-source way to query ASYCUDA World (SYDONIA)
 > customs data.
 >
 > The real customs database is wide, denormalised and mostly non-public, which

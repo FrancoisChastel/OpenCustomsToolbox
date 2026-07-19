@@ -111,7 +111,7 @@ you assume it is on ASYCUDA at all.
 
 !!! note "This toolbox models ASYCUDA World (v4)"
 
-    The Open Customs Toolbox reconstructs the data model of **ASYCUDA World
+    The Sydonia Toolkit reconstructs the data model of **ASYCUDA World
     (v4)** specifically — the current standard, and the version whose field-level
     model is public through its XML layer and national manuals. It does **not**
     model the ASYCUDA++ relational schema or the ASY5 microservice data platform.

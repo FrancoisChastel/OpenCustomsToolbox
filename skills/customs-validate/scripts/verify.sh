@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# verify.sh — re-run the Open Customs Toolbox done-conditions and print PASS/FAIL.
+# verify.sh — re-run the Sydonia Toolkit done-conditions and print PASS/FAIL.
 # Usage:  verify.sh [--sydonia-dir DIR] [--db NAME]
 set -uo pipefail
 

@@ -64,7 +64,7 @@ The empirically-standard feature schema used across public customs-ML research
 maps directly onto ASYCUDA fields and onto our tables. The fourth column is what
 you query in the [`asycuda`](../schema/data-dictionary.md) schema:
 
-| Concept | SAD box | AW XML tag | Open Customs Toolbox column |
+| Concept | SAD box | AW XML tag | Sydonia Toolkit column |
 |---------|:-------:|------------|-----------------------------|
 | Declaration ID | 7 | `Declarant/Reference/Number` | `declaration.id` (business ref: `declaration.trader_reference`) |
 | Date | reg. | `Identification/Registration/Date` | `declaration.registration_date` |
